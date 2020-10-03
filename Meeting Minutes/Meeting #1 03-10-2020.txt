@@ -1,0 +1,39 @@
+----------------------------------------------------------------------------------------------------
+	MEETING #1 - 03/10/2020
+----------------------------------------------------------------------------------------------------
+Meeting Time:
+- Start: 12:15
+- End: 
+- Total: 
+
+Members Present:
+- Kevin McAllister (40031326)
+- Trevor D'Silva (40081786)
+- Jordan Goulet (40075688)
+- Rubiat Zaman (40062082)
+- Mohammad Ali Zahir (40077619)
+- Colin Greczkowski (40001600)
+
+Meeting Goals:
+- Introduce ourselves to each other and talk about skills and goals.
+- Discuss and brainstorm game ideas.
+- Fill out document and plan powerpoint.
+
+Content Discussed:
+- General planning for the game, including theme, gameplay and references.
+- Discussed skillsets and possible work distribution.
+- Filled out document for Game Proposal and discussed Powerpoint content.
+
+Decided Roles (Not Finalized):
+- Kevin - Lead Designer / Project Manager
+- Trevor - Graphic Designer / Art
+- Jordan - QA Tester
+- Rubiat - Lead Programmer
+- Ali - Documentation
+- Colin - Source Control Expert
+
+Further Goals:
+- Complete the powerpoint for the class presentation.
+- Research further and brainstorm proposed mechanics.
+- Look for more art references to decide on artstyle and esthetic.
+
