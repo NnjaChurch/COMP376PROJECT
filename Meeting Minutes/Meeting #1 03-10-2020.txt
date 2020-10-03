@@ -2,9 +2,9 @@
 	MEETING #1 - 03/10/2020
 ----------------------------------------------------------------------------------------------------
 Meeting Time:
-- Start: 12:15
-- End: 
-- Total: 
+- Start: 12:15PM
+- End: 3:00PM
+- Total: 2:45
 
 Members Present:
 - Kevin McAllister (40031326)
