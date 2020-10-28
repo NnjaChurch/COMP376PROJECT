@@ -3,29 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // ----------------------------------------------------------------------------------------------------
-//	Description: Manages player inputs.
+//	Description: Implements a camera that follows an entity.
+//               Do not make this a child of the entity to be followed.
 //	Contributors: Jordan
 //	Endpoints:
 // ----------------------------------------------------------------------------------------------------
 
-public class InputManager : MonoBehaviour
+public class FollowCam : MonoBehaviour
 {
-    public Player player;
-    public Movement player_movement;
+    [SerializeField] float z_offset = -10.0f;
+    public GameObject entity;
 
     // Start is called before the first frame update
     void Start()
     {
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        player_movement.SetMovement(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        player_movement.SetSprint(Input.GetKey("space"));
-    }
-
-    private void FixedUpdate()
-    {
+        gameObject.transform.position = new Vector3(entity.transform.position.x, entity.transform.position.y, z_offset);
     }
 }

@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 1095892187082835054}
   - component: {fileID: 5172869125239623157}
   - component: {fileID: 6527023459539031288}
+  - component: {fileID: 8858230659625962219}
+  - component: {fileID: 6000339434282132091}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -70,8 +72,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1747426795
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5555d9b7ed2c0e149bb52815713f5ca9, type: 3}
   m_Color: {r: 0.24705882, g: 0.7490196, b: 0.24705882, a: 1}
@@ -93,7 +95,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 6220002021337347308}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: a097be54eb9c6924ebe7e33aa12bd68e, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -116,8 +118,35 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: a097be54eb9c6924ebe7e33aa12bd68e, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &8858230659625962219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6220002021337347308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e248847147180d3438a2f88287f8aefe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6000339434282132091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6220002021337347308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 197a8d8f8033e0c41b3c9b332c058ac3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movement_speed: 1
+  sprint_multiplier: 2
+  rb: {fileID: 6527023459539031288}
