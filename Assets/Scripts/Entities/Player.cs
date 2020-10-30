@@ -11,6 +11,7 @@ using UnityEngine;
 public class Player : Entity
 {
 	public Camera player_cam;
+	public Weapon weapon;
 	// Start is called before the first frame update
 	void Start() 
 	{
@@ -25,6 +26,11 @@ public class Player : Entity
 		gameObject.transform.up = direction;
 
 	}
+
+	public Weapon GetWeapon()
+    {
+		return weapon;
+    }
 
 
 }

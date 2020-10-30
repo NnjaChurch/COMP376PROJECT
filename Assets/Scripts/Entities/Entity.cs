@@ -19,4 +19,10 @@ public class Entity : MonoBehaviour
 	void Update() {
 		
 	}
+
+	public int TakeDamage(float damage)
+    {
+		print("entity is taking damage!");
+		return 0;
+    }
 }
