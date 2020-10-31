@@ -89,7 +89,7 @@ Player Design:
 - Attributes:
 	- Strength: Affects Maximum Health, Base Damage, Carry Weight
 		- Base Value: 0
-	- Dexterity: Affects Maxiumum Stamina, Movement Speed, Attack Speed
+	- Dexterity: Affects Maximum Stamina, Movement Speed, Attack Speed
 		- Base Value: 0
 	- Intelligence: Affects Experience Gain, Healing Efficiency, Damage Reduction
 		- Base Value: 0
