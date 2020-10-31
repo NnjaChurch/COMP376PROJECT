@@ -101,7 +101,6 @@ Player Design:
 	- Movement Speed(units): ((100 + (5 * Dexterity)) / Armour Speed Modifier) / Encumbered Modifier
 	- Carry Weight(lb): (50 + (2 * Strength)) * Skills % Modifier
 	- Experience Gain(%): 100 + Skills % Modifier
-	- Loot Abundance?:
 - Combat:
 	- Attack Damage:
 		- Modifiers: Skills, Equipment
