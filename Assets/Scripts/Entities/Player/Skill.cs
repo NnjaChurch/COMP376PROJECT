@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class Skill : MonoBehaviour {
 
+	// ----------------------------------------------------------------------------------------------------
+	//	Description: Class for the creation and manipulation of skills
+	//	Contributors: Kevin
+	//	Endpoints:
+	// ----------------------------------------------------------------------------------------------------
+
 	const float BASE_VALUE = 1;
 
 	string skill_name;

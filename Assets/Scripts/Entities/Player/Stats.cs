@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class Stats : MonoBehaviour {
 
+	// ----------------------------------------------------------------------------------------------------
+	//	Description: Class determining basic entity behaviour and statistics
+	//	Contributors: Kevin
+	//	Endpoints:
+	// ----------------------------------------------------------------------------------------------------
+
+	// TODO: Implement Serializability for Stats to allow transfer over zones
+	// TODO: Implement file loading for skills and stats to allow easy modification outside of code.
+
 	// References
 
 	// Persistent Attributes (must carry across scenes)
@@ -30,7 +39,7 @@ public class Stats : MonoBehaviour {
 	const int BASE_CARRY_WEIGHT = 50;		// lbs
 	const int BASE_EXPERIENCE_GAIN = 1;		// %
 	const int BASE_HEALING_EFFICACY = 1;	// %
-	const int BASE_DAMAGE_TAKEN = 1;        // %
+	const int BASE_DAMAGE_REDUCTION = 1;	// %
 
 	const int BASE_EXPERIENCE_LEVEL = 100;
 	const float EXPERIENCE_GROWTH = 1.2f;
@@ -38,12 +47,14 @@ public class Stats : MonoBehaviour {
 	// Calculated Stats
 	int max_health;
 	int max_stamina;
-	int attack_speed;
-	int movement_speed;
-	int carry_weight;
-	int experience_gain;
-	int healing_efficacy;
-	int damage_taken;
+	int damage;
+	float attack_speed;
+	float movement_speed;
+	float carry_weight;
+	float experience_gain;
+	float healing_efficacy;
+	float damage_reduction;
+	float encumbered_modifier;
 
 	// Skills
 	List<Skill> skill_list;
@@ -55,7 +66,6 @@ public class Stats : MonoBehaviour {
 	private void Start() {
 		InitializeSkills();
 		CalculateStats();
-
 	}
 
 	private void InitializeSkills() {
@@ -72,10 +82,31 @@ public class Stats : MonoBehaviour {
 		skill_list.Add(new Skill("Damage Reduction Boost", 25, 0.02f));
 	}
 	private void CalculateStats() {     // Run when a zone is loaded
+		// Strength Stats
 		max_health = Mathf.FloorToInt((BASE_HEALTH + (10 * strength)) * skill_list[0].GetBonus());
 		current_health = max_health;
+		damage = (BASE_DAMAGE + strength);	// TODO: Incorporate Weapon Damage? Or Calculate Damage in Weapon?
+		carry_weight = (BASE_CARRY_WEIGHT + (2 * strength)) * skill_list[2].GetBonus();
+
+		// Dexterity Stats
 		max_stamina = Mathf.FloorToInt((BASE_STAMINA + (10 * dexterity)) * skill_list[3].GetBonus());
 		current_stamina = max_stamina;
+		attack_speed = (BASE_ATTACK_SPEED / equipped_weapon.GetSpeedModifier()) / skill_list[5].GetBonus();
+		movement_speed = ((BASE_MOVEMENT_SPEED + (5 * dexterity)) * equipped_armour.GetMovementModifier()) / encumbered_modifier;
 
+		// Intelligence Stats
+		experience_gain = (BASE_EXPERIENCE_GAIN + skill_list[6].GetBonus());
+		healing_efficacy = (BASE_HEALING_EFFICACY + skill_list[7].GetBonus());
+		damage_reduction = (BASE_DAMAGE_REDUCTION + skill_list[8].GetBonus());
 	}
+
+	// Getters
 }
+
+
+/*
+ * 1.0
+ * 1.2
+ * 0.8
+ * 1.0
+ */

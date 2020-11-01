@@ -32,5 +32,13 @@ public class Player : Entity
 		return weapon;
     }
 
+	public void Attack() {
+		// Do math with stats and pass appropriate values
+
+		// Get damage and attack speed from Stats
+	}
+
+	// TODO: Add way to incorporate damage from stats into weapon damage when attacking
+
 
 }
