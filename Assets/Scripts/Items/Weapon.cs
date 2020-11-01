@@ -18,9 +18,6 @@ public class Weapon : MonoBehaviour
 		
 	}
 
-	// NOTE: Look into OnTriggerStay2D for your weapon detection:
-	//		- Your Weapon is set as the trigger so add the function to entity, to detect when weapon triggers it
-
 	public void UseWeapon()
 	{
 		List<Collider2D> collisions = new List<Collider2D>();
