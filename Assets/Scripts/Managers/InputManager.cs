@@ -22,7 +22,11 @@ public class InputManager : MonoBehaviour
     void Update()
     {
         player_movement.SetMovement(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        player_movement.SetSprint(Input.GetKey("space"));
+        player_movement.SetSprint(Input.GetKey("left shift"));
+        if (Input.GetMouseButtonDown(0))
+        {
+            player.GetWeapon().UseWeapon();
+        }
     }
 
     private void FixedUpdate()

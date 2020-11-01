@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6527023459539031288}
   - component: {fileID: 8858230659625962219}
   - component: {fileID: 6000339434282132091}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 1000000
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: a097be54eb9c6924ebe7e33aa12bd68e, type: 2}
@@ -135,6 +135,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e248847147180d3438a2f88287f8aefe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player_cam: {fileID: 0}
+  weapon: {fileID: 0}
 --- !u!114 &6000339434282132091
 MonoBehaviour:
   m_ObjectHideFlags: 0
