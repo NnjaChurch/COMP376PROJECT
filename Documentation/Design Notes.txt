@@ -8,7 +8,7 @@ Inventory Design:
 - Weight for Carrying Capacity:
 	- Each item has its own weight
 	- If weight of items carried if above max carry weight, encumber the player.
-- Iteractivity with UI:
+- Interactivity with UI:
 	- 
 ----------------------------------------------------------------------------------------------------
 Level Design:
@@ -41,7 +41,7 @@ Skills Design:
 			- (20 levels) 5% boost per level
 		- Healing % Boost:
 			- (10 levels) 5% boost per level
-		- Damage Redeuction:
+		- Damage Reduction:
 			- (25 levels) 2% boost per level
 ----------------------------------------------------------------------------------------------------
 Equipment Design:
@@ -101,6 +101,7 @@ Player Design:
 	- Movement Speed(units): ((100 + (5 * Dexterity)) / Armour Speed Modifier) / Encumbered Modifier
 	- Carry Weight(lb): (50 + (2 * Strength)) * Skills % Modifier
 	- Experience Gain(%): 100 + Skills % Modifier
+	- Loot Find = 1 + (0.1 * Intelligence)
 - Combat:
 	- Attack Damage:
 		- Modifiers: Skills, Equipment
@@ -138,7 +139,11 @@ Enemy Design:
 	- Final boss of the game
 ----------------------------------------------------------------------------------------------------
 Item Design:
-	
+	Item Class
+		- Types (Weapons, Armour, Consumables, Materials)
+		- Item Name
+		- Weight
+	Child Classes for each type
 ----------------------------------------------------------------------------------------------------
 UI Design:
 ----------------------------------------------------------------------------------------------------
