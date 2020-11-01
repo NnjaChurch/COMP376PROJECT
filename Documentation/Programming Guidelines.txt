@@ -45,7 +45,7 @@ GitHub Guidelines:
 	- Project Settings should rarely change, and it should be made known if settings are changed.
 - Include simple changelogs when uploading to GitHub to let people know what changes were made:
 	- i.e. Added random generation functionality to LootGeneration.cs
-- Work in your own branches if possible, merge into dev when portions of code are completed and functional.
+- Feel free to make your own branches if you have separate work, use dev when there are files that multiple people will use.
 - Keep and eye out for merge requests when they happen.
 - Merges into main will only be done close to submission deadline for finalizing of parts.
 
