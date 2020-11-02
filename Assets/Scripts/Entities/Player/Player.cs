@@ -4,7 +4,7 @@ using UnityEngine;
 
 // ----------------------------------------------------------------------------------------------------
 //	Description: Class determining player specific behaviour and statistics
-//	Contributors: Jordan
+//	Contributors: Jordan, Colin
 //	Endpoints:
 // ----------------------------------------------------------------------------------------------------
 
@@ -12,6 +12,8 @@ public class Player : Entity
 {
 	public Camera player_cam;
 	public Weapon weapon;
+	public Armour armour;
+	public Inventory inventory;
 	// Start is called before the first frame update
 	void Start() 
 	{
@@ -39,6 +41,25 @@ public class Player : Entity
 	}
 
 	// TODO: Add way to incorporate damage from stats into weapon damage when attacking
+	public void EquipWeapon(Weapon w)
+    {
+		UnequipWeapon();
+		weapon = w;
+    }
 
+	private void UnequipWeapon()
+    {
+		inventory.AddToInventory(weapon);
+    }
 
+	public void EquipArmour(Armour a)
+    {
+		UnequipArmour();
+		armour = a;
+    }
+
+	public void UnequipArmour()
+	{
+		inventory.AddToInventory(armour);
+	}
 }

@@ -101,6 +101,8 @@ public class Stats : MonoBehaviour {
 	}
 
 	// Getters
+
+	float GetCarryWeight() { return carry_weight; }
 }
 
 

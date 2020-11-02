@@ -8,6 +8,7 @@ using UnityEngine;
 //	Endpoints:
 // ----------------------------------------------------------------------------------------------------
 public class Material : Item {
+	string material_name;
 	// Start is called before the first frame update
 	void Start() {
 
@@ -17,4 +18,6 @@ public class Material : Item {
 	void Update() {
 
 	}
+
+	public string GetMaterialName() { return material_name; }
 }

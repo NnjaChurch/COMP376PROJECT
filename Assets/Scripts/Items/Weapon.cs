@@ -21,6 +21,7 @@ public class Weapon : Item {
 	float reach;            // Units
 	float arc;              // Degrees
 
+
 	// Start is called before the first frame update
 	void Start() {
 	}
@@ -40,6 +41,7 @@ public class Weapon : Item {
 				}
 			}
 		}
+
 	}
 
 	public float GetSpeedModifier() {
@@ -57,4 +59,6 @@ public class Weapon : Item {
 	public float GetArc() {
 		return arc;
 	}
+
+	public string GetWeaponName() { return weapon_name; }
 }

@@ -4,11 +4,15 @@ using UnityEngine;
 
 // ----------------------------------------------------------------------------------------------------
 //	Description: Class for items of the type consumable, their properties, and their interactions
-//	Contributors:
+//	Contributors: Colin
 //	Endpoints:
 // ----------------------------------------------------------------------------------------------------
 
 public class Consumable : Item {
+
+	string consumable_name;
+	int hp_gain;
+
 	// Start is called before the first frame update
 	void Start() {
 
@@ -18,4 +22,8 @@ public class Consumable : Item {
 	void Update() {
 
 	}
+
+	public int GetHPGain() { return hp_gain; }
+
+	public string GetConsumableName() { return consumable_name; }
 }

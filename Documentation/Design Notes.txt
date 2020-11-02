@@ -80,6 +80,11 @@ Equipment Design:
 	- Instead of having various different weapons and armours of the same type, have weapons be able to be upgraded.
 	- Upgrading Weapons will increase the base damage
 	- Upgrading Armour will increase the base defense
+
+- Consumables:
+	- Food: low HP gain
+	- Medicine: moderate HP gain
+		
 ----------------------------------------------------------------------------------------------------
 Player Design:
 - Level:

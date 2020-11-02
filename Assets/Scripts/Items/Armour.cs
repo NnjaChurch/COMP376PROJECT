@@ -33,4 +33,6 @@ public class Armour : Item {
 	public int GetDefense() {
 		return defense;
 	}
+
+	public string GetArmourName() { return armour_name; }
 }
