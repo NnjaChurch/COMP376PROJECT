@@ -14,9 +14,12 @@ public class Player : Entity
 	public Weapon weapon;
 	public Armour armour;
 	public Inventory inventory;
+	public Stats player_stats;
 	// Start is called before the first frame update
 	void Start() 
 	{
+		player_stats.SetEquippedWeapon(weapon);
+		player_stats.SetEquippedArmour(armour);
 	}
 
 	// Update is called once per frame
@@ -45,7 +48,8 @@ public class Player : Entity
     {
 		UnequipWeapon();
 		weapon = w;
-    }
+		player_stats.SetEquippedWeapon(weapon);
+	}
 
 	private void UnequipWeapon()
     {
@@ -56,10 +60,13 @@ public class Player : Entity
     {
 		UnequipArmour();
 		armour = a;
+		player_stats.SetEquippedArmour(armour);
     }
 
 	public void UnequipArmour()
 	{
 		inventory.AddToInventory(armour);
 	}
+
+	public float GetPlayerCarryWeight() { return player_stats.GetCarryWeight(); }
 }

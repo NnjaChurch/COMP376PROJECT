@@ -9,6 +9,7 @@ using UnityEngine;
 // ----------------------------------------------------------------------------------------------------
 public class Material : Item {
 	string material_name;
+	string description;
 	// Start is called before the first frame update
 	void Start() {
 

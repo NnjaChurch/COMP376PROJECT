@@ -91,8 +91,8 @@ public class Stats : MonoBehaviour {
 		// Dexterity Stats
 		max_stamina = Mathf.FloorToInt((BASE_STAMINA + (10 * dexterity)) * skill_list[3].GetBonus());
 		current_stamina = max_stamina;
-		attack_speed = (BASE_ATTACK_SPEED / equipped_weapon.GetSpeedModifier()) / skill_list[5].GetBonus();
-		movement_speed = ((BASE_MOVEMENT_SPEED + (5 * dexterity)) * equipped_armour.GetMovementModifier()) / encumbered_modifier;
+		attack_speed = (BASE_ATTACK_SPEED / (equipped_weapon ? equipped_weapon.GetSpeedModifier() : 1.0f)) / skill_list[5].GetBonus();
+		movement_speed = ((BASE_MOVEMENT_SPEED + (5 * dexterity)) * (equipped_armour ? equipped_armour.GetMovementModifier() : 1.0f)) / encumbered_modifier;
 
 		// Intelligence Stats
 		experience_gain = (BASE_EXPERIENCE_GAIN + skill_list[6].GetBonus());
@@ -102,7 +102,18 @@ public class Stats : MonoBehaviour {
 
 	// Getters
 
-	float GetCarryWeight() { return carry_weight; }
+	public float GetCarryWeight() { return carry_weight; }
+
+	public void SetEquippedWeapon(Weapon w) { 
+		equipped_weapon = w;
+		CalculateStats();
+	}
+
+	public void SetEquippedArmour(Armour a)
+    {
+		equipped_armour = a;
+		CalculateStats();
+    }
 }
 
 

@@ -8,7 +8,7 @@ using UnityEngine;
 //	Endpoints:
 // ----------------------------------------------------------------------------------------------------
 
-public class Skill : MonoBehaviour {
+public class Skill {
 
 	
 

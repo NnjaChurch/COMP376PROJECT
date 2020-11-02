@@ -44,13 +44,22 @@ public class Inventory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void UpdateWeight(bool add, float itemWeight)
     {
         current_weight = add ? current_weight + itemWeight : current_weight - itemWeight;
-        // TODO: check if encumbered using Stats.GetCarryWeight
+        Player player = gameObject.GetComponentInParent<Player>();
+        float carry_capacity = player.GetPlayerCarryWeight();
+
+        if (current_weight > carry_capacity)
+        {
+            isEncumbered = true;
+        }
+        else {
+            isEncumbered = false;
+        }
     }
     public void AddToInventory(Item i)
     {

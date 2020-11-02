@@ -11,6 +11,7 @@ using UnityEngine;
 public class Consumable : Item {
 
 	string consumable_name;
+	string description;
 	int hp_gain;
 
 	// Start is called before the first frame update
