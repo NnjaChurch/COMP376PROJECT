@@ -2,17 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StageManager : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+// ----------------------------------------------------------------------------------------------------
+//	Description: Class that manages loading the stage and all functions that must be done on load
+//	Contributors:
+//	Endpoints:
+// ----------------------------------------------------------------------------------------------------
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+public class StageManager : MonoBehaviour {
+	// Start is called before the first frame update
+	void Start() {
+
+	}
+
+	// Update is called once per frame
+	void Update() {
+
+	}
 }

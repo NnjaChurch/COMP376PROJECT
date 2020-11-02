@@ -2,7 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Weapon : MonoBehaviour {
+// ----------------------------------------------------------------------------------------------------
+//	Description: Class for items of the type weapon, their properties and interactions
+//	Contributors: Jordan, Kevin
+//	Endpoints:
+// ----------------------------------------------------------------------------------------------------
+public class Weapon : Item {
 	// Collision Variables
 	public Collider2D hit_box;
 	ContactFilter2D filter;

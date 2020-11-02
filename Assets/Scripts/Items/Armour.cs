@@ -2,7 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Armour : MonoBehaviour {
+// ----------------------------------------------------------------------------------------------------
+//	Description: Class for items of the type armour, their properties and their interactions
+//	Contributors: Kevin
+//	Endpoints:
+// ----------------------------------------------------------------------------------------------------
+
+public class Armour : Item {
 
 	// Attributes
 	string armour_name;
@@ -23,7 +29,7 @@ public class Armour : MonoBehaviour {
 	public float GetMovementModifier() {
 		return movement_modifier;
 	}
-	
+
 	public int GetDefense() {
 		return defense;
 	}

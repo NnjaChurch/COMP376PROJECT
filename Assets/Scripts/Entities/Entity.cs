@@ -8,8 +8,7 @@ using UnityEngine;
 //	Endpoints:
 // ----------------------------------------------------------------------------------------------------
 
-public class Entity : MonoBehaviour
-{
+public class Entity : MonoBehaviour {
 
 	// Start is called before the first frame update
 	void Start() {
@@ -17,12 +16,11 @@ public class Entity : MonoBehaviour
 
 	// Update is called once per frame
 	void Update() {
-		
+
 	}
 
-	public int TakeDamage(float damage)
-    {
+	public int TakeDamage(float damage) {
 		print("entity is taking damage!");
 		return 0;
-    }
+	}
 }

@@ -2,17 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Inventory : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+// ----------------------------------------------------------------------------------------------------
+//	Description: Class for the Inventory User Interface
+//	Contributors: Kevin
+//	Endpoints:
+// ----------------------------------------------------------------------------------------------------
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+public class InventoryUI : MonoBehaviour {
+	// Start is called before the first frame update
+	void Start() {
+
+	}
+
+	// Update is called once per frame
+	void Update() {
+
+	}
 }

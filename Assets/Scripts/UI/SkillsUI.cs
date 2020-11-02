@@ -2,17 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SkillsUI : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+// ----------------------------------------------------------------------------------------------------
+//	Description: Class for the skills upgrade User Interface
+//	Contributors:
+//	Endpoints:
+// ----------------------------------------------------------------------------------------------------
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+public class SkillsUI : MonoBehaviour {
+	// Start is called before the first frame update
+	void Start() {
+
+	}
+
+	// Update is called once per frame
+	void Update() {
+
+	}
 }

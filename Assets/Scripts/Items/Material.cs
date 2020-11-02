@@ -3,16 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // ----------------------------------------------------------------------------------------------------
-//	Description: Implements a camera that follows an entity.
-//               Do not make this a child of the entity to be followed.
-//	Contributors: Jordan
+//	Description: Class for items of the type upgrade material and their properties
+//	Contributors:
 //	Endpoints:
 // ----------------------------------------------------------------------------------------------------
-
-public class FollowCam : MonoBehaviour {
-	[SerializeField] float z_offset = -10.0f;
-	public GameObject entity;
-
+public class Material : Item {
 	// Start is called before the first frame update
 	void Start() {
 
@@ -20,6 +15,6 @@ public class FollowCam : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update() {
-		gameObject.transform.position = new Vector3(entity.transform.position.x, entity.transform.position.y, z_offset);
+
 	}
 }

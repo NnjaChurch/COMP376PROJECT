@@ -2,17 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnManager : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+// ----------------------------------------------------------------------------------------------------
+//	Description: Class that manages enemy spawns
+//	Contributors:
+//	Endpoints:
+// ----------------------------------------------------------------------------------------------------
+public class SpawnManager : MonoBehaviour {
+	// Start is called before the first frame update
+	void Start() {
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	}
+
+	// Update is called once per frame
+	void Update() {
+
+	}
 }

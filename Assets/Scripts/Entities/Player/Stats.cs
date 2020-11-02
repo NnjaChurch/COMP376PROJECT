@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Stats : MonoBehaviour {
+// ----------------------------------------------------------------------------------------------------
+//	Description: Class to calculate and keep track of player stats
+//	Contributors: Kevin
+//	Endpoints:
+// ----------------------------------------------------------------------------------------------------
 
-	// ----------------------------------------------------------------------------------------------------
-	//	Description: Class determining basic entity behaviour and statistics
-	//	Contributors: Kevin
-	//	Endpoints:
-	// ----------------------------------------------------------------------------------------------------
+public class Stats : MonoBehaviour {
 
 	// TODO: Implement Serializability for Stats to allow transfer over zones
 	// TODO: Implement file loading for skills and stats to allow easy modification outside of code.
@@ -34,12 +34,12 @@ public class Stats : MonoBehaviour {
 	const int BASE_HEALTH = 100;
 	const int BASE_STAMINA = 100;
 	const int BASE_DAMAGE = 5;
-	const int BASE_ATTACK_SPEED = 2;		// seconds
-	const int BASE_MOVEMENT_SPEED = 1;		// %
-	const int BASE_CARRY_WEIGHT = 50;		// lbs
-	const int BASE_EXPERIENCE_GAIN = 1;		// %
-	const int BASE_HEALING_EFFICACY = 1;	// %
-	const int BASE_DAMAGE_REDUCTION = 1;	// %
+	const int BASE_ATTACK_SPEED = 2;        // seconds
+	const int BASE_MOVEMENT_SPEED = 1;      // %
+	const int BASE_CARRY_WEIGHT = 50;       // lbs
+	const int BASE_EXPERIENCE_GAIN = 1;     // %
+	const int BASE_HEALING_EFFICACY = 1;    // %
+	const int BASE_DAMAGE_REDUCTION = 1;    // %
 
 	const int BASE_EXPERIENCE_LEVEL = 100;
 	const float EXPERIENCE_GROWTH = 1.2f;
@@ -82,10 +82,10 @@ public class Stats : MonoBehaviour {
 		skill_list.Add(new Skill("Damage Reduction Boost", 25, 0.02f));
 	}
 	private void CalculateStats() {     // Run when a zone is loaded
-		// Strength Stats
+										// Strength Stats
 		max_health = Mathf.FloorToInt((BASE_HEALTH + (10 * strength)) * skill_list[0].GetBonus());
 		current_health = max_health;
-		damage = (BASE_DAMAGE + strength);	// TODO: Incorporate Weapon Damage? Or Calculate Damage in Weapon?
+		damage = (BASE_DAMAGE + strength);  // TODO: Incorporate Weapon Damage? Or Calculate Damage in Weapon?
 		carry_weight = (BASE_CARRY_WEIGHT + (2 * strength)) * skill_list[2].GetBonus();
 
 		// Dexterity Stats

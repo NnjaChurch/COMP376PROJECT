@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// ----------------------------------------------------------------------------------------------------
+//	Description: Class for the creation and manipulation of skills
+//	Contributors: Kevin
+//	Endpoints:
+// ----------------------------------------------------------------------------------------------------
+
 public class Skill : MonoBehaviour {
 
-	// ----------------------------------------------------------------------------------------------------
-	//	Description: Class for the creation and manipulation of skills
-	//	Contributors: Kevin
-	//	Endpoints:
-	// ----------------------------------------------------------------------------------------------------
+	
 
 	const float BASE_VALUE = 1;
 

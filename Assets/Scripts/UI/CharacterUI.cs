@@ -2,17 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterUI : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+// ----------------------------------------------------------------------------------------------------
+//	Description: Class for the character statistics User Interface
+//	Contributors:
+//	Endpoints:
+// ----------------------------------------------------------------------------------------------------
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+public class CharacterUI : MonoBehaviour {
+	// Start is called before the first frame update
+	void Start() {
+
+	}
+
+	// Update is called once per frame
+	void Update() {
+
+	}
 }
