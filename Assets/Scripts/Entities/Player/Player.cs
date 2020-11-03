@@ -69,4 +69,18 @@ public class Player : Entity
 	}
 
 	public float GetPlayerCarryWeight() { return player_stats.GetCarryWeight(); }
+
+	public float GetPlayerCurrentHealth() { return player_stats.GetCurrentHealth(); }
+
+	public float GetPlayerBaseHealth() { return player_stats.GetBaseHealth(); }
+
+	public float GetPlayerCurrentStamina() { return player_stats.GetCurrentStamina(); }
+
+	public float GetPlayerBaseStamina() { return player_stats.GetBaseStamina(); }
+
+	public float GetPlayerCurrentExperience() { return player_stats.GetCurrentExperience(); }
+
+	public float GetPlayerBaseExperience() { return player_stats.GetBaseExperience(); }
+
+	public float GetPlayerLevel() { return player_stats.GetPlayerLevel(); }
 }

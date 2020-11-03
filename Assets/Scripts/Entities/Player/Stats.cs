@@ -104,6 +104,20 @@ public class Stats : MonoBehaviour {
 
 	public float GetCarryWeight() { return carry_weight; }
 
+	public float GetCurrentHealth() { return current_health; }
+
+	public float GetBaseHealth() { return BASE_HEALTH; }
+
+	public float GetCurrentStamina() { return current_stamina; }
+
+	public float GetBaseStamina() { return BASE_STAMINA; }
+
+	public float GetCurrentExperience() { return current_experience; }
+
+	public float GetBaseExperience() { return BASE_EXPERIENCE_LEVEL; }
+
+	public float GetPlayerLevel() { return player_level; }
+
 	public void SetEquippedWeapon(Weapon w) { 
 		equipped_weapon = w;
 		CalculateStats();
