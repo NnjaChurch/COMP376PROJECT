@@ -118,6 +118,8 @@ public class Stats : MonoBehaviour {
 
 	public float GetPlayerLevel() { return player_level; }
 
+	public float GetAttackSpeed() { return attack_speed; }
+
 	public void SetEquippedWeapon(Weapon w) { 
 		equipped_weapon = w;
 		CalculateStats();

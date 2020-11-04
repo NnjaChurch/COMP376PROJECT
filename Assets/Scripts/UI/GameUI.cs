@@ -38,13 +38,13 @@ public class GameUI : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update() {
-		health_bar.fillAmount = player.GetPlayerCurrentHealth() / player.GetPlayerBaseHealth();
-		stamina_bar.fillAmount = player.GetPlayerCurrentStamina() / player.GetPlayerBaseStamina();
+		health_bar.fillAmount = player.GetCurrentHealth() / player.GetBaseHealth();
+		stamina_bar.fillAmount = player.GetCurrentStamina() / player.GetBaseStamina();
 
-		float current_exp = player.GetPlayerCurrentExperience();
-		float base_exp = player.GetPlayerBaseExperience();
+		float current_exp = player.GetCurrentExperience();
+		float base_exp = player.GetBaseExperience();
 		experience_bar.fillAmount = current_exp / base_exp;
 		experience_text.text = current_exp + "/" + base_exp;
-		player_level_text.text = "Level " + player.GetPlayerLevel();
+		player_level_text.text = "Level " + player.GetLevel();
 	}
 }
