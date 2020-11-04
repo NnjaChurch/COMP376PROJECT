@@ -18,6 +18,8 @@ public class GameUI : MonoBehaviour {
 	Text player_level_text;
 	Text current_zone_text;
 
+	GameObject inventory_ui;
+
 	// Start is called before the first frame update
 	void Start() {
 		player = FindObjectOfType<Player>();
@@ -30,6 +32,8 @@ public class GameUI : MonoBehaviour {
 		//int zone_number = ...;
 		//string zone_name = ...;
 		//current_zone_text.text = "Zone " + zone_number + ": " + zone_name;
+		inventory_ui = GameObject.Find("InventoryPanel");
+		inventory_ui.SetActive(false);
 	}
 
 	// Update is called once per frame

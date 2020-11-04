@@ -12,10 +12,10 @@ public class Inventory : MonoBehaviour
     float current_weight;
     bool isEncumbered;
 
-    IDictionary<string, int> consumables = new Dictionary<string, int>();
-    IDictionary<string, int> materials = new Dictionary<string, int>();
-    IDictionary<string, int> weapons = new Dictionary<string, int>();
-    IDictionary<string, int> armours = new Dictionary<string, int>();
+    public IDictionary<string, int> consumables = new Dictionary<string, int>();
+    public IDictionary<string, int> materials = new Dictionary<string, int>();
+    public IDictionary<string, int> weapons = new Dictionary<string, int>();
+    public IDictionary<string, int> armours = new Dictionary<string, int>();
 
     // Start is called before the first frame update
     void Start()

@@ -702,7 +702,7 @@ GameObject:
   - component: {fileID: 1649123608}
   - component: {fileID: 1649123607}
   m_Layer: 5
-  m_Name: NeedBackground
+  m_Name: Need
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1157,7 +1157,7 @@ GameObject:
   - component: {fileID: 2067215712}
   - component: {fileID: 2067215711}
   m_Layer: 5
-  m_Name: NeedBackground (1)
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

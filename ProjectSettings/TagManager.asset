@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Lootable
   - Enemy
+  - InventoryContent
   layers:
   - Default
   - TransparentFX
