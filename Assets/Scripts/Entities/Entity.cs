@@ -34,6 +34,6 @@ public abstract class Entity : MonoBehaviour {
 	}
 
 	public void Attack() {
-		weapon.UseWeapon();	// <--- pass entity damage value?
+		weapon.UseWeapon(0);	// <--- pass entity damage value?
 	}
 }
