@@ -8,7 +8,7 @@ using UnityEngine;
 //	Endpoints:
 // ----------------------------------------------------------------------------------------------------
 
-public abstract class Stats : MonoBehaviour {
+public class Stats : MonoBehaviour {
 
 	// Entity Base Stats
 	[SerializeField] protected int BASE_HEALTH = 100;
