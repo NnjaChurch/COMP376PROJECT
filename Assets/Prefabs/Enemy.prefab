@@ -12,23 +12,10 @@ GameObject:
   - component: {fileID: 4383864737257687169}
   - component: {fileID: -3500534339210903422}
   - component: {fileID: -784591641692539862}
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
-  - component: {fileID: -1405851979523913128}
-=======
->>>>>>> jordan
   - component: {fileID: 52650687940834375}
   - component: {fileID: 6991990598915490119}
   - component: {fileID: 8821683021923919287}
   - component: {fileID: 1870986377868729733}
-<<<<<<< HEAD
-=======
-  - component: {fileID: 3847604415298440937}
-  - component: {fileID: 1814088499976108366}
-  - component: {fileID: 4200567909905825778}
->>>>>>> Stashed changes
->>>>>>> jordan
   m_Layer: 9
   m_Name: Enemy
   m_TagString: Enemy
@@ -45,18 +32,8 @@ Transform:
   m_GameObject: {fileID: 7744728286288450834}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
-=======
-<<<<<<< Updated upstream
-  m_LocalScale: {x: 1, y: 1, z: 1}
->>>>>>> jordan
   m_Children: []
-=======
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
-  m_Children:
-  - {fileID: 846115361079111205}
->>>>>>> Stashed changes
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -126,7 +103,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.3125
+  m_Radius: 0.5
 --- !u!50 &-784591641692539862
 Rigidbody2D:
   serializedVersion: 4
@@ -140,21 +117,14 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0
+  m_LinearDrag: 1000000
+  m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: 897558e053df51e488ea1580d9542a27, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-<<<<<<< Updated upstream
   m_Constraints: 4
-<<<<<<< HEAD
-=======
---- !u!114 &-1405851979523913128
-=======
-  m_Constraints: 0
->>>>>>> jordan
 --- !u!114 &52650687940834375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,10 +137,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f413321b10739c9429cacabb4bc6a62d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
-=======
-  armour_name: 
->>>>>>> jordan
 --- !u!114 &6991990598915490119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,15 +153,8 @@ MonoBehaviour:
   layer_mask:
     serializedVersion: 2
     m_Bits: 0
-<<<<<<< HEAD
   damage: 0
 --- !u!114 &8821683021923919287
-=======
-  weapon_name: 
-  damage: 0
---- !u!114 &8821683021923919287
->>>>>>> Stashed changes
->>>>>>> jordan
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -207,11 +166,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b85dbfd034604c4f974c73b34f835f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
-=======
->>>>>>> jordan
   weapon: {fileID: 6991990598915490119}
   armour: {fileID: 52650687940834375}
   stats: {fileID: 1870986377868729733}
@@ -233,147 +187,3 @@ MonoBehaviour:
   BASE_MOVEMENT_SPEED: 1
   health_per_level: 10
   damage_per_level: 5
-<<<<<<< HEAD
-=======
---- !u!114 &3847604415298440937
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7744728286288450834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 1
-  drawGizmos: 1
-  detailedGizmos: 0
-  startEndModifier:
-    addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
-    useRaycasting: 0
-    mask:
-      serializedVersion: 2
-      m_Bits: 4294967295
-    useGraphRaycasting: 0
-  traversableTags: -1
-  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  graphMask:
-    value: -1
---- !u!114 &1814088499976108366
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7744728286288450834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6eb1402c17e84a9282a7f0f62eb584f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 2
-  radius: 0.5
-  height: 2
-  repathRate: 0.5
-  canSearch: 1
-  canMove: 1
-  maxSpeed: 1
-  gravity: {x: NaN, y: NaN, z: NaN}
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  centerOffsetCompatibility: NaN
-  orientation: 1
-  enableRotation: 1
-  targetCompatibility: {fileID: 0}
-  maxAcceleration: -2.5
-  rotationSpeed: 90
-  slowdownDistance: 0
-  pickNextWaypointDist: 0.125
-  endReachedDistance: 0
-  alwaysDrawGizmos: 0
-  slowWhenNotFacingTarget: 0
-  whenCloseToDestination: 1
-  constrainInsideGraph: 0
---- !u!114 &4200567909905825778
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7744728286288450834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 1
-  target: {fileID: 3159474370270732344, guid: b0dbbedad60325d41961ed0ff44fe1ae, type: 3}
---- !u!1001 &7550980124810876144
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 513230871004050133}
-    m_Modifications:
-    - target: {fileID: 3537977908605565885, guid: 29e19ae35643a7144aaec9747cbf0127, type: 3}
-      propertyPath: m_Name
-      value: Z Basic
-      objectReference: {fileID: 0}
-    - target: {fileID: 7166486062003141333, guid: 29e19ae35643a7144aaec9747cbf0127, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7166486062003141333, guid: 29e19ae35643a7144aaec9747cbf0127, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7166486062003141333, guid: 29e19ae35643a7144aaec9747cbf0127, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7166486062003141333, guid: 29e19ae35643a7144aaec9747cbf0127, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7166486062003141333, guid: 29e19ae35643a7144aaec9747cbf0127, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7166486062003141333, guid: 29e19ae35643a7144aaec9747cbf0127, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7166486062003141333, guid: 29e19ae35643a7144aaec9747cbf0127, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7166486062003141333, guid: 29e19ae35643a7144aaec9747cbf0127, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7166486062003141333, guid: 29e19ae35643a7144aaec9747cbf0127, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7166486062003141333, guid: 29e19ae35643a7144aaec9747cbf0127, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7166486062003141333, guid: 29e19ae35643a7144aaec9747cbf0127, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 180
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 29e19ae35643a7144aaec9747cbf0127, type: 3}
---- !u!4 &846115361079111205 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7166486062003141333, guid: 29e19ae35643a7144aaec9747cbf0127, type: 3}
-  m_PrefabInstance: {fileID: 7550980124810876144}
-  m_PrefabAsset: {fileID: 0}
->>>>>>> Stashed changes
->>>>>>> jordan
