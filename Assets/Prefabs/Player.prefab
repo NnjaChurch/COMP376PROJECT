@@ -120,8 +120,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 1000000
-  m_AngularDrag: 0.05
+  m_LinearDrag: 0
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: a097be54eb9c6924ebe7e33aa12bd68e, type: 2}
   m_Interpolate: 0
@@ -195,6 +195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f413321b10739c9429cacabb4bc6a62d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  armour_name: 
 --- !u!114 &-81856197656351248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,6 +212,8 @@ MonoBehaviour:
   layer_mask:
     serializedVersion: 2
     m_Bits: 0
+  weapon_name: 
+  damage: 0
 --- !u!114 &2748712100562068080
 MonoBehaviour:
   m_ObjectHideFlags: 0
