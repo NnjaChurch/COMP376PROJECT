@@ -11,7 +11,7 @@ using UnityEngine;
 public class Armour : Item {
 
 	// Attributes
-	string armour_name;
+	public string armour_name;
 	int upgrade_tier;
 	float movement_modifier;
 	int defense;

@@ -10,7 +10,7 @@ using UnityEngine;
 
 public class Consumable : Item {
 
-	string consumable_name;
+	public string consumable_name;
 	string description;
 	int hp_gain;
 

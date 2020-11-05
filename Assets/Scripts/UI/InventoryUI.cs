@@ -11,28 +11,36 @@ using UnityEngine.UI;
 
 public class InventoryUI : MonoBehaviour {
 
-	[SerializeField]
-	GameObject inventory_food_slot_prefab;
-	GameObject inventory_food_slot;
 	Inventory player_inventory;
+	Player player;
+
+	GameObject inventory_content; // Reference to 'Content' gameObject under InventoryPanel
+	[SerializeField]
+	GameObject inventory_weight_text; // Text that shows current weight in the bottom of inventory
+
+	public static bool inventory_updated = false; // To know if there is a change in inventory
 
 	// Start is called before the first frame update
 	void Start() {
-		player_inventory = FindObjectOfType<Player>().inventory;
+		player = FindObjectOfType<Player>();
+		player_inventory = player.inventory;
+		//    inventory_food_slot.transform.Find("ItemCount").GetComponent<Text>().text = "x" + player_inventory.consumables["Food"];
 
-		// TODO player_inventory.consumables["Food"] doesn't work. Is it because it hasn't been initialized yet?
-  //      if (player_inventory.consumables["Food"] != 0)
-  //      {
-		//	inventory_food_slot = Instantiate(inventory_food_slot_prefab);
-		//	inventory_food_slot.transform.SetParent(GameObject.FindGameObjectWithTag("InventoryContent").transform);
-		//	inventory_food_slot.transform.Find("ItemCount").GetComponent<Text>().text = "x" + player_inventory.consumables["Food"];
-
-		//}
+		inventory_content = GameObject.FindGameObjectWithTag("InventoryContent");
+		for (int i = 0; i < inventory_content.transform.childCount; i++)
+        {
+			inventory_content.transform.GetChild(i).gameObject.SetActive(false);
+        }
 	}
 
 	// Update is called once per frame
 	void Update() {
-
+		if (inventory_updated) // Refresh the inventory UI if there is a change in inventory
+        {
+			updateInventoryUI();
+			inventory_weight_text.GetComponent<Text>().text = "Weight: " + player_inventory.GetInventoryWeight() + "/" + player.GetCarryWeight() + " lbs";
+			inventory_updated = false; // Re set to false as we just updated the inventory UI
+		}
 	}
 
 	public void ButtonConsumeClick(string option)
@@ -40,18 +48,154 @@ public class InventoryUI : MonoBehaviour {
 		Debug.Log("Consuming");
     }
 
-	public void ButtonEquipClick(string option)
+	public void ButtonEquipWeapon(string item)
 	{
-		Debug.Log("Equipping");
+		// TODO Potential recipe for disaster here. I'm just creating a weapon without any stats, so it will equip a faulty weapon
+		Weapon w = new Weapon();
+		w.name = item;
+		player.EquipWeapon(w);
 	}
 
-	public void ButtonDropClick(string item)
+	public void ButtonEquipArmour(string item)
 	{
-		Debug.Log("Dropping");
+		// TODO Potential recipe for disaster here. I'm just creating a armour without any stats, so it will equip a faulty armour
+		Armour a = new Armour();
+		a.name = item;
+		player.EquipArmour(a);
 	}
 
-	public void ButtonDropAllClick(string item)
+	public void ButtonDropConsumable(string item)
 	{
-		Debug.Log("Dropping All");
+		// TODO Creating a temporary Consumable might not be the right way to do this
+		string name = item.Substring(0, item.Length-1);
+		int dropAll = int.Parse(item.Substring(item.Length - 1));
+
+		Consumable c = new Consumable();
+		c.name = name;
+
+		if (dropAll == 0) // Drop one
+		{
+			player_inventory.RemoveFromInventory(c);
+		}
+		else // Drop all
+        {
+			for (int i = 0; i < player_inventory.consumables[name]; i++)
+            {
+				player_inventory.RemoveFromInventory(c);
+			}
+        }
+	}
+
+	public void ButtonDropMaterial(string item)
+	{
+		// TODO Creating a temporary Consumable might not be the right way to do this
+		string name = item.Substring(0, item.Length - 1);
+		int dropAll = int.Parse(item.Substring(item.Length - 1));
+
+		Material m = new Material();
+		m.name = name;
+
+		if (dropAll == 0) // Drop one
+		{
+			player_inventory.RemoveFromInventory(m);
+		}
+		else // Drop all
+		{
+			for (int i = 0; i < player_inventory.materials[name]; i++)
+			{
+				player_inventory.RemoveFromInventory(m);
+			}
+		}
+	}
+
+	public void ButtonDropWeapon(string item)
+	{
+		// TODO Creating a temporary Consumable might not be the right way to do this
+		string name = item.Substring(0, item.Length - 1);
+		int dropAll = int.Parse(item.Substring(item.Length - 1));
+
+		Weapon w = new Weapon();
+		w.name = name;
+
+		if (dropAll == 0) // Drop one
+		{
+			player_inventory.RemoveFromInventory(w);
+		}
+		else // Drop all
+		{
+			for (int i = 0; i < player_inventory.weapons[name]; i++)
+			{
+				player_inventory.RemoveFromInventory(w);
+			}
+		}
+	}
+
+	public void ButtonDropArmour(string item)
+	{
+		// TODO Creating a temporary Consumable might not be the right way to do this
+		string name = item.Substring(0, item.Length - 1);
+		int dropAll = int.Parse(item.Substring(item.Length - 1));
+
+		Armour a = new Armour();
+		a.name = name;
+
+		if (dropAll == 0) // Drop one
+		{
+			player_inventory.RemoveFromInventory(a);
+		}
+		else // Drop all
+		{
+			for (int i = 0; i < player_inventory.armours[name]; i++)
+			{
+				player_inventory.RemoveFromInventory(a);
+			}
+		}
+	}
+
+	public void updateInventoryUI()
+    {
+		Transform itemSlot; // To get reference to each of the inventory UI slots
+		IDictionary<string, int> dictionary = null;
+
+		for (int i = 0; i < 4; i++) // 4 times since inventory has 4 dictionaries
+		{
+			switch (i)
+			{
+				case 0:
+					dictionary = player_inventory.consumables;
+					break;
+				case 1:
+					dictionary = player_inventory.materials;
+					break;
+				case 2:
+					dictionary = player_inventory.weapons;
+					break;
+				case 3:
+					dictionary = player_inventory.armours;
+					break;
+			}
+
+			foreach (KeyValuePair<string, int> entry in dictionary)
+			{
+				itemSlot = inventory_content.transform.Find(entry.Key);
+				if (entry.Value != 0)
+				{
+					if (itemSlot.gameObject.activeSelf) // item had more than 1 count, and increased or decreased but still has more than 1
+					{
+						itemSlot.Find("ItemCount").GetComponent<Text>().text = "x" + dictionary[entry.Key];
+					}
+					else // if item had 0 but now has more than 1
+					{
+						itemSlot.gameObject.SetActive(true);
+						itemSlot.Find("ItemCount").GetComponent<Text>().text = "x" + dictionary[entry.Key];
+						itemSlot.SetAsLastSibling();
+					}
+				}
+				else // if item count is 0
+				{
+					itemSlot.gameObject.SetActive(false);
+				}
+			}
+		}
 	}
 }

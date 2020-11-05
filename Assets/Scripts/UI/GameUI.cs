@@ -46,5 +46,29 @@ public class GameUI : MonoBehaviour {
 		experience_bar.fillAmount = current_exp / base_exp;
 		experience_text.text = current_exp + "/" + base_exp;
 		player_level_text.text = "Level " + player.GetPlayerLevel();
+
+		if (Input.GetKeyDown(KeyCode.B))
+        {
+			if (!inventory_ui.activeSelf)
+            {
+				inventory_ui.SetActive(true);
+			}
+			else
+            {
+				inventory_ui.SetActive(false);
+			}
+        }
+	}
+
+	public void ButtonInventoryClick()
+    {
+		if (!inventory_ui.activeSelf)
+		{
+			inventory_ui.SetActive(true);
+		}
+		else
+		{
+			inventory_ui.SetActive(false);
+		}
 	}
 }

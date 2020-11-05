@@ -84,6 +84,7 @@ public class Inventory : MonoBehaviour
                 break;
         }
 
+        InventoryUI.inventory_updated = true; // So that inventory UI updates during next Update()
         UpdateWeight(true, i.GetWeight());
     }
     public void RemoveFromInventory(Item i)
@@ -109,6 +110,7 @@ public class Inventory : MonoBehaviour
                 break;
         }
 
+        InventoryUI.inventory_updated = true; // So that inventory UI updates during next Update()
         UpdateWeight(false, i.GetWeight());
     }
 
