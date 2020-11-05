@@ -17,7 +17,7 @@ public class Weapon : Item {
 	public string weapon_name;
 	int upgrade_tier;
 	float speed_modifier;   // Percentage
-	int damage;             // Value
+	[SerializeField] int damage;             // Value
 	float reach;            // Units
 	float arc;              // Degrees
 
@@ -38,11 +38,13 @@ public class Weapon : Item {
 			if (collision.gameObject.layer == 9) {
 				Enemy enemy = collision.gameObject.GetComponent<Enemy>();
 				if (enemy != null) {
-					enemy.TakeDamage(base_damage + damage);
+					if (enemy.GetStats().TakeDamage(base_damage + damage) <= 0)
+                    {
+						enemy.Kill();
+                    }
 				}
 			}
 		}
-
 	}
 
 	public float GetSpeedModifier() {

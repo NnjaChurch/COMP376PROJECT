@@ -25,15 +25,11 @@ public abstract class Entity : MonoBehaviour {
 
 	}
 
-	public int TakeDamage(float damage) {
-		print("entity is taking damage!");
-		return 0;
-	}
 	public Weapon GetWeapon() {
 		return weapon;
 	}
 
-	public void Attack() {
-		weapon.UseWeapon(0);	// <--- pass entity damage value?
+	public void Attack(int player_damage) {
+		weapon.UseWeapon(player_damage);	// <--- pass entity damage value?
 	}
 }

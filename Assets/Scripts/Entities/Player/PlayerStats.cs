@@ -41,6 +41,12 @@ public class PlayerStats : Stats {
 	// Current Stats
 	int current_stamina;
 
+	private void Start()
+	{
+		InitializeSkills();
+		CalculatePlayerStats();
+	}
+
 	// Skills
 	List<Skill> skill_list;
 	private void InitializeSkills() {

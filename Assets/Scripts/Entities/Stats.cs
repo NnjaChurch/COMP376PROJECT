@@ -37,4 +37,15 @@ public class Stats : MonoBehaviour {
 	public int GetDamage() { return damage; }
 	public float GetAttackSpeed() { return attack_speed; }
 	public float GetMovementSpeed() { return movement_speed; }
+
+	public int TakeDamage(int damage)
+	{
+		// TODO - armour calculations
+		current_health -= damage;
+		if (current_health < 0)
+        {
+			current_health = 0;
+        }
+		return current_health;
+	}
 }
