@@ -42,7 +42,7 @@ public class GameUI : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update() {
-		//health_bar.fillAmount = player.GetCurrentHealth() / player.GetMaxHealth();
+		//health_bar.fillAmount = player.GetCurrentHeaclth() / player.GetMaxHealth();
 		//stamina_bar.fillAmount = player.GetCurrentStamina() / player.GetMaxStamina();
 
 		float current_exp = player.GetCurrentExperience();

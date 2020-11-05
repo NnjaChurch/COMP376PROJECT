@@ -10,8 +10,6 @@ using UnityEngine;
 
 public class Skill {
 
-	
-
 	const float BASE_VALUE = 1;
 
 	string skill_name;
@@ -25,6 +23,7 @@ public class Skill {
 		current_level = 0;
 		max_level = max;
 		per_level = per;
+		current_bonus = BASE_VALUE;
 	}
 	public bool LevelSkill() {
 		if(current_level < max_level) {

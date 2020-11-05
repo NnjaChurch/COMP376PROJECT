@@ -23,7 +23,7 @@ public class Inventory : MonoBehaviour
         current_weight = 0;
         isEncumbered = false;
 
-        consumables.Add("Food", 0);
+        consumables.Add("Food", 1);
         consumables.Add("Medicine", 0);
 
         materials.Add("Nails", 0);
@@ -39,6 +39,8 @@ public class Inventory : MonoBehaviour
         armours.Add("Light", 0);
         armours.Add("Medium", 0);
         armours.Add("Heavy", 0);
+
+        InventoryUI.inventory_updated = true;
     }
 
     // Update is called once per frame

@@ -42,10 +42,12 @@ public class Stats : MonoBehaviour {
 	{
 		// TODO - armour calculations
 		current_health -= damage;
+		
 		if (current_health < 0)
         {
 			current_health = 0;
         }
+		Debug.LogError(gameObject.transform.ToString() + " remaining health: " + current_health);
 		return current_health;
 	}
 }
