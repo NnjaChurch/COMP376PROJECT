@@ -20,6 +20,8 @@ public class GameUI : MonoBehaviour {
 
 	GameObject inventory_ui;
 
+	Looting lootingController;
+
 	// Start is called before the first frame update
 	void Start() {
 		player = FindObjectOfType<Player>();
@@ -34,6 +36,8 @@ public class GameUI : MonoBehaviour {
 		//current_zone_text.text = "Zone " + zone_number + ": " + zone_name;
 		inventory_ui = GameObject.Find("InventoryPanel");
 		inventory_ui.SetActive(false);
+
+		lootingController = FindObjectOfType<Looting>();
 	}
 
 	// Update is called once per frame
@@ -58,6 +62,11 @@ public class GameUI : MonoBehaviour {
 				inventory_ui.SetActive(false);
 			}
         }
+
+		if (Input.GetKeyDown("e"))
+		{
+			lootingController.LootKeyPressed();
+		}
 	}
 
 	public void ButtonInventoryClick()

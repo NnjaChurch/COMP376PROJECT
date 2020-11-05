@@ -4,13 +4,14 @@ using UnityEngine;
 
 // ----------------------------------------------------------------------------------------------------
 //	Description: Manages player inputs.
-//	Contributors: Jordan
+//	Contributors: Jordan, Colin
 //	Endpoints:
 // ----------------------------------------------------------------------------------------------------
 
 public class InputManager : MonoBehaviour {
 	public Player player;
 	public Movement player_movement;
+
 
 	// Start is called before the first frame update
 	void Start() {
@@ -22,7 +23,8 @@ public class InputManager : MonoBehaviour {
 		player_movement.SetSprint(Input.GetKey("left shift"));
 		if (Input.GetMouseButtonDown(0)) {
 			player.Attack(player.GetStats().GetDamage());
-		}
+		}		
+		
 	}
 
 	private void FixedUpdate() {

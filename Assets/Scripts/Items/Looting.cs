@@ -14,6 +14,8 @@ public class Looting : MonoBehaviour {
 	LootTable furniture;
 	LootTable vehicle;
 
+	Player player;
+
 
 	// Start is called before the first frame update
 	void Start() {
@@ -41,21 +43,36 @@ public class Looting : MonoBehaviour {
 		a = new RangeInt(76, 24);
 		vehicle = new LootTable(c, m, w, a);
 
+		player = FindObjectOfType<Player>();
+
 	}
 
 	// Update is called once per frame
 	void Update() {
-		if (Input.GetKeyDown("e"))
+		
+	}
+
+	public void LootKeyPressed()
+    {
+		const float lootRadius = 0.5f;
+		// is the player near a lootbag(s)?
+		Collider2D[] hitColliders = Physics2D.OverlapCircleAll(player.transform.position, lootRadius);
+		List<Collider2D> lootableColliders = new List<Collider2D>();
+		foreach (var hitCollider in hitColliders)
 		{
-			LootUIEntity test = GenerateLootForUI("bag", 0.50f);
-			if (test != null)
+			if (hitCollider.tag == "Lootable")
 			{
-				Debug.Log("type: " + test.itemType + ", name: " + test.item_name);
+				lootableColliders.Add(hitCollider);
 			}
-			else
-			{
-				Debug.Log("no loot");
-			}
+		}
+
+		foreach (var lootable in lootableColliders)
+		{
+			if (lootable.name.Contains("Lootbag"))
+            {
+				LootUIEntity bagLoot = GenerateLootForUI("bag");
+				Debug.Log(bagLoot.itemType + " - " + bagLoot.item_name);
+            }
 		}
 	}
 
@@ -135,6 +152,6 @@ public class LootTable
 			return new LootUIEntity(typeof(Armour), "Light");
 		}
 
-		return null;
+		return new LootUIEntity(null, "No loot");
 	}
 };

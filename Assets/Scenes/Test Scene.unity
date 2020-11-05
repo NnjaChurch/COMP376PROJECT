@@ -956,6 +956,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 8821683021923919287, guid: ba22f25d418dc0a4aa3e95a2b4b72a7f, type: 3}
+      propertyPath: lootBagPrefab
+      value: 
+      objectReference: {fileID: 6618355501293574137, guid: e72b5798b8bdebd40ac9cef773d80138, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba22f25d418dc0a4aa3e95a2b4b72a7f, type: 3}
 --- !u!1001 &164156131
@@ -1013,6 +1017,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8821683021923919287, guid: ba22f25d418dc0a4aa3e95a2b4b72a7f, type: 3}
+      propertyPath: lootBagPrefab
+      value: 
+      objectReference: {fileID: 6618355501293574137, guid: e72b5798b8bdebd40ac9cef773d80138, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba22f25d418dc0a4aa3e95a2b4b72a7f, type: 3}
 --- !u!224 &164476687 stripped
