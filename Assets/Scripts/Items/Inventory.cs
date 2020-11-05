@@ -51,7 +51,7 @@ public class Inventory : MonoBehaviour
     {
         current_weight = add ? current_weight + itemWeight : current_weight - itemWeight;
         Player player = gameObject.GetComponentInParent<Player>();
-        float carry_capacity = player.GetCarryWeight();
+        float carry_capacity = player.GetPlayerCarryWeight();
 
         if (current_weight > carry_capacity)
         {
