@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 4383864737257687169}
   - component: {fileID: -3500534339210903422}
   - component: {fileID: -784591641692539862}
-  - component: {fileID: -1405851979523913128}
   - component: {fileID: 52650687940834375}
   - component: {fileID: 6991990598915490119}
-  - component: {fileID: 8796108526844560828}
+  - component: {fileID: 8821683021923919287}
+  - component: {fileID: 1870986377868729733}
   m_Layer: 9
   m_Name: Enemy
   m_TagString: Enemy
@@ -125,21 +125,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &-1405851979523913128
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7744728286288450834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcd30919ac9ab5a40955c06167a6e6e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weapon: {fileID: 6991990598915490119}
-  armour: {fileID: 52650687940834375}
-  stats: {fileID: 8796108526844560828}
 --- !u!114 &52650687940834375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,7 +153,8 @@ MonoBehaviour:
   layer_mask:
     serializedVersion: 2
     m_Bits: 0
---- !u!114 &8796108526844560828
+  damage: 0
+--- !u!114 &8821683021923919287
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -177,6 +163,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 7744728286288450834}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 123951ea992e250468d21633bdb2923f, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b85dbfd034604c4f974c73b34f835f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weapon: {fileID: 6991990598915490119}
+  armour: {fileID: 52650687940834375}
+  stats: {fileID: 1870986377868729733}
+--- !u!114 &1870986377868729733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7744728286288450834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d16138e840ef314e95decfacd1729c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BASE_HEALTH: 50
+  BASE_DAMAGE: 5
+  BASE_ATTACK_SPEED: 2
+  BASE_MOVEMENT_SPEED: 1
+  health_per_level: 10
+  damage_per_level: 5

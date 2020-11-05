@@ -26,7 +26,7 @@ public class Movement : MonoBehaviour {
 	}
 
 	private void FixedUpdate() {
-		movement = movement * movement_speed * Time.deltaTime;
+		movement = Vector2.ClampMagnitude(movement, 1.0f) * movement_speed * Time.deltaTime;
 		if (sprint) {
 			movement = movement * sprint_multiplier;
 		}

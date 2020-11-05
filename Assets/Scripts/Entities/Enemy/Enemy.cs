@@ -10,6 +10,9 @@ using UnityEngine;
 
 public class Enemy : Entity
 {
+
+	public EnemyStats stats;
+
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -21,4 +24,11 @@ public class Enemy : Entity
 	{
 
 	}
+
+	public Stats GetStats() { return stats; }
+
+	public void Kill()
+    {
+		gameObject.SetActive(false);
+    }
 }

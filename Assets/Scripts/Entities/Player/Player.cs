@@ -56,4 +56,6 @@ public class Player : Entity {
 	public int GetCurrentNextLevel() { return player_stats.GetCurrentNextLevel(); }
 	public int GetPlayerLevel() { return player_stats.GetCurrentLevel(); }
 	public float GetCarryWeight() { return player_stats.GetCarryWeight(); }
+
+	public Stats GetStats() { return player_stats;  }
 }

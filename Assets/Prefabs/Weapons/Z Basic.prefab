@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4744373200191366938}
   - component: {fileID: 2652161446920581993}
   m_Layer: 0
-  m_Name: Bat
+  m_Name: Z Basic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!60 &4744373200191366938
@@ -132,4 +132,5 @@ MonoBehaviour:
   hit_box: {fileID: 4744373200191366938}
   layer_mask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1591
+  damage: 1
