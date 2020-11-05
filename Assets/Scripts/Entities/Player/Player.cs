@@ -30,11 +30,13 @@ public class Player : Entity {
 	public void EquipWeapon(Weapon w) {
 		UnequipWeapon();
 		player_stats.SetEquippedWeapon(w);
+		inventory.RemoveFromInventory(w);
 	}
 
 	public void EquipArmour(Armour a) {
 		UnequipArmour();
 		player_stats.SetEquippedArmour(a);
+		inventory.RemoveFromInventory(a);
 	}
 
 	private void UnequipWeapon() {

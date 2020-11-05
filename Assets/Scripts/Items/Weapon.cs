@@ -14,7 +14,7 @@ public class Weapon : Item {
 	public LayerMask layer_mask;
 
 	// Attributes
-	string weapon_name;
+	public string weapon_name;
 	int upgrade_tier;
 	float speed_modifier;   // Percentage
 	int damage;             // Value
