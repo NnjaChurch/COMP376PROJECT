@@ -13,6 +13,9 @@ GameObject:
   - component: {fileID: -3500534339210903422}
   - component: {fileID: -784591641692539862}
   - component: {fileID: -1405851979523913128}
+  - component: {fileID: 52650687940834375}
+  - component: {fileID: 6991990598915490119}
+  - component: {fileID: 8796108526844560828}
   m_Layer: 9
   m_Name: Enemy
   m_TagString: Enemy
@@ -132,5 +135,48 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dcd30919ac9ab5a40955c06167a6e6e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 6991990598915490119}
+  armour: {fileID: 52650687940834375}
+  stats: {fileID: 8796108526844560828}
+--- !u!114 &52650687940834375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7744728286288450834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f413321b10739c9429cacabb4bc6a62d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6991990598915490119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7744728286288450834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2297319f41212a047ad8a7da94a34cfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hit_box: {fileID: 0}
+  layer_mask:
+    serializedVersion: 2
+    m_Bits: 0
+--- !u!114 &8796108526844560828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7744728286288450834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 123951ea992e250468d21633bdb2923f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
