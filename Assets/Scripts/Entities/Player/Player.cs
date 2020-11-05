@@ -44,4 +44,16 @@ public class Player : Entity {
 	public void UnequipArmour() {
 		inventory.AddToInventory(armour);
 	}
+
+
+	// TODO: Get all stats at once instead of one at a time for UI
+	// Stat Grabbers
+	public int GetCurrentHealth() {	return player_stats.GetCurrentHealth();	}
+	public int GetMaxHealth() { return player_stats.GetMaxHealth(); }
+	public int GetCurrentStamina() { return player_stats.GetCurrentStamina(); }
+	public int GetMaxStamina() { return player_stats.GetMaxStamina(); }
+	public int GetCurrentExperience() { return player_stats.GetCurrentExperience(); }
+	public int GetCurrentNextLevel() { return player_stats.GetCurrentNextLevel(); }
+	public int GetPlayerLevel() { return player_stats.GetCurrentLevel(); }
+	public float GetCarryWeight() { return player_stats.GetCarryWeight(); }
 }

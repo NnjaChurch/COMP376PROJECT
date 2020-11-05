@@ -81,11 +81,11 @@ public class PlayerStats : Stats {
 
 	// TODO: Experience and Level Functions
 
-	public float GetMaxStamina() { return max_stamina; }
+	public int GetCurrentStamina() { return current_stamina; }
+	public int GetMaxStamina() { return max_stamina; }
 	public float GetCarryWeight() { return carry_weight; }
-	public float GetCurrentStamina() { return current_stamina; }
-	public float GetCurrentExperience() { return current_experience; }
-	public float GetCurrentNextLevel() { return current_next_level; }
+	public int GetCurrentExperience() { return current_experience; }
+	public int GetCurrentNextLevel() { return current_next_level; }
 	public void SetEquippedWeapon(Weapon w) {
 		equipped_weapon = w;
 		CalculatePlayerStats();
