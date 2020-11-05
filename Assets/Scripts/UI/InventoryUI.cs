@@ -16,6 +16,8 @@ public class InventoryUI : MonoBehaviour {
 	GameObject inventory_food_slot;
 	Inventory player_inventory;
 
+	public static bool inventory_updated = false; // To know if there is a change in inventory
+
 	// Start is called before the first frame update
 	void Start() {
 		player_inventory = FindObjectOfType<Player>().inventory;
@@ -23,7 +25,7 @@ public class InventoryUI : MonoBehaviour {
         // TODO player_inventory.consumables["Food"] doesn't work. Is it because it hasn't been initialized yet?
         //if (player_inventory.consumables["Food"] != 0)
         //{
-        //    inventory_food_slot = Instantiate(inventory_food_slot_prefab);
+            inventory_food_slot = Instantiate(inventory_food_slot_prefab);
         //    inventory_food_slot.transform.SetParent(GameObject.FindGameObjectWithTag("InventoryContent").transform);
         //    inventory_food_slot.transform.Find("ItemCount").GetComponent<Text>().text = "x" + player_inventory.consumables["Food"];
 
@@ -32,7 +34,14 @@ public class InventoryUI : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update() {
+		if (inventory_updated) // Refresh the inventory UI if there is a change in inventory
+        {
+			if (player_inventory.consumables["Food"] != 0)
+            {
 
+            }
+
+		}
 	}
 
 	public void ButtonConsumeClick(string option)
