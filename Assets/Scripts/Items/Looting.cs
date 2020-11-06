@@ -58,21 +58,22 @@ public class Looting : MonoBehaviour {
 		// is the player near a lootbag(s)?
 		Collider2D[] hitColliders = Physics2D.OverlapCircleAll(player.transform.position, lootRadius);
 		List<Collider2D> lootableColliders = new List<Collider2D>();
-		foreach (var hitCollider in hitColliders)
-		{
-			if (hitCollider.tag == "Lootable")
-			{
-				lootableColliders.Add(hitCollider);
+		if (lootableColliders != null) {
+			foreach (var hitCollider in hitColliders) {
+				if (hitCollider.tag == "Lootable") {
+					lootableColliders.Add(hitCollider);
+				}
+			}
+
+			foreach (var lootable in lootableColliders) {
+				if (lootable.name.Contains("Lootbag")) {
+					LootUIEntity bagLoot = GenerateLootForUI("bag");
+					Debug.Log(bagLoot.itemType + " - " + bagLoot.item_name);
+				}
 			}
 		}
-
-		foreach (var lootable in lootableColliders)
-		{
-			if (lootable.name.Contains("Lootbag"))
-            {
-				LootUIEntity bagLoot = GenerateLootForUI("bag");
-				Debug.Log(bagLoot.itemType + " - " + bagLoot.item_name);
-            }
+		else {
+			Debug.Log("No lootable objects in range.");
 		}
 	}
 

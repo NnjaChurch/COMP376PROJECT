@@ -20,7 +20,7 @@ public class GameUI : MonoBehaviour {
 
 	GameObject inventory_ui;
 
-	Looting lootingController;
+	public Looting lootingController;
 
 	// Start is called before the first frame update
 	void Start() {
@@ -36,8 +36,6 @@ public class GameUI : MonoBehaviour {
 		//current_zone_text.text = "Zone " + zone_number + ": " + zone_name;
 		inventory_ui = GameObject.Find("InventoryPanel");
 		inventory_ui.SetActive(false);
-
-		lootingController = FindObjectOfType<Looting>();
 	}
 
 	// Update is called once per frame

@@ -47,7 +47,7 @@ public class Stats : MonoBehaviour {
         {
 			current_health = 0;
         }
-		Debug.LogError(gameObject.transform.ToString() + " remaining health: " + current_health);
+		Debug.Log(gameObject.transform.ToString() + " remaining health: " + current_health);
 		return current_health;
 	}
 }

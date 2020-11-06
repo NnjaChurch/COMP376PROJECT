@@ -29,16 +29,16 @@ public class Inventory : MonoBehaviour
         materials.Add("Nails", 0);
         materials.Add("Wood", 0);
         materials.Add("Metal", 0);
-        materials.Add("Cloth", 0);
+        materials.Add("Cloth", 2);
 
         weapons.Add("Knives", 0);
-        weapons.Add("Bats", 0);
+        weapons.Add("Bats", 1);
         weapons.Add("Swords", 0);
         weapons.Add("Rakes", 0);
 
         armours.Add("Light", 0);
         armours.Add("Medium", 0);
-        armours.Add("Heavy", 0);
+        armours.Add("Heavy", 1);
 
         InventoryUI.inventory_updated = true;
     }
