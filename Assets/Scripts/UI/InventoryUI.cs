@@ -180,14 +180,17 @@ public class InventoryUI : MonoBehaviour {
 				itemSlot = inventory_content.transform.Find(entry.Key);
 				if (entry.Value != 0)
 				{
+					//int itemWeight = dictionary[entry.Key] * weightOfItem;
 					if (itemSlot.gameObject.activeSelf) // item had more than 1 count, and increased or decreased but still has more than 1
 					{
 						itemSlot.Find("ItemCount").GetComponent<Text>().text = "x" + dictionary[entry.Key];
+						//itemSlot.Find("ItemWeight").GetComponent<Text>().text = itemWeight + " lbs";
 					}
 					else // if item had 0 but now has more than 1
 					{
 						itemSlot.gameObject.SetActive(true);
 						itemSlot.Find("ItemCount").GetComponent<Text>().text = "x" + dictionary[entry.Key];
+						//itemSlot.Find("ItemWeight").GetComponent<Text>().text = itemWeight + " lbs";
 						itemSlot.SetAsLastSibling();
 					}
 				}
