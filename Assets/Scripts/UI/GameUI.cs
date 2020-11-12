@@ -20,7 +20,7 @@ public class GameUI : MonoBehaviour {
 
 	GameObject inventory_ui;
 
-	public Looting lootingController;
+	public LootManager lootingController;
 
 	// Start is called before the first frame update
 	void Start() {

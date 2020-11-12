@@ -9,7 +9,7 @@ using UnityEngine;
 // ----------------------------------------------------------------------------------------------------
 
 
-public class Looting : MonoBehaviour {
+public class LootManager : MonoBehaviour {
 	LootTable bag;
 	LootTable furniture;
 	LootTable vehicle;

@@ -16,17 +16,6 @@ public class InventoryManager : MonoBehaviour
         
     }
 
-    public void OnWeaponFound(string weaponName)
-    {
-        // When a weapon is found, it will no longer spawn as loot and its Loot Table drop chance is replaced by materials
-    }
-
-    public void OnArmourFound(string armourName)
-    {
-        // When armour is found, it will no longer spawn as loot and its Loot Table drop chance is replaced by materials
-    }
-
-
     public void SaveInventory()
     {
 
