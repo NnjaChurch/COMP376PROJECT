@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7166486062003141333}
   - component: {fileID: 1566787325050077065}
-  - component: {fileID: 4744373200191366938}
   - component: {fileID: 2652161446920581993}
   m_Layer: 0
   m_Name: Knife
@@ -81,42 +80,9 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &4744373200191366938
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3537977908605565885}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0, y: 0.5}
-      - {x: -0.4375, y: -0.25}
-      - {x: -0.3125, y: -0.375}
-      - {x: -0.1875, y: -0.4375}
-      - {x: 0, y: -0.46875}
-      - {x: 0.1875, y: -0.4375}
-      - {x: 0.3125, y: -0.375}
-      - {x: 0.4375, y: -0.24999996}
 --- !u!114 &2652161446920581993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,8 +95,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2297319f41212a047ad8a7da94a34cfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hit_box: {fileID: 4744373200191366938}
+  hit_box: {fileID: 0}
   layer_mask:
     serializedVersion: 2
     m_Bits: 1335
+  weapon_name: 
   damage: 1
