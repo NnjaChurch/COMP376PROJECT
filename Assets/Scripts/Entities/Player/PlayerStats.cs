@@ -23,11 +23,11 @@ public class PlayerStats : Stats {
 
 	// Player Specific Stats
 	[SerializeField] int BASE_STAMINA = 100;
-	[SerializeField] int BASE_CARRY_WEIGHT = 50;		// lbs
-	[SerializeField] int BASE_EXPERIENCE_GAIN = 1;		// %
-	[SerializeField] int BASE_HEALING_EFFICACY = 1;		// %
-	[SerializeField] int BASE_DAMAGE_REDUCTION = 1;		// %
-	[SerializeField] int BASE_EXPERIENCE_LEVEL = 100;	// %
+	[SerializeField] int BASE_CARRY_WEIGHT = 50;        // lbs
+	[SerializeField] int BASE_EXPERIENCE_GAIN = 1;      // %
+	[SerializeField] int BASE_HEALING_EFFICACY = 1;     // %
+	[SerializeField] int BASE_DAMAGE_REDUCTION = 1;     // %
+	[SerializeField] int BASE_EXPERIENCE_LEVEL = 100;   // %
 	[SerializeField] float EXPERIENCE_GROWTH = 1.2f;
 
 	// Calculated Stats
@@ -41,44 +41,32 @@ public class PlayerStats : Stats {
 	// Current Stats
 	int current_stamina;
 
-	private void Start()
-	{
-		InitializeSkills();
+	// Manager Reference
+	[SerializeField] StatsManager manager_stats;
+
+	private void Start() {
 		CalculatePlayerStats();
+		FullHeal();
 	}
 
-	// Skills
-	List<Skill> skill_list;
-	private void InitializeSkills() {
-		// Initialize Skill List
-		skill_list = new List<Skill>();
-		skill_list.Add(new Skill("Health Boost", 20, 0.05f));
-		skill_list.Add(new Skill("Damage Boost", 20, 0.10f));
-		skill_list.Add(new Skill("Weight Boost", 10, 0.05f));
-		skill_list.Add(new Skill("Stamina Boost", 20, 0.05f));
-		skill_list.Add(new Skill("Movement Speed Boost", 10, 0.10f));
-		skill_list.Add(new Skill("Attack Speed Boost", 20, 0.05f));
-		skill_list.Add(new Skill("Experience Boost", 20, 0.05f));
-		skill_list.Add(new Skill("Healing Boost", 10, 0.05f));
-		skill_list.Add(new Skill("Damage Reduction Boost", 25, 0.02f));
-	}
-
+	
 	private void CalculatePlayerStats() {
 		// Strength Stats
-		max_health = Mathf.FloorToInt((BASE_HEALTH + (10 * strength)) * skill_list[0].GetBonus());
-		damage = (BASE_DAMAGE + strength);
-		carry_weight = (BASE_CARRY_WEIGHT + (2 * strength)) * skill_list[2].GetBonus();
+		max_health = Mathf.FloorToInt((BASE_HEALTH + (10 * strength)) * manager_stats.GetSkillBonus(0));
+		damage = Mathf.FloorToInt((BASE_DAMAGE + strength) * manager_stats.GetSkillBonus(1));
+		carry_weight = (BASE_CARRY_WEIGHT + (2 * strength)) * manager_stats.GetSkillBonus(2);
 
 		// Dexterity Stats
-		max_stamina = Mathf.FloorToInt((BASE_STAMINA + (10 * dexterity)) * skill_list[3].GetBonus());
-		attack_speed = (BASE_ATTACK_SPEED / (equipped_weapon ? equipped_weapon.GetSpeedModifier() : 1.0f)) / skill_list[5].GetBonus();
-		movement_speed = ((BASE_MOVEMENT_SPEED + (5 * dexterity)) * (equipped_armour ? equipped_armour.GetMovementModifier() : 1.0f)) / encumbered_modifier;
+		max_stamina = Mathf.FloorToInt((BASE_STAMINA + (10 * dexterity)) * manager_stats.GetSkillBonus(3));
+		movement_speed = (((BASE_MOVEMENT_SPEED + (0.05f * dexterity)) * (equipped_armour ? equipped_armour.GetMovementModifier() : 1.0f)) * manager_stats.GetSkillBonus(4)) / encumbered_modifier ;
+		attack_speed = (BASE_ATTACK_SPEED / (equipped_weapon ? equipped_weapon.GetSpeedModifier() : 1.0f)) / manager_stats.GetSkillBonus(5);
 
 		// Intelligence Stats
-		experience_gain = (BASE_EXPERIENCE_GAIN + skill_list[6].GetBonus());
-		healing_efficacy = (BASE_HEALING_EFFICACY + skill_list[7].GetBonus());
-		damage_reduction = (BASE_DAMAGE_REDUCTION + skill_list[8].GetBonus());
+		experience_gain = (BASE_EXPERIENCE_GAIN + manager_stats.GetSkillBonus(6));
+		healing_efficacy = (BASE_HEALING_EFFICACY + manager_stats.GetSkillBonus(7));
+		damage_reduction = (BASE_DAMAGE_REDUCTION + manager_stats.GetSkillBonus(8));
 	}
+	
 
 	private void FullHeal() {
 		current_stamina = max_stamina;

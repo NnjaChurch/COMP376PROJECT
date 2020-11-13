@@ -22,7 +22,7 @@ public class InputManager : MonoBehaviour {
 		player_movement.SetMovement(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 		player_movement.SetSprint(Input.GetKey("left shift"));
 		if (Input.GetMouseButtonDown(0)) {
-			player.Attack(player.GetStats().GetDamage());
+			//player.Attack(player.GetStats().GetDamage());
 		}		
 		
 	}

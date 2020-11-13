@@ -20,8 +20,6 @@ public class GameUI : MonoBehaviour {
 
 	GameObject inventory_ui;
 
-	public Looting lootingController;
-
 	// Start is called before the first frame update
 	void Start() {
 		player = FindObjectOfType<Player>();
@@ -43,11 +41,11 @@ public class GameUI : MonoBehaviour {
 		//health_bar.fillAmount = player.GetCurrentHeaclth() / player.GetMaxHealth();
 		//stamina_bar.fillAmount = player.GetCurrentStamina() / player.GetMaxStamina();
 
-		float current_exp = player.GetCurrentExperience();
-		float base_exp = player.GetCurrentNextLevel();
+		float current_exp = 0; //player.GetCurrentExperience();
+		float base_exp = 0; // player.GetCurrentNextLevel();
 		experience_bar.fillAmount = current_exp / base_exp;
 		experience_text.text = current_exp + "/" + base_exp;
-		player_level_text.text = "Level " + player.GetPlayerLevel();
+		player_level_text.text = "Level " + "0"; //player.GetPlayerLevel();
 
 		if (Input.GetKeyDown(KeyCode.B))
         {
@@ -60,11 +58,6 @@ public class GameUI : MonoBehaviour {
 				inventory_ui.SetActive(false);
 			}
         }
-
-		if (Input.GetKeyDown("e"))
-		{
-			lootingController.LootKeyPressed();
-		}
 	}
 
 	public void ButtonInventoryClick()

@@ -9,9 +9,15 @@ using UnityEngine;
 // ----------------------------------------------------------------------------------------------------
 
 public class Player : Entity {
-	public Camera player_cam;
-	public Inventory inventory;
-	public PlayerStats player_stats;
+
+	// Component References
+	[SerializeField] Camera player_cam;
+
+	// Manager Class References
+	[SerializeField] StatsManager manager_stats;
+
+	//[SerializeField] Inventory player_inventory;
+
 	// Start is called before the first frame update
 	void Start() {
 
@@ -27,24 +33,25 @@ public class Player : Entity {
 
 	}
 
+	/*
 	public void EquipWeapon(Weapon w) {
 		UnequipWeapon();
-		player_stats.SetEquippedWeapon(w);
-		inventory.RemoveFromInventory(w);
+		//player_stats.SetEquippedWeapon(w);
+		//player_inventory.RemoveFromInventory(w);
 	}
 
 	public void EquipArmour(Armour a) {
 		UnequipArmour();
-		player_stats.SetEquippedArmour(a);
-		inventory.RemoveFromInventory(a);
+		//player_stats.SetEquippedArmour(a);
+		player_inventory.RemoveFromInventory(a);
 	}
 
 	private void UnequipWeapon() {
-		inventory.AddToInventory(weapon);
+		//player_inventory.AddToInventory(weapon);
 	}
 
 	public void UnequipArmour() {
-		inventory.AddToInventory(armour);
+		player_inventory.AddToInventory(armour);
 	}
 
 
@@ -60,4 +67,5 @@ public class Player : Entity {
 	public float GetCarryWeight() { return player_stats.GetCarryWeight(); }
 
 	public Stats GetStats() { return player_stats;  }
+	*/
 }
