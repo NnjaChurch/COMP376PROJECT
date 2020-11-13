@@ -23,7 +23,7 @@ public class InventoryUI : MonoBehaviour {
 	// Start is called before the first frame update
 	void Start() {
 		player = FindObjectOfType<Player>();
-		player_inventory = player.inventory;
+		//player_inventory = player.inventory;
 		//    inventory_food_slot.transform.Find("ItemCount").GetComponent<Text>().text = "x" + player_inventory.consumables["Food"];
 
 		inventory_content = GameObject.FindGameObjectWithTag("InventoryContent");
@@ -38,7 +38,7 @@ public class InventoryUI : MonoBehaviour {
 		if (inventory_updated) // Refresh the inventory UI if there is a change in inventory
         {
 			updateInventoryUI();
-			inventory_weight_text.GetComponent<Text>().text = "Weight: " + player_inventory.GetInventoryWeight() + "/" + player.GetCarryWeight() + " lbs";
+			//inventory_weight_text.GetComponent<Text>().text = "Weight: " + player_inventory.GetInventoryWeight() + "/" + player.GetCarryWeight() + " lbs";
 			inventory_updated = false; // Re set to false as we just updated the inventory UI
 		}
 	}
@@ -53,7 +53,7 @@ public class InventoryUI : MonoBehaviour {
 		// TODO Potential recipe for disaster here. I'm just creating a weapon without any stats, so it will equip a faulty weapon
 		Weapon w = new Weapon();
 		w.name = item;
-		player.EquipWeapon(w);
+		//player.EquipWeapon(w);
 	}
 
 	public void ButtonEquipArmour(string item)
@@ -61,7 +61,7 @@ public class InventoryUI : MonoBehaviour {
 		// TODO Potential recipe for disaster here. I'm just creating a armour without any stats, so it will equip a faulty armour
 		Armour a = new Armour();
 		a.name = item;
-		player.EquipArmour(a);
+		//player.EquipArmour(a);
 	}
 
 	public void ButtonDropConsumable(string item)

@@ -8,7 +8,7 @@ using UnityEngine;
 //	Endpoints:
 // ----------------------------------------------------------------------------------------------------
 
-public class NewBehaviourScript : MonoBehaviour {
+public class UpgradeUI : MonoBehaviour {
 	// Start is called before the first frame update
 	void Start() {
 
