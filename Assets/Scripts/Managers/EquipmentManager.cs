@@ -16,7 +16,7 @@ public class EquipmentManager : MonoBehaviour {
 	[SerializeField] Armour armour_heavy;
 
 	// Manager Class References
-	[SerializeField] StatsManager manager_stats;
+	[SerializeField] PlayerManager manager_stats;
 
 	// Start is called before the first frame update
 	void Start() {

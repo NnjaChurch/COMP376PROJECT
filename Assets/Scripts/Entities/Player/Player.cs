@@ -14,7 +14,7 @@ public class Player : Entity {
 	[SerializeField] Camera player_cam;
 
 	// Manager Class References
-	[SerializeField] StatsManager manager_stats;
+	[SerializeField] PlayerManager manager_stats;
 
 	//[SerializeField] Inventory player_inventory;
 

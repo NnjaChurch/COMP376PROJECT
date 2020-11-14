@@ -16,7 +16,7 @@ public class UIManager : MonoBehaviour {
 	[SerializeField] PauseMenu menu_pause;
 
 	// Manager Class References
-	[SerializeField] StatsManager manager_stats;
+	[SerializeField] PlayerManager manager_stats;
 	[SerializeField] InventoryManager manager_inventory;
 	//[SerializeField] LootManager manager_loot;	TODO: Hook up LootManager once implemented
 

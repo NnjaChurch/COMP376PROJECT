@@ -7,7 +7,7 @@ using UnityEngine;
 //	Contributors: Kevin
 //	Endpoints:
 // ----------------------------------------------------------------------------------------------------
-public class StatsManager : MonoBehaviour {
+public class PlayerManager : MonoBehaviour {
 
 	// Stat Class References
 	[SerializeField] PlayerStats player_stats;
@@ -21,4 +21,6 @@ public class StatsManager : MonoBehaviour {
 	}
 
 	// TODO: Add Skill Getters when needed
+
+	// TODO: Function to handle attacks inputs from InputManager
 }

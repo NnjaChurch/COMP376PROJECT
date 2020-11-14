@@ -42,7 +42,7 @@ public class PlayerStats : Stats {
 	int current_stamina;
 
 	// Manager Reference
-	[SerializeField] StatsManager manager_stats;
+	[SerializeField] PlayerManager manager_stats;
 
 	private void Start() {
 		CalculatePlayerStats();
