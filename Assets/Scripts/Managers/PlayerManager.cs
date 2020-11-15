@@ -15,6 +15,7 @@ public class PlayerManager : MonoBehaviour {
 
 	// Manager Class References
 	[SerializeField] EquipmentManager manager_equipment;
+	[SerializeField] InventoryManager manager_inventory;
 
 	public float GetSkillBonus(int skill_number) {
 		return player_skills.GetSkillBonus(skill_number);

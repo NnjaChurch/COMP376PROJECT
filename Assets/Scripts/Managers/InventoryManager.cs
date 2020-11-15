@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class InventoryManager : MonoBehaviour {
     // Start is called before the first frame update
+
+    [SerializeField] Inventory player_inventory;
     void Start() {
 
     }

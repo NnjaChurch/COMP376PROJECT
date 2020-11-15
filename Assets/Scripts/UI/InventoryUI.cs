@@ -11,7 +11,7 @@ using UnityEngine.UI;
 
 public class InventoryUI : MonoBehaviour {
 
-	Inventory player_inventory;
+	[SerializeField] Inventory player_inventory;
 	Player player;
 
 	GameObject inventory_content; // Reference to 'Content' gameObject under InventoryPanel
@@ -23,7 +23,6 @@ public class InventoryUI : MonoBehaviour {
 	// Start is called before the first frame update
 	void Start() {
 		player = FindObjectOfType<Player>();
-		//player_inventory = player.inventory;
 		//    inventory_food_slot.transform.Find("ItemCount").GetComponent<Text>().text = "x" + player_inventory.consumables["Food"];
 
 		inventory_content = GameObject.FindGameObjectWithTag("InventoryContent");
@@ -71,7 +70,7 @@ public class InventoryUI : MonoBehaviour {
 		int dropAll = int.Parse(item.Substring(item.Length - 1));
 
 		Consumable c = new Consumable();
-		c.name = name;
+		c.consumable_name = name;
 
 		if (dropAll == 0) // Drop one
 		{
@@ -79,7 +78,8 @@ public class InventoryUI : MonoBehaviour {
 		}
 		else // Drop all
         {
-			for (int i = 0; i < player_inventory.consumables[name]; i++)
+			int consumable_count = player_inventory.consumables[name];
+			for (int i = 0; i < consumable_count; i++)
             {
 				player_inventory.RemoveFromInventory(c);
 			}
@@ -93,7 +93,7 @@ public class InventoryUI : MonoBehaviour {
 		int dropAll = int.Parse(item.Substring(item.Length - 1));
 
 		Material m = new Material();
-		m.name = name;
+		m.material_name = name;
 
 		if (dropAll == 0) // Drop one
 		{
@@ -101,7 +101,8 @@ public class InventoryUI : MonoBehaviour {
 		}
 		else // Drop all
 		{
-			for (int i = 0; i < player_inventory.materials[name]; i++)
+			int material_count = player_inventory.materials[name];
+			for (int i = 0; i < material_count; i++)
 			{
 				player_inventory.RemoveFromInventory(m);
 			}

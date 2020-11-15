@@ -1661,7 +1661,7 @@ Transform:
   - {fileID: 4967377503776863271}
   - {fileID: 1572516245370532744}
   m_Father: {fileID: 256570502}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &293998790
 PrefabInstance:
@@ -2159,6 +2159,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 164476687}
     m_Modifications:
+    - target: {fileID: 493836448139742647, guid: 4cc75cebc49299b4695e1ba82aaec233, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 9173289735411182214}
+    - target: {fileID: 493836448139742647, guid: 4cc75cebc49299b4695e1ba82aaec233, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ButtonDropConsumable
+      objectReference: {fileID: 0}
+    - target: {fileID: 6641414439469222657, guid: 4cc75cebc49299b4695e1ba82aaec233, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 9173289735411182214}
+    - target: {fileID: 6641414439469222657, guid: 4cc75cebc49299b4695e1ba82aaec233, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ButtonDropConsumable
+      objectReference: {fileID: 0}
     - target: {fileID: 6641414440289022884, guid: 4cc75cebc49299b4695e1ba82aaec233, type: 3}
       propertyPath: m_Name
       value: Food
@@ -2463,7 +2479,7 @@ Transform:
   - {fileID: 96152412}
   - {fileID: 983575773}
   m_Father: {fileID: 256570502}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &542046366 stripped
 Transform:
@@ -3246,6 +3262,49 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 081ea78783b2bae4087ec8af966eda1f, type: 3}
+--- !u!1 &799905624
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 799905626}
+  - component: {fileID: 799905625}
+  m_Layer: 0
+  m_Name: PlayerInventory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &799905625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 799905624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d695f914d0a82c14eb3377e7bc870d69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &799905626
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 799905624}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.389419, y: 1.6830409, z: -614.26263}
+  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_Children: []
+  m_Father: {fileID: 256570502}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &831708400
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4027,6 +4086,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 164476687}
     m_Modifications:
+    - target: {fileID: 834940771729991905, guid: 5d29dbe79343cc94e91690aff8aead46, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 9173289735411182214}
+    - target: {fileID: 834940771729991905, guid: 5d29dbe79343cc94e91690aff8aead46, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ButtonDropMaterial
+      objectReference: {fileID: 0}
+    - target: {fileID: 6641414439469222657, guid: 5d29dbe79343cc94e91690aff8aead46, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 9173289735411182214}
+    - target: {fileID: 6641414439469222657, guid: 5d29dbe79343cc94e91690aff8aead46, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ButtonDropMaterial
+      objectReference: {fileID: 0}
     - target: {fileID: 6641414440289022884, guid: 5d29dbe79343cc94e91690aff8aead46, type: 3}
       propertyPath: m_Name
       value: Metal
@@ -4465,6 +4540,7 @@ MonoBehaviour:
   player_stats: {fileID: 180507038}
   player_skills: {fileID: 1887403395}
   manager_equipment: {fileID: 1139298902}
+  manager_inventory: {fileID: 1822822836}
 --- !u!4 &1064401098 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6782711734862630462, guid: ec3c780e9119356418a404d77a424491, type: 3}
@@ -4477,6 +4553,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 164476687}
     m_Modifications:
+    - target: {fileID: 493836448139742647, guid: e0acf540b25d7a04c87c4755e0cae856, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 9173289735411182214}
+    - target: {fileID: 493836448139742647, guid: e0acf540b25d7a04c87c4755e0cae856, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ButtonDropConsumable
+      objectReference: {fileID: 0}
+    - target: {fileID: 6641414439469222657, guid: e0acf540b25d7a04c87c4755e0cae856, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 9173289735411182214}
+    - target: {fileID: 6641414439469222657, guid: e0acf540b25d7a04c87c4755e0cae856, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ButtonDropConsumable
+      objectReference: {fileID: 0}
     - target: {fileID: 6641414440289022884, guid: e0acf540b25d7a04c87c4755e0cae856, type: 3}
       propertyPath: m_Name
       value: Medicine
@@ -5323,7 +5415,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1820578409}
         m_TargetAssemblyTypeName: GameUI, Assembly-CSharp
         m_MethodName: ButtonInventoryClick
         m_Mode: 1
@@ -5888,6 +5980,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 164476687}
     m_Modifications:
+    - target: {fileID: 834940771729991905, guid: 06b55768f9e8e1243aba20d830b7a249, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 9173289735411182214}
+    - target: {fileID: 834940771729991905, guid: 06b55768f9e8e1243aba20d830b7a249, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ButtonDropMaterial
+      objectReference: {fileID: 0}
+    - target: {fileID: 6641414439469222657, guid: 06b55768f9e8e1243aba20d830b7a249, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 9173289735411182214}
+    - target: {fileID: 6641414439469222657, guid: 06b55768f9e8e1243aba20d830b7a249, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ButtonDropMaterial
+      objectReference: {fileID: 0}
     - target: {fileID: 6641414440289022884, guid: 06b55768f9e8e1243aba20d830b7a249, type: 3}
       propertyPath: m_Name
       value: Nails
@@ -6171,6 +6279,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 164476687}
     m_Modifications:
+    - target: {fileID: 834940771729991905, guid: 0113f6ddfc70e004fa4af78a9ed7abf0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 9173289735411182214}
+    - target: {fileID: 834940771729991905, guid: 0113f6ddfc70e004fa4af78a9ed7abf0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ButtonDropMaterial
+      objectReference: {fileID: 0}
+    - target: {fileID: 6641414439469222657, guid: 0113f6ddfc70e004fa4af78a9ed7abf0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 9173289735411182214}
+    - target: {fileID: 6641414439469222657, guid: 0113f6ddfc70e004fa4af78a9ed7abf0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ButtonDropMaterial
+      objectReference: {fileID: 0}
     - target: {fileID: 6641414440289022884, guid: 0113f6ddfc70e004fa4af78a9ed7abf0, type: 3}
       propertyPath: m_Name
       value: Wood
@@ -8008,6 +8132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52603adef58009a429fa194f08a7f542, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player_inventory: {fileID: 799905625}
 --- !u!4 &1822822837
 Transform:
   m_ObjectHideFlags: 0
@@ -9077,6 +9202,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 164476687}
     m_Modifications:
+    - target: {fileID: 4364563031407087057, guid: d62c4edd5f6a90344805d8cbf5284978, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 9173289735411182214}
+    - target: {fileID: 4364563031407087057, guid: d62c4edd5f6a90344805d8cbf5284978, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ButtonDropMaterial
+      objectReference: {fileID: 0}
     - target: {fileID: 4364563031675963173, guid: d62c4edd5f6a90344805d8cbf5284978, type: 3}
       propertyPath: m_Name
       value: Cloth
@@ -9164,6 +9297,14 @@ PrefabInstance:
     - target: {fileID: 4364563031675963174, guid: d62c4edd5f6a90344805d8cbf5284978, type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4364563031785298989, guid: d62c4edd5f6a90344805d8cbf5284978, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 9173289735411182214}
+    - target: {fileID: 4364563031785298989, guid: d62c4edd5f6a90344805d8cbf5284978, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ButtonDropMaterial
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d62c4edd5f6a90344805d8cbf5284978, type: 3}
@@ -9477,6 +9618,10 @@ PrefabInstance:
       propertyPath: inventory_weight_text
       value: 
       objectReference: {fileID: 1579360741}
+    - target: {fileID: 3640148853433252265, guid: d77f5f59b69c4644f99f2dd989cd276b, type: 3}
+      propertyPath: player_inventory
+      value: 
+      objectReference: {fileID: 799905625}
     - target: {fileID: 9173289735919289832, guid: d77f5f59b69c4644f99f2dd989cd276b, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
