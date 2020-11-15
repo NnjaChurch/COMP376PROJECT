@@ -22,6 +22,5 @@ public class InventoryManager : MonoBehaviour {
     {
 
     }
-        }
 
 }
