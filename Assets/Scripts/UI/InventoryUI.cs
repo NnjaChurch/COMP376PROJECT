@@ -108,49 +108,6 @@ public class InventoryUI : MonoBehaviour {
 		}
 	}
 
-	public void ButtonDropWeapon(string item)
-	{
-		// TODO Creating a temporary Consumable might not be the right way to do this
-		string name = item.Substring(0, item.Length - 1);
-		int dropAll = int.Parse(item.Substring(item.Length - 1));
-
-		Weapon w = new Weapon();
-		w.name = name;
-
-		if (dropAll == 0) // Drop one
-		{
-			player_inventory.RemoveFromInventory(w);
-		}
-		else // Drop all
-		{
-			for (int i = 0; i < player_inventory.weapons[name]; i++)
-			{
-				player_inventory.RemoveFromInventory(w);
-			}
-		}
-	}
-
-	public void ButtonDropArmour(string item)
-	{
-		// TODO Creating a temporary Consumable might not be the right way to do this
-		string name = item.Substring(0, item.Length - 1);
-		int dropAll = int.Parse(item.Substring(item.Length - 1));
-
-		Armour a = new Armour();
-		a.name = name;
-
-		if (dropAll == 0) // Drop one
-		{
-			player_inventory.RemoveFromInventory(a);
-		}
-		else // Drop all
-		{
-			for (int i = 0; i < player_inventory.armours[name]; i++)
-			{
-				player_inventory.RemoveFromInventory(a);
-			}
-		}
-	}
 
 	public void updateInventoryUI()
     {
@@ -167,12 +124,13 @@ public class InventoryUI : MonoBehaviour {
 				case 1:
 					dictionary = player_inventory.materials;
 					break;
-				case 2:
-					dictionary = player_inventory.weapons;
-					break;
-				case 3:
-					dictionary = player_inventory.armours;
-					break;
+				// TODO: rework this, since weapons and armour are either found or not found (no longer countable)
+				//case 2:
+				//	dictionary = player_inventory.weapons;
+				//	break;
+				//case 3:
+				//	dictionary = player_inventory.armours;
+				//	break;
 			}
 
 			foreach (KeyValuePair<string, int> entry in dictionary)

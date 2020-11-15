@@ -9,13 +9,15 @@ using UnityEngine;
 // ----------------------------------------------------------------------------------------------------
 
 
-public class Looting : MonoBehaviour {
+public class LootManager : MonoBehaviour {
 	LootTable bag;
 	LootTable furniture;
 	LootTable vehicle;
 
 	Player player;
 
+	List<string> foundWeapons = new List<string>();
+	List<string> foundArmour = new List<string>();
 
 	// Start is called before the first frame update
 	void Start() {
@@ -104,6 +106,21 @@ public class Looting : MonoBehaviour {
 		return entity;
     }
 
+	public void WeaponFound(string weaponName)
+    {
+		foundWeapons.Add(weaponName);
+		bag.removeWeaponFromTable(weaponName);
+		furniture.removeWeaponFromTable(weaponName);
+		vehicle.removeWeaponFromTable(weaponName);
+    }
+	public void ArmourFound(string armourName)
+    {
+		foundArmour.Add(armourName);
+		bag.removeArmourFromTable(armourName);
+		furniture.removeArmourFromTable(armourName);
+		vehicle.removeArmourFromTable(armourName);
+    }
+
 }
 
 public class LootUIEntity
@@ -125,6 +142,11 @@ public class LootTable
 	RangeInt weaponRange;
 	RangeInt armourRange;
 
+	string[] consumables = new string[] { "Food", "Medicine" };
+	string[] materials = new string[] { "Nails", "Wood", "Metal", "Cloth" };
+	List<string> weapons = new List<string> { "Bat", "Knife", "Sword", "Rake" };
+	List<string> armour = new List<string> { "Light", "Medium", "Heavy" };
+
 	public LootTable(RangeInt c, RangeInt m, RangeInt w, RangeInt a)
 	{
 		consumableRange = c;
@@ -133,24 +155,62 @@ public class LootTable
 		armourRange = a;
 	}
 
+	public void removeWeaponFromTable(string weaponName)
+    {
+		int weaponIdx = weapons.IndexOf(weaponName);
+		weapons[weaponIdx] = "PASS";
+    }
+
+	public void removeArmourFromTable(string armourName)
+	{
+		int armourIdx = armour.IndexOf(armourName);
+		armour[armourIdx] = "PASS";
+	}
+
 	public LootUIEntity FindLootEntityInRange(float p1)
     {
 		// TODO: add variety of options for each item type
 		if (consumableRange.start < p1 && consumableRange.end > p1)
         {
-			return new LootUIEntity(typeof(Consumable), "Food");
+			// Determine which consumable will drop
+			int rand_idx = Random.Range(0, consumables.Length - 1);
+			return new LootUIEntity(typeof(Consumable), consumables[rand_idx]);
         }
 		else if (materialRange.start < p1 && materialRange.end > p1)
 		{
-			return new LootUIEntity(typeof(Material), "Nails");
+			// Determine which material will drop
+			int rand_idx = Random.Range(0, materials.Length - 1);
+			return new LootUIEntity(typeof(Material), materials[rand_idx]);
 		}
 		else if (weaponRange.start < p1 && weaponRange.end > p1)
 		{
-			return new LootUIEntity(typeof(Weapon), "Knives");
+			// Determine which weapon will drop			
+			int rand_idx = Random.Range(0, weapons.Count - 1);
+			string weaponName = weapons[rand_idx];
+			if (weaponName == "PASS")
+            {
+				rand_idx = Random.Range(0, materials.Length - 1);
+				return new LootUIEntity(typeof(Material), materials[rand_idx]);
+			}
+            else
+            {
+				return new LootUIEntity(typeof(Weapon), weaponName);
+			}
 		}
 		else if (armourRange.start < p1 && armourRange.end > p1)
 		{
-			return new LootUIEntity(typeof(Armour), "Light");
+			// Determine which armour will drop
+			int rand_idx = Random.Range(0, armour.Count - 1);
+			string armourName = armour[rand_idx];
+			if (armourName == "PASS")
+			{
+				rand_idx = Random.Range(0, materials.Length - 1);
+				return new LootUIEntity(typeof(Material), materials[rand_idx]);
+			}
+			else
+			{
+				return new LootUIEntity(typeof(Armour), armourName);
+			}
 		}
 
 		return new LootUIEntity(null, "No loot");

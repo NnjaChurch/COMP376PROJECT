@@ -12,10 +12,12 @@ public class Inventory : MonoBehaviour
 	float current_weight;
 	bool isEncumbered;
 
-	public IDictionary<string, int> consumables = new Dictionary<string, int>();
-	public IDictionary<string, int> materials = new Dictionary<string, int>();
-	public IDictionary<string, int> weapons = new Dictionary<string, int>();
-	public IDictionary<string, int> armours = new Dictionary<string, int>();
+    public IDictionary<string, int> consumables = new Dictionary<string, int>();
+    public IDictionary<string, int> materials = new Dictionary<string, int>();
+
+    public IDictionary<string, bool> weapons = new Dictionary<string, bool>();
+    public IDictionary<string, bool> armours = new Dictionary<string, bool>();
+
 
 	// Start is called before the first frame update
 	void Start()
@@ -31,14 +33,16 @@ public class Inventory : MonoBehaviour
 		materials.Add("Metal", 0);
 		materials.Add("Cloth", 2);
 
-		weapons.Add("Knives", 0);
-		weapons.Add("Bats", 1);
-		weapons.Add("Swords", 0);
-		weapons.Add("Rakes", 0);
 
-		armours.Add("Light", 0);
-		armours.Add("Medium", 0);
-		armours.Add("Heavy", 1);
+        // Weapons and Armour are either found, or not found
+        weapons.Add("Bat", true);
+        weapons.Add("Knife", false);
+        weapons.Add("Sword", false);
+        weapons.Add("Rake", false);
+
+        armours.Add("Light", true);
+        armours.Add("Medium", false);
+        armours.Add("Heavy", false);
 
 		InventoryUI.inventory_updated = true;
 	}
@@ -54,62 +58,52 @@ public class Inventory : MonoBehaviour
 		Player player = gameObject.GetComponentInParent<Player>();
 		float carry_capacity = 0; //player.GetCarryWeight();
 
-		if (current_weight > carry_capacity)
-		{
-			isEncumbered = true;
-		}
-		else {
-			isEncumbered = false;
-		}
-	}
-	public void AddToInventory(Item i)
-	{
-		int currentCount;
-		switch (i)
-		{
-			case Consumable c:
-				currentCount = consumables[c.GetConsumableName()];
-				consumables[c.GetConsumableName()] = currentCount + 1;
-				break;
-			case Material m:
-				currentCount = materials[m.GetMaterialName()];
-				materials[m.GetMaterialName()] = currentCount + 1;
-				break;
-			case Weapon w:
-				currentCount = weapons[w.GetWeaponName()];
-				weapons[w.GetWeaponName()] = currentCount + 1;
-				break;
-			case Armour a:
-				currentCount = armours[a.GetArmourName()];
-				armours[a.GetArmourName()] = currentCount + 1;
-				break;
-		}
+        if (current_weight > carry_capacity)
+        {
+            isEncumbered = true;
+        }
+        else {
+            isEncumbered = false;
+        }
+    }
+    public void AddToInventory(Item i)
+    {
+        int currentCount;
+        switch (i)
+        {
+            case Consumable c:
+                currentCount = consumables[c.GetConsumableName()];
+                consumables[c.GetConsumableName()] = currentCount + 1;
+                break;
+            case Material m:
+                currentCount = materials[m.GetMaterialName()];
+                materials[m.GetMaterialName()] = currentCount + 1;
+                break;
+            case Weapon w:
+                weapons[w.GetWeaponName()] = true;
+                break;
+            case Armour a:
+                armours[a.GetArmourName()] = true;
+                break;
+        }
 
-		InventoryUI.inventory_updated = true; // So that inventory UI updates during next Update()
-		UpdateWeight(true, i.GetWeight());
-	}
-	public void RemoveFromInventory(Item i)
-	{
-		int currentCount;
-		switch (i)
-		{
-			case Consumable c:
-				currentCount = consumables[c.GetConsumableName()];
-				consumables[c.GetConsumableName()] = currentCount - 1;
-				break;
-			case Material m:
-				currentCount = materials[m.GetMaterialName()];
-				materials[m.GetMaterialName()] = currentCount - 1;
-				break;
-			case Weapon w:
-				currentCount = weapons[w.GetWeaponName()];
-				weapons[w.GetWeaponName()] = currentCount - 1;
-				break;
-			case Armour a:
-				currentCount = armours[a.GetArmourName()];
-				armours[a.GetArmourName()] = currentCount - 1;
-				break;
-		}
+        InventoryUI.inventory_updated = true; // So that inventory UI updates during next Update()
+        UpdateWeight(true, i.GetWeight());
+    }
+    public void RemoveFromInventory(Item i)
+    {
+        int currentCount;
+        switch (i)
+        {
+            case Consumable c:
+                currentCount = consumables[c.GetConsumableName()];
+                consumables[c.GetConsumableName()] = currentCount - 1;
+                break;
+            case Material m:
+                currentCount = materials[m.GetMaterialName()];
+                materials[m.GetMaterialName()] = currentCount - 1;
+                break;
+        }
 
 		InventoryUI.inventory_updated = true; // So that inventory UI updates during next Update()
 		UpdateWeight(false, i.GetWeight());
