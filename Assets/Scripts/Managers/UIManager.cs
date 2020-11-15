@@ -20,5 +20,19 @@ public class UIManager : MonoBehaviour {
 	[SerializeField] InventoryManager manager_inventory;
 	//[SerializeField] LootManager manager_loot;	TODO: Hook up LootManager once implemented
 
+	public void updatePlayerHealth()
+    {
+		UI_game.updatePlayerHealth();
+    }
+
+	public void updatePlayerStamina()
+	{
+		UI_game.updatePlayerStamina();
+	}
+
+	public void updatePlayerExperience()
+	{
+		UI_game.updatePlayerExperience();
+	}
 
 }

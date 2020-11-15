@@ -10,6 +10,7 @@ using UnityEngine.UI;
 // ----------------------------------------------------------------------------------------------------
 public class GameUI : MonoBehaviour {
 
+	[SerializeField] PlayerStats player_stats;
 	Player player;
 	Image health_bar;
 	Image stamina_bar;
@@ -41,11 +42,11 @@ public class GameUI : MonoBehaviour {
 		//health_bar.fillAmount = player.GetCurrentHeaclth() / player.GetMaxHealth();
 		//stamina_bar.fillAmount = player.GetCurrentStamina() / player.GetMaxStamina();
 
-		float current_exp = 0; //player.GetCurrentExperience();
-		float base_exp = 0; // player.GetCurrentNextLevel();
-		experience_bar.fillAmount = current_exp / base_exp;
-		experience_text.text = current_exp + "/" + base_exp;
-		player_level_text.text = "Level " + "0"; //player.GetPlayerLevel();
+		//float current_exp = 0; //player.GetCurrentExperience();
+		//float base_exp = 0; // player.GetCurrentNextLevel();
+		//experience_bar.fillAmount = current_exp / base_exp;
+		//experience_text.text = current_exp + "/" + base_exp;
+		//player_level_text.text = "Level " + "0"; //player.GetPlayerLevel();
 
 		if (Input.GetKeyDown(KeyCode.B))
         {
@@ -70,5 +71,27 @@ public class GameUI : MonoBehaviour {
 		{
 			inventory_ui.SetActive(false);
 		}
+	}
+
+	public void updatePlayerHealth()
+    {
+		health_bar.fillAmount = player_stats.GetCurrentHealth() / player_stats.GetMaxHealth();
+
+	}
+
+	public void updatePlayerStamina()
+	{
+		stamina_bar.fillAmount = player_stats.GetCurrentStamina() / player_stats.GetMaxStamina();
+
+	}
+
+	public void updatePlayerExperience()
+	{
+		// TODO is GetCurrentNextLevel() the correct function here?
+		int current_exp = player_stats.GetCurrentExperience();
+		int base_exp = player_stats.GetCurrentNextLevel();
+		experience_bar.fillAmount = current_exp / base_exp;
+		experience_text.text = current_exp + "/" + base_exp;
+		player_level_text.text = "Level " + player_stats.GetCurrentLevel(); //player.GetPlayerLevel();
 	}
 }

@@ -4541,6 +4541,7 @@ MonoBehaviour:
   player_skills: {fileID: 1887403395}
   manager_equipment: {fileID: 1139298902}
   manager_inventory: {fileID: 1822822836}
+  manager_UI: {fileID: 86618748}
 --- !u!4 &1064401098 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6782711734862630462, guid: ec3c780e9119356418a404d77a424491, type: 3}
@@ -8103,6 +8104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e979ea85cc7199408588ea8507079bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player_stats: {fileID: 180507038}
 --- !u!1 &1822822835
 GameObject:
   m_ObjectHideFlags: 0

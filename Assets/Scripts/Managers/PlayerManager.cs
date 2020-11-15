@@ -16,6 +16,7 @@ public class PlayerManager : MonoBehaviour {
 	// Manager Class References
 	[SerializeField] EquipmentManager manager_equipment;
 	[SerializeField] InventoryManager manager_inventory;
+	[SerializeField] UIManager manager_UI;
 
 	public float GetSkillBonus(int skill_number) {
 		return player_skills.GetSkillBonus(skill_number);
@@ -24,4 +25,20 @@ public class PlayerManager : MonoBehaviour {
 	// TODO: Add Skill Getters when needed
 
 	// TODO: Function to handle attacks inputs from InputManager
+
+	// TODO someone has to call the following update ui functions
+	public void updatePlayerHealthInUI()
+	{
+		manager_UI.updatePlayerHealth();
+	}
+
+	public void updatePlayerStaminaInUI()
+	{
+		manager_UI.updatePlayerStamina();
+	}
+
+	public void updatePlayerExperienceInUI()
+	{
+		manager_UI.updatePlayerExperience();
+	}
 }
