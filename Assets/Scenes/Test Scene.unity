@@ -4404,6 +4404,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 164476687}
     m_Modifications:
+    - target: {fileID: 6641414439032912268, guid: 25f4ecb9c4455314a9f37a14bccda944, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Light Armour
+      objectReference: {fileID: 0}
     - target: {fileID: 6641414440289022884, guid: 25f4ecb9c4455314a9f37a14bccda944, type: 3}
       propertyPath: m_Name
       value: Light
@@ -7082,6 +7086,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 164476687}
     m_Modifications:
+    - target: {fileID: 6641414439032912268, guid: 7410823eab101884b944735849ab90d1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Medium Armour
+      objectReference: {fileID: 0}
     - target: {fileID: 6641414440289022884, guid: 7410823eab101884b944735849ab90d1, type: 3}
       propertyPath: m_Name
       value: Medium
@@ -9464,6 +9472,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 164476687}
     m_Modifications:
+    - target: {fileID: 8698870643626824879, guid: 2705477c2e1eea24b8d541ee36078bb5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Heavy Armour
+      objectReference: {fileID: 0}
     - target: {fileID: 8698870643953822456, guid: 2705477c2e1eea24b8d541ee36078bb5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
