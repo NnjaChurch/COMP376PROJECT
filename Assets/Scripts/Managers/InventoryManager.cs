@@ -6,6 +6,7 @@ public class InventoryManager : MonoBehaviour {
     // Start is called before the first frame update
 
     [SerializeField] Inventory player_inventory;
+    [SerializeField] EquipmentManager equipment_manager;
     void Start() {
 
     }
@@ -25,4 +26,45 @@ public class InventoryManager : MonoBehaviour {
 
     }
 
+    public void RemoveFromInventory(Item i)
+    {
+        player_inventory.RemoveFromInventory(i);
+    }
+
+    public void AddToInventory(Item i)
+    {
+        player_inventory.AddToInventory(i);
+    }
+
+    public IDictionary<string, int> GetConsumables()
+    {
+        return player_inventory.consumables;
+    }
+
+    public IDictionary<string, int> GetMaterials()
+    {
+        return player_inventory.materials;
+    }
+
+    public IDictionary<string, int> GetFoundWeapons()
+    {
+        IDictionary<string, int> weaponsCount = new Dictionary<string, int>();
+        foreach(KeyValuePair<string, bool> weapon in player_inventory.weapons)
+        {
+            // if the weapon has been found (ie. is true) and is not currently equipped, return to UI
+            if (weapon.Value && equipment_manager.GetEquippedWeapon().name != weapon.Key) { weaponsCount.Add(weapon.Key, 1); }
+        }
+        return weaponsCount;
+    }
+
+    public IDictionary<string, int> GetFoundArmour()
+    {
+        IDictionary<string, int> armourCount = new Dictionary<string, int>();
+        foreach (KeyValuePair<string, bool> armour in player_inventory.armours)
+        {
+            // if the armour has been found (ie. is true) and is not currently equipped, return to UI
+            if (armour.Value && equipment_manager.GetEquippedArmour().name != armour.Key) { armourCount.Add(armour.Key, 1); }
+        }
+        return armourCount;
+    }
 }

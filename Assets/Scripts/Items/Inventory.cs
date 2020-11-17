@@ -40,9 +40,9 @@ public class Inventory : MonoBehaviour
         weapons.Add("Sword", false);
         weapons.Add("Rake", false);
 
-        armours.Add("Light", true);
-        armours.Add("Medium", false);
-        armours.Add("Heavy", false);
+        armours.Add("Light Armour", true);
+        armours.Add("Medium Armour", false);
+        armours.Add("Heavy Armour", false);
 
 		InventoryUI.inventory_updated = true;
 	}

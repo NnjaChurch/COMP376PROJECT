@@ -27,4 +27,26 @@ public class EquipmentManager : MonoBehaviour {
 	void Update() {
 
 	}
+
+	public Weapon GetEquippedWeapon()
+    {
+		//TODO
+		return weapon_bat;
+    }
+
+	public Armour GetEquippedArmour()
+    {
+		//TODO
+		return armour_light;
+    }
+
+	public void EquipWeapon(string item)
+    {
+		Debug.Log("equipping " + item);
+    }
+	public void EquipArmour(string item)
+    {
+		Debug.Log("equipping " + item);
+
+	}
 }

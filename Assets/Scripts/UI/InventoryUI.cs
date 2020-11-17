@@ -11,7 +11,8 @@ using UnityEngine.UI;
 
 public class InventoryUI : MonoBehaviour {
 
-	[SerializeField] Inventory player_inventory;
+	[SerializeField] InventoryManager inventory_manager;
+	[SerializeField] EquipmentManager equipment_manager;
 	Player player;
 
 	GameObject inventory_content; // Reference to 'Content' gameObject under InventoryPanel
@@ -49,18 +50,12 @@ public class InventoryUI : MonoBehaviour {
 
 	public void ButtonEquipWeapon(string item)
 	{
-		// TODO Potential recipe for disaster here. I'm just creating a weapon without any stats, so it will equip a faulty weapon
-		Weapon w = new Weapon();
-		w.name = item;
-		//player.EquipWeapon(w);
+		equipment_manager.EquipWeapon(item);
 	}
 
 	public void ButtonEquipArmour(string item)
 	{
-		// TODO Potential recipe for disaster here. I'm just creating a armour without any stats, so it will equip a faulty armour
-		Armour a = new Armour();
-		a.name = item;
-		//player.EquipArmour(a);
+		equipment_manager.EquipArmour(item);
 	}
 
 	public void ButtonDropConsumable(string item)
@@ -74,14 +69,14 @@ public class InventoryUI : MonoBehaviour {
 
 		if (dropAll == 0) // Drop one
 		{
-			player_inventory.RemoveFromInventory(c);
+			inventory_manager.RemoveFromInventory(c);
 		}
 		else // Drop all
         {
-			int consumable_count = player_inventory.consumables[name];
+			int consumable_count = inventory_manager.GetConsumables()[name];
 			for (int i = 0; i < consumable_count; i++)
             {
-				player_inventory.RemoveFromInventory(c);
+				inventory_manager.RemoveFromInventory(c);
 			}
         }
 	}
@@ -97,14 +92,14 @@ public class InventoryUI : MonoBehaviour {
 
 		if (dropAll == 0) // Drop one
 		{
-			player_inventory.RemoveFromInventory(m);
+			inventory_manager.RemoveFromInventory(m);
 		}
 		else // Drop all
 		{
-			int material_count = player_inventory.materials[name];
+			int material_count = inventory_manager.GetMaterials()[name];
 			for (int i = 0; i < material_count; i++)
 			{
-				player_inventory.RemoveFromInventory(m);
+				inventory_manager.RemoveFromInventory(m);
 			}
 		}
 	}
@@ -120,18 +115,17 @@ public class InventoryUI : MonoBehaviour {
 			switch (i)
 			{
 				case 0:
-					dictionary = player_inventory.consumables;
+					dictionary = inventory_manager.GetConsumables();
 					break;
 				case 1:
-					dictionary = player_inventory.materials;
+					dictionary = inventory_manager.GetMaterials();
 					break;
-				// TODO: rework this, since weapons and armour are either found or not found (no longer countable)
-				//case 2:
-				//	dictionary = player_inventory.weapons;
-				//	break;
-				//case 3:
-				//	dictionary = player_inventory.armours;
-				//	break;
+				case 2:
+					dictionary = inventory_manager.GetFoundWeapons();
+					break;
+				case 3:
+					dictionary = inventory_manager.GetFoundArmour();
+					break;
 			}
 
 			foreach (KeyValuePair<string, int> entry in dictionary)

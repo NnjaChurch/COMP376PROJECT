@@ -6925,7 +6925,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6641414440289022884, guid: 9468ed38c0a057d4e991850b72c5d147, type: 3}
       propertyPath: m_Name
-      value: Swords
+      value: Sword
       objectReference: {fileID: 0}
     - target: {fileID: 6641414440289022885, guid: 9468ed38c0a057d4e991850b72c5d147, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7720,7 +7720,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8496082087440289119, guid: b91c87cf925ed184987bf1c135457a2f, type: 3}
       propertyPath: m_Name
-      value: Bats
+      value: Bat
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b91c87cf925ed184987bf1c135457a2f, type: 3}
@@ -8135,6 +8135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player_inventory: {fileID: 799905625}
+  equipment_manager: {fileID: 1139298902}
 --- !u!4 &1822822837
 Transform:
   m_ObjectHideFlags: 0
@@ -8409,7 +8410,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6641414440289022884, guid: e6c24f580767fd7498be9bbd78a9a4fc, type: 3}
       propertyPath: m_Name
-      value: Rakes
+      value: Rake
       objectReference: {fileID: 0}
     - target: {fileID: 6641414440289022885, guid: e6c24f580767fd7498be9bbd78a9a4fc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8743,7 +8744,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6641414440289022884, guid: 817fdb73a3e502345b735b082854f9eb, type: 3}
       propertyPath: m_Name
-      value: Knives
+      value: Knife
       objectReference: {fileID: 0}
     - target: {fileID: 6641414440289022885, guid: 817fdb73a3e502345b735b082854f9eb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9624,6 +9625,14 @@ PrefabInstance:
       propertyPath: player_inventory
       value: 
       objectReference: {fileID: 799905625}
+    - target: {fileID: 3640148853433252265, guid: d77f5f59b69c4644f99f2dd989cd276b, type: 3}
+      propertyPath: inventory_manager
+      value: 
+      objectReference: {fileID: 1822822836}
+    - target: {fileID: 3640148853433252265, guid: d77f5f59b69c4644f99f2dd989cd276b, type: 3}
+      propertyPath: equipment_manager
+      value: 
+      objectReference: {fileID: 1139298902}
     - target: {fileID: 9173289735919289832, guid: d77f5f59b69c4644f99f2dd989cd276b, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
