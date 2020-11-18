@@ -80,6 +80,9 @@ public class PlayerStats : Stats {
 	public float GetCarryWeight() { return carry_weight; }
 	public int GetCurrentExperience() { return current_experience; }
 	public int GetCurrentNextLevel() { return current_next_level; }
+	public int GetStrength() { return strength; }
+	public int GetDexterity() { return dexterity; }
+	public int GetIntelligence() { return intelligence; }
 	public void SetEquippedWeapon(Weapon w) {
 		equipped_weapon = w;
 		CalculatePlayerStats();

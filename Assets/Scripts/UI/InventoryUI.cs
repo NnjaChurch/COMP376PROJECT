@@ -13,6 +13,7 @@ public class InventoryUI : MonoBehaviour {
 
 	[SerializeField] InventoryManager inventory_manager;
 	[SerializeField] EquipmentManager equipment_manager;
+	[SerializeField] UIManager ui_manager;
 	Player player;
 
 	GameObject inventory_content; // Reference to 'Content' gameObject under InventoryPanel
@@ -45,17 +46,22 @@ public class InventoryUI : MonoBehaviour {
 
 	public void ButtonConsumeClick(string option)
     {
+		// TODO
 		Debug.Log("Consuming");
     }
 
 	public void ButtonEquipWeapon(string item)
 	{
 		equipment_manager.EquipWeapon(item);
+		inventory_updated = true;
+		ui_manager.updatePlayerEquippedWeapon();
 	}
 
 	public void ButtonEquipArmour(string item)
 	{
 		equipment_manager.EquipArmour(item);
+		inventory_updated = true;
+		ui_manager.updatePlayerEquippedArmour();
 	}
 
 	public void ButtonDropConsumable(string item)
@@ -83,7 +89,7 @@ public class InventoryUI : MonoBehaviour {
 
 	public void ButtonDropMaterial(string item)
 	{
-		// TODO Creating a temporary Consumable might not be the right way to do this
+		// TODO Creating a temporary Material might not be the right way to do this
 		string name = item.Substring(0, item.Length - 1);
 		int dropAll = int.Parse(item.Substring(item.Length - 1));
 

@@ -35,4 +35,19 @@ public class UIManager : MonoBehaviour {
 		UI_game.updatePlayerExperience();
 	}
 
+	public void updatePlayerEquippedWeapon()
+	{
+		UI_character.updateEquippedWeapon();
+	}
+
+	public void updatePlayerEquippedArmour()
+	{
+		UI_character.updateEquippedArmour();
+	}
+
+	public void updatePlayerSkills()
+	{
+		UI_character.updatePlayerSkills();
+	}
+
 }
