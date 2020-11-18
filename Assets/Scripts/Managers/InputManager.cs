@@ -12,6 +12,8 @@ public class InputManager : MonoBehaviour {
 	public Player player;
 	public Movement player_movement;
 
+	[SerializeField] LootManager loot_manager;
+
 
 	// Start is called before the first frame update
 	void Start() {
@@ -25,7 +27,10 @@ public class InputManager : MonoBehaviour {
 			// TODO: Hook up function call to PlayerManager
 			//player.Attack(player.GetStats().GetDamage());
 		}		
-		
+		if(Input.GetKeyDown("e"))
+        {
+			loot_manager.LootKeyPressed();
+        }
 	}
 
 	private void FixedUpdate() {
