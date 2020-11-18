@@ -26,7 +26,7 @@ public class PlayerManager : MonoBehaviour {
 
 	// TODO: Function to handle attacks inputs from InputManager
 
-	public void consume(Consumable c)
+	public void consume(string consumable_name)
     {
 		Debug.Log("TODO consume()");
 		// TODO implement the actual healing of the player here ... or delegate to player_stats

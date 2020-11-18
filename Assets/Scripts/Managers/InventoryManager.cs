@@ -27,14 +27,14 @@ public class InventoryManager : MonoBehaviour {
 
     }
 
-    public void RemoveFromInventory(Item i)
+    public void RemoveFromInventory(string itemName)
     {
-        player_inventory.RemoveFromInventory(i);
+        player_inventory.RemoveFromInventory(itemName);
     }
 
-    public void AddToInventory(Item i)
+    public void AddToInventory(string itemName)
     {
-        player_inventory.AddToInventory(i);
+        player_inventory.AddToInventory(itemName);
     }
 
     public int GetWeight()
@@ -76,9 +76,7 @@ public class InventoryManager : MonoBehaviour {
 
     public void consume(string consumable)
     {
-        Consumable c = new Consumable();
-        c.consumable_name = consumable;
-        RemoveFromInventory(c);
-        player_manager.consume(c);
+        RemoveFromInventory(consumable);
+        player_manager.consume(consumable);
     }
 }
