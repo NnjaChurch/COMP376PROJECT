@@ -49,4 +49,45 @@ public class EquipmentManager : MonoBehaviour {
 		Debug.Log("equipping " + item);
 
 	}
+
+	// -------------------------------------------------------------------------------------------------------------------------------------------- //
+	public int GetWeaponWeight(string weaponName)
+    {
+		if (weaponName == "Knife")
+        {
+			return (int) weapon_knife.GetWeight();
+        }
+		else if (weaponName == "Bat")
+		{
+			return (int) weapon_bat.GetWeight();
+		}
+		else if (weaponName == "Shovel")
+		{
+			return (int) weapon_shovel.GetWeight();
+		}
+		else if (weaponName == "Rake")
+		{
+			return (int) weapon_rake.GetWeight();
+		}
+
+		return -1;
+	}
+
+	public int GetArmourWeight(string armourName)
+    {
+		if (armourName == "Light Armour")
+		{
+			return (int) armour_light.GetWeight();
+		}
+		else if (armourName == "Medium Armour")
+		{
+			return (int)armour_medium.GetWeight();
+		}
+		else if (armourName == "Heavy Armour")
+		{
+			return (int)armour_heavy.GetWeight();
+		}
+
+		return -1;
+	}
 }

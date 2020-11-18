@@ -37,6 +37,11 @@ public class InventoryManager : MonoBehaviour {
         player_inventory.AddToInventory(i);
     }
 
+    public int GetWeight()
+    {
+        return (int) player_inventory.GetInventoryWeight();
+    }
+
     public IDictionary<string, int> GetConsumables()
     {
         return player_inventory.consumables;

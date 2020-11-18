@@ -2227,6 +2227,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ButtonDropConsumable
       objectReference: {fileID: 0}
+    - target: {fileID: 6641414439032912268, guid: 4cc75cebc49299b4695e1ba82aaec233, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 9173289735411182214}
+    - target: {fileID: 6641414439032912268, guid: 4cc75cebc49299b4695e1ba82aaec233, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ButtonConsumeClick
+      objectReference: {fileID: 0}
     - target: {fileID: 6641414439469222657, guid: 4cc75cebc49299b4695e1ba82aaec233, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -4536,6 +4544,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: Light Armour
       objectReference: {fileID: 0}
+    - target: {fileID: 6641414439032912268, guid: 25f4ecb9c4455314a9f37a14bccda944, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 9173289735411182214}
+    - target: {fileID: 6641414439032912268, guid: 25f4ecb9c4455314a9f37a14bccda944, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ButtonEquipArmour
+      objectReference: {fileID: 0}
     - target: {fileID: 6641414439416618833, guid: 25f4ecb9c4455314a9f37a14bccda944, type: 3}
       propertyPath: m_Text
       value: 'Defense: 5'
@@ -4546,7 +4562,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6641414440289022884, guid: 25f4ecb9c4455314a9f37a14bccda944, type: 3}
       propertyPath: m_Name
-      value: Light
+      value: Light Armour
       objectReference: {fileID: 0}
     - target: {fileID: 6641414440289022885, guid: 25f4ecb9c4455314a9f37a14bccda944, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4701,6 +4717,14 @@ PrefabInstance:
     - target: {fileID: 493836448139742647, guid: e0acf540b25d7a04c87c4755e0cae856, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ButtonDropConsumable
+      objectReference: {fileID: 0}
+    - target: {fileID: 6641414439032912268, guid: e0acf540b25d7a04c87c4755e0cae856, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 9173289735411182214}
+    - target: {fileID: 6641414439032912268, guid: e0acf540b25d7a04c87c4755e0cae856, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ButtonConsumeClick
       objectReference: {fileID: 0}
     - target: {fileID: 6641414439469222657, guid: e0acf540b25d7a04c87c4755e0cae856, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -6664,11 +6688,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6782711734862630462, guid: 1048aef945a6cb2449ab832601159dfe, type: 3}
   m_PrefabInstance: {fileID: 275499665}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1579360741 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9173289736011656954, guid: d77f5f59b69c4644f99f2dd989cd276b, type: 3}
+--- !u!114 &1579360743 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9173289736011656708, guid: d77f5f59b69c4644f99f2dd989cd276b, type: 3}
   m_PrefabInstance: {fileID: 9173289735411182213}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1582697247
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7332,6 +7362,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ButtonEquipWeapon
       objectReference: {fileID: 0}
+    - target: {fileID: 6641414439032912268, guid: 9468ed38c0a057d4e991850b72c5d147, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 9173289735411182214}
     - target: {fileID: 6641414439416618833, guid: 9468ed38c0a057d4e991850b72c5d147, type: 3}
       propertyPath: m_Text
       value: 'Damage: 3'
@@ -7499,6 +7533,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: Medium Armour
       objectReference: {fileID: 0}
+    - target: {fileID: 6641414439032912268, guid: 7410823eab101884b944735849ab90d1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 9173289735411182214}
+    - target: {fileID: 6641414439032912268, guid: 7410823eab101884b944735849ab90d1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ButtonEquipArmour
+      objectReference: {fileID: 0}
     - target: {fileID: 6641414439416618833, guid: 7410823eab101884b944735849ab90d1, type: 3}
       propertyPath: m_Text
       value: 'Defense: 10'
@@ -7509,7 +7551,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6641414440289022884, guid: 7410823eab101884b944735849ab90d1, type: 3}
       propertyPath: m_Name
-      value: Medium
+      value: Medium Armour
       objectReference: {fileID: 0}
     - target: {fileID: 6641414440289022885, guid: 7410823eab101884b944735849ab90d1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8171,6 +8213,14 @@ PrefabInstance:
     - target: {fileID: 2941271910617244223, guid: b91c87cf925ed184987bf1c135457a2f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: Bat
+      objectReference: {fileID: 0}
+    - target: {fileID: 2941271910617244223, guid: b91c87cf925ed184987bf1c135457a2f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 9173289735411182214}
+    - target: {fileID: 2941271910617244223, guid: b91c87cf925ed184987bf1c135457a2f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ButtonEquipWeapon
       objectReference: {fileID: 0}
     - target: {fileID: 5927185693924958716, guid: b91c87cf925ed184987bf1c135457a2f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8964,6 +9014,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: Rake
       objectReference: {fileID: 0}
+    - target: {fileID: 6641414439032912268, guid: e6c24f580767fd7498be9bbd78a9a4fc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 9173289735411182214}
+    - target: {fileID: 6641414439032912268, guid: e6c24f580767fd7498be9bbd78a9a4fc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ButtonEquipWeapon
+      objectReference: {fileID: 0}
     - target: {fileID: 6641414439416618833, guid: e6c24f580767fd7498be9bbd78a9a4fc, type: 3}
       propertyPath: m_Text
       value: 'Damage: 2'
@@ -9320,6 +9378,14 @@ PrefabInstance:
     - target: {fileID: 6641414439032912268, guid: 817fdb73a3e502345b735b082854f9eb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: Knife
+      objectReference: {fileID: 0}
+    - target: {fileID: 6641414439032912268, guid: 817fdb73a3e502345b735b082854f9eb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 9173289735411182214}
+    - target: {fileID: 6641414439032912268, guid: 817fdb73a3e502345b735b082854f9eb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ButtonEquipWeapon
       objectReference: {fileID: 0}
     - target: {fileID: 6641414439416618833, guid: 817fdb73a3e502345b735b082854f9eb, type: 3}
       propertyPath: m_Text
@@ -10055,6 +10121,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: Heavy Armour
       objectReference: {fileID: 0}
+    - target: {fileID: 8698870643626824879, guid: 2705477c2e1eea24b8d541ee36078bb5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 9173289735411182214}
+    - target: {fileID: 8698870643626824879, guid: 2705477c2e1eea24b8d541ee36078bb5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ButtonEquipArmour
+      objectReference: {fileID: 0}
     - target: {fileID: 8698870643953822456, guid: 2705477c2e1eea24b8d541ee36078bb5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -10141,7 +10215,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8698870643953822457, guid: 2705477c2e1eea24b8d541ee36078bb5, type: 3}
       propertyPath: m_Name
-      value: Heavy
+      value: Heavy Armour
       objectReference: {fileID: 0}
     - target: {fileID: 8698870644644307557, guid: 2705477c2e1eea24b8d541ee36078bb5, type: 3}
       propertyPath: m_Name
@@ -10219,7 +10293,7 @@ PrefabInstance:
     - target: {fileID: 3640148853433252265, guid: d77f5f59b69c4644f99f2dd989cd276b, type: 3}
       propertyPath: inventory_weight_text
       value: 
-      objectReference: {fileID: 1579360741}
+      objectReference: {fileID: 1579360743}
     - target: {fileID: 3640148853433252265, guid: d77f5f59b69c4644f99f2dd989cd276b, type: 3}
       propertyPath: player_inventory
       value: 

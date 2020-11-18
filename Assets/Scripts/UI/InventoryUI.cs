@@ -17,7 +17,7 @@ public class InventoryUI : MonoBehaviour {
 	Player player;
 
 	[SerializeField] GameObject inventory_content; // Reference to 'Content' gameObject under InventoryPanel
-	[SerializeField] GameObject inventory_weight_text; // Text that shows current weight in the bottom of inventory
+	[SerializeField] Text inventory_weight_text; // Text that shows current weight in the bottom of inventory
 
 	public static bool inventory_updated = false; // To know if there is a change in inventory
 
@@ -48,7 +48,6 @@ public class InventoryUI : MonoBehaviour {
 
 	public void ButtonEquipWeapon(string weapon)
 	{
-		Debug.Log(weapon + " lol");
 		equipment_manager.EquipWeapon(weapon);
 		ui_manager.updateInventoryUI();
 		ui_manager.updatePlayerEquippedWeapon();
@@ -134,7 +133,17 @@ public class InventoryUI : MonoBehaviour {
 				itemSlot = inventory_content.transform.Find(entry.Key);
 				if (entry.Value != 0)
 				{
-					//int itemWeight = dictionary[entry.Key] * weightOfItem;
+					// TODO So far only the weights of weapons and armours can be obtained this way. Should we have references to consumables and material in equipment manager too?
+					int itemWeight = -1;
+
+					if (i == 2) { // Dealing with weapons
+						itemWeight = dictionary[entry.Key] * equipment_manager.GetWeaponWeight(entry.Key);
+					}
+					else if (i == 3)
+                    {
+						itemWeight = dictionary[entry.Key] * equipment_manager.GetArmourWeight(entry.Key);
+					}
+
 					if (itemSlot.gameObject.activeSelf) // item had more than 1 count, and increased or decreased but still has more than 1
 					{
 						itemSlot.Find("ItemCount").GetComponent<Text>().text = "x" + dictionary[entry.Key];
@@ -154,5 +163,7 @@ public class InventoryUI : MonoBehaviour {
 				}
 			}
 		}
+
+		inventory_weight_text.text = "Weight: " + inventory_manager.GetWeight() + "/100 lbs";
 	}
 }

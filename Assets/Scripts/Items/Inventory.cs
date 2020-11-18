@@ -38,9 +38,9 @@ public class Inventory : MonoBehaviour
 
         // Weapons and Armour are either found, or not found
         weapons.Add("Bat", true);
-        weapons.Add("Knife", true);
-        weapons.Add("Sword", true);
-        weapons.Add("Rake", true);
+        weapons.Add("Knife", false);
+        weapons.Add("Sword", false);
+        weapons.Add("Rake", false);
 
         armours.Add("Light Armour", true);
         armours.Add("Medium Armour", false);
