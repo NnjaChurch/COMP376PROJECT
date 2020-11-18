@@ -20,6 +20,12 @@ public class UIManager : MonoBehaviour {
 	[SerializeField] InventoryManager manager_inventory;
 	//[SerializeField] LootManager manager_loot;	TODO: Hook up LootManager once implemented
 
+	public void updateInventoryUI()
+    {
+		InventoryUI.inventory_updated = true; // This lets it know that it should update in the next frame
+
+	}
+
 	public void updatePlayerHealth()
     {
 		UI_game.updatePlayerHealth();

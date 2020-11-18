@@ -7,6 +7,7 @@ public class InventoryManager : MonoBehaviour {
 
     [SerializeField] Inventory player_inventory;
     [SerializeField] EquipmentManager equipment_manager;
+    [SerializeField] PlayerManager player_manager;
     void Start() {
 
     }
@@ -66,5 +67,13 @@ public class InventoryManager : MonoBehaviour {
             if (armour.Value && equipment_manager.GetEquippedArmour().name != armour.Key) { armourCount.Add(armour.Key, 1); }
         }
         return armourCount;
+    }
+
+    public void consume(string consumable)
+    {
+        Consumable c = new Consumable();
+        c.name = consumable;
+        RemoveFromInventory(c);
+        player_manager.consume(c);
     }
 }

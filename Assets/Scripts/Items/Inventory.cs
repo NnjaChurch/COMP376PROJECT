@@ -9,6 +9,8 @@ using UnityEngine;
 // ----------------------------------------------------------------------------------------------------
 public class Inventory : MonoBehaviour
 {
+    [SerializeField] UIManager UI_manager;
+
 	float current_weight;
 	bool isEncumbered;
 
@@ -36,15 +38,15 @@ public class Inventory : MonoBehaviour
 
         // Weapons and Armour are either found, or not found
         weapons.Add("Bat", true);
-        weapons.Add("Knife", false);
-        weapons.Add("Sword", false);
-        weapons.Add("Rake", false);
+        weapons.Add("Knife", true);
+        weapons.Add("Sword", true);
+        weapons.Add("Rake", true);
 
         armours.Add("Light Armour", true);
         armours.Add("Medium Armour", false);
         armours.Add("Heavy Armour", false);
 
-		InventoryUI.inventory_updated = true;
+        UI_manager.updateInventoryUI();
 	}
 
 	// Update is called once per frame
@@ -87,7 +89,7 @@ public class Inventory : MonoBehaviour
                 break;
         }
 
-        InventoryUI.inventory_updated = true; // So that inventory UI updates during next Update()
+        UI_manager.updateInventoryUI();
         UpdateWeight(true, i.GetWeight());
     }
     public void RemoveFromInventory(Item i)
@@ -105,7 +107,7 @@ public class Inventory : MonoBehaviour
                 break;
         }
 
-		InventoryUI.inventory_updated = true; // So that inventory UI updates during next Update()
+        UI_manager.updateInventoryUI();
 		UpdateWeight(false, i.GetWeight());
 	}
 

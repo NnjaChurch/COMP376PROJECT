@@ -16,18 +16,15 @@ public class InventoryUI : MonoBehaviour {
 	[SerializeField] UIManager ui_manager;
 	Player player;
 
-	GameObject inventory_content; // Reference to 'Content' gameObject under InventoryPanel
-	[SerializeField]
-	GameObject inventory_weight_text; // Text that shows current weight in the bottom of inventory
+	[SerializeField] GameObject inventory_content; // Reference to 'Content' gameObject under InventoryPanel
+	[SerializeField] GameObject inventory_weight_text; // Text that shows current weight in the bottom of inventory
 
 	public static bool inventory_updated = false; // To know if there is a change in inventory
 
 	// Start is called before the first frame update
 	void Start() {
 		player = FindObjectOfType<Player>();
-		//    inventory_food_slot.transform.Find("ItemCount").GetComponent<Text>().text = "x" + player_inventory.consumables["Food"];
 
-		inventory_content = GameObject.FindGameObjectWithTag("InventoryContent");
 		for (int i = 0; i < inventory_content.transform.childCount; i++)
         {
 			inventory_content.transform.GetChild(i).gameObject.SetActive(false);
@@ -44,29 +41,28 @@ public class InventoryUI : MonoBehaviour {
 		}
 	}
 
-	public void ButtonConsumeClick(string option)
+	public void ButtonConsumeClick(string consumable)
     {
-		// TODO
-		Debug.Log("Consuming");
+		inventory_manager.consume(consumable);
     }
 
-	public void ButtonEquipWeapon(string item)
+	public void ButtonEquipWeapon(string weapon)
 	{
-		equipment_manager.EquipWeapon(item);
-		inventory_updated = true;
+		Debug.Log(weapon + " lol");
+		equipment_manager.EquipWeapon(weapon);
+		ui_manager.updateInventoryUI();
 		ui_manager.updatePlayerEquippedWeapon();
 	}
 
-	public void ButtonEquipArmour(string item)
+	public void ButtonEquipArmour(string armour)
 	{
-		equipment_manager.EquipArmour(item);
-		inventory_updated = true;
+		equipment_manager.EquipArmour(armour);
+		ui_manager.updateInventoryUI();
 		ui_manager.updatePlayerEquippedArmour();
 	}
 
 	public void ButtonDropConsumable(string item)
 	{
-		// TODO Creating a temporary Consumable might not be the right way to do this
 		string name = item.Substring(0, item.Length-1);
 		int dropAll = int.Parse(item.Substring(item.Length - 1));
 
@@ -89,7 +85,6 @@ public class InventoryUI : MonoBehaviour {
 
 	public void ButtonDropMaterial(string item)
 	{
-		// TODO Creating a temporary Material might not be the right way to do this
 		string name = item.Substring(0, item.Length - 1);
 		int dropAll = int.Parse(item.Substring(item.Length - 1));
 

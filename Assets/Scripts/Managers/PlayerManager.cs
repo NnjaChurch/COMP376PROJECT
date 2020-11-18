@@ -26,6 +26,11 @@ public class PlayerManager : MonoBehaviour {
 
 	// TODO: Function to handle attacks inputs from InputManager
 
+	public void consume(Consumable c)
+    {
+		// TODO implement the actual healing of the player here ... or delegate to player_stats
+    }
+
 	// TODO someone has to call the following update ui functions
 	public void updatePlayerHealthInUI()
 	{
@@ -56,4 +61,9 @@ public class PlayerManager : MonoBehaviour {
 	{
 		manager_UI.updatePlayerSkills();
 	}
+
+	public void updatePlayerInventoryInUI()
+	{   // This function is already being called in the right places
+		manager_UI.updateInventoryUI();
+    }
 }
