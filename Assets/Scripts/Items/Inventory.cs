@@ -39,7 +39,7 @@ public class Inventory : MonoBehaviour
         // Weapons and Armour are either found, or not found
         weapons.Add("Bat", true);
         weapons.Add("Knife", false);
-        weapons.Add("Sword", false);
+        weapons.Add("Shovel", false);
         weapons.Add("Rake", false);
 
         armours.Add("Light Armour", true);
@@ -68,49 +68,73 @@ public class Inventory : MonoBehaviour
             isEncumbered = false;
         }
     }
-    public void AddToInventory(Item i)
+    public void AddToInventory(string itemName)
     {
         int currentCount;
-        switch (i)
+        switch (itemName)
         {
-            case Consumable c:
-                currentCount = consumables[c.GetConsumableName()];
-                consumables[c.GetConsumableName()] = currentCount + 1;
+            case "Food":
+            case "Medicine":
+                currentCount = consumables[itemName];
+                consumables[itemName] = currentCount + 1;
                 break;
-            case Material m:
-                currentCount = materials[m.GetMaterialName()];
-                materials[m.GetMaterialName()] = currentCount + 1;
+
+            case "Nails":
                 break;
-            case Weapon w:
-                weapons[w.GetWeaponName()] = true;
+            case "Wood":
                 break;
-            case Armour a:
-                armours[a.GetArmourName()] = true;
+            case "Metal":
+                break;
+            case "Cloth":
+                currentCount = materials[itemName];
+                materials[itemName] = currentCount + 1;
+                break;
+
+            case "Bat":
+            case "Knife":
+            case "Shovel":
+            case "Rake":
+                weapons[itemName] = true;
+                break;
+
+
+            case "Light Armour":
+            case "Medium Armour":
+            case "Heavy Armour":
+                armours[itemName] = true;
                 break;
         }
 
         UI_manager.updateInventoryUI();
-        UpdateWeight(true, i.GetWeight());
+        //TODO: The inventory weight needs to be updated
     }
-    public void RemoveFromInventory(Item i)
+    public void RemoveFromInventory(string itemName)
     {
         int currentCount;
-        switch (i)
+        switch (itemName)
         {
-            case Consumable c:
-                currentCount = consumables[c.GetConsumableName()];
-                consumables[c.GetConsumableName()] = currentCount - 1;
+            case "Food":
+            case "Medicine":
+                currentCount = consumables[itemName];
+                consumables[itemName] = currentCount - 1;
                 break;
-            case Material m:
-                currentCount = materials[m.GetMaterialName()];
-                materials[m.GetMaterialName()] = currentCount - 1;
+
+            case "Nails":
+                break;
+            case "Wood":
+                break;
+            case "Metal":
+                break;
+            case "Cloth":
+                currentCount = materials[itemName];
+                materials[itemName] = currentCount - 1;
                 break;
         }
 
         UI_manager.updateInventoryUI();
-		UpdateWeight(false, i.GetWeight());
-	}
+        //TODO: The inventory weight needs to be updated
+    }
 
-	public float GetInventoryWeight() { return current_weight; }
+    public float GetInventoryWeight() { return current_weight; }
 	
 }

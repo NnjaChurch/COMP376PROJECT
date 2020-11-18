@@ -10,6 +10,8 @@ using UnityEngine;
 
 
 public class LootManager : MonoBehaviour {
+	[SerializeField] LootMenu UI_loot;
+
 	LootTable bag;
 	LootTable furniture;
 	LootTable vehicle;
@@ -82,11 +84,11 @@ public class LootManager : MonoBehaviour {
 	// Generates a list of loot
 	// Inputs: 
 	//	Category (string): bag, furniture, vehicle
-	//	(optional) noDropPercentage (float): give a chance of no loot dropped (ie. dropPercentage = 0.5 means there is a 50% chance of loot dropping). Defaults to 1
+	//	(optional) percentDropRate (float): give a chance of no loot dropped (ie. percentDropRate = 0.5 means there is a 50% chance of loot dropping). Defaults to 1
 	// Outputs: An object with the necessary information for the UI to display
-	public LootUIEntity GenerateLootForUI(string category, float noDropPercentage = 1.0f)
+	public LootUIEntity GenerateLootForUI(string category, float percentDropRate = 1.0f)
     {
-		float rand = noDropPercentage == 0 ? -1.0f : Random.Range(1, (100 * (1.0f / noDropPercentage)));
+		float rand = percentDropRate == 0 ? -1.0f : Random.Range(1, (100 * (1.0f / percentDropRate)));
 		LootUIEntity entity;
 		switch (category)
         {
