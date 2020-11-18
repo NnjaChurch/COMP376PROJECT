@@ -65,19 +65,16 @@ public class InventoryUI : MonoBehaviour {
 		string name = item.Substring(0, item.Length-1);
 		int dropAll = int.Parse(item.Substring(item.Length - 1));
 
-		Consumable c = new Consumable();
-		c.consumable_name = name;
-
 		if (dropAll == 0) // Drop one
 		{
-			inventory_manager.RemoveFromInventory(c);
+			inventory_manager.RemoveFromInventory(name);
 		}
 		else // Drop all
         {
 			int consumable_count = inventory_manager.GetConsumables()[name];
 			for (int i = 0; i < consumable_count; i++)
             {
-				inventory_manager.RemoveFromInventory(c);
+				inventory_manager.RemoveFromInventory(name);
 			}
         }
 	}
@@ -87,19 +84,16 @@ public class InventoryUI : MonoBehaviour {
 		string name = item.Substring(0, item.Length - 1);
 		int dropAll = int.Parse(item.Substring(item.Length - 1));
 
-		Material m = new Material();
-		m.material_name = name;
-
 		if (dropAll == 0) // Drop one
 		{
-			inventory_manager.RemoveFromInventory(m);
+			inventory_manager.RemoveFromInventory(name);
 		}
 		else // Drop all
 		{
 			int material_count = inventory_manager.GetMaterials()[name];
 			for (int i = 0; i < material_count; i++)
 			{
-				inventory_manager.RemoveFromInventory(m);
+				inventory_manager.RemoveFromInventory(name);
 			}
 		}
 	}
