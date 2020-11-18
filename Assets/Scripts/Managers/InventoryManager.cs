@@ -77,7 +77,7 @@ public class InventoryManager : MonoBehaviour {
     public void consume(string consumable)
     {
         Consumable c = new Consumable();
-        c.name = consumable;
+        c.consumable_name = consumable;
         RemoveFromInventory(c);
         player_manager.consume(c);
     }

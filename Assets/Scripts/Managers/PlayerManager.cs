@@ -28,6 +28,7 @@ public class PlayerManager : MonoBehaviour {
 
 	public void consume(Consumable c)
     {
+		Debug.Log("TODO consume()");
 		// TODO implement the actual healing of the player here ... or delegate to player_stats
     }
 
