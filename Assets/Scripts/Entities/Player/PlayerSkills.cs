@@ -13,7 +13,7 @@ public class PlayerSkills : MonoBehaviour {
 	List<Skill> player_skills;
 
 	// Manager Reference
-	[SerializeField] PlayerManager manager_stats;
+	[SerializeField] PlayerManager manager_player;
 
 	void Start() {
 		InitializeSkills();

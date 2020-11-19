@@ -10,26 +10,11 @@ using UnityEngine;
 
 public abstract class Entity : MonoBehaviour {
 
-	public Weapon weapon;
-	public Armour armour;
-	// This is the time that the weapon will be available again
-	float attack_cooldown;
-
 	// Start is called before the first frame update
 	void Start() {
-		attack_cooldown = 0.0f;
 	}
 
 	// Update is called once per frame
 	void Update() {
-
-	}
-
-	public Weapon GetWeapon() {
-		return weapon;
-	}
-
-	public void Attack(int player_damage) {
-		weapon.UseWeapon(player_damage);	// <--- pass entity damage value?
 	}
 }
