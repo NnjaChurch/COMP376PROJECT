@@ -14,12 +14,11 @@ public class Weapon : Item {
 	public LayerMask layer_mask;
 
 	// Attributes
-	public string weapon_name;
+	[SerializeField] string weapon_name;
+	[SerializeField] int damage;
+	[SerializeField] float speed_modifier;
+	[SerializeField] int DAMAGE_SCALING;
 	int upgrade_tier;
-	float speed_modifier;   // Percentage
-	[SerializeField] int damage;             // Value
-	float reach;            // Units
-	float arc;              // Degrees
 
 
 	// Start is called before the first frame update
@@ -31,6 +30,11 @@ public class Weapon : Item {
 
 	}
 
+	public void UpgradeWeapon() {
+		upgrade_tier++;
+		damage += DAMAGE_SCALING;
+	}
+
 	public void UseWeapon(int base_damage) {
 		List<Collider2D> collisions = new List<Collider2D>();
 		int n = Physics2D.OverlapCollider(hit_box, filter, collisions); //TODO - Fix: filter isnt working, i don't know why.
@@ -38,10 +42,9 @@ public class Weapon : Item {
 			if (collision.gameObject.layer == 9) {
 				Enemy enemy = collision.gameObject.GetComponent<Enemy>();
 				if (enemy != null) {
-					if (enemy.GetStats().TakeDamage(base_damage + damage) <= 0)
-                    {
+					if (enemy.GetStats().TakeDamage(base_damage + damage) <= 0) {
 						enemy.Kill();
-                    }
+					}
 				}
 			}
 		}
@@ -53,14 +56,6 @@ public class Weapon : Item {
 
 	public int GetDamage() {
 		return damage;
-	}
-
-	public float GetReach() {
-		return reach;
-	}
-
-	public float GetArc() {
-		return arc;
 	}
 
 	public string GetWeaponName() { return weapon_name; }

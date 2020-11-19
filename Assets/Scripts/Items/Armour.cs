@@ -11,19 +11,25 @@ using UnityEngine;
 public class Armour : Item {
 
 	// Attributes
-	public string armour_name;
+	[SerializeField] string armour_name;
+	[SerializeField] int defense;
+	[SerializeField] int movement_modifier;
+	[SerializeField] int DEFENSE_SCALING;
 	int upgrade_tier;
-	float movement_modifier;
-	int defense;
 
 	// Start is called before the first frame update
 	void Start() {
-
+		upgrade_tier = 0;
 	}
 
 	// Update is called once per frame
 	void Update() {
 
+	}
+
+	public void UpgradeArmour() {
+		upgrade_tier++;
+		defense += DEFENSE_SCALING;
 	}
 
 	public float GetMovementModifier() {
