@@ -16,43 +16,36 @@ public class UIManager : MonoBehaviour {
 	[SerializeField] PauseMenu menu_pause;
 
 	// Manager Class References
-	[SerializeField] PlayerManager manager_stats;
+	[SerializeField] PlayerManager manager_player;
 	[SerializeField] InventoryManager manager_inventory;
 	//[SerializeField] LootManager manager_loot;	TODO: Hook up LootManager once implemented
 
-	public void updateInventoryUI()
-    {
+	public void UpdateInventoryUI() {
 		InventoryUI.inventory_updated = true; // This lets it know that it should update in the next frame
 
 	}
 
-	public void updatePlayerHealth()
-    {
-		UI_game.updatePlayerHealth();
-    }
-
-	public void updatePlayerStamina()
-	{
-		UI_game.updatePlayerStamina();
+	public void UpdatePlayerHealth(int current_health, int max_health) {
+		UI_game.updatePlayerHealth(current_health, max_health);
 	}
 
-	public void updatePlayerExperience()
-	{
-		UI_game.updatePlayerExperience();
+	public void UpdatePlayerStamina(int current_stamina, int max_stamina) {
+		UI_game.updatePlayerStamina(current_stamina, max_stamina);
 	}
 
-	public void updatePlayerEquippedWeapon()
-	{
+	public void UpdatePlayerExperience(int level, int current_experience, int next_level) {
+		UI_game.updatePlayerExperience(level, current_experience, next_level);
+	}
+
+	public void UpdatePlayerEquippedWeapon() {
 		UI_character.updateEquippedWeapon();
 	}
 
-	public void updatePlayerEquippedArmour()
-	{
+	public void UpdatePlayerEquippedArmour() {
 		UI_character.updateEquippedArmour();
 	}
 
-	public void updatePlayerSkills()
-	{
+	public void UpdatePlayerSkills() {
 		UI_character.updatePlayerSkills();
 	}
 
