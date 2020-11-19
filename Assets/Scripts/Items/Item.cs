@@ -10,7 +10,7 @@ using UnityEngine;
 
 public class Item : MonoBehaviour {
 
-	float weight;
+	[SerializeField] float weight;
 
 	// Start is called before the first frame update
 	void Start() {
@@ -23,5 +23,4 @@ public class Item : MonoBehaviour {
 	}
 
 	public float GetWeight() { return weight; }
-	public void SetWeight(float w) { weight = w; }
 }

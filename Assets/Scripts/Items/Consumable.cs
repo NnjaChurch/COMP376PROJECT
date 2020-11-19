@@ -10,9 +10,9 @@ using UnityEngine;
 
 public class Consumable : Item {
 
-	public string consumable_name;
+	[SerializeField] string consumable_name;
 	string description;
-	int hp_gain;
+	[SerializeField] int hp_gain;
 
 	// Start is called before the first frame update
 	void Start() {
