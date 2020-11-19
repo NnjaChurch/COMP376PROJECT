@@ -49,15 +49,15 @@ public class InventoryUI : MonoBehaviour {
 	public void ButtonEquipWeapon(string weapon)
 	{
 		equipment_manager.EquipWeapon(weapon);
-		ui_manager.updateInventoryUI();
-		ui_manager.updatePlayerEquippedWeapon();
+		ui_manager.UpdateInventoryUI();
+		ui_manager.UpdatePlayerEquippedWeapon();
 	}
 
 	public void ButtonEquipArmour(string armour)
 	{
 		equipment_manager.EquipArmour(armour);
-		ui_manager.updateInventoryUI();
-		ui_manager.updatePlayerEquippedArmour();
+		ui_manager.UpdateInventoryUI();
+		ui_manager.UpdatePlayerEquippedArmour();
 	}
 
 	public void ButtonDropConsumable(string item)

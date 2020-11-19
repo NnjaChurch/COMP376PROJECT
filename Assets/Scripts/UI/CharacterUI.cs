@@ -44,12 +44,10 @@ public class CharacterUI : MonoBehaviour {
 	[SerializeField] Text intelligenceText;
 
 	void Start() {
-		for (int i = 0; i < weaponNames.Length; i++)
-        {
+		for (int i = 0; i < weaponNames.Length; i++) {
 			equipments.Add(weaponNames[i], weaponImages[i]);
-        }
-		for (int i = 0; i < armourNames.Length; i++)
-		{
+		}
+		for (int i = 0; i < armourNames.Length; i++) {
 			equipments.Add(armourNames[i], armourImages[i]);
 		}
 	}
@@ -59,45 +57,37 @@ public class CharacterUI : MonoBehaviour {
 
 	}
 
-	public void updatePlayerHealth()
-	{
-		health_bar.fillAmount = player_stats.GetCurrentHealth() / player_stats.GetMaxHealth();
-
+	public void updatePlayerHealth(int current_health, int max_health) {
+		health_bar.fillAmount = current_health / max_health;
+		// TODO: Display Numbers?
 	}
 
-	public void updatePlayerStamina()
-	{
-		stamina_bar.fillAmount = player_stats.GetCurrentStamina() / player_stats.GetMaxStamina();
-
+	public void updatePlayerStamina(int current_stamina, int max_stamina) {
+		stamina_bar.fillAmount = current_stamina / max_stamina;
+		// TODO: Display Numbers?
 	}
 
-	public void updatePlayerExperience()
-	{
-		// TODO is GetCurrentNextLevel() the correct function here?
-		int current_exp = player_stats.GetCurrentExperience();
-		int base_exp = player_stats.GetCurrentNextLevel();
-		experience_bar.fillAmount = current_exp / base_exp;
-		player_level_text.text = "Level " + player_stats.GetCurrentLevel();
+	public void updatePlayerExperience(int level, int current_experience, int next_level) {
+		experience_bar.fillAmount = current_experience / next_level;
+		//experience_text.text = current_experience + "/" + next_level;		TODO: Missing text in Character UI?
+		player_level_text.text = "Level " + level;
 	}
 
-	public void updateEquippedWeapon()
-    {
+	public void updateEquippedWeapon() {
 		Weapon equippedWeapon = equipment_manager.GetEquippedWeapon();
 		equippedWeaponImage.sprite = equipments[equippedWeapon.GetWeaponName()];
 		equippedWeaponName.text = equippedWeapon.GetWeaponName();
 		equippedWeaponStats.text = "Damage: " + equippedWeapon.GetDamage();
 	}
 
-	public void updateEquippedArmour()
-    {
+	public void updateEquippedArmour() {
 		Armour equippedArmour = equipment_manager.GetEquippedArmour();
 		equippedArmourImage.sprite = equipments[equippedArmour.GetArmourName()];
 		equippedArmourName.text = equippedArmour.GetArmourName();
 		equippedArmourStats.text = "Defense: " + equippedArmour.GetDefense();
 	}
 
-	public void updatePlayerSkills()
-    {
+	public void updatePlayerSkills() {
 		strengthText.text = "Strength: " + player_stats.GetStrength();
 		dexterityText.text = "Dexterity: " + player_stats.GetDexterity();
 		intelligenceText.text = "Intelligence: " + player_stats.GetIntelligence();

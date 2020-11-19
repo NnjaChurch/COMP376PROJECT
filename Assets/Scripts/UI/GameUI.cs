@@ -10,7 +10,7 @@ using UnityEngine.UI;
 // ----------------------------------------------------------------------------------------------------
 public class GameUI : MonoBehaviour {
 
-	[SerializeField] PlayerStats player_stats;
+	[SerializeField] PlayerStats player_stats;  // TODO: Unhook this reference
 	[SerializeField] Image health_bar;
 	[SerializeField] Image stamina_bar;
 	[SerializeField] Image experience_bar;
@@ -36,76 +36,60 @@ public class GameUI : MonoBehaviour {
 	// Update is called once per frame
 	void Update() {
 
-		if (Input.GetKeyDown(KeyCode.B))
-        {
-			if (!inventory_ui.activeSelf)
-            {
+		if (Input.GetKeyDown(KeyCode.B)) {
+			if (!inventory_ui.activeSelf) {
 				inventory_ui.SetActive(true);
 			}
-			else
-            {
+			else {
 				inventory_ui.SetActive(false);
 			}
-        }
+		}
 
-		if (Input.GetKeyDown(KeyCode.V))
-		{
-			if (!player_stats_ui.activeSelf)
-			{
+		if (Input.GetKeyDown(KeyCode.V)) {
+			if (!player_stats_ui.activeSelf) {
 				player_stats_ui.SetActive(true);
 			}
-			else
-			{
+			else {
 				player_stats_ui.SetActive(false);
 			}
 		}
 	}
 
-	public void ButtonInventoryClick()
-    {
-		if (!player_stats_ui.activeSelf)
-		{
+	public void ButtonInventoryClick() {
+		if (!player_stats_ui.activeSelf) {
 			player_stats_ui.SetActive(true);
 		}
-		else
-		{
+		else {
 			player_stats_ui.SetActive(false);
 		}
 	}
 
-	public void ButtonStatsClick()
-	{
-		if (!inventory_ui.activeSelf)
-		{
+	public void ButtonStatsClick() {
+		if (!inventory_ui.activeSelf) {
 			inventory_ui.SetActive(true);
 		}
-		else
-		{
+		else {
 			inventory_ui.SetActive(false);
 		}
 	}
 
-	public void updatePlayerHealth()
-    {
-		health_bar.fillAmount = player_stats.GetCurrentHealth() / player_stats.GetMaxHealth();
-		player_stats_ui_script.updatePlayerHealth();
+	public void updatePlayerHealth(int current_health, int max_health) {
+		health_bar.fillAmount = current_health / max_health;
+		// TODO: Add numbers text after bar? In bar?
+		player_stats_ui_script.updatePlayerHealth(current_health, max_health);
 	}
 
-	public void updatePlayerStamina()
-	{
-		stamina_bar.fillAmount = player_stats.GetCurrentStamina() / player_stats.GetMaxStamina();
-		player_stats_ui_script.updatePlayerStamina();
+	public void updatePlayerStamina(int current_stamina, int max_stamina) {
+		stamina_bar.fillAmount = current_stamina / max_stamina;
+		// TODO: Add numbers text after bar? In bar?
+		player_stats_ui_script.updatePlayerStamina(current_stamina, max_stamina);
 	}
 
-	public void updatePlayerExperience()
-	{
-		// TODO is GetCurrentNextLevel() the correct function here?
-		int current_exp = player_stats.GetCurrentExperience();
-		int base_exp = player_stats.GetCurrentNextLevel();
-		experience_bar.fillAmount = current_exp / base_exp;
-		experience_text.text = current_exp + "/" + base_exp;
-		player_level_text.text = "Level " + player_stats.GetCurrentLevel();
+	public void updatePlayerExperience(int level, int current_experience, int next_level) {
+		experience_bar.fillAmount = current_experience / next_level;
+		experience_text.text = current_experience + "/" + next_level;
+		player_level_text.text = "Level " + level;
 
-		player_stats_ui_script.updatePlayerExperience();
+		player_stats_ui_script.updatePlayerExperience(level, current_experience, next_level);
 	}
 }
