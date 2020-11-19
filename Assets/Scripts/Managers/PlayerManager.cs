@@ -10,6 +10,7 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour {
 
 	// Stat Class References
+	[SerializeField] Player player;
 	[SerializeField] PlayerStats player_stats;
 	[SerializeField] PlayerSkills player_skills;
 
@@ -22,49 +23,50 @@ public class PlayerManager : MonoBehaviour {
 		return player_skills.GetSkillBonus(skill_number);
 	}
 
-	// TODO: Add Skill Getters when needed
+	// TODO: Add Skill Information Getters when needed
 
 	// TODO: Function to handle attacks inputs from InputManager
+	public void TryAttack() {
+	}
 
-	public void consume(string consumable_name)
-    {
-		Debug.Log("TODO consume()");
-		// TODO implement the actual healing of the player here ... or delegate to player_stats
-    }
+	public void EquipWeapon(Weapon w) {
+		player_stats.SetEquippedWeapon(w);
+	}
+
+	public void EquipArmour(Armour a) {
+		player_stats.SetEquippedArmour(a);
+	}
+
+	public void HealPlayer(int value) {
+		player_stats.HealPlayer(value);
+	}
 
 	// TODO someone has to call the following update ui functions
-	public void updatePlayerHealthInUI()
-	{
-		manager_UI.updatePlayerHealth();
+	public void UpdateUIHealth(int current_health, int max_health) {
+		manager_UI.UpdatePlayerHealth(current_health, max_health);
 	}
 
-	public void updatePlayerStaminaInUI()
-	{
-		manager_UI.updatePlayerStamina();
+	public void UpdateUIStamina(int current_stamina, int max_stamina) {
+		manager_UI.UpdatePlayerStamina(current_stamina, max_stamina);
 	}
 
-	public void updatePlayerExperienceInUI()
-	{
-		manager_UI.updatePlayerExperience();
+	public void UpdateUIExperience(int level, int current_experience, int next_level) {
+		manager_UI.UpdatePlayerExperience(level, current_experience, next_level);
 	}
 
-	public void updatePlayerEquippedWeaponInUI()
-	{
-		manager_UI.updatePlayerEquippedWeapon();
+	public void UpdateUIEquippedWeapon() {
+		manager_UI.UpdatePlayerEquippedWeapon();
 	}
 
-	public void updatePlayerEquippedArmourInUI()
-	{
-		manager_UI.updatePlayerEquippedArmour();
+	public void UpdateUIEquippedArmor() {
+		manager_UI.UpdatePlayerEquippedArmour();
 	}
 
-	public void updatePlayerSkillsInUI()
-	{
-		manager_UI.updatePlayerSkills();
+	public void UpdateUISkills() {
+		manager_UI.UpdatePlayerSkills();
 	}
 
-	public void updatePlayerInventoryInUI()
-	{   // This function is already being called in the right places
-		manager_UI.updateInventoryUI();
-    }
+	public void UpdateUIInventory() {   // This function is already being called in the right places
+		manager_UI.UpdateInventoryUI();
+	}
 }
