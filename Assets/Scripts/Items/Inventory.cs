@@ -46,7 +46,7 @@ public class Inventory : MonoBehaviour
         armours.Add("Medium Armour", false);
         armours.Add("Heavy Armour", false);
 
-        UI_manager.updateInventoryUI();
+        UI_manager.UpdateInventoryUI();
 	}
 
 	// Update is called once per frame
@@ -105,7 +105,7 @@ public class Inventory : MonoBehaviour
                 break;
         }
 
-        UI_manager.updateInventoryUI();
+        UI_manager.UpdateInventoryUI();
         //TODO: The inventory weight needs to be updated
     }
     public void RemoveFromInventory(string itemName)
@@ -131,7 +131,7 @@ public class Inventory : MonoBehaviour
                 break;
         }
 
-        UI_manager.updateInventoryUI();
+        UI_manager.UpdateInventoryUI();
         //TODO: The inventory weight needs to be updated
     }
 
