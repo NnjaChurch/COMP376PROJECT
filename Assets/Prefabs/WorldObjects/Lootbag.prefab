@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6618355501293574119}
   - component: {fileID: 6618355501293574136}
-  - component: {fileID: -434199195784413936}
   - component: {fileID: -6857528659832484845}
+  - component: {fileID: -3319268787931595004}
   m_Layer: 0
   m_Name: Lootbag
   m_TagString: Lootable
@@ -84,18 +84,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-434199195784413936
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6618355501293574137}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99cd044e2c1bfcc4986b3b5353e2150d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!58 &-6857528659832484845
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -112,3 +100,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.25
+--- !u!114 &-3319268787931595004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6618355501293574137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7564a5684c7c6a49ad37e0cd84d8848, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loot_manager: {fileID: 0}
+  item_type: bag

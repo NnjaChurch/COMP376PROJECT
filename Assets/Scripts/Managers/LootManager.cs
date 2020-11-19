@@ -71,8 +71,9 @@ public class LootManager : MonoBehaviour {
 
 			foreach (var lootable in lootableColliders) {
 				if (lootable.name.Contains("Lootbag")) {
-					LootUIEntity bagLoot = GenerateLootForUI("bag");
-					Debug.Log(bagLoot.itemType + " - " + bagLoot.item_name);
+					Lootbag lootbag = lootable.GetComponent<Lootbag>();
+					Debug.Log(lootbag.GetItems()[0].item_name);
+					//TODO: OPEN THE LOOT UI - right now this is scanning every bag in the vicinity. Maybe change to open only the closest?
 				}
 			}
 		}
@@ -114,6 +115,8 @@ public class LootManager : MonoBehaviour {
 		bag.removeWeaponFromTable(weaponName);
 		furniture.removeWeaponFromTable(weaponName);
 		vehicle.removeWeaponFromTable(weaponName);
+
+		SanitizeExistingLootbags(weaponName);
     }
 	public void ArmourFound(string armourName)
     {
@@ -121,6 +124,20 @@ public class LootManager : MonoBehaviour {
 		bag.removeArmourFromTable(armourName);
 		furniture.removeArmourFromTable(armourName);
 		vehicle.removeArmourFromTable(armourName);
+
+		SanitizeExistingLootbags(armourName);
+    }
+
+	// Scans for and removes any item_name from existing lootbags, and replaces with materials
+	public void SanitizeExistingLootbags(string item_name)
+    {
+		Lootbag[] existing_lootbags = GameObject.FindObjectsOfType<Lootbag>();
+		foreach(Lootbag lootbag in existing_lootbags)
+        {
+			List<LootUIEntity> entities = lootbag.GetItems();
+			int index = entities.FindIndex(e => e.item_name == item_name);
+			if (index > -1) { lootbag.ResetItems(); }
+        }
     }
 
 }
@@ -146,7 +163,7 @@ public class LootTable
 
 	string[] consumables = new string[] { "Food", "Medicine" };
 	string[] materials = new string[] { "Nails", "Wood", "Metal", "Cloth" };
-	List<string> weapons = new List<string> { "Bat", "Knife", "Sword", "Rake" };
+	List<string> weapons = new List<string> { "Bat", "Knife", "Shovel", "Rake" };
 	List<string> armour = new List<string> { "Light", "Medium", "Heavy" };
 
 	public LootTable(RangeInt c, RangeInt m, RangeInt w, RangeInt a)
