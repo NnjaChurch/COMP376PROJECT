@@ -6,8 +6,12 @@ public class EnemyStats : Stats {
 	// Level Scaling
 	[SerializeField] int health_per_level = 10;
 	[SerializeField] int damage_per_level = 5;
+	[SerializeField] Weapon temp_weapon;
+	[SerializeField] Armour temp_armour;
 
 	private void Start() {
+		equipped_weapon = temp_weapon;
+		equipped_armour = temp_armour;
 		CalculateEnemyStats();
 		attack_timer = attack_speed;
 		canAttack = true;
