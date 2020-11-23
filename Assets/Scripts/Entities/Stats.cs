@@ -13,8 +13,8 @@ public class Stats : MonoBehaviour {
 	// Entity Base Stats
 	[SerializeField] protected int BASE_HEALTH = 100;
 	[SerializeField] protected int BASE_DAMAGE = 5;
-	[SerializeField] protected int BASE_ATTACK_SPEED = 2;       // Seconds
-	[SerializeField] protected int BASE_MOVEMENT_SPEED = 1;     // %
+	[SerializeField] protected float BASE_ATTACK_SPEED = 2;       // Seconds
+	[SerializeField] protected float BASE_MOVEMENT_SPEED = 1;     // %
 
 	// Current Stats
 	protected int current_level;

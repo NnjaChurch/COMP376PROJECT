@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 5172869125239623157}
   - component: {fileID: 6527023459539031288}
   - component: {fileID: 8858230659625962219}
-  - component: {fileID: 6000339434282132091}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -135,21 +134,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e248847147180d3438a2f88287f8aefe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: {fileID: 0}
-  armour: {fileID: 0}
   player_cam: {fileID: 0}
---- !u!114 &6000339434282132091
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6220002021337347308}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 197a8d8f8033e0c41b3c9b332c058ac3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movement_speed: 1
-  sprint_multiplier: 2
-  rb: {fileID: 6527023459539031288}
+  manager_player: {fileID: 0}

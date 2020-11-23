@@ -41,4 +41,8 @@ public class Movement : MonoBehaviour {
 	public void SetSprint(bool b) {
 		sprint = b;
 	}
+
+	public void SetSpeed(float speed) {
+		movement_speed = speed;
+	}
 }

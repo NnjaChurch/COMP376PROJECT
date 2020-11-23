@@ -11,8 +11,10 @@ public class PlayerManager : MonoBehaviour {
 
 	// Stat Class References
 	[SerializeField] Player player;
+	[SerializeField] Movement player_movement;
 	[SerializeField] PlayerStats player_stats;
 	[SerializeField] PlayerSkills player_skills;
+
 
 	// Manager Class References
 	[SerializeField] EquipmentManager manager_equipment;
@@ -27,6 +29,21 @@ public class PlayerManager : MonoBehaviour {
 
 	// TODO: Function to handle attacks inputs from InputManager
 	public void TryAttack() {
+		player_stats.Attack();
+	}
+
+	public void SetSprint(bool key) {
+		player_stats.SetSprint(key);
+		if(key && player_stats.GetCurrentStamina() > 0) {
+			player_movement.SetSprint(true);
+		}
+		else {
+			player_movement.SetSprint(false);
+		}
+	}
+
+	public void FaceDirection(float h_axis, float v_axis) {
+		player_movement.SetMovement(h_axis, v_axis);
 	}
 
 	public void EquipWeapon(Weapon w) {
@@ -68,5 +85,9 @@ public class PlayerManager : MonoBehaviour {
 
 	public void UpdateUIInventory() {   // This function is already being called in the right places
 		manager_UI.UpdateInventoryUI();
+	}
+
+	public void UpdateSpeed(float speed) {
+		player_movement.SetSpeed(speed);
 	}
 }

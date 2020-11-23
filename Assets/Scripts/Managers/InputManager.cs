@@ -9,11 +9,9 @@ using UnityEngine;
 // ----------------------------------------------------------------------------------------------------
 
 public class InputManager : MonoBehaviour {
-	public Player player;
-	public Movement player_movement;
 
-	[SerializeField] LootManager loot_manager;
-
+	[SerializeField] LootManager manager_loot;
+	[SerializeField] PlayerManager manager_player;
 
 	// Start is called before the first frame update
 	void Start() {
@@ -21,15 +19,14 @@ public class InputManager : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update() {
-		player_movement.SetMovement(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-		player_movement.SetSprint(Input.GetKey("left shift"));
+		manager_player.FaceDirection(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+		manager_player.SetSprint(Input.GetKey("left shift"));
 		if (Input.GetMouseButtonDown(0)) {
-			// TODO: Hook up function call to PlayerManager
-			//player.Attack(player.GetStats().GetDamage());
+			manager_player.TryAttack();
 		}		
 		if(Input.GetKeyDown("e"))
         {
-			loot_manager.LootKeyPressed();
+			manager_loot.LootKeyPressed();
         }
 	}
 

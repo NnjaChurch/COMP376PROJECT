@@ -23,6 +23,8 @@ public class PlayerStats : Stats {
 
 	// Player Specific Stats
 	[SerializeField] int BASE_STAMINA = 100;
+	[SerializeField] int BASE_STAMINA_REGEN = 5;
+	[SerializeField] float BASE_STAMINA_REGEN_CD = 3; // seconds
 	[SerializeField] int BASE_CARRY_WEIGHT = 50;        // lbs
 	[SerializeField] int BASE_EXPERIENCE_GAIN = 1;      // %
 	[SerializeField] int BASE_HEALING_EFFICACY = 1;     // %
@@ -41,15 +43,26 @@ public class PlayerStats : Stats {
 	// Current Stats
 	int current_stamina;
 
+	// Stamina System
+	float second_timer;
+	int stamina_regen;
+	float current_stamina_regen_cd;
+	bool isSprinting;
+
+
 	// Manager Reference
 	[SerializeField] PlayerManager manager_player;
 
 	private void Start() {
-		CalculatePlayerStats();
-		FullHeal();
-		attack_timer = attack_speed;
+		// TODO: Equip Weapon
 		canAttack = true;
 		isAttacking = false;
+		isSprinting = false;
+		encumbered_modifier = 1;
+		CalculatePlayerStats();
+		InitalizeExperience();
+		FullHeal();
+		attack_timer = attack_speed;
 	}
 	private void Update() {
 		// Attack Cooldown
@@ -62,8 +75,43 @@ public class PlayerStats : Stats {
 				canAttack = true;
 			}
 		}
-	}
+		// Stamina System
+		// TODO: Possibly Simplify if statement cases to make code more efficient
+		if(isSprinting && current_stamina > 0) {
+			current_stamina_regen_cd = BASE_STAMINA_REGEN_CD;
+			second_timer += Time.deltaTime;
+			if(second_timer > 1) {
+				current_stamina -= 10;
+				if(current_stamina < 0) {
+					current_stamina = 0;				
+				}
+				second_timer -= 1;
+				Debug.Log("Player Stamina reduced by 1 (Current: " + current_stamina + ")");
+				manager_player.UpdateUIStamina(current_stamina, max_stamina);
+			}
+		}
+		else {
+			if (current_stamina_regen_cd == 0) {
+				second_timer += Time.deltaTime;
+				if(second_timer > 1 && current_stamina < max_stamina) {
+					current_stamina += stamina_regen;
+					if(current_stamina > max_stamina) {
+						current_stamina = max_stamina;
+					}
+					Debug.Log("Player Stamina restored by " + stamina_regen + " (Current: " + current_stamina + ")");
+					second_timer -= 1;
+					manager_player.UpdateUIStamina(current_stamina, max_stamina);
+				}
+			}
+			if (current_stamina_regen_cd > 0) {
+				current_stamina_regen_cd -= Time.deltaTime;
+				if(current_stamina_regen_cd < 0) {
+					current_stamina_regen_cd = 0;
+				}
+			}
+		}
 
+	}
 
 	private void CalculatePlayerStats() {
 		// Strength Stats
@@ -73,23 +121,41 @@ public class PlayerStats : Stats {
 
 		// Dexterity Stats
 		max_stamina = Mathf.FloorToInt((BASE_STAMINA + (10 * dexterity)) * manager_player.GetSkillBonus(3));
-		movement_speed = (((BASE_MOVEMENT_SPEED + (0.05f * dexterity)) * (equipped_armour ? equipped_armour.GetMovementModifier() : 1.0f)) * manager_player.GetSkillBonus(4)) / encumbered_modifier ;
-		attack_speed = (BASE_ATTACK_SPEED / (equipped_weapon ? equipped_weapon.GetSpeedModifier() : 1.0f)) / manager_player.GetSkillBonus(5);
+		movement_speed = (BASE_MOVEMENT_SPEED + (0.05f * (float)dexterity)) * CalculateArmourBonus() * manager_player.GetSkillBonus(4) / encumbered_modifier;
+		Debug.Log("Movement Speed " + movement_speed);
+		attack_speed = (BASE_ATTACK_SPEED / CalculateWeaponBonus()) / manager_player.GetSkillBonus(5);
+		stamina_regen = BASE_STAMINA_REGEN + Mathf.FloorToInt(max_stamina / 50) - 1; // Should increase by 1 for every 50 stamina after the base 100
 
 		// Intelligence Stats
 		experience_gain = (BASE_EXPERIENCE_GAIN + manager_player.GetSkillBonus(6));
 		healing_efficacy = (BASE_HEALING_EFFICACY + manager_player.GetSkillBonus(7));
 		damage_reduction = (BASE_DAMAGE_REDUCTION + manager_player.GetSkillBonus(8));
+		UpdateAllUI();
+	}
+
+	private void InitalizeExperience() {
+		current_level = 1;
+		current_experience = 0;
+		current_next_level = BASE_EXPERIENCE_LEVEL;
+		manager_player.UpdateUIExperience(current_level, current_experience, current_next_level);
 	}
 
 	public void Attack() {
 		if(canAttack) {
-			// TODO: Set isAttacking to false once animation is complete
+			// TODO: Set isAttacking to false once animation is completete
 			isAttacking = true;
 			equipped_weapon.UseWeapon(damage);
 			canAttack = false;
 			attack_timer = attack_speed;
 		}
+	}
+
+	public void SetSprint(bool sprint) {
+		// Reset Second timer if sprint state changes
+		if(isSprinting != sprint) {
+			second_timer = 0;
+		}
+		isSprinting = sprint;
 	}
 	public new int TakeDamage(int damage) {
 		int taken_damage = Mathf.CeilToInt((damage - equipped_armour.GetDefense()) / damage_reduction);
@@ -142,6 +208,27 @@ public class PlayerStats : Stats {
 		manager_player.UpdateUIExperience(current_level, current_experience, current_next_level);
 	}
 
+	private float CalculateWeaponBonus() {
+		if(equipped_weapon != null) {
+			Debug.Log("Weapon Bonus: " + equipped_weapon.GetSpeedModifier());
+			return equipped_weapon.GetSpeedModifier();
+		}
+		else {
+			Debug.Log("No Weapon Equipped");
+			return 1.0f;
+		}
+	}
+	private float CalculateArmourBonus() {
+		if(equipped_armour != null) {
+			Debug.Log("Armour Bonus: " + equipped_armour.GetMovementModifier());
+			return equipped_armour.GetMovementModifier();
+		}
+		else {
+			Debug.Log("No Armour Equipped");
+			return 1.0f;
+		}
+	}
+
 	public int GetCurrentStamina() { return current_stamina; }
 	public int GetMaxStamina() { return max_stamina; }
 	public float GetCarryWeight() { return carry_weight; }
@@ -159,5 +246,12 @@ public class PlayerStats : Stats {
 	public void SetEquippedArmour(Armour a) {
 		equipped_armour = a;
 		CalculatePlayerStats();
+	}
+
+	private void UpdateAllUI() {
+		manager_player.UpdateUIHealth(current_health, max_health);
+		manager_player.UpdateUIStamina(current_stamina, max_stamina);
+		manager_player.UpdateSpeed(movement_speed);
+		// TODO: Add Updaters for other relevant stats
 	}
 }
