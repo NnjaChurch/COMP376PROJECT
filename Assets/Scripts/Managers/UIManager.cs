@@ -49,4 +49,14 @@ public class UIManager : MonoBehaviour {
 		UI_character.updatePlayerSkills();
 	}
 
+	public void ToggleInventoryUI()
+    {
+		UI_game.ButtonBClick();
+    }
+
+	public void ToggleStatsUI()
+    {
+		UI_game.ButtonVClick();
+    }
+
 }

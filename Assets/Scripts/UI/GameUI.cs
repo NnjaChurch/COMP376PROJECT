@@ -36,23 +36,6 @@ public class GameUI : MonoBehaviour {
 	// Update is called once per frame
 	void Update() {
 
-		if (Input.GetKeyDown(KeyCode.B)) {
-			if (!inventory_ui.activeSelf) {
-				inventory_ui.SetActive(true);
-			}
-			else {
-				inventory_ui.SetActive(false);
-			}
-		}
-
-		if (Input.GetKeyDown(KeyCode.V)) {
-			if (!player_stats_ui.activeSelf) {
-				player_stats_ui.SetActive(true);
-			}
-			else {
-				player_stats_ui.SetActive(false);
-			}
-		}
 	}
 
 	public void ButtonInventoryClick() {
@@ -64,12 +47,36 @@ public class GameUI : MonoBehaviour {
 		}
 	}
 
+	public void ButtonBClick()
+	{
+		if (!inventory_ui.activeSelf)
+		{
+			inventory_ui.SetActive(true);
+		}
+		else
+		{
+			inventory_ui.SetActive(false);
+		}
+	}
+
 	public void ButtonStatsClick() {
 		if (!inventory_ui.activeSelf) {
 			inventory_ui.SetActive(true);
 		}
 		else {
 			inventory_ui.SetActive(false);
+		}
+	}
+
+	public void ButtonVClick()
+    {
+		if (!player_stats_ui.activeSelf)
+		{
+			player_stats_ui.SetActive(true);
+		}
+		else
+		{
+			player_stats_ui.SetActive(false);
 		}
 	}
 

@@ -12,6 +12,7 @@ public class InputManager : MonoBehaviour {
 
 	[SerializeField] LootManager manager_loot;
 	[SerializeField] PlayerManager manager_player;
+	[SerializeField] UIManager manager_ui;
 
 	// Start is called before the first frame update
 	void Start() {
@@ -28,6 +29,15 @@ public class InputManager : MonoBehaviour {
         {
 			manager_loot.LootKeyPressed();
         }
+
+		if (Input.GetKeyDown(KeyCode.B))
+        {
+			manager_ui.ToggleInventoryUI();
+        }
+		if (Input.GetKeyDown(KeyCode.V))
+		{
+			manager_ui.ToggleStatsUI();
+		}
 	}
 
 	private void FixedUpdate() {
