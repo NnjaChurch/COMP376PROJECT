@@ -74,6 +74,7 @@ public class LootManager : MonoBehaviour {
 					Lootbag lootbag = lootable.GetComponent<Lootbag>();
 					Debug.Log(lootbag.GetItems()[0].item_name);
 					//TODO: OPEN THE LOOT UI - right now this is scanning every bag in the vicinity. Maybe change to open only the closest?
+					UI_loot.DisplayLoot(lootbag);
 				}
 			}
 		}

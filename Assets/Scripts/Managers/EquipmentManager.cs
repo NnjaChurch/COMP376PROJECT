@@ -115,4 +115,44 @@ public class EquipmentManager : MonoBehaviour {
 
 		return -1;
 	}
+
+	public int GetWeaponDamage(string weaponName)
+	{
+		if (weaponName == "Knife")
+		{
+			return (int)weapon_knife.GetDamage();
+		}
+		else if (weaponName == "Bat")
+		{
+			return (int)weapon_bat.GetDamage();
+		}
+		else if (weaponName == "Shovel")
+		{
+			return (int)weapon_shovel.GetDamage();
+		}
+		else if (weaponName == "Rake")
+		{
+			return (int)weapon_rake.GetDamage();
+		}
+
+		return -1;
+	}
+
+	public int GetArmourDefense(string armourName)
+	{
+		if (armourName == "Light Armour")
+		{
+			return (int)armour_light.GetDefense();
+		}
+		else if (armourName == "Medium Armour")
+		{
+			return (int)armour_medium.GetDefense();
+		}
+		else if (armourName == "Heavy Armour")
+		{
+			return (int)armour_heavy.GetDefense();
+		}
+
+		return -1;
+	}
 }

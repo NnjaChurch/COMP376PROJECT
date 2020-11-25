@@ -18,12 +18,12 @@ public class InventoryUI : MonoBehaviour {
 
 	[SerializeField] GameObject inventory_content; // Reference to 'Content' gameObject under InventoryPanel
 	[SerializeField] Text inventory_weight_text; // Text that shows current weight in the bottom of inventory
+	[SerializeField] GameObject items; // Reference to the 'Items' gameobject that has Food, Medicine, Wood, etc.
 
 	public static bool inventory_updated = false; // To know if there is a change in inventory
 
 	// Start is called before the first frame update
 	void Start() {
-		player = FindObjectOfType<Player>();
 
 		for (int i = 0; i < inventory_content.transform.childCount; i++)
         {
@@ -36,7 +36,6 @@ public class InventoryUI : MonoBehaviour {
 		if (inventory_updated) // Refresh the inventory UI if there is a change in inventory
         {
 			updateInventoryUI();
-			//inventory_weight_text.GetComponent<Text>().text = "Weight: " + player_inventory.GetInventoryWeight() + "/" + player.GetCarryWeight() + " lbs";
 			inventory_updated = false; // Re set to false as we just updated the inventory UI
 		}
 	}
@@ -127,27 +126,46 @@ public class InventoryUI : MonoBehaviour {
 				itemSlot = inventory_content.transform.Find(entry.Key);
 				if (entry.Value != 0)
 				{
-					// TODO So far only the weights of weapons and armours can be obtained this way. Should we have references to consumables and material in equipment manager too?
 					int itemWeight = -1;
+					string itemDescription = "N/A";
 
-					if (i == 2) { // Dealing with weapons
+					if (i == 0) // Dealing with consumables
+					{
+						Consumable c = items.transform.Find(entry.Key).GetComponent<Consumable>();
+						itemWeight = (int) c.GetWeight();
+						itemDescription = "+" + c.GetHPGain() + " Health";
+                    }
+					else if (i == 1) // Dealing with materials
+					{
+						Material m = items.transform.Find(entry.Key).GetComponent<Material>();
+						itemWeight = (int) m.GetWeight();
+						itemDescription = "Used for upgrades";
+					}
+					else if (i == 2) // Dealing with weapons
+					{
 						itemWeight = dictionary[entry.Key] * equipment_manager.GetWeaponWeight(entry.Key);
+						itemDescription = "Damage:" + equipment_manager.GetWeaponDamage(entry.Key);
 					}
-					else if (i == 3)
-                    {
+					else if (i == 3) // Dealing with armours
+					{
 						itemWeight = dictionary[entry.Key] * equipment_manager.GetArmourWeight(entry.Key);
+						itemDescription = "Defense:" + equipment_manager.GetArmourDefense(entry.Key);
 					}
+
+					// ------------------------------------------------------------------------------------------------------//
 
 					if (itemSlot.gameObject.activeSelf) // item had more than 1 count, and increased or decreased but still has more than 1
 					{
 						itemSlot.Find("ItemCount").GetComponent<Text>().text = "x" + dictionary[entry.Key];
-						//itemSlot.Find("ItemWeight").GetComponent<Text>().text = itemWeight + " lbs";
+						itemSlot.Find("ItemWeight").GetComponent<Text>().text = itemWeight + " lbs";
+						itemSlot.Find("ItemDescription").GetComponent<Text>().text = itemDescription;
 					}
 					else // if item had 0 but now has more than 1
 					{
 						itemSlot.gameObject.SetActive(true);
 						itemSlot.Find("ItemCount").GetComponent<Text>().text = "x" + dictionary[entry.Key];
-						//itemSlot.Find("ItemWeight").GetComponent<Text>().text = itemWeight + " lbs";
+						itemSlot.Find("ItemWeight").GetComponent<Text>().text = itemWeight + " lbs";
+						itemSlot.Find("ItemDescription").GetComponent<Text>().text = itemDescription;
 						itemSlot.SetAsLastSibling();
 					}
 				}
