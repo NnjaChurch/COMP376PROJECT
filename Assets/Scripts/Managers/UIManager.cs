@@ -45,8 +45,8 @@ public class UIManager : MonoBehaviour {
 		UI_character.updateEquippedArmour();
 	}
 
-	public void UpdatePlayerSkills() {
-		UI_character.updatePlayerSkills();
+	public void UpdatePlayerSkills(int strength, int dexterity, int intelligence) {
+		UI_character.updatePlayerSkills(strength, dexterity, intelligence);
 	}
 
 	public void ToggleInventoryUI()

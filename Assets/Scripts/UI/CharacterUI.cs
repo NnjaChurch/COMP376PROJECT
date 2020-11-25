@@ -13,7 +13,6 @@ public class CharacterUI : MonoBehaviour {
 	// Start is called before the first frame update
 
 	//------------------------------------------------------------------------Player Info--------------------------------------------//
-	[SerializeField] PlayerStats player_stats;
 	[SerializeField] Image health_bar;
 	[SerializeField] Image stamina_bar;
 	[SerializeField] Image experience_bar;
@@ -87,9 +86,9 @@ public class CharacterUI : MonoBehaviour {
 		equippedArmourStats.text = "Defense: " + equippedArmour.GetDefense();
 	}
 
-	public void updatePlayerSkills() {
-		strengthText.text = "Strength: " + player_stats.GetStrength();
-		dexterityText.text = "Dexterity: " + player_stats.GetDexterity();
-		intelligenceText.text = "Intelligence: " + player_stats.GetIntelligence();
+	public void updatePlayerSkills(int strength, int dexterity, int intelligence) {
+		strengthText.text = "Strength: " + strength;
+		dexterityText.text = "Dexterity: " + dexterity;
+		intelligenceText.text = "Intelligence: " + intelligence;
 	}
 }

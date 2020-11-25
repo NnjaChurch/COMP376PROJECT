@@ -10,7 +10,6 @@ using UnityEngine.UI;
 // ----------------------------------------------------------------------------------------------------
 public class GameUI : MonoBehaviour {
 
-	[SerializeField] PlayerStats player_stats;  // TODO: Unhook this reference
 	[SerializeField] Image health_bar;
 	[SerializeField] Image stamina_bar;
 	[SerializeField] Image experience_bar;

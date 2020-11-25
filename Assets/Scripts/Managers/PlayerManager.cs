@@ -79,8 +79,8 @@ public class PlayerManager : MonoBehaviour {
 		manager_UI.UpdatePlayerEquippedArmour();
 	}
 
-	public void UpdateUISkills() {
-		manager_UI.UpdatePlayerSkills();
+	public void UpdateUISkills(int strength, int dexterity, int intelligence) {
+		manager_UI.UpdatePlayerSkills(strength, dexterity, intelligence);
 	}
 
 	public void UpdateUIInventory() {   // This function is already being called in the right places
