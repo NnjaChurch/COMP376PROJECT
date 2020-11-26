@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 // ----------------------------------------------------------------------------------------------------
 //	Description: Class for the looting window when interaction with lootable objects
-//	Contributors:
+//	Contributors: Rubiat
 //	Endpoints:
 // ----------------------------------------------------------------------------------------------------
 
@@ -13,9 +13,9 @@ public class LootMenu : MonoBehaviour {
 	// Start is called before the first frame update
 
 	[SerializeField] InventoryManager inventory_manager;
-
 	[SerializeField] GameObject loot_content; // Reference to 'Content' gameObject under LootMenu
-	Lootbag current_lootbag;
+
+	Lootbag current_lootbag; // To know which lootbad is currently opened
 
 	void Start() {
 		ResetLootUI();
@@ -29,6 +29,8 @@ public class LootMenu : MonoBehaviour {
 
 	public void DisplayLoot(Lootbag loot_bag)
     {
+		Debug.Log("LootMenu.DisplayLoot()");
+
 		current_lootbag = loot_bag;
 		ResetLootUI();
 		Transform itemSlot; // To get reference to each of the loot UI slots
@@ -64,9 +66,11 @@ public class LootMenu : MonoBehaviour {
 
 	public void ButtonPickUp(string item)
     {
-		inventory_manager.AddToInventory(item);
+		Debug.Log("LootMenu.ButtonPickUp(): " + item);
 
+		inventory_manager.AddToInventory(item);
 		List<LootUIEntity> loot_items = current_lootbag.GetItems();
+
 		for (int i = 0; i < loot_items.Count; i++)
         {
 			if (loot_items[i].item_name == item)
@@ -81,6 +85,8 @@ public class LootMenu : MonoBehaviour {
 
 	public void ButtonPickUpAll(string item)
     {
+		Debug.Log("LootMenu.ButtonPickUpAll(): " + item);
+
 		List<LootUIEntity> loot_items = current_lootbag.GetItems();
 
 		for (int i = loot_items.Count - 1; i >= 0; i--)

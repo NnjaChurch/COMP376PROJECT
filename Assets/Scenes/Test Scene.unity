@@ -711,6 +711,7 @@ MonoBehaviour:
   menu_pause: {fileID: 20905537}
   manager_player: {fileID: 1049794975}
   manager_inventory: {fileID: 1822822836}
+  prefab_items: {fileID: 1871846267}
 --- !u!1001 &96152411
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13113,7 +13114,7 @@ PrefabInstance:
     - target: {fileID: 1863666388896065950, guid: d77f5f59b69c4644f99f2dd989cd276b, type: 3}
       propertyPath: items
       value: 
-      objectReference: {fileID: 1871846267}
+      objectReference: {fileID: 0}
     - target: {fileID: 7391252362693399002, guid: d77f5f59b69c4644f99f2dd989cd276b, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -13257,6 +13258,10 @@ PrefabInstance:
     - target: {fileID: 7391252364459127831, guid: d77f5f59b69c4644f99f2dd989cd276b, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7391252364459127831, guid: d77f5f59b69c4644f99f2dd989cd276b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1348.7383
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d77f5f59b69c4644f99f2dd989cd276b, type: 3}

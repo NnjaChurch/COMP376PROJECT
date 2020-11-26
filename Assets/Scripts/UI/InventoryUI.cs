@@ -14,16 +14,17 @@ public class InventoryUI : MonoBehaviour {
 	[SerializeField] InventoryManager inventory_manager;
 	[SerializeField] EquipmentManager equipment_manager;
 	[SerializeField] UIManager ui_manager;
-	Player player;
 
 	[SerializeField] GameObject inventory_content; // Reference to 'Content' gameObject under InventoryPanel
 	[SerializeField] Text inventory_weight_text; // Text that shows current weight in the bottom of inventory
-	[SerializeField] GameObject items; // Reference to the 'Items' gameobject that has Food, Medicine, Wood, etc.
+
+	GameObject items; // Reference to the 'Items' gameobject that has Food, Medicine, Wood, etc.
 
 	public static bool inventory_updated = false; // To know if there is a change in inventory
 
 	// Start is called before the first frame update
 	void Start() {
+		items = ui_manager.GetPrefabItems();
 
 		for (int i = 0; i < inventory_content.transform.childCount; i++)
         {
@@ -42,11 +43,14 @@ public class InventoryUI : MonoBehaviour {
 
 	public void ButtonConsumeClick(string consumable)
     {
+		Debug.Log("InventoryUI.ButtonConsumeClick(): " + consumable);
 		inventory_manager.consume(consumable);
     }
 
 	public void ButtonEquipWeapon(string weapon)
 	{
+		Debug.Log("InventoryUI.ButtonEquipWeapon(): " + weapon);
+
 		equipment_manager.EquipWeapon(weapon);
 		ui_manager.UpdateInventoryUI();
 		ui_manager.UpdatePlayerEquippedWeapon();
@@ -54,6 +58,8 @@ public class InventoryUI : MonoBehaviour {
 
 	public void ButtonEquipArmour(string armour)
 	{
+		Debug.Log("InventoryUI.ButtonEquipArmour(): " + armour);
+
 		equipment_manager.EquipArmour(armour);
 		ui_manager.UpdateInventoryUI();
 		ui_manager.UpdatePlayerEquippedArmour();
@@ -66,10 +72,12 @@ public class InventoryUI : MonoBehaviour {
 
 		if (dropAll == 0) // Drop one
 		{
+			Debug.Log("InventoryUI.ButtonDropConsumable(): " + name);
 			inventory_manager.RemoveFromInventory(name);
 		}
 		else // Drop all
         {
+			Debug.Log("InventoryUI.ButtonDropAllConsumable(): " + name);
 			int consumable_count = inventory_manager.GetConsumables()[name];
 			for (int i = 0; i < consumable_count; i++)
             {
@@ -85,10 +93,12 @@ public class InventoryUI : MonoBehaviour {
 
 		if (dropAll == 0) // Drop one
 		{
+			Debug.Log("InventoryUI.ButtonDropMaterial(): " + name);
 			inventory_manager.RemoveFromInventory(name);
 		}
 		else // Drop all
 		{
+			Debug.Log("InventoryUI.ButtonDropAllMaterial(): " + name);
 			int material_count = inventory_manager.GetMaterials()[name];
 			for (int i = 0; i < material_count; i++)
 			{
@@ -100,6 +110,8 @@ public class InventoryUI : MonoBehaviour {
 
 	public void updateInventoryUI()
     {
+		Debug.Log("InventoryUI.updateInventoryUI()");
+
 		Transform itemSlot; // To get reference to each of the inventory UI slots
 		IDictionary<string, int> dictionary = null;
 
@@ -154,7 +166,7 @@ public class InventoryUI : MonoBehaviour {
 
 					// ------------------------------------------------------------------------------------------------------//
 
-					if (itemSlot.gameObject.activeSelf) // item had more than 1 count, and increased or decreased but still has more than 1
+					if (itemSlot.gameObject.activeSelf) // item had more than 1 count already, and increased or decreased but still has more than 1
 					{
 						itemSlot.Find("ItemCount").GetComponent<Text>().text = "x" + dictionary[entry.Key];
 						itemSlot.Find("ItemWeight").GetComponent<Text>().text = itemWeight + " lbs";

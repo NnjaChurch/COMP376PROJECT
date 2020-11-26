@@ -20,9 +20,10 @@ public class UIManager : MonoBehaviour {
 	[SerializeField] InventoryManager manager_inventory;
 	//[SerializeField] LootManager manager_loot;	TODO: Hook up LootManager once implemented
 
+	[SerializeField] GameObject prefab_items; // Reference to the 'Items' gameobject that has Food, Medicine, Wood, etc.
+
 	public void UpdateInventoryUI() {
 		InventoryUI.inventory_updated = true; // This lets it know that it should update in the next frame
-
 	}
 
 	public void UpdatePlayerHealth(int current_health, int max_health) {
@@ -57,6 +58,11 @@ public class UIManager : MonoBehaviour {
 	public void ToggleStatsUI()
     {
 		UI_game.ButtonVClick();
+    }
+
+	public GameObject GetPrefabItems()
+    {
+		return prefab_items; // Called in Start() of InventoryUI
     }
 
 }
