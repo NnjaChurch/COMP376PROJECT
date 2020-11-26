@@ -91,5 +91,7 @@ public class LootMenu : MonoBehaviour {
 				loot_items.RemoveAt(i);
 			}
         }
+
+		DisplayLoot(current_lootbag);
 	}
 }
