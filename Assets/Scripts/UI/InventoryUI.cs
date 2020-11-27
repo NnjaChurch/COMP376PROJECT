@@ -11,9 +11,13 @@ using UnityEngine.UI;
 
 public class InventoryUI : MonoBehaviour {
 
-	[SerializeField] InventoryManager inventory_manager;
-	[SerializeField] EquipmentManager equipment_manager;
-	[SerializeField] UIManager ui_manager;
+	// TODO: Make sure to only have InventoryUI communicate with UIManager and not the other managers (add functions in UIManager that call functions in Inventory / EquipmentManagers and not a direct link)
+	// TODO: Its an extra step, but it guarantees that nothing breaks if you change individual parts (only have to update functions when the UIManager is changed)
+	// TODO: Update the way data is passed to InventoryUI via the UIManager
+
+	[SerializeField] InventoryManager manager_inventory;
+	[SerializeField] EquipmentManager manager_equipment;
+	[SerializeField] UIManager manager_UI;
 
 	[SerializeField] GameObject inventory_content; // Reference to 'Content' gameObject under InventoryPanel
 	[SerializeField] Text inventory_weight_text; // Text that shows current weight in the bottom of inventory
@@ -24,6 +28,7 @@ public class InventoryUI : MonoBehaviour {
 
 	// Start is called before the first frame update
 	void Start() {
+
 		items = ui_manager.GetPrefabItems();
 
 		for (int i = 0; i < inventory_content.transform.childCount; i++)
@@ -37,32 +42,28 @@ public class InventoryUI : MonoBehaviour {
 		if (inventory_updated) // Refresh the inventory UI if there is a change in inventory
         {
 			updateInventoryUI();
+			//inventory_weight_text.GetComponent<Text>().text = "Weight: " + player_inventory.GetInventoryWeight() + "/" + player.GetCarryWeight() + " lbs";
 			inventory_updated = false; // Re set to false as we just updated the inventory UI
 		}
 	}
 
 	public void ButtonConsumeClick(string consumable)
     {
-		Debug.Log("InventoryUI.ButtonConsumeClick(): " + consumable);
-		inventory_manager.consume(consumable);
+		manager_inventory.Consume(consumable);
     }
 
 	public void ButtonEquipWeapon(string weapon)
 	{
-		Debug.Log("InventoryUI.ButtonEquipWeapon(): " + weapon);
-
-		equipment_manager.EquipWeapon(weapon);
-		ui_manager.UpdateInventoryUI();
-		ui_manager.UpdatePlayerEquippedWeapon();
+		manager_equipment.EquipWeapon(weapon);
+		manager_UI.UpdateInventoryUI();
+		manager_UI.UpdatePlayerEquippedWeapon();
 	}
 
 	public void ButtonEquipArmour(string armour)
 	{
-		Debug.Log("InventoryUI.ButtonEquipArmour(): " + armour);
-
-		equipment_manager.EquipArmour(armour);
-		ui_manager.UpdateInventoryUI();
-		ui_manager.UpdatePlayerEquippedArmour();
+		manager_equipment.EquipArmour(armour);
+		manager_UI.UpdateInventoryUI();
+		manager_UI.UpdatePlayerEquippedArmour();
 	}
 
 	public void ButtonDropConsumable(string item)
@@ -72,16 +73,14 @@ public class InventoryUI : MonoBehaviour {
 
 		if (dropAll == 0) // Drop one
 		{
-			Debug.Log("InventoryUI.ButtonDropConsumable(): " + name);
-			inventory_manager.RemoveFromInventory(name);
+			manager_inventory.RemoveFromInventory(name);
 		}
 		else // Drop all
         {
-			Debug.Log("InventoryUI.ButtonDropAllConsumable(): " + name);
-			int consumable_count = inventory_manager.GetConsumables()[name];
+			int consumable_count = manager_inventory.GetConsumables()[name];
 			for (int i = 0; i < consumable_count; i++)
             {
-				inventory_manager.RemoveFromInventory(name);
+				manager_inventory.RemoveFromInventory(name);
 			}
         }
 	}
@@ -93,16 +92,14 @@ public class InventoryUI : MonoBehaviour {
 
 		if (dropAll == 0) // Drop one
 		{
-			Debug.Log("InventoryUI.ButtonDropMaterial(): " + name);
-			inventory_manager.RemoveFromInventory(name);
+			manager_inventory.RemoveFromInventory(name);
 		}
 		else // Drop all
 		{
-			Debug.Log("InventoryUI.ButtonDropAllMaterial(): " + name);
-			int material_count = inventory_manager.GetMaterials()[name];
+			int material_count = manager_inventory.GetMaterials()[name];
 			for (int i = 0; i < material_count; i++)
 			{
-				inventory_manager.RemoveFromInventory(name);
+				manager_inventory.RemoveFromInventory(name);
 			}
 		}
 	}
@@ -110,8 +107,6 @@ public class InventoryUI : MonoBehaviour {
 
 	public void updateInventoryUI()
     {
-		Debug.Log("InventoryUI.updateInventoryUI()");
-
 		Transform itemSlot; // To get reference to each of the inventory UI slots
 		IDictionary<string, int> dictionary = null;
 
@@ -120,16 +115,16 @@ public class InventoryUI : MonoBehaviour {
 			switch (i)
 			{
 				case 0:
-					dictionary = inventory_manager.GetConsumables();
+					dictionary = manager_inventory.GetConsumables();
 					break;
 				case 1:
-					dictionary = inventory_manager.GetMaterials();
+					dictionary = manager_inventory.GetMaterials();
 					break;
 				case 2:
-					dictionary = inventory_manager.GetFoundWeapons();
+					dictionary = manager_inventory.GetFoundWeapons();
 					break;
 				case 3:
-					dictionary = inventory_manager.GetFoundArmour();
+					dictionary = manager_inventory.GetFoundArmour();
 					break;
 			}
 
@@ -138,46 +133,27 @@ public class InventoryUI : MonoBehaviour {
 				itemSlot = inventory_content.transform.Find(entry.Key);
 				if (entry.Value != 0)
 				{
+					// TODO So far only the weights of weapons and armours can be obtained this way. Should we have references to consumables and material in equipment manager too?
 					int itemWeight = -1;
-					string itemDescription = "N/A";
 
-					if (i == 0) // Dealing with consumables
-					{
-						Consumable c = items.transform.Find(entry.Key).GetComponent<Consumable>();
-						itemWeight = (int) c.GetWeight();
-						itemDescription = "+" + c.GetHPGain() + " Health";
-                    }
-					else if (i == 1) // Dealing with materials
-					{
-						Material m = items.transform.Find(entry.Key).GetComponent<Material>();
-						itemWeight = (int) m.GetWeight();
-						itemDescription = "Used for upgrades";
+					if (i == 2) { // Dealing with weapons
+						itemWeight = dictionary[entry.Key] * manager_equipment.GetWeaponWeight(entry.Key);
 					}
-					else if (i == 2) // Dealing with weapons
-					{
-						itemWeight = dictionary[entry.Key] * equipment_manager.GetWeaponWeight(entry.Key);
-						itemDescription = "Damage:" + equipment_manager.GetWeaponDamage(entry.Key);
-					}
-					else if (i == 3) // Dealing with armours
-					{
-						itemWeight = dictionary[entry.Key] * equipment_manager.GetArmourWeight(entry.Key);
-						itemDescription = "Defense:" + equipment_manager.GetArmourDefense(entry.Key);
+					else if (i == 3)
+                    {
+						itemWeight = dictionary[entry.Key] * manager_equipment.GetArmourWeight(entry.Key);
 					}
 
-					// ------------------------------------------------------------------------------------------------------//
-
-					if (itemSlot.gameObject.activeSelf) // item had more than 1 count already, and increased or decreased but still has more than 1
+					if (itemSlot.gameObject.activeSelf) // item had more than 1 count, and increased or decreased but still has more than 1
 					{
 						itemSlot.Find("ItemCount").GetComponent<Text>().text = "x" + dictionary[entry.Key];
-						itemSlot.Find("ItemWeight").GetComponent<Text>().text = itemWeight + " lbs";
-						itemSlot.Find("ItemDescription").GetComponent<Text>().text = itemDescription;
+						//itemSlot.Find("ItemWeight").GetComponent<Text>().text = itemWeight + " lbs";
 					}
 					else // if item had 0 but now has more than 1
 					{
 						itemSlot.gameObject.SetActive(true);
 						itemSlot.Find("ItemCount").GetComponent<Text>().text = "x" + dictionary[entry.Key];
-						itemSlot.Find("ItemWeight").GetComponent<Text>().text = itemWeight + " lbs";
-						itemSlot.Find("ItemDescription").GetComponent<Text>().text = itemDescription;
+						//itemSlot.Find("ItemWeight").GetComponent<Text>().text = itemWeight + " lbs";
 						itemSlot.SetAsLastSibling();
 					}
 				}
@@ -188,6 +164,6 @@ public class InventoryUI : MonoBehaviour {
 			}
 		}
 
-		inventory_weight_text.text = "Weight: " + inventory_manager.GetWeight() + "/100 lbs";
+		inventory_weight_text.text = "Weight: " + manager_inventory.GetWeight() + " / 100 lbs";
 	}
 }
