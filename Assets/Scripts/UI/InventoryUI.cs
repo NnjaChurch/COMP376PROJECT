@@ -29,7 +29,7 @@ public class InventoryUI : MonoBehaviour {
 	// Start is called before the first frame update
 	void Start() {
 
-		items = ui_manager.GetPrefabItems();
+		items = manager_UI.GetPrefabItems();
 
 		for (int i = 0; i < inventory_content.transform.childCount; i++)
         {

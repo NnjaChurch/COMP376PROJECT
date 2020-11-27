@@ -402,6 +402,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager_loot: {fileID: 279216100}
   manager_player: {fileID: 2136983919}
+  manager_ui: {fileID: 0}
 --- !u!1 &86346442
 GameObject:
   m_ObjectHideFlags: 0
@@ -1914,6 +1915,7 @@ MonoBehaviour:
   menu_pause: {fileID: 153183995}
   manager_player: {fileID: 2136983919}
   manager_inventory: {fileID: 234447116}
+  prefab_items: {fileID: 0}
 --- !u!1001 &771758290
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2907,9 +2909,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &1197426268 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 9173289736113099485, guid: 11dddd2b3e4d470488901657aaa8f3d5, type: 3}
+--- !u!4 &1197426268 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 1197426266}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1197426269 stripped
@@ -4415,7 +4417,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1675440736}
-  - component: {fileID: 1675440735}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -4423,19 +4424,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1675440735
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1675440734}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99cd044e2c1bfcc4986b3b5353e2150d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UI_loot: {fileID: 0}
 --- !u!4 &1675440736
 Transform:
   m_ObjectHideFlags: 0
@@ -4704,6 +4692,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13bd144310cec5d40a674ee8879a357d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventory_manager: {fileID: 0}
+  loot_content: {fileID: 0}
 --- !u!224 &2020901750
 RectTransform:
   m_ObjectHideFlags: 0

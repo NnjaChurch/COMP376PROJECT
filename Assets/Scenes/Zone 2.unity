@@ -1022,9 +1022,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11dddd2b3e4d470488901657aaa8f3d5, type: 3}
---- !u!224 &556119151 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 9173289736113099485, guid: 11dddd2b3e4d470488901657aaa8f3d5, type: 3}
+--- !u!4 &556119151 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 556119150}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &556119152 stripped
@@ -1256,6 +1256,7 @@ MonoBehaviour:
   menu_pause: {fileID: 1443518687}
   manager_player: {fileID: 628031775}
   manager_inventory: {fileID: 1854528144}
+  prefab_items: {fileID: 0}
 --- !u!4 &616060010
 Transform:
   m_ObjectHideFlags: 0
@@ -2016,7 +2017,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 910127192}
-  - component: {fileID: 910127191}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -2024,19 +2024,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &910127191
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 910127190}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99cd044e2c1bfcc4986b3b5353e2150d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UI_loot: {fileID: 0}
 --- !u!4 &910127192
 Transform:
   m_ObjectHideFlags: 0
@@ -2296,6 +2283,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager_loot: {fileID: 246939744}
   manager_player: {fileID: 628031775}
+  manager_ui: {fileID: 0}
 --- !u!1001 &1034809393
 PrefabInstance:
   m_ObjectHideFlags: 0

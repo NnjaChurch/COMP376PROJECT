@@ -270,6 +270,7 @@ public class PlayerStats : Stats {
 		manager_player.UpdateUIHealth(current_health, max_health);
 		manager_player.UpdateUIStamina(current_stamina, max_stamina);
 		manager_player.UpdateSpeed(movement_speed);
+		manager_player.UpdateUIExperience(current_level, current_experience, current_next_level);
 		// TODO: Add Updaters for other relevant stats
 	}
 }
