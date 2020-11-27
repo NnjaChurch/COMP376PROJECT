@@ -15,24 +15,23 @@ public class Weapon : Item {
 
 	// Attributes
 	[SerializeField] string weapon_name;
-	[SerializeField] int damage;
+	[SerializeField] int BASE_DAMAGE;
 	[SerializeField] float speed_modifier;
 	[SerializeField] int DAMAGE_SCALING;
+
 	int upgrade_tier;
+	int damage;
 
 
 	// Start is called before the first frame update
 	void Start() {
-	}
-
-	// Update is called once per frame
-	void Update() {
-
+		upgrade_tier = 0;
+		CalculateDamage();
 	}
 
 	public void UpgradeWeapon() {
 		upgrade_tier++;
-		damage += DAMAGE_SCALING;
+		CalculateDamage();
 	}
 
 	public void UseWeapon(int base_damage) {
@@ -58,5 +57,20 @@ public class Weapon : Item {
 		return damage;
 	}
 
-	public string GetWeaponName() { return weapon_name; }
+	public string GetWeaponName() {
+		return weapon_name;
+	}
+
+	public int GetWeaponTier() {
+		return upgrade_tier;
+	}
+
+	public void SetWeaponTier(int tier) {
+		upgrade_tier = tier;
+		CalculateDamage();
+	}
+
+	private void CalculateDamage() {
+		damage = BASE_DAMAGE + (upgrade_tier * DAMAGE_SCALING);
+	}
 }

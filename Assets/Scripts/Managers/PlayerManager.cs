@@ -10,7 +10,6 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour {
 
 	// Stat Class References
-	[SerializeField] Player player;
 	[SerializeField] Movement player_movement;
 	[SerializeField] PlayerStats player_stats;
 	[SerializeField] PlayerSkills player_skills;
@@ -20,6 +19,7 @@ public class PlayerManager : MonoBehaviour {
 	[SerializeField] EquipmentManager manager_equipment;
 	[SerializeField] InventoryManager manager_inventory;
 	[SerializeField] UIManager manager_UI;
+	[SerializeField] SaveManager manager_save;
 
 	public float GetSkillBonus(int skill_number) {
 		return player_skills.GetSkillBonus(skill_number);
@@ -58,7 +58,12 @@ public class PlayerManager : MonoBehaviour {
 		player_stats.HealPlayer(value);
 	}
 
-	// TODO someone has to call the following update ui functions
+	public float GetCarryWeight() {
+		return player_stats.GetCarryWeight();
+	}
+
+
+	// UI Functions
 	public void UpdateUIHealth(int current_health, int max_health) {
 		manager_UI.UpdatePlayerHealth(current_health, max_health);
 	}
@@ -71,23 +76,48 @@ public class PlayerManager : MonoBehaviour {
 		manager_UI.UpdatePlayerExperience(level, current_experience, next_level);
 	}
 
-	public void UpdateUIEquippedWeapon() {
-		manager_UI.UpdatePlayerEquippedWeapon();
-	}
-
-	public void UpdateUIEquippedArmor() {
-		manager_UI.UpdatePlayerEquippedArmour();
-	}
-
 	public void UpdateUISkills(int strength, int dexterity, int intelligence) {
 		manager_UI.UpdatePlayerSkills(strength, dexterity, intelligence);
 	}
 
-	public void UpdateUIInventory() {   // This function is already being called in the right places
-		manager_UI.UpdateInventoryUI();
-	}
-
 	public void UpdateSpeed(float speed) {
 		player_movement.SetSpeed(speed);
+	}
+
+	// Save Functions
+	public bool CheckSave() {
+		return manager_save.CheckSave();
+	}
+
+	public List<int> SavePlayerStats() {
+		List<int> stat_save = new List<int>();
+
+		stat_save.Add(player_stats.GetStrength());
+		stat_save.Add(player_stats.GetDexterity());
+		stat_save.Add(player_stats.GetIntelligence());
+		stat_save.Add(player_stats.GetCurrentLevel());
+		stat_save.Add(player_stats.GetCurrentExperience());
+		stat_save.Add(player_stats.GetCurrentNextLevel());
+		stat_save.Add(player_stats.GetStatPoints());
+		stat_save.Add(player_stats.GetSkillPoints());
+
+		return stat_save;
+	}
+
+	public List<int> SavePlayerSkills() {
+		List<int> skill_save = new List<int>();
+
+		for(int i = 0; i < 9; i++) {
+			skill_save.Add(player_skills.GetSkillLevel(i));
+		}
+		return skill_save;
+	}
+
+	public List<int> LoadPlayerStats() {
+		return manager_save.LoadPlayerStats();
+	}
+
+	public List<int> LoadPlayerSkills() {
+		return manager_save.LoadPlayerSkills();
 	}
 }

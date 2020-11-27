@@ -12,24 +12,22 @@ public class Armour : Item {
 
 	// Attributes
 	[SerializeField] string armour_name;
-	[SerializeField] int defense;
+	[SerializeField] int BASE_DEFENSE;
 	[SerializeField] int movement_modifier;
 	[SerializeField] int DEFENSE_SCALING;
+
 	int upgrade_tier;
+	int defense;
 
 	// Start is called before the first frame update
 	void Start() {
 		upgrade_tier = 0;
-	}
-
-	// Update is called once per frame
-	void Update() {
-
+		CalculateDefense();
 	}
 
 	public void UpgradeArmour() {
 		upgrade_tier++;
-		defense += DEFENSE_SCALING;
+		CalculateDefense();
 	}
 
 	public float GetMovementModifier() {
@@ -40,5 +38,20 @@ public class Armour : Item {
 		return defense;
 	}
 
-	public string GetArmourName() { return armour_name; }
+	public string GetArmourName() {
+		return armour_name;
+	}
+
+	public int GetArmourTier() {
+		return upgrade_tier;
+	}
+
+	public void SetArmourTier(int tier) {
+		upgrade_tier = tier;
+		CalculateDefense();
+	}
+
+	private void CalculateDefense() {
+		defense = BASE_DEFENSE + (upgrade_tier * DEFENSE_SCALING);
+	}
 }

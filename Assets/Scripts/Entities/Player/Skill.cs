@@ -21,18 +21,18 @@ public class Skill {
 	float current_bonus;
 
 	public Skill(string name, string stat, int max, float per) {
+		current_level = 0;
 		skill_name = name;
 		skill_stat = stat;
-		current_level = 0;
 		max_level = max;
 		per_level = per;
-		current_bonus = BASE_VALUE;
+		CalculateBonus();
 		GenerateDescription();
 	}
 	public bool LevelSkill() {
 		if(current_level < max_level) {
 			current_level++;
-			current_bonus += per_level;
+			CalculateBonus();
 			return true;
 		}
 		else {
@@ -47,6 +47,11 @@ public class Skill {
 			+ "Next Level: " + (current_bonus + per_level) + "%";
 	}
 
+	public void SetLevel(int level) {
+		current_level = level;
+		CalculateBonus();
+	}
+
 	public string GetName() {
 		return skill_name;
 	}
@@ -55,7 +60,14 @@ public class Skill {
 		return skill_description;
 	}
 
+	public int GetLevel() {
+		return current_level;
+	}
 	public float GetBonus() {
 		return current_bonus;
+	}
+
+	private void CalculateBonus() {
+		current_bonus = BASE_VALUE + (current_level * per_level);
 	}
 }

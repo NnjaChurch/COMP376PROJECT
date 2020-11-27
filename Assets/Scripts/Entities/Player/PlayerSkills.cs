@@ -17,6 +17,13 @@ public class PlayerSkills : MonoBehaviour {
 
 	void Start() {
 		InitializeSkills();
+
+		if(manager_player.CheckSave()) {
+			List<int> skills_load = manager_player.LoadPlayerSkills();
+			for(int i = 0; i < player_skills.Count; i++) {
+				player_skills[i].SetLevel(skills_load[i]);
+			}
+		}
 	}
 
 	private void InitializeSkills() {
@@ -37,12 +44,20 @@ public class PlayerSkills : MonoBehaviour {
 		player_skills[skill_number].LevelSkill();
 	}
 
+	public void SetSkillLevel(int skill_number, int level) {
+		player_skills[skill_number].SetLevel(level);
+	}
+
 	public string GetSkillName(int skill_number) {
 		return player_skills[skill_number].GetName();
 	}
 
 	public string GetSkillDescription(int skill_number) {
 		return player_skills[skill_number].GetDescription();
+	}
+
+	public int GetSkillLevel(int skill_number) {
+		return player_skills[skill_number].GetLevel();
 	}
 
 	public float GetSkillBonus(int skill_number) {
