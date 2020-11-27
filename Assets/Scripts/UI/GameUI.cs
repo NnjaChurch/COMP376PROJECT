@@ -38,16 +38,8 @@ public class GameUI : MonoBehaviour {
 	}
 
 	public void ButtonInventoryClick() {
-		if (!player_stats_ui.activeSelf) {
-			player_stats_ui.SetActive(true);
-		}
-		else {
-			player_stats_ui.SetActive(false);
-		}
-	}
+		Debug.Log("GameUI.ButtonInventoryClick()");
 
-	public void ButtonBClick()
-	{
 		if (!inventory_ui.activeSelf)
 		{
 			inventory_ui.SetActive(true);
@@ -58,17 +50,38 @@ public class GameUI : MonoBehaviour {
 		}
 	}
 
-	public void ButtonStatsClick() {
-		if (!inventory_ui.activeSelf) {
+	public void ButtonBClick()
+	{
+		Debug.Log("GameUI.BClick()");
+
+		if (!inventory_ui.activeSelf)
+		{
 			inventory_ui.SetActive(true);
 		}
-		else {
+		else
+		{
 			inventory_ui.SetActive(false);
+		}
+	}
+
+	public void ButtonStatsClick() 
+	{
+		Debug.Log("GameUI.ButtonStatsClick()");
+
+		if (!player_stats_ui.activeSelf)
+		{
+			player_stats_ui.SetActive(true);
+		}
+		else
+		{
+			player_stats_ui.SetActive(false);
 		}
 	}
 
 	public void ButtonVClick()
     {
+		Debug.Log("GameUI.VClick()");
+
 		if (!player_stats_ui.activeSelf)
 		{
 			player_stats_ui.SetActive(true);
@@ -80,18 +93,24 @@ public class GameUI : MonoBehaviour {
 	}
 
 	public void updatePlayerHealth(int current_health, int max_health) {
+		Debug.Log("GameUI.updatePlayerHealth()");
+
 		health_bar.fillAmount = (float)current_health / max_health;
 		// TODO: Add numbers text after bar? In bar?
 		player_stats_ui_script.updatePlayerHealth(current_health, max_health);
 	}
 
 	public void updatePlayerStamina(int current_stamina, int max_stamina) {
+		Debug.Log("GameUI.updatePlayerStamina()");
+
 		stamina_bar.fillAmount = (float)current_stamina / max_stamina;
 		// TODO: Add numbers text after bar? In bar?
 		player_stats_ui_script.updatePlayerStamina(current_stamina, max_stamina);
 	}
 
 	public void updatePlayerExperience(int level, int current_experience, int next_level) {
+		Debug.Log("GameUI.updatePlayerExperience()");
+
 		experience_bar.fillAmount = (float)current_experience / next_level;
 		experience_text.text = current_experience + "/" + next_level;
 		player_level_text.text = "Level " + level;

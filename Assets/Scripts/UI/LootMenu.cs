@@ -15,7 +15,7 @@ public class LootMenu : MonoBehaviour {
 	[SerializeField] InventoryManager inventory_manager;
 	[SerializeField] GameObject loot_content; // Reference to 'Content' gameObject under LootMenu
 
-	Lootbag current_lootbag; // To know which lootbad is currently opened
+	Lootbag current_lootbag; // To know which lootbag is currently opened
 
 	void Start() {
 		ResetLootUI();
