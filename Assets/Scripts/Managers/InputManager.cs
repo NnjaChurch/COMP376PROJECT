@@ -32,22 +32,12 @@ public class InputManager : MonoBehaviour {
 
 		if (Input.GetKeyDown(KeyCode.B))
         {
-			ToggleInventoryUI();
+			manager_ui.ToggleInventoryUI();
         }
 		if (Input.GetKeyDown(KeyCode.V))
 		{
-			ToggleStatsUI();
+			manager_ui.ToggleStatsUI();
 		}
-	}
-
-	public void ToggleInventoryUI()
-    {
-		manager_ui.ToggleInventoryUI();
-	}
-
-	public void ToggleStatsUI()
-    {
-		manager_ui.ToggleStatsUI();
 	}
 
 	private void FixedUpdate() {

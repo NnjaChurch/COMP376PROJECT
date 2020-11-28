@@ -16,6 +16,8 @@ public class GameUI : MonoBehaviour {
 	[SerializeField] Text experience_text;
 	[SerializeField] Text player_level_text;
 
+	[SerializeField] UIManager manager_UI;
+
 	// Start is called before the first frame update
 	void Start() {
 		//int zone_number = ...;
@@ -26,6 +28,16 @@ public class GameUI : MonoBehaviour {
 	// Update is called once per frame
 	void Update() {
 
+	}
+
+	public void ToggleInventoryUI()
+    {
+		manager_UI.ToggleInventoryUI();
+    }
+
+	public void ToggleStatsUI()
+	{
+		manager_UI.ToggleStatsUI();
 	}
 
 	public void updatePlayerHealth(int current_health, int max_health) {

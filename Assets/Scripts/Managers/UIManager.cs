@@ -71,6 +71,13 @@ public class UIManager : MonoBehaviour {
 		UI_character.updatePlayerSkills(strength, dexterity, intelligence);
 	}
 
+	// ----------------------------------------------------- menu_loot -------------------------------------------------------------------//
+
+	public void DisplayLoot(Lootbag loot)
+    {
+		menu_loot.DisplayLoot(loot);
+    }
+
 	// ----------------------------------------------------- manager_inventory ----------------------------------------------------------------//
 
 	public void Consume(string item) // Called from InventoryUI.cs

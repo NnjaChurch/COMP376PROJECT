@@ -6272,11 +6272,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 897b6ce887901d94a97356d98df98eb6, type: 3}
---- !u!1 &1117650479 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3236158365472646241, guid: b1ee1c3ddb1b456488ac2b2681483d28, type: 3}
-  m_PrefabInstance: {fileID: 3236158366505638478}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1117650480 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3236158365472646270, guid: b1ee1c3ddb1b456488ac2b2681483d28, type: 3}
@@ -6287,7 +6282,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3236158365472646271, guid: b1ee1c3ddb1b456488ac2b2681483d28, type: 3}
   m_PrefabInstance: {fileID: 3236158366505638478}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1117650479}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 25d47692d48c37841bb68225e02ade98, type: 3}
@@ -6998,8 +6993,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1380738347}
-        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
+      - m_Target: {fileID: 1820578409}
+        m_TargetAssemblyTypeName: GameUI, Assembly-CSharp
         m_MethodName: ToggleInventoryUI
         m_Mode: 1
         m_Arguments:
@@ -7053,11 +7048,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6782711734862630462, guid: 1048aef945a6cb2449ab832601159dfe, type: 3}
   m_PrefabInstance: {fileID: 1176661761}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1287155249 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7391252362703954417, guid: d77f5f59b69c4644f99f2dd989cd276b, type: 3}
-  m_PrefabInstance: {fileID: 7391252364328928024}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1287155250 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7391252363962366784, guid: d77f5f59b69c4644f99f2dd989cd276b, type: 3}
@@ -7068,7 +7058,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1863666388896065950, guid: d77f5f59b69c4644f99f2dd989cd276b, type: 3}
   m_PrefabInstance: {fileID: 7391252364328928024}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1287155249}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1945476f13368c24999a45e2b0d4749b, type: 3}
@@ -8743,8 +8733,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1380738347}
-        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
+      - m_Target: {fileID: 1820578409}
+        m_TargetAssemblyTypeName: GameUI, Assembly-CSharp
         m_MethodName: ToggleStatsUI
         m_Mode: 1
         m_Arguments:
@@ -10477,10 +10467,7 @@ MonoBehaviour:
   experience_bar: {fileID: 1646757471}
   experience_text: {fileID: 905131557}
   player_level_text: {fileID: 2140630131}
-  current_zone_text: {fileID: 2127051984}
-  inventory_ui: {fileID: 1287155249}
-  player_stats_ui: {fileID: 1117650479}
-  player_stats_ui_script: {fileID: 1117650481}
+  manager_UI: {fileID: 86618748}
 --- !u!1 &1822822835
 GameObject:
   m_ObjectHideFlags: 0
@@ -12065,7 +12052,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99cd044e2c1bfcc4986b3b5353e2150d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UI_loot: {fileID: 69366989}
+  manager_UI: {fileID: 0}
 --- !u!1 &2127051982
 GameObject:
   m_ObjectHideFlags: 0
