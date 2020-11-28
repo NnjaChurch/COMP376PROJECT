@@ -824,6 +824,7 @@ MonoBehaviour:
   menu_pause: {fileID: 20905537}
   manager_player: {fileID: 1049794975}
   manager_inventory: {fileID: 1822822836}
+  manager_equipment: {fileID: 1139298902}
   prefab_items: {fileID: 1871846267}
 --- !u!1001 &96152411
 PrefabInstance:
@@ -6997,9 +6998,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1820578409}
-        m_TargetAssemblyTypeName: GameUI, Assembly-CSharp
-        m_MethodName: ButtonInventoryClick
+      - m_Target: {fileID: 1380738347}
+        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
+        m_MethodName: ToggleInventoryUI
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8742,9 +8743,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1820578409}
-        m_TargetAssemblyTypeName: GameUI, Assembly-CSharp
-        m_MethodName: ButtonStatsClick
+      - m_Target: {fileID: 1380738347}
+        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
+        m_MethodName: ToggleStatsUI
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12602,7 +12603,11 @@ PrefabInstance:
     - target: {fileID: 3236158365472646271, guid: b1ee1c3ddb1b456488ac2b2681483d28, type: 3}
       propertyPath: equipment_manager
       value: 
-      objectReference: {fileID: 1139298902}
+      objectReference: {fileID: 0}
+    - target: {fileID: 3236158365472646271, guid: b1ee1c3ddb1b456488ac2b2681483d28, type: 3}
+      propertyPath: manager_UI
+      value: 
+      objectReference: {fileID: 86618748}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1ee1c3ddb1b456488ac2b2681483d28, type: 3}
 --- !u!4 &3270386037865861843 stripped
@@ -13675,6 +13680,10 @@ PrefabInstance:
       propertyPath: inventory_manager
       value: 
       objectReference: {fileID: 1822822836}
+    - target: {fileID: 9071097729591852241, guid: 392e6878df2d78244be8bbfa4027e68c, type: 3}
+      propertyPath: manager_UI
+      value: 
+      objectReference: {fileID: 86618748}
     - target: {fileID: 9071097729847837326, guid: 392e6878df2d78244be8bbfa4027e68c, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -13733,6 +13742,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9071097731345657494, guid: 392e6878df2d78244be8bbfa4027e68c, type: 3}
       propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9071097731345657494, guid: 392e6878df2d78244be8bbfa4027e68c, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -11,12 +11,9 @@ using UnityEngine.UI;
 
 public class InventoryUI : MonoBehaviour {
 
-	// TODO: Make sure to only have InventoryUI communicate with UIManager and not the other managers (add functions in UIManager that call functions in Inventory / EquipmentManagers and not a direct link)
 	// TODO: Its an extra step, but it guarantees that nothing breaks if you change individual parts (only have to update functions when the UIManager is changed)
 	// TODO: Update the way data is passed to InventoryUI via the UIManager
 
-	[SerializeField] InventoryManager manager_inventory;
-	[SerializeField] EquipmentManager manager_equipment;
 	[SerializeField] UIManager manager_UI;
 
 	[SerializeField] GameObject inventory_content; // Reference to 'Content' gameObject under InventoryPanel
@@ -35,6 +32,8 @@ public class InventoryUI : MonoBehaviour {
         {
 			inventory_content.transform.GetChild(i).gameObject.SetActive(false);
         }
+
+		this.gameObject.SetActive(false);
 	}
 
 	// Update is called once per frame
@@ -46,17 +45,31 @@ public class InventoryUI : MonoBehaviour {
 		}
 	}
 
+	public void ButtonInventoryClick()
+    {
+		Debug.Log("InventoryUI.ButtonInventoryClick()");
+
+		if (!this.gameObject.activeSelf)
+		{
+			this.gameObject.SetActive(true);
+		}
+		else
+		{
+			this.gameObject.SetActive(false);
+		}
+	}
+
 	public void ButtonConsumeClick(string consumable)
     {
 		Debug.Log("InventoryUI.ButtonConsumeClick(): " + consumable);
-		manager_inventory.Consume(consumable);
+		manager_UI.Consume(consumable);
     }
 
 	public void ButtonEquipWeapon(string weapon)
 	{
 		Debug.Log("InventoryUI.ButtonEquipWeapon(): " + weapon);
 
-		manager_equipment.EquipWeapon(weapon);
+		manager_UI.EquipWeapon(weapon);
 		manager_UI.UpdateInventoryUI();
 		manager_UI.UpdatePlayerEquippedWeapon();
 	}
@@ -65,7 +78,7 @@ public class InventoryUI : MonoBehaviour {
 	{
 		Debug.Log("InventoryUI.ButtonEquipArmour(): " + armour);
 
-		manager_equipment.EquipArmour(armour);
+		manager_UI.EquipArmour(armour);
 		manager_UI.UpdateInventoryUI();
 		manager_UI.UpdatePlayerEquippedArmour();
 	}
@@ -78,15 +91,15 @@ public class InventoryUI : MonoBehaviour {
 		if (dropAll == 0) // Drop one
 		{
 			Debug.Log("InventoryUI.ButtonDropConsumable(): " + name);
-			manager_inventory.RemoveFromInventory(name);
+			manager_UI.RemoveFromInventory(name);
 		}
 		else // Drop all
         {
 			Debug.Log("InventoryUI.ButtonDropAllConsumable(): " + name);
-			int consumable_count = manager_inventory.GetConsumables()[name];
+			int consumable_count = manager_UI.GetConsumables()[name];
 			for (int i = 0; i < consumable_count; i++)
             {
-				manager_inventory.RemoveFromInventory(name);
+				manager_UI.RemoveFromInventory(name);
 			}
         }
 	}
@@ -99,15 +112,15 @@ public class InventoryUI : MonoBehaviour {
 		if (dropAll == 0) // Drop one
 		{
 			Debug.Log("InventoryUI.ButtonDropMaterial(): " + name);
-			manager_inventory.RemoveFromInventory(name);
+			manager_UI.RemoveFromInventory(name);
 		}
 		else // Drop all
 		{
-			int material_count = manager_inventory.GetMaterials()[name];
+			int material_count = manager_UI.GetMaterials()[name];
 			for (int i = 0; i < material_count; i++)
 			{
 				Debug.Log("InventoryUI.ButtonDropAllMaterial(): " + name);
-				manager_inventory.RemoveFromInventory(name);
+				manager_UI.RemoveFromInventory(name);
 			}
 		}
 	}
@@ -125,16 +138,16 @@ public class InventoryUI : MonoBehaviour {
 			switch (i)
 			{
 				case 0:
-					dictionary = manager_inventory.GetConsumables();
+					dictionary = manager_UI.GetConsumables();
 					break;
 				case 1:
-					dictionary = manager_inventory.GetMaterials();
+					dictionary = manager_UI.GetMaterials();
 					break;
 				case 2:
-					dictionary = manager_inventory.GetFoundWeapons();
+					dictionary = manager_UI.GetFoundWeapons();
 					break;
 				case 3:
-					dictionary = manager_inventory.GetFoundArmour();
+					dictionary = manager_UI.GetFoundArmour();
 					break;
 			}
 
@@ -159,13 +172,13 @@ public class InventoryUI : MonoBehaviour {
 						itemDescription = "Used for upgrades";
 					}
 					else if (i == 2) { // Dealing with weapons
-						itemWeight = dictionary[entry.Key] * manager_equipment.GetWeaponWeight(entry.Key);
-						itemDescription = "Damage:" + manager_equipment.GetWeaponDamage(entry.Key);
+						itemWeight = dictionary[entry.Key] * manager_UI.GetWeaponWeight(entry.Key);
+						itemDescription = "Damage:" + manager_UI.GetWeaponDamage(entry.Key);
 					}
 					else if (i == 3) // Dealing with armours
 					{
-						itemWeight = dictionary[entry.Key] * manager_equipment.GetArmourWeight(entry.Key);
-						itemDescription = "Defense:" + manager_equipment.GetArmourDefense(entry.Key);
+						itemWeight = dictionary[entry.Key] * manager_UI.GetArmourWeight(entry.Key);
+						itemDescription = "Defense:" + manager_UI.GetArmourDefense(entry.Key);
 					}
 
 					// ------------------------------------------------------------------------------------------------------//
@@ -192,6 +205,6 @@ public class InventoryUI : MonoBehaviour {
 			}
 		}
 
-		inventory_weight_text.text = "Weight: " + manager_inventory.GetWeight() + " / 100 lbs";
+		inventory_weight_text.text = "Weight: " + manager_UI.GetWeight() + " / 100 lbs";
 	}
 }

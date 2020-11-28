@@ -19,7 +19,7 @@ public class CharacterUI : MonoBehaviour {
 	[SerializeField] Text player_level_text;
 
 	//------------------------------------------------------------------------Equipment Info-----------------------------------------//
-	[SerializeField] EquipmentManager equipment_manager; // To get the equipped weapon and armour
+	[SerializeField] UIManager manager_UI; // To get the equipped weapon and armour from the equipment manager
 
 	[SerializeField] Image equippedWeaponImage;
 	[SerializeField] Text equippedWeaponName;
@@ -49,11 +49,27 @@ public class CharacterUI : MonoBehaviour {
 		for (int i = 0; i < armourNames.Length; i++) {
 			equipments.Add(armourNames[i], armourImages[i]);
 		}
+
+		this.gameObject.SetActive(false);
 	}
 
 	// Update is called once per frame
 	void Update() {
 
+	}
+
+	public void ButtonStatsClick()
+	{
+		Debug.Log("CharacterUI.ButtonStatsClick()");
+
+		if (!this.gameObject.activeSelf)
+		{
+			this.gameObject.SetActive(true);
+		}
+		else
+		{
+			this.gameObject.SetActive(false);
+		}
 	}
 
 	public void updatePlayerHealth(int current_health, int max_health) {
@@ -78,7 +94,7 @@ public class CharacterUI : MonoBehaviour {
 	public void updateEquippedWeapon() {
 		Debug.Log("CharacterUI.updateEquippedWeapon()");
 
-		Weapon equippedWeapon = equipment_manager.GetEquippedWeapon();
+		Weapon equippedWeapon = manager_UI.GetEquippedWeapon();
 		equippedWeaponImage.sprite = equipments[equippedWeapon.GetWeaponName()];
 		equippedWeaponName.text = equippedWeapon.GetWeaponName();
 		equippedWeaponStats.text = "Damage: " + equippedWeapon.GetDamage();
@@ -87,7 +103,7 @@ public class CharacterUI : MonoBehaviour {
 	public void updateEquippedArmour() {
 		Debug.Log("CharacterUI.updateEquippedArmour()");
 
-		Armour equippedArmour = equipment_manager.GetEquippedArmour();
+		Armour equippedArmour = manager_UI.GetEquippedArmour();
 		equippedArmourImage.sprite = equipments[equippedArmour.GetArmourName()];
 		equippedArmourName.text = equippedArmour.GetArmourName();
 		equippedArmourStats.text = "Defense: " + equippedArmour.GetDefense();

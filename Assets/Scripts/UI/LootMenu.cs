@@ -12,7 +12,7 @@ using UnityEngine.UI;
 public class LootMenu : MonoBehaviour {
 	// Start is called before the first frame update
 
-	[SerializeField] InventoryManager inventory_manager;
+	[SerializeField] UIManager manager_UI;
 	[SerializeField] GameObject loot_content; // Reference to 'Content' gameObject under LootMenu
 
 	Lootbag current_lootbag; // To know which lootbag is currently opened
@@ -68,7 +68,7 @@ public class LootMenu : MonoBehaviour {
     {
 		Debug.Log("LootMenu.ButtonPickUp(): " + item);
 
-		inventory_manager.AddToInventory(item);
+		manager_UI.AddToInventory(item);
 		List<LootUIEntity> loot_items = current_lootbag.GetItems();
 
 		for (int i = 0; i < loot_items.Count; i++)
@@ -93,7 +93,7 @@ public class LootMenu : MonoBehaviour {
         {
 			if (loot_items[i].item_name == item)
 			{
-				inventory_manager.AddToInventory(item);
+				manager_UI.AddToInventory(item);
 				loot_items.RemoveAt(i);
 			}
         }
