@@ -33,13 +33,15 @@ public class Player : Entity {
     {
 		if (collision.gameObject.tag == "EnemyPerceptionAura")
         {
+			collision.gameObject.GetComponentInParent<AIPath>().enabled = true;
 			collision.gameObject.GetComponentInParent<AIDestinationSetter>().enabled = true;
-        }
-    }
+		}
+	}
     private void OnTriggerExit2D(Collider2D collision)
     {
 		if (collision.gameObject.tag == "EnemyPerceptionAura")
 		{
+			collision.gameObject.GetComponentInParent<AIPath>().enabled = false;
 			collision.gameObject.GetComponentInParent<AIDestinationSetter>().enabled = false;
 		}
 	}
