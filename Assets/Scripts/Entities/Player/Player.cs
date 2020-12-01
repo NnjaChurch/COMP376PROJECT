@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 // ----------------------------------------------------------------------------------------------------
 //	Description: Class determining player specific behaviour and statistics
@@ -26,5 +27,20 @@ public class Player : Entity {
 		Vector2 direction = player_cam.ScreenToWorldPoint(Input.mousePosition);
 		direction = (direction - (Vector2)gameObject.transform.position).normalized;
 		gameObject.transform.up = direction;
+	}
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+		if (collision.gameObject.tag == "EnemyPerceptionAura")
+        {
+			collision.gameObject.GetComponentInParent<AIDestinationSetter>().enabled = true;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+		if (collision.gameObject.tag == "EnemyPerceptionAura")
+		{
+			collision.gameObject.GetComponentInParent<AIDestinationSetter>().enabled = false;
+		}
 	}
 }

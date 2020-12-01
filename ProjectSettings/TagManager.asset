@@ -7,6 +7,7 @@ TagManager:
   - Lootable
   - Enemy
   - InventoryContent
+  - EnemyPerceptionAura
   layers:
   - Default
   - TransparentFX
