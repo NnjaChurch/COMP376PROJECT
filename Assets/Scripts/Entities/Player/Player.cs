@@ -39,7 +39,7 @@ public class Player : Entity {
 	}
     private void OnTriggerExit2D(Collider2D collision)
     {
-		if (collision.gameObject.tag == "EnemyPerceptionAura")
+		if ((collision.gameObject.tag == "EnemyPerceptionAura") && (collision.gameObject.active = true))
 		{
 			collision.gameObject.GetComponentInParent<AIPath>().enabled = false;
 			collision.gameObject.GetComponentInParent<AIDestinationSetter>().enabled = false;
