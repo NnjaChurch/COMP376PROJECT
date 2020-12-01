@@ -11,12 +11,11 @@ using UnityEngine;
 
 public class LootManager : MonoBehaviour {
 	[SerializeField] UIManager manager_UI;
+	[SerializeField] PlayerManager player_manager;
 
 	LootTable bag;
 	LootTable furniture;
 	LootTable vehicle;
-
-	Player player;
 
 	List<string> foundWeapons = new List<string>();
 	List<string> foundArmour = new List<string>();
@@ -47,8 +46,6 @@ public class LootManager : MonoBehaviour {
 		a = new RangeInt(76, 24);
 		vehicle = new LootTable(c, m, w, a);
 
-		player = FindObjectOfType<Player>();
-
 	}
 
 	// Update is called once per frame
@@ -60,7 +57,8 @@ public class LootManager : MonoBehaviour {
     {
 		const float lootRadius = 0.5f;
 		// is the player near a lootbag(s)?
-		Collider2D[] hitColliders = Physics2D.OverlapCircleAll(player.transform.position, lootRadius);
+		Vector3 player_position = player_manager.GetPlayerPosition();
+		Collider2D[] hitColliders = Physics2D.OverlapCircleAll(player_position, lootRadius);
 		List<Collider2D> lootableColliders = new List<Collider2D>();
 		if (lootableColliders != null) {
 			foreach (var hitCollider in hitColliders) {

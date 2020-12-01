@@ -62,6 +62,11 @@ public class PlayerManager : MonoBehaviour {
 		return player_stats.GetCarryWeight();
 	}
 
+	public Vector3 GetPlayerPosition()
+    {
+		return transform.position;
+    }
+
 
 	// UI Functions
 	public void UpdateUIHealth(int current_health, int max_health) {
