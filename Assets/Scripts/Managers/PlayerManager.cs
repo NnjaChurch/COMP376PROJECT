@@ -64,6 +64,7 @@ public class PlayerManager : MonoBehaviour {
 
 	public Vector3 GetPlayerPosition()
     {
+		// TODO this possibly returns the PlayerManager's position instead and not the player's position
 		return transform.position;
     }
 

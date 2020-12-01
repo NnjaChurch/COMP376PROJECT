@@ -173,12 +173,12 @@ public class InventoryUI : MonoBehaviour {
 					}
 					else if (i == 2) { // Dealing with weapons
 						itemWeight = dictionary[entry.Key] * manager_UI.GetWeaponWeight(entry.Key);
-						itemDescription = "Damage:" + manager_UI.GetWeaponDamage(entry.Key);
+						itemDescription = "Damage: " + manager_UI.GetWeaponDamage(entry.Key);
 					}
 					else if (i == 3) // Dealing with armours
 					{
 						itemWeight = dictionary[entry.Key] * manager_UI.GetArmourWeight(entry.Key);
-						itemDescription = "Defense:" + manager_UI.GetArmourDefense(entry.Key);
+						itemDescription = "Defense: " + manager_UI.GetArmourDefense(entry.Key);
 					}
 
 					// ------------------------------------------------------------------------------------------------------//

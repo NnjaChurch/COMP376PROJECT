@@ -163,7 +163,7 @@ public class LootTable
 	string[] consumables = new string[] { "Food", "Medicine" };
 	string[] materials = new string[] { "Nails", "Wood", "Metal", "Cloth" };
 	List<string> weapons = new List<string> { "Bat", "Knife", "Shovel", "Rake" };
-	List<string> armour = new List<string> { "Light", "Medium", "Heavy" };
+	List<string> armour = new List<string> { "Light Armour", "Medium Armour", "Heavy Armour" };
 
 	public LootTable(RangeInt c, RangeInt m, RangeInt w, RangeInt a)
 	{
