@@ -12,6 +12,8 @@ using UnityEngine.UI;
 public class CharacterUI : MonoBehaviour {
 	// Start is called before the first frame update
 
+	[SerializeField] UIManager manager_UI; // To get the equipped weapon and armour from the equipment manager
+
 	//------------------------------------------------------------------------Player Info--------------------------------------------//
 	[SerializeField] Image health_bar;
 	[SerializeField] Image stamina_bar;
@@ -19,8 +21,6 @@ public class CharacterUI : MonoBehaviour {
 	[SerializeField] Text player_level_text;
 
 	//------------------------------------------------------------------------Equipment Info-----------------------------------------//
-	[SerializeField] UIManager manager_UI; // To get the equipped weapon and armour from the equipment manager
-
 	[SerializeField] Image equippedWeaponImage;
 	[SerializeField] Text equippedWeaponName;
 	[SerializeField] Text equippedWeaponStats;

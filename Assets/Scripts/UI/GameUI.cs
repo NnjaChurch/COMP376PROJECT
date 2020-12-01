@@ -10,13 +10,13 @@ using UnityEngine.UI;
 // ----------------------------------------------------------------------------------------------------
 public class GameUI : MonoBehaviour {
 
+	[SerializeField] UIManager manager_UI;
+
 	[SerializeField] Image health_bar;
 	[SerializeField] Image stamina_bar;
 	[SerializeField] Image experience_bar;
 	[SerializeField] Text experience_text;
 	[SerializeField] Text player_level_text;
-
-	[SerializeField] UIManager manager_UI;
 
 	// Start is called before the first frame update
 	void Start() {
