@@ -1373,12 +1373,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e979ea85cc7199408588ea8507079bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager_UI: {fileID: 0}
   health_bar: {fileID: 1629020515752143368}
   stamina_bar: {fileID: 1629020516996857874}
   experience_bar: {fileID: 1629020516205419175}
   experience_text: {fileID: 1629020514991991517}
   player_level_text: {fileID: 1629020516160352395}
-  manager_UI: {fileID: 0}
 --- !u!1 &1629020516535594137
 GameObject:
   m_ObjectHideFlags: 0
@@ -2055,6 +2055,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ButtonEquipWeapon
       objectReference: {fileID: 0}
+    - target: {fileID: 1773709826201032015, guid: d03292a306177464ea8d77b0ef2fe1a4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cdfede140dc12744aac719dd5058f663, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d03292a306177464ea8d77b0ef2fe1a4, type: 3}
 --- !u!1001 &1629020514990073597
@@ -2152,6 +2156,10 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8087952431252277574, guid: c69bf0fedecfb1342bb5241d60baf978, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 66387a49f012bdd478b3389f11aa3983, type: 3}
     - target: {fileID: 8087952431420996587, guid: c69bf0fedecfb1342bb5241d60baf978, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2265,6 +2273,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ButtonEquipArmour
       objectReference: {fileID: 0}
+    - target: {fileID: 5178517956507944297, guid: 346380c57a0c5bd49be3c30b9459722d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 86059b9592317ca41a9bddbbfd5fc3ef, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 346380c57a0c5bd49be3c30b9459722d, type: 3}
 --- !u!1001 &1629020515044459367
@@ -2274,6 +2286,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1629020516446878322}
     m_Modifications:
+    - target: {fileID: 8178462494088778062, guid: 7d4954a69a3962949be62365afd689a4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 86059b9592317ca41a9bddbbfd5fc3ef, type: 3}
     - target: {fileID: 8178462494376127023, guid: 7d4954a69a3962949be62365afd689a4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2395,6 +2411,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ButtonPickUpAll
       objectReference: {fileID: 0}
+    - target: {fileID: 8337170033824648672, guid: cacbee49b7048b4428e29a9c21b1ff91, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ae80fc8cac764e24fbf6bdbc46c3fe19, type: 3}
     - target: {fileID: 8337170034270384262, guid: cacbee49b7048b4428e29a9c21b1ff91, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2516,6 +2536,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ButtonDropMaterial
       objectReference: {fileID: 0}
+    - target: {fileID: 4477161432984505828, guid: 06b55768f9e8e1243aba20d830b7a249, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1fc4635c0e3540a4e8791d1563b7e8e6, type: 3}
     - target: {fileID: 4477161433224525298, guid: 06b55768f9e8e1243aba20d830b7a249, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2717,6 +2741,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ButtonDropMaterial
       objectReference: {fileID: 0}
+    - target: {fileID: 4411250655752044402, guid: 5d29dbe79343cc94e91690aff8aead46, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0f4d2743679d7a64a8486beaeee739a8, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d29dbe79343cc94e91690aff8aead46, type: 3}
 --- !u!1001 &1629020515567008333
@@ -2734,6 +2762,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ButtonPickUpAll
       objectReference: {fileID: 0}
+    - target: {fileID: 560758342079234850, guid: 5006e6753a786b640a77120729477674, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 66387a49f012bdd478b3389f11aa3983, type: 3}
     - target: {fileID: 560758343120733354, guid: 5006e6753a786b640a77120729477674, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2935,6 +2967,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ButtonEquipArmour
       objectReference: {fileID: 0}
+    - target: {fileID: 8685975248551751904, guid: b0995caba204ac6469ee3eb08277b23a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1d8f9a336c167a24aa93874c54bb1e24, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0995caba204ac6469ee3eb08277b23a, type: 3}
 --- !u!1001 &1629020515677503059
@@ -3153,6 +3189,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Metal
       objectReference: {fileID: 0}
+    - target: {fileID: 5313994109120735034, guid: 38e240ce184ee844887f40d6182d9adc, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0f4d2743679d7a64a8486beaeee739a8, type: 3}
     - target: {fileID: 5313994109791798834, guid: 38e240ce184ee844887f40d6182d9adc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -3170,6 +3210,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1629020516446878322}
     m_Modifications:
+    - target: {fileID: 4082625721367380148, guid: 38bf6268391f8b0439d032543526a8b2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1fc4635c0e3540a4e8791d1563b7e8e6, type: 3}
     - target: {fileID: 4082625721455100909, guid: 38bf6268391f8b0439d032543526a8b2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -3500,6 +3544,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ButtonPickUp
       objectReference: {fileID: 0}
+    - target: {fileID: 7173471101717233434, guid: fd83ee000db6d4e45aac730b46b4a4d6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d4b7fd6aa33e02744b39375e9829e979, type: 3}
     - target: {fileID: 7173471102306418199, guid: fd83ee000db6d4e45aac730b46b4a4d6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -3517,6 +3565,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1629020515862932471}
     m_Modifications:
+    - target: {fileID: 5212087094826315371, guid: ce7dd95e1ea023b45b439ccb21d6274c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9470223eb7208f6409d971f006fa4bff, type: 3}
     - target: {fileID: 5212087094967543302, guid: ce7dd95e1ea023b45b439ccb21d6274c, type: 3}
       propertyPath: m_Name
       value: Rake
@@ -3622,6 +3674,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1629020516446878322}
     m_Modifications:
+    - target: {fileID: 6317156387058927708, guid: ea9bf0f57122a5042b114f3fecf20ae4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1d8f9a336c167a24aa93874c54bb1e24, type: 3}
     - target: {fileID: 6317156387375771808, guid: ea9bf0f57122a5042b114f3fecf20ae4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -3831,6 +3887,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ButtonPickUp
       objectReference: {fileID: 0}
+    - target: {fileID: 2828172755244529706, guid: ed5383ff04c38434fbbc9cfb829f263f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cdfede140dc12744aac719dd5058f663, type: 3}
     - target: {fileID: 2828172755267039031, guid: ed5383ff04c38434fbbc9cfb829f263f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -3848,6 +3908,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1629020516446878322}
     m_Modifications:
+    - target: {fileID: 8709315383754476003, guid: 0713d20210779ff4787e860ed78fcebe, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 971e8827c9bfbd643ab9358e3965bf30, type: 3}
     - target: {fileID: 8709315383829890064, guid: 0713d20210779ff4787e860ed78fcebe, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -4057,6 +4121,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ButtonEquipWeapon
       objectReference: {fileID: 0}
+    - target: {fileID: 3870312059383696815, guid: 591bf7071ee749c489bed21e0e55d029, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d4b7fd6aa33e02744b39375e9829e979, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 591bf7071ee749c489bed21e0e55d029, type: 3}
 --- !u!1001 &1629020516553136547
@@ -4170,6 +4238,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Medicine
       objectReference: {fileID: 0}
+    - target: {fileID: 6194580164578356224, guid: e0acf540b25d7a04c87c4755e0cae856, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 971e8827c9bfbd643ab9358e3965bf30, type: 3}
     - target: {fileID: 6194580164781594136, guid: e0acf540b25d7a04c87c4755e0cae856, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -4526,6 +4598,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1629020515862932471}
     m_Modifications:
+    - target: {fileID: 801254086034908054, guid: 0113f6ddfc70e004fa4af78a9ed7abf0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ae80fc8cac764e24fbf6bdbc46c3fe19, type: 3}
     - target: {fileID: 801254086573794358, guid: 0113f6ddfc70e004fa4af78a9ed7abf0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -4840,6 +4916,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ButtonPickUpAll
       objectReference: {fileID: 0}
+    - target: {fileID: 8478995432850892785, guid: 102d4b575185ca249a08d1b6b928a158, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9470223eb7208f6409d971f006fa4bff, type: 3}
     - target: {fileID: 8478995433166648222, guid: 102d4b575185ca249a08d1b6b928a158, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -4957,6 +5037,34 @@ PrefabInstance:
       propertyPath: manager_UI
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3236158365472646271, guid: b1ee1c3ddb1b456488ac2b2681483d28, type: 3}
+      propertyPath: weaponImages.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: cdfede140dc12744aac719dd5058f663, type: 3}
+    - target: {fileID: 3236158365472646271, guid: b1ee1c3ddb1b456488ac2b2681483d28, type: 3}
+      propertyPath: weaponImages.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 9470223eb7208f6409d971f006fa4bff, type: 3}
+    - target: {fileID: 3236158365472646271, guid: b1ee1c3ddb1b456488ac2b2681483d28, type: 3}
+      propertyPath: weaponImages.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: d4b7fd6aa33e02744b39375e9829e979, type: 3}
+    - target: {fileID: 3236158365472646271, guid: b1ee1c3ddb1b456488ac2b2681483d28, type: 3}
+      propertyPath: armourImages.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 86059b9592317ca41a9bddbbfd5fc3ef, type: 3}
+    - target: {fileID: 3236158365472646271, guid: b1ee1c3ddb1b456488ac2b2681483d28, type: 3}
+      propertyPath: armourImages.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 1d8f9a336c167a24aa93874c54bb1e24, type: 3}
+    - target: {fileID: 3236158365472646271, guid: b1ee1c3ddb1b456488ac2b2681483d28, type: 3}
+      propertyPath: armourImages.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 66387a49f012bdd478b3389f11aa3983, type: 3}
+    - target: {fileID: 3236158365835929964, guid: b1ee1c3ddb1b456488ac2b2681483d28, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 86059b9592317ca41a9bddbbfd5fc3ef, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1ee1c3ddb1b456488ac2b2681483d28, type: 3}
 --- !u!224 &1629020516746863304 stripped
