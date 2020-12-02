@@ -162,23 +162,23 @@ public class InventoryUI : MonoBehaviour {
 					if (i == 0) // Dealing with consumables
 					{
 						Consumable c = items.transform.Find(entry.Key).GetComponent<Consumable>();
-						itemWeight = (int) c.GetWeight();
+						itemWeight = dictionary[entry.Key] * (int)c.GetWeight();
 						itemDescription = "+" + c.GetHPGain() + " Health";
 					}
 					else if (i == 1) // Dealing with materials
 					{
 						Material m = items.transform.Find(entry.Key).GetComponent<Material>();
-						itemWeight = (int) m.GetWeight();
+						itemWeight = dictionary[entry.Key] * (int)m.GetWeight();
 						itemDescription = "Used for upgrades";
 					}
 					else if (i == 2) { // Dealing with weapons
 						itemWeight = dictionary[entry.Key] * manager_UI.GetWeaponWeight(entry.Key);
-						itemDescription = "Damage:" + manager_UI.GetWeaponDamage(entry.Key);
+						itemDescription = "Damage: " + manager_UI.GetWeaponDamage(entry.Key);
 					}
 					else if (i == 3) // Dealing with armours
 					{
 						itemWeight = dictionary[entry.Key] * manager_UI.GetArmourWeight(entry.Key);
-						itemDescription = "Defense:" + manager_UI.GetArmourDefense(entry.Key);
+						itemDescription = "Defense: " + manager_UI.GetArmourDefense(entry.Key);
 					}
 
 					// ------------------------------------------------------------------------------------------------------//

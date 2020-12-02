@@ -15,9 +15,12 @@ public class LootMenu : MonoBehaviour {
 	[SerializeField] UIManager manager_UI;
 	[SerializeField] GameObject loot_content; // Reference to 'Content' gameObject under LootMenu
 
+	GameObject items; // Reference to the 'Items' gameobject that has Food, Medicine, Wood, etc.
+
 	Lootbag current_lootbag; // To know which lootbag is currently opened
 
 	void Start() {
+		items = manager_UI.GetPrefabItems();
 		ResetLootUI();
 		this.gameObject.SetActive(false);
 	}
@@ -41,16 +44,56 @@ public class LootMenu : MonoBehaviour {
         {
 			itemSlot = loot_content.transform.Find(loot_items[i].item_name);
 			itemSlot.gameObject.SetActive(true);
-			// TODO item weight
 
+			// Updating item count:
 			string count = itemSlot.Find("ItemCount").GetComponent<Text>().text.Substring(1); // The actual string is "x##"
 			int itemCount = int.Parse(count);
 			itemCount++;
 			itemSlot.Find("ItemCount").GetComponent<Text>().text = "x" + itemCount;
+
+			// Updating item total weight:
+			int totalWeight = itemCount * GetItemWeight(loot_items[i].item_name);
+			itemSlot.Find("ItemWeight").GetComponent<Text>().text = totalWeight + " lbs";
 		}
 
 		this.gameObject.SetActive(true);
-		// TODO when to SetActive(false)?
+    }
+
+	public int GetItemWeight(string item)
+    {
+		int weight = -1;
+
+		switch (item)
+        {
+			case "Food":
+			case "Medicine":
+				Consumable c = items.transform.Find(item).GetComponent<Consumable>();
+				weight = (int) c.GetWeight();
+				break;
+
+			case "Cloth":
+			case "Metal":
+			case "Nails":
+			case "Wood":
+				Material m = items.transform.Find(item).GetComponent<Material>();
+				weight = (int) m.GetWeight();
+				break;
+
+			case "Bat":
+			case "Knife":
+			case "Rake":
+			case "Shovel":
+				weight = manager_UI.GetWeaponWeight(item);
+				break;
+
+			case "Light Armour":
+			case "Medium Armour":
+			case "Heavy Armour":
+				weight = manager_UI.GetArmourWeight(item);
+				break;
+        }
+
+		return weight;
     }
 
 	// Reset loot ui everytime we open the loot ui, so that we don't accidentally show the loot from another lootbag
@@ -60,6 +103,7 @@ public class LootMenu : MonoBehaviour {
 		{
 			Transform itemSlot = loot_content.transform.GetChild(i);
 			itemSlot.Find("ItemCount").GetComponent<Text>().text = "x0";
+			itemSlot.Find("ItemWeight").GetComponent<Text>().text = "0 lbs";
 			itemSlot.gameObject.SetActive(false);
 		}
 	}
@@ -100,4 +144,9 @@ public class LootMenu : MonoBehaviour {
 
 		DisplayLoot(current_lootbag);
 	}
+
+	public void ButtonClose()
+    {
+		this.gameObject.SetActive(false);
+    }
 }
