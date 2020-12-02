@@ -19,14 +19,14 @@ public class GameUI : MonoBehaviour {
 	[SerializeField] Text player_level_text;
 
 	// Start is called before the first frame update
-	void Start() {
-		//int zone_number = ...;
-		//string zone_name = ...;
-		//current_zone_text.text = "Zone " + zone_number + ": " + zone_name;
+	void Start() 
+	{
+		
 	}
 
 	// Update is called once per frame
-	void Update() {
+	void Update() 
+	{
 
 	}
 

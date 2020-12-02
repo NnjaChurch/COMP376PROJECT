@@ -7693,6 +7693,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1629020516147847208, guid: cdf42f6964f0eb14fb9b678bebfba71f, type: 3}
+      propertyPath: m_Text
+      value: 'Zone 0: Test Scene'
+      objectReference: {fileID: 0}
     - target: {fileID: 1629020516278079034, guid: cdf42f6964f0eb14fb9b678bebfba71f, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
