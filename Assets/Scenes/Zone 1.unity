@@ -555,6 +555,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager_UI: {fileID: 753216489}
+  player_manager: {fileID: 2136983919}
 --- !u!1001 &615710449
 PrefabInstance:
   m_ObjectHideFlags: 0
