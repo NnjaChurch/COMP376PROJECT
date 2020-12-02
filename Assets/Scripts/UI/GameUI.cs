@@ -13,7 +13,9 @@ public class GameUI : MonoBehaviour {
 	[SerializeField] UIManager manager_UI;
 
 	[SerializeField] Image health_bar;
+	[SerializeField] Text health_text;
 	[SerializeField] Image stamina_bar;
+	[SerializeField] Text stamina_text;
 	[SerializeField] Image experience_bar;
 	[SerializeField] Text experience_text;
 	[SerializeField] Text player_level_text;
@@ -44,14 +46,14 @@ public class GameUI : MonoBehaviour {
 		Debug.Log("GameUI.updatePlayerHealth()");
 
 		health_bar.fillAmount = (float)current_health / max_health;
-		// TODO: Add numbers text after bar? In bar?
+		health_text.text = current_health + "/" + max_health;
 	}
 
 	public void updatePlayerStamina(int current_stamina, int max_stamina) {
 		Debug.Log("GameUI.updatePlayerStamina()");
 
 		stamina_bar.fillAmount = (float)current_stamina / max_stamina;
-		// TODO: Add numbers text after bar? In bar?
+		stamina_text.text = current_stamina + "/" + max_stamina;
 	}
 
 	public void updatePlayerExperience(int level, int current_experience, int next_level) {
