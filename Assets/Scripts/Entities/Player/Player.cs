@@ -31,18 +31,28 @@ public class Player : Entity {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-		if (collision.gameObject.tag == "EnemyPerceptionAura")
+		GameObject gameObject = collision.gameObject;
+		if (gameObject.tag == "EnemyPerceptionAura")
         {
-			collision.gameObject.GetComponentInParent<AIPath>().enabled = true;
-			collision.gameObject.GetComponentInParent<AIDestinationSetter>().enabled = true;
+			gameObject.GetComponentInParent<AIPath>().enabled = true;
+			gameObject.GetComponentInParent<AIDestinationSetter>().enabled = true;
+		}
+		if (gameObject.tag == "Roof")
+		{
+			gameObject.GetComponent<SpriteRenderer>().enabled = false;
 		}
 	}
     private void OnTriggerExit2D(Collider2D collision)
     {
-		if ((collision.gameObject.tag == "EnemyPerceptionAura") && (collision.gameObject.active = true))
+		GameObject gameObject = collision.gameObject;
+		if ((gameObject.tag == "EnemyPerceptionAura") && (gameObject.active = true))
 		{
-			collision.gameObject.GetComponentInParent<AIPath>().enabled = false;
-			collision.gameObject.GetComponentInParent<AIDestinationSetter>().enabled = false;
+			gameObject.GetComponentInParent<AIPath>().enabled = false;
+			gameObject.GetComponentInParent<AIDestinationSetter>().enabled = false;
+		}
+		if (gameObject.tag == "Roof")
+        {
+			gameObject.GetComponent<SpriteRenderer>().enabled = true;
 		}
 	}
 }
