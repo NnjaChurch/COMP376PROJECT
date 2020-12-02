@@ -102,11 +102,8 @@ public class Inventory : MonoBehaviour {
 				break;
 
 			case "Nails":
-				break;
 			case "Wood":
-				break;
 			case "Metal":
-				break;
 			case "Cloth":
 				current_count = materials[item_name];
 				materials[item_name] = current_count + 1;
@@ -141,11 +138,8 @@ public class Inventory : MonoBehaviour {
 				break;
 
 			case "Nails":
-				break;
 			case "Wood":
-				break;
 			case "Metal":
-				break;
 			case "Cloth":
 				current_count = materials[item_name];
 				materials[item_name] = current_count - 1;
