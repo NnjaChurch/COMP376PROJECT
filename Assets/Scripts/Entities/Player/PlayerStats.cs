@@ -271,6 +271,10 @@ public class PlayerStats : Stats {
 		}
 	}
 
+	public void SetEncumberance(float value) {
+		encumbered_modifier = value;
+	}
+
 	public int GetCurrentStamina() { return current_stamina; }
 	public int GetMaxStamina() { return max_stamina; }
 	public float GetCarryWeight() { return carry_weight; }
