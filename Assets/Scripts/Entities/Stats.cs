@@ -43,8 +43,4 @@ public class Stats : MonoBehaviour {
 	public float GetAttackSpeed() { return attack_speed; }
 	public float GetMovementSpeed() { return movement_speed; }
 
-	public int TakeDamage(int damage) {
-		Debug.LogError("Damage Should not be called from Stats.cs!");
-		return (-1);
-	}
 }

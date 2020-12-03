@@ -23,7 +23,7 @@ public class Enemy : Entity {
 
 	}
 
-	public Stats GetStats() { return stats; }
+	public EnemyStats GetStats() { return stats; }
 
 	public void Kill() {
 		gameObject.SetActive(false);

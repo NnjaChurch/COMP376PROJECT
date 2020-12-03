@@ -58,6 +58,10 @@ public class PlayerManager : MonoBehaviour {
 		player_stats.HealPlayer(value);
 	}
 
+	public void SetEncumberance(float value) {
+		player_stats.SetEncumberance(value);
+	}
+
 	public float GetCarryWeight() {
 		return player_stats.GetCarryWeight();
 	}
@@ -106,8 +110,15 @@ public class PlayerManager : MonoBehaviour {
 		stat_save.Add(player_stats.GetCurrentNextLevel());
 		stat_save.Add(player_stats.GetStatPoints());
 		stat_save.Add(player_stats.GetSkillPoints());
+		stat_save.Add(player_stats.GetBankedExperience());
+		stat_save.Add(System.Convert.ToInt32(player_stats.Zone2Unlocked()));
+		stat_save.Add(System.Convert.ToInt32(player_stats.Zone3Unlocked()));
 
 		return stat_save;
+	}
+
+	public void KillPlayer() {
+		// TODO: Handle Player Death
 	}
 
 	public List<int> SavePlayerSkills() {

@@ -8,6 +8,7 @@ public class EnemyStats : Stats {
 	[SerializeField] int damage_per_level = 5;
 	[SerializeField] Weapon initial_weapon;
 	[SerializeField] Armour initial_armour;
+	[SerializeField] Enemy enemy;
 
 	private void Start() {
 		equipped_weapon = initial_weapon;
@@ -50,11 +51,12 @@ public class EnemyStats : Stats {
 		movement_speed = BASE_MOVEMENT_SPEED / equipped_armour.GetMovementModifier();
 	}
 
-	public new int TakeDamage(int damage) {
+	public int TakeDamage(int damage) {
 		int taken_damage = Mathf.FloorToInt(damage / ((float)equipped_armour.GetDefense() / 100));
 		current_health -= taken_damage;
 		if (current_health < 0) {
 			current_health = 0;
+			enemy.Kill();
 		}
 		return current_health;
 	}

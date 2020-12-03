@@ -25,6 +25,7 @@ public class Weapon : Item {
 
 	// Start is called before the first frame update
 	void Start() {
+		filter.SetLayerMask(layer_mask);
 		upgrade_tier = 0;
 		CalculateDamage();
 	}
@@ -38,13 +39,14 @@ public class Weapon : Item {
 		List<Collider2D> collisions = new List<Collider2D>();
 		int n = Physics2D.OverlapCollider(hit_box, filter, collisions); //TODO - Fix: filter isnt working, i don't know why.
 		foreach (Collider2D collision in collisions) {
-			if (collision.gameObject.layer == 9) {
-				Enemy enemy = collision.gameObject.GetComponent<Enemy>();
-				if (enemy != null) {
-					if (enemy.GetStats().TakeDamage(base_damage + damage) <= 0) {
-						enemy.Kill();
-					}
-				}
+			EnemyStats enemyStats = collision.gameObject.GetComponent<EnemyStats>();
+			PlayerStats playerStats = collision.gameObject.GetComponent<PlayerStats>();
+			if (enemyStats != null) {
+				enemyStats.TakeDamage(base_damage + damage);
+			}
+			if (playerStats != null)
+			{
+				playerStats.TakeDamage(base_damage + damage);
 			}
 		}
 	}
