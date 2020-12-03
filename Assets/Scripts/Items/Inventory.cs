@@ -10,9 +10,9 @@ using UnityEngine;
 public class Inventory : MonoBehaviour {
 	
 	[SerializeField] InventoryManager manager_inventory;
+	[SerializeField] PlayerManager manager_player;
 
 	float current_weight;
-	bool isEncumbered;
 
 	public IDictionary<string, int> consumables = new Dictionary<string, int>();
 	public IDictionary<string, int> materials = new Dictionary<string, int>();
@@ -20,6 +20,7 @@ public class Inventory : MonoBehaviour {
 	public IDictionary<string, bool> weapons = new Dictionary<string, bool>();
 	public IDictionary<string, bool> armours = new Dictionary<string, bool>();
 
+	bool isEncumbered;
 
 	// Start is called before the first frame update
 	void Start() {
@@ -85,9 +86,11 @@ public class Inventory : MonoBehaviour {
 
 		if (current_weight > carry_capacity) {
 			isEncumbered = true;
+			manager_player.SetEncumberance(1.5f);
 		}
 		else {
 			isEncumbered = false;
+			manager_player.SetEncumberance(1.0f);
 		}
 	}
 
