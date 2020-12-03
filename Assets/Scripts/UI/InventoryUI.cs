@@ -156,46 +156,63 @@ public class InventoryUI : MonoBehaviour {
 				itemSlot = inventory_content.transform.Find(entry.Key);
 				if (entry.Value != 0)
 				{
-					int itemWeight = -1;
+					float itemWeight = -1;
 					string itemDescription = "N/A";
+
+					bool showItem = true; // Will be false if if it's a weapon or armour that is currently equipped
 
 					if (i == 0) // Dealing with consumables
 					{
 						Consumable c = items.transform.Find(entry.Key).GetComponent<Consumable>();
-						itemWeight = dictionary[entry.Key] * (int)c.GetWeight();
+						itemWeight = entry.Value * c.GetWeight();
 						itemDescription = "+" + c.GetHPGain() + " Health";
 					}
 					else if (i == 1) // Dealing with materials
 					{
 						Material m = items.transform.Find(entry.Key).GetComponent<Material>();
-						itemWeight = dictionary[entry.Key] * (int)m.GetWeight();
+						itemWeight = entry.Value * m.GetWeight();
 						itemDescription = "Used for upgrades";
 					}
 					else if (i == 2) { // Dealing with weapons
 						itemWeight = dictionary[entry.Key] * manager_UI.GetWeaponWeight(entry.Key);
 						itemDescription = "Damage: " + manager_UI.GetWeaponDamage(entry.Key);
+						if (manager_UI.GetEquippedWeapon().GetWeaponName() == entry.Key)
+                        {
+							showItem = false;
+                        }
 					}
 					else if (i == 3) // Dealing with armours
 					{
 						itemWeight = dictionary[entry.Key] * manager_UI.GetArmourWeight(entry.Key);
 						itemDescription = "Defense: " + manager_UI.GetArmourDefense(entry.Key);
+						if (manager_UI.GetEquippedArmour().GetArmourName() == entry.Key)
+                        {
+							showItem = false;
+                        }
 					}
 
 					// ------------------------------------------------------------------------------------------------------//
 
-					if (itemSlot.gameObject.activeSelf) // item had more than 1 count already, and increased or decreased but still has more than 1
+					if (showItem)
 					{
-						itemSlot.Find("ItemCount").GetComponent<Text>().text = "x" + dictionary[entry.Key];
-						itemSlot.Find("ItemWeight").GetComponent<Text>().text = itemWeight + " lbs";
-						itemSlot.Find("ItemDescription").GetComponent<Text>().text = itemDescription;
+						if (itemSlot.gameObject.activeSelf) // item had more than 1 count already, and increased or decreased but still has more than 1
+						{
+							itemSlot.Find("ItemCount").GetComponent<Text>().text = "x" + dictionary[entry.Key];
+							itemSlot.Find("ItemWeight").GetComponent<Text>().text = itemWeight + " lbs";
+							itemSlot.Find("ItemDescription").GetComponent<Text>().text = itemDescription;
+						}
+						else // if item had 0 but now has more than 1
+						{
+							itemSlot.gameObject.SetActive(true);
+							itemSlot.Find("ItemCount").GetComponent<Text>().text = "x" + dictionary[entry.Key];
+							itemSlot.Find("ItemWeight").GetComponent<Text>().text = itemWeight + " lbs";
+							itemSlot.Find("ItemDescription").GetComponent<Text>().text = itemDescription;
+							itemSlot.SetAsLastSibling();
+						}
 					}
-					else // if item had 0 but now has more than 1
-					{
-						itemSlot.gameObject.SetActive(true);
-						itemSlot.Find("ItemCount").GetComponent<Text>().text = "x" + dictionary[entry.Key];
-						itemSlot.Find("ItemWeight").GetComponent<Text>().text = itemWeight + " lbs";
-						itemSlot.Find("ItemDescription").GetComponent<Text>().text = itemDescription;
-						itemSlot.SetAsLastSibling();
+					else
+                    {
+						itemSlot.gameObject.SetActive(false);
 					}
 				}
 				else // if item count is 0
