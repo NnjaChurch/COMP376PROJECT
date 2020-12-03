@@ -26,8 +26,8 @@ public class Enemy : Entity {
 	public EnemyStats GetStats() { return stats; }
 
 	public void Kill() {
-		gameObject.SetActive(false);
 		GameObject lootbag;
 		lootbag = Instantiate(lootBagPrefab, transform.position, transform.rotation) as GameObject;
+		Destroy(gameObject);
 	}
 }
