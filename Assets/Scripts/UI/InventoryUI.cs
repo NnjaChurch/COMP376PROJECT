@@ -205,6 +205,6 @@ public class InventoryUI : MonoBehaviour {
 			}
 		}
 
-		inventory_weight_text.text = "Weight: " + manager_UI.GetWeight() + " / 100 lbs";
+		inventory_weight_text.text = "Weight: " + manager_UI.GetWeight() + " / " + (int)manager_UI.GetMaxWeight() + " lbs";
 	}
 }

@@ -161,4 +161,11 @@ public class UIManager : MonoBehaviour {
 		return manager_equipment.GetEquippedArmour();
 	}
 
+	// ----------------------------------------------------- manager_player ----------------------------------------------------------------//
+
+	public float GetMaxWeight()
+    {
+		return manager_player.GetCarryWeight();
+    }
+
 }

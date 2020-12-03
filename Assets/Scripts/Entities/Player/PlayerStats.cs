@@ -42,12 +42,17 @@ public class PlayerStats : Stats {
 
 	// Current Stats
 	int current_stamina;
+	int banked_experience;
 
 	// Stamina System
 	float second_timer;
 	int stamina_regen;
 	float current_stamina_regen_cd;
 	bool isSprinting;
+
+	// Zone System
+	bool zone2_unlocked;
+	bool zone3_unlocked;
 
 
 	// Manager Reference
@@ -68,8 +73,25 @@ public class PlayerStats : Stats {
 
 			stat_points = stats_load[6];
 			skill_points = stats_load[7];
+
+			banked_experience = stats_load[8];
+
+			if(stats_load[9] == 1) {
+				zone2_unlocked = true;
+			}
+			else {
+				zone2_unlocked = false;
+			}
+			if(stats_load[10] == 1) {
+				zone3_unlocked = true;
+			}
+			else {
+				zone3_unlocked = false;
+			}
 		}
 		else {
+			zone2_unlocked = false;
+			zone3_unlocked = false;
 			InitalizeExperience();
 		}
 
@@ -177,7 +199,7 @@ public class PlayerStats : Stats {
 		}
 		isSprinting = sprint;
 	}
-	public new int TakeDamage(int damage) {
+	public int TakeDamage(int damage) {
 		int taken_damage = Mathf.CeilToInt((damage - equipped_armour.GetDefense()) / damage_reduction);
 		current_health -= taken_damage;
 		if (current_health < 0) {
@@ -201,6 +223,10 @@ public class PlayerStats : Stats {
 		}
 		// Update UI
 		manager_player.UpdateUIHealth(current_health, max_health);
+	}
+
+	public void CollectExperience(int experience) {
+		banked_experience += experience;
 	}
 
 	public void GainExperience(int experience) {
@@ -255,6 +281,9 @@ public class PlayerStats : Stats {
 	public int GetIntelligence() { return intelligence; }
 	public int GetStatPoints() { return stat_points; }
 	public int GetSkillPoints() { return skill_points; }
+	public int GetBankedExperience() { return banked_experience; }
+	public bool Zone2Unlocked() { return zone2_unlocked; }
+	public bool Zone3Unlocked() { return zone3_unlocked; }
 
 	public void SetEquippedWeapon(Weapon w) {
 		equipped_weapon = w;
