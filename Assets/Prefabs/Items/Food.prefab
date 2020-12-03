@@ -43,4 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fbd3e3ebd984484e81fe6e90543d9e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weight: 3
   consumable_name: Food
+  hp_gain: 20

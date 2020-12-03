@@ -43,4 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b72deebd1b7d00142b74b21d91be9fc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weight: 2
   material_name: Cloth
