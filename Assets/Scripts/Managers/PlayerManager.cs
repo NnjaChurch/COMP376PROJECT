@@ -106,6 +106,9 @@ public class PlayerManager : MonoBehaviour {
 		stat_save.Add(player_stats.GetCurrentNextLevel());
 		stat_save.Add(player_stats.GetStatPoints());
 		stat_save.Add(player_stats.GetSkillPoints());
+		stat_save.Add(player_stats.GetBankedExperience());
+		stat_save.Add(System.Convert.ToInt32(player_stats.Zone2Unlocked()));
+		stat_save.Add(System.Convert.ToInt32(player_stats.Zone3Unlocked()));
 
 		return stat_save;
 	}

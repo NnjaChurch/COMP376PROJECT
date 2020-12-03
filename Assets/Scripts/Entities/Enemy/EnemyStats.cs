@@ -50,7 +50,7 @@ public class EnemyStats : Stats {
 		movement_speed = BASE_MOVEMENT_SPEED / equipped_armour.GetMovementModifier();
 	}
 
-	public new int TakeDamage(int damage) {
+	public int TakeDamage(int damage) {
 		int taken_damage = Mathf.FloorToInt(damage / ((float)equipped_armour.GetDefense() / 100));
 		current_health -= taken_damage;
 		if (current_health < 0) {
