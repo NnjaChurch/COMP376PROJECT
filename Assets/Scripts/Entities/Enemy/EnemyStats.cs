@@ -8,6 +8,7 @@ public class EnemyStats : Stats {
 	[SerializeField] int damage_per_level = 5;
 	[SerializeField] Weapon initial_weapon;
 	[SerializeField] Armour initial_armour;
+	[SerializeField] Enemy enemy;
 
 	private void Start() {
 		equipped_weapon = initial_weapon;
@@ -55,6 +56,7 @@ public class EnemyStats : Stats {
 		current_health -= taken_damage;
 		if (current_health < 0) {
 			current_health = 0;
+			enemy.Kill();
 		}
 		return current_health;
 	}

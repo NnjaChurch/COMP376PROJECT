@@ -196,8 +196,9 @@ MonoBehaviour:
   BASE_MOVEMENT_SPEED: 1
   health_per_level: 60
   damage_per_level: 12
-  temp_weapon: {fileID: 0}
-  temp_armour: {fileID: 0}
+  initial_weapon: {fileID: 0}
+  initial_armour: {fileID: 0}
+  enemy: {fileID: 8821683021923919287}
 --- !u!114 &-8962843732058808693
 MonoBehaviour:
   m_ObjectHideFlags: 0

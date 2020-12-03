@@ -133,8 +133,8 @@ MonoBehaviour:
   hit_box: {fileID: 4744373200191366938}
   layer_mask:
     serializedVersion: 2
-    m_Bits: 1335
+    m_Bits: 512
   weapon_name: 
-  damage: 3
+  BASE_DAMAGE: 0
   speed_modifier: 0
   DAMAGE_SCALING: 0
