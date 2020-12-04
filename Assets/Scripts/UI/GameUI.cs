@@ -43,21 +43,21 @@ public class GameUI : MonoBehaviour {
 	}
 
 	public void updatePlayerHealth(int current_health, int max_health) {
-		Debug.Log("GameUI.updatePlayerHealth()");
+		//Debug.Log("GameUI.updatePlayerHealth()");
 
 		health_bar.fillAmount = (float)current_health / max_health;
 		health_text.text = current_health + "/" + max_health;
 	}
 
 	public void updatePlayerStamina(int current_stamina, int max_stamina) {
-		Debug.Log("GameUI.updatePlayerStamina()");
+		//Debug.Log("GameUI.updatePlayerStamina()");
 
 		stamina_bar.fillAmount = (float)current_stamina / max_stamina;
 		stamina_text.text = current_stamina + "/" + max_stamina;
 	}
 
 	public void updatePlayerExperience(int level, int current_experience, int next_level) {
-		Debug.Log("GameUI.updatePlayerExperience()");
+		//Debug.Log("GameUI.updatePlayerExperience()");
 
 		experience_bar.fillAmount = (float)current_experience / next_level;
 		experience_text.text = current_experience + "/" + next_level;

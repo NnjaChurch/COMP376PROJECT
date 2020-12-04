@@ -60,7 +60,7 @@ public class CharacterUI : MonoBehaviour {
 
 	public void ButtonStatsClick()
 	{
-		Debug.Log("CharacterUI.ButtonStatsClick()");
+		//Debug.Log("CharacterUI.ButtonStatsClick()");
 
 		if (!this.gameObject.activeSelf)
 		{
@@ -73,26 +73,26 @@ public class CharacterUI : MonoBehaviour {
 	}
 
 	public void updatePlayerHealth(int current_health, int max_health) {
-		Debug.Log("CharacterUI.updatePlayerHealth()");
+		//Debug.Log("CharacterUI.updatePlayerHealth()");
 		health_bar.fillAmount = (float)current_health / max_health;
 		// TODO: Display Numbers?
 	}
 
 	public void updatePlayerStamina(int current_stamina, int max_stamina) {
-		Debug.Log("CharacterUI.updatePlayerStamina()");
+		//Debug.Log("CharacterUI.updatePlayerStamina()");
 		stamina_bar.fillAmount = (float)current_stamina / max_stamina;
 		// TODO: Display Numbers?
 	}
 
 	public void updatePlayerExperience(int level, int current_experience, int next_level) {
-		Debug.Log("CharacterUI.updatePlayerExperience()");
+		//Debug.Log("CharacterUI.updatePlayerExperience()");
 		experience_bar.fillAmount = (float)current_experience / next_level;
 		//experience_text.text = current_experience + "/" + next_level;		TODO: Missing text in Character UI?
 		player_level_text.text = "Level " + level;
 	}
 
 	public void updateEquippedWeapon() {
-		Debug.Log("CharacterUI.updateEquippedWeapon()");
+		//Debug.Log("CharacterUI.updateEquippedWeapon()");
 
 		Weapon equippedWeapon = manager_UI.GetEquippedWeapon();
 		equippedWeaponImage.sprite = equipments[equippedWeapon.GetWeaponName()];
@@ -101,7 +101,7 @@ public class CharacterUI : MonoBehaviour {
 	}
 
 	public void updateEquippedArmour() {
-		Debug.Log("CharacterUI.updateEquippedArmour()");
+		//Debug.Log("CharacterUI.updateEquippedArmour()");
 
 		Armour equippedArmour = manager_UI.GetEquippedArmour();
 		equippedArmourImage.sprite = equipments[equippedArmour.GetArmourName()];
@@ -110,7 +110,7 @@ public class CharacterUI : MonoBehaviour {
 	}
 
 	public void updatePlayerSkills(int strength, int dexterity, int intelligence) {
-		Debug.Log("CharacterUI.updatePlayerSkills()");
+		//Debug.Log("CharacterUI.updatePlayerSkills()");
 
 		strengthText.text = "Strength: " + strength;
 		dexterityText.text = "Dexterity: " + dexterity;
