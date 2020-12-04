@@ -55,4 +55,13 @@ public class Player : Entity {
 			gameObject.GetComponent<SpriteRenderer>().enabled = true;
 		}
 	}
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+		EnemyStats enemyStats = collision.gameObject.transform.GetComponentInParent<EnemyStats>();
+		if (enemyStats != null)
+        {
+			enemyStats.StartAttack();
+        }
+    }
 }

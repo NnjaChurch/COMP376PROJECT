@@ -128,7 +128,7 @@ public class PlayerStats : Stats {
 					current_stamina = 0;
 				}
 				second_timer -= 1;
-				Debug.Log("Player Stamina reduced by 1 (Current: " + current_stamina + ")");
+				//Debug.Log("Player Stamina reduced by 1 (Current: " + current_stamina + ")");
 				manager_player.UpdateUIStamina(current_stamina, max_stamina);
 			}
 		}
@@ -140,7 +140,7 @@ public class PlayerStats : Stats {
 					if (current_stamina > max_stamina) {
 						current_stamina = max_stamina;
 					}
-					Debug.Log("Player Stamina restored by " + stamina_regen + " (Current: " + current_stamina + ")");
+					//Debug.Log("Player Stamina restored by " + stamina_regen + " (Current: " + current_stamina + ")");
 					second_timer -= 1;
 					manager_player.UpdateUIStamina(current_stamina, max_stamina);
 				}
@@ -164,7 +164,7 @@ public class PlayerStats : Stats {
 		// Dexterity Stats
 		max_stamina = Mathf.FloorToInt((BASE_STAMINA + (10 * dexterity)) * manager_player.GetSkillBonus(3));
 		movement_speed = (BASE_MOVEMENT_SPEED + (0.05f * (float)dexterity)) * CalculateArmourBonus() * manager_player.GetSkillBonus(4) / encumbered_modifier;
-		Debug.Log("Movement Speed: " + movement_speed);
+		//Debug.Log("Movement Speed: " + movement_speed);
 		attack_speed = (BASE_ATTACK_SPEED / CalculateWeaponBonus()) / manager_player.GetSkillBonus(5);
 		stamina_regen = BASE_STAMINA_REGEN + Mathf.FloorToInt(max_stamina / 50) - 1; // Should increase by 1 for every 50 stamina after the base 100
 
