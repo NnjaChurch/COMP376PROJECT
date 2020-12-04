@@ -27,7 +27,12 @@ public class LootMenu : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update() {
-
+		// Deactivate the loot window when player makes a movement
+		// This is a quick way of doing it, instead of for example storing the player's position and then seeing if it is changed
+		if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S)|| Input.GetKeyDown(KeyCode.D))
+        {
+			this.gameObject.SetActive(false);
+        }
 	}
 
 	public void DisplayLoot(Lootbag loot_bag)
