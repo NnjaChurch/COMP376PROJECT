@@ -42,7 +42,6 @@ public class EnemyStats : Stats {
 		}
 	}
 	private void Attack() {
-		print("Enemy is actually attacking");
 		equipped_weapon.UseWeapon(damage);
 		isAttacking = false;
 		canAttack = true;

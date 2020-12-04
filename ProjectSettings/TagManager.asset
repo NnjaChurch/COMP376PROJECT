@@ -9,6 +9,7 @@ TagManager:
   - InventoryContent
   - EnemyPerceptionAura
   - Roof
+  - Weapon
   layers:
   - Default
   - TransparentFX
