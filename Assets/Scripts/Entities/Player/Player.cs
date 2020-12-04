@@ -58,10 +58,13 @@ public class Player : Entity {
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-		EnemyStats enemyStats = collision.gameObject.transform.GetComponentInParent<EnemyStats>();
-		if (enemyStats != null)
+		if (collision.gameObject.tag == "Weapon")
         {
-			enemyStats.StartAttack();
-        }
+			EnemyStats enemyStats = collision.gameObject.transform.GetComponentInParent<EnemyStats>();
+			if (enemyStats != null)
+			{
+				enemyStats.StartAttack();
+            }
+		}
     }
 }

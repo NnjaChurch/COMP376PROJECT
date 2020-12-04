@@ -36,6 +36,7 @@ public class Weapon : Item {
 	}
 
 	public void UseWeapon(int base_damage) {
+		print("Weapon is being used.");
 		List<Collider2D> collisions = new List<Collider2D>();
 		int n = Physics2D.OverlapCollider(hit_box, filter, collisions); //TODO - Fix: filter isnt working, i don't know why.
 		foreach (Collider2D collision in collisions) {
@@ -46,6 +47,7 @@ public class Weapon : Item {
 			}
 			if (playerStats != null)
 			{
+				print("Player about to take damage.");
 				playerStats.TakeDamage(base_damage + damage);
 			}
 		}

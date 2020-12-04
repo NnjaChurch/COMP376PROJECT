@@ -200,6 +200,7 @@ public class PlayerStats : Stats {
 		isSprinting = sprint;
 	}
 	public int TakeDamage(int damage) {
+		print("Health PRE: " + current_health);
 		int taken_damage = Mathf.CeilToInt((damage - equipped_armour.GetDefense()) / damage_reduction);
 		current_health -= taken_damage;
 		if (current_health < 0) {
@@ -208,6 +209,8 @@ public class PlayerStats : Stats {
 		if(current_health == 0) {
 			manager_player.KillPlayer();
 		}
+		print("Health POST: " + current_health);
+
 		return current_health;
 	}
 

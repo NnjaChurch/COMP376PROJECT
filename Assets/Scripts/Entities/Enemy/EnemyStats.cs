@@ -22,7 +22,7 @@ public class EnemyStats : Stats {
 	private void Update() {
 		if(isAttacking) {
 			attack_timer -= Time.deltaTime;
-			if(attack_timer < 0) {
+			if (attack_timer < 0) {
 				attack_timer = 0;
 			}
 			if(attack_timer == 0) {
@@ -32,13 +32,17 @@ public class EnemyStats : Stats {
 
 	}
 	public void StartAttack() {
-		if(canAttack && !isAttacking) {
+		if (canAttack && !isAttacking) {
+			attack_timer = attack_speed;
 			canAttack = false;
 			isAttacking = true;
-			attack_timer = attack_speed;
+		} else
+        {
+			//print("The enemy can't attack right now.");
 		}
 	}
 	private void Attack() {
+		print("Enemy is actually attacking");
 		equipped_weapon.UseWeapon(damage);
 		isAttacking = false;
 		canAttack = true;
