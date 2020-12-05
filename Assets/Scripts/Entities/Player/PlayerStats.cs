@@ -31,6 +31,7 @@ public class PlayerStats : Stats {
 	[SerializeField] int BASE_DAMAGE_REDUCTION = 1;     // %
 	[SerializeField] int BASE_EXPERIENCE_LEVEL = 100;   // %
 	[SerializeField] float EXPERIENCE_GROWTH = 1.2f;
+	[SerializeField] AudioSource audioTakeDamage;
 
 	// Calculated Stats
 	int max_stamina;
@@ -200,6 +201,7 @@ public class PlayerStats : Stats {
 		isSprinting = sprint;
 	}
 	public int TakeDamage(int damage) {
+		audioTakeDamage.Play();
 		print("Health PRE: " + current_health);
 		int taken_damage = Mathf.CeilToInt((damage - equipped_armour.GetDefense()) / damage_reduction);
 		current_health -= taken_damage;
