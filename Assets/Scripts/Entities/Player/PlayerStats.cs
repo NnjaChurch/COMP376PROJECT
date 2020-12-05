@@ -32,6 +32,7 @@ public class PlayerStats : Stats {
 	[SerializeField] int BASE_EXPERIENCE_LEVEL = 100;   // %
 	[SerializeField] float EXPERIENCE_GROWTH = 1.2f;
 	[SerializeField] AudioSource audioTakeDamage;
+	[SerializeField] AudioSource[] audioAttacks;
 
 	// Calculated Stats
 	int max_stamina;
@@ -187,6 +188,7 @@ public class PlayerStats : Stats {
 		if (canAttack) {
 			// TODO: Set isAttacking to false once animation is completete
 			isAttacking = true;
+			audioAttacks[Random.Range(0, audioAttacks.Length)].Play();
 			equipped_weapon.UseWeapon(damage);
 			canAttack = false;
 			attack_timer = attack_speed;

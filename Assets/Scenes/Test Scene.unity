@@ -1229,6 +1229,11 @@ MonoBehaviour:
   BASE_EXPERIENCE_LEVEL: 100
   EXPERIENCE_GROWTH: 1.2
   audioTakeDamage: {fileID: 249394935}
+  audioAttacks:
+  - {fileID: 1663403293}
+  - {fileID: 1663403292}
+  - {fileID: 1663403291}
+  - {fileID: 1663403290}
   manager_player: {fileID: 1049794975}
 --- !u!1 &190610368
 GameObject:
@@ -4214,6 +4219,7 @@ MonoBehaviour:
   manager_inventory: {fileID: 1822822836}
   manager_UI: {fileID: 86618748}
   manager_save: {fileID: 120603109}
+  audioPlayerDeath: {fileID: 1663403289}
 --- !u!4 &1064401098 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6782711734862630462, guid: ec3c780e9119356418a404d77a424491, type: 3}
@@ -6041,6 +6047,31 @@ GameObject:
 --- !u!50 &1663403287 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 6527023459539031288, guid: b0dbbedad60325d41961ed0ff44fe1ae, type: 3}
+  m_PrefabInstance: {fileID: 249394934}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1663403289 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8925546037270370846, guid: b0dbbedad60325d41961ed0ff44fe1ae, type: 3}
+  m_PrefabInstance: {fileID: 249394934}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1663403290 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2527925220935770959, guid: b0dbbedad60325d41961ed0ff44fe1ae, type: 3}
+  m_PrefabInstance: {fileID: 249394934}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1663403291 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7698269915294308190, guid: b0dbbedad60325d41961ed0ff44fe1ae, type: 3}
+  m_PrefabInstance: {fileID: 249394934}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1663403292 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7588415631608012684, guid: b0dbbedad60325d41961ed0ff44fe1ae, type: 3}
+  m_PrefabInstance: {fileID: 249394934}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1663403293 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8108802621769561640, guid: b0dbbedad60325d41961ed0ff44fe1ae, type: 3}
   m_PrefabInstance: {fileID: 249394934}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1663412962 stripped

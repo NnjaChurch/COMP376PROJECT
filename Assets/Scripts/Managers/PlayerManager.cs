@@ -21,6 +21,8 @@ public class PlayerManager : MonoBehaviour {
 	[SerializeField] UIManager manager_UI;
 	[SerializeField] SaveManager manager_save;
 
+	[SerializeField] AudioSource audioPlayerDeath;
+
 	public float GetSkillBonus(int skill_number) {
 		return player_skills.GetSkillBonus(skill_number);
 	}
@@ -118,6 +120,7 @@ public class PlayerManager : MonoBehaviour {
 	}
 
 	public void KillPlayer() {
+		audioPlayerDeath.Play();
 		// TODO: Handle Player Death
 	}
 
