@@ -90,6 +90,8 @@ public class PlayerStats : Stats {
 			else {
 				zone3_unlocked = false;
 			}
+			// Gain Banked Experience (Banked Experience will be 0 if player is entering a Zone)
+			GainExperience();
 		}
 		else {
 			zone2_unlocked = false;
@@ -237,10 +239,15 @@ public class PlayerStats : Stats {
 
 	public void CollectExperience(int experience) {
 		banked_experience += experience;
+		manager_player.UpdateUIExperience(current_level, current_experience, current_next_level);
 	}
 
-	public void GainExperience(int experience) {
-		current_experience += Mathf.FloorToInt(experience * experience_gain);
+	public void HalveExperience() {
+		banked_experience = Mathf.FloorToInt(banked_experience / 2);
+	}
+
+	public void GainExperience() {
+		current_experience += Mathf.FloorToInt(banked_experience * experience_gain);
 		// Check LevelUp
 		if (current_experience > current_next_level) {
 			LevelUp();

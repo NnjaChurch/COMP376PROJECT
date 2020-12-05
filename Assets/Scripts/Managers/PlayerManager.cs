@@ -20,6 +20,7 @@ public class PlayerManager : MonoBehaviour {
 	[SerializeField] InventoryManager manager_inventory;
 	[SerializeField] UIManager manager_UI;
 	[SerializeField] SaveManager manager_save;
+	[SerializeField] StageManager manager_stage;
 
 	[SerializeField] AudioSource audioPlayerDeath;
 
@@ -121,7 +122,11 @@ public class PlayerManager : MonoBehaviour {
 
 	public void KillPlayer() {
 		audioPlayerDeath.Play();
-		// TODO: Handle Player Death
+
+		// TODO: Function to Purge Consumables and Materials from Inventory
+
+		player_stats.HalveExperience();
+		manager_stage.TravelSafeZone();
 	}
 
 	public List<int> SavePlayerSkills() {

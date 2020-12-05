@@ -44,6 +44,7 @@ public class UIManager : MonoBehaviour {
 	}
 
 	public void UpdatePlayerExperience(int level, int current_experience, int next_level) {
+		// TODO: Add tracker for Banked Experience
 		UI_game.updatePlayerExperience(level, current_experience, next_level);
 		UI_character.updatePlayerExperience(level, current_experience, next_level);
 	}
