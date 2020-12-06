@@ -115,7 +115,7 @@ public class CharacterUI : MonoBehaviour {
 		equippedArmourStats.text = "Defense: " + equippedArmour.GetDefense();
 	}
 
-	public void updatePlayerSkills(string[] skill_names, float[] skill_points) {
+	public void updatePlayerStats(string[] stat_names, float[] stat_values) {
 		//Debug.Log("CharacterUI.updatePlayerSkills()");
 
 		//strengthText.text = "Strength: " + strength;
@@ -124,10 +124,10 @@ public class CharacterUI : MonoBehaviour {
 
 		skillsText.text = "";
 
-		int number_of_skills = skill_names.Length;
+		int number_of_skills = stat_names.Length;
 		for (int i = 0; i < number_of_skills; i++)
         {
-			skillsText.text += skill_names[i] + ": " + (int) skill_points[i] + "\n";
+			skillsText.text += stat_names[i] + ": " + (int) stat_values[i] + "\n";
         }
 	}
 }

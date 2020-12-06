@@ -63,6 +63,9 @@ public class Skill {
 	public int GetLevel() {
 		return current_level;
 	}
+	public int GetMaxLevel() {
+		return max_level;
+	}
 	public float GetBonus() {
 		return current_bonus;
 	}

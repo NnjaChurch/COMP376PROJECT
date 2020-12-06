@@ -323,10 +323,10 @@ public class PlayerStats : Stats {
 		manager_player.UpdateUIExperience(current_level, current_experience, current_next_level, banked_experience);
 		// TODO: Add Updaters for other relevant stats
 
-		string[] skill_names = { "Strength", "Dexterity", "Intelligence", "Damage", "Movement Speed", "Attack Speed", 
+		string[] stat_names = { "Strength", "Dexterity", "Intelligence", "Damage", "Movement Speed", "Attack Speed", 
 			"Stamina Regeneration Speed", "Experience Gain", "Healing Efficacy", "Damage Reduction" };
-		float[] skill_points = { strength, dexterity, intelligence, damage, movement_speed, attack_speed, stamina_regen, experience_gain, 
+		float[] stat_values = { strength, dexterity, intelligence, damage, movement_speed, attack_speed, stamina_regen, experience_gain, 
 			healing_efficacy, damage_reduction };
-		manager_player.UpdateUISkills(skill_names, skill_points);
+		manager_player.UpdateUIStats(stat_names, stat_values);
 	}
 }

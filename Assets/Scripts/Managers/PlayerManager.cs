@@ -14,6 +14,8 @@ public class PlayerManager : MonoBehaviour {
 	[SerializeField] PlayerStats player_stats;
 	[SerializeField] PlayerSkills player_skills;
 
+	[SerializeField] GameObject player_object;
+
 
 	// Manager Class References
 	[SerializeField] EquipmentManager manager_equipment;
@@ -37,7 +39,7 @@ public class PlayerManager : MonoBehaviour {
 
 	public void SetSprint(bool key) {
 		player_stats.SetSprint(key);
-		if(key && player_stats.GetCurrentStamina() > 0) {
+		if (key && player_stats.GetCurrentStamina() > 0) {
 			player_movement.SetSprint(true);
 		}
 		else {
@@ -69,11 +71,9 @@ public class PlayerManager : MonoBehaviour {
 		return player_stats.GetCarryWeight();
 	}
 
-	public Vector3 GetPlayerPosition()
-    {
-		// TODO this possibly returns the PlayerManager's position instead and not the player's position
-		return transform.position;
-    }
+	public Vector3 GetPlayerPosition() {
+		return player_object.transform.position;
+	}
 
 
 	// UI Functions
@@ -89,8 +89,12 @@ public class PlayerManager : MonoBehaviour {
 		manager_UI.UpdatePlayerExperience(level, current_experience, next_level, banked_exp);
 	}
 
-	public void UpdateUISkills(string[] skill_names, float[] skill_points) {
-		manager_UI.UpdatePlayerSkills(skill_names, skill_points);
+	public void UpdateUIStats(string[] stat_names, float[] stat_values) {
+		manager_UI.UpdatePlayerStats(stat_names, stat_values);
+	}
+
+	public void UpdateUISkills() {
+		// TODO: Pass Skill Points, Skill Information.
 	}
 
 	public void UpdateSpeed(float speed) {
@@ -120,19 +124,10 @@ public class PlayerManager : MonoBehaviour {
 		return stat_save;
 	}
 
-	public void KillPlayer() {
-		audioPlayerDeath.Play();
-
-		// TODO: Function to Purge Consumables and Materials from Inventory
-
-		player_stats.HalveExperience();
-		manager_stage.TravelSafeZone();
-	}
-
 	public List<int> SavePlayerSkills() {
 		List<int> skill_save = new List<int>();
 
-		for(int i = 0; i < 9; i++) {
+		for (int i = 0; i < 9; i++) {
 			skill_save.Add(player_skills.GetSkillLevel(i));
 		}
 		return skill_save;
@@ -144,5 +139,14 @@ public class PlayerManager : MonoBehaviour {
 
 	public List<int> LoadPlayerSkills() {
 		return manager_save.LoadPlayerSkills();
+	}
+
+	public void KillPlayer() {
+		audioPlayerDeath.Play();
+
+		// TODO: Function to Purge Consumables and Materials from Inventory
+
+		player_stats.HalveExperience();
+		manager_stage.TravelSafeZone();
 	}
 }

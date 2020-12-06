@@ -68,8 +68,8 @@ public class UIManager : MonoBehaviour {
 		UI_character.updateEquippedArmour();
 	}
 
-	public void UpdatePlayerSkills(string[] skill_names, float[] skill_points) {
-		UI_character.updatePlayerSkills(skill_names, skill_points);
+	public void UpdatePlayerStats(string[] stat_names, float[] stat_values) {
+		UI_character.updatePlayerStats(stat_names, stat_values);
 	}
 
 	// ----------------------------------------------------- menu_loot -------------------------------------------------------------------//

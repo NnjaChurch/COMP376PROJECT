@@ -9,7 +9,9 @@ using UnityEngine;
 // ----------------------------------------------------------------------------------------------------
 
 public class SkillsUI : MonoBehaviour {
-	// Start is called before the first frame update
+
+	[SerializeField] UIManager manager_ui;
+
 	void Start() {
 
 	}
@@ -18,4 +20,14 @@ public class SkillsUI : MonoBehaviour {
 	void Update() {
 
 	}
+
+	public void UpgradeSkill(int skill_number) {
+
+	}
+
+	public void UpdateSkillsUI() {
+		// TODO: Get Values Needed for Skills UI
+	}
+
+
 }
