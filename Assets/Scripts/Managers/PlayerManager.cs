@@ -85,12 +85,12 @@ public class PlayerManager : MonoBehaviour {
 		manager_UI.UpdatePlayerStamina(current_stamina, max_stamina);
 	}
 
-	public void UpdateUIExperience(int level, int current_experience, int next_level) {
-		manager_UI.UpdatePlayerExperience(level, current_experience, next_level);
+	public void UpdateUIExperience(int level, int current_experience, int next_level, int banked_exp) {
+		manager_UI.UpdatePlayerExperience(level, current_experience, next_level, banked_exp);
 	}
 
-	public void UpdateUISkills(int strength, int dexterity, int intelligence) {
-		manager_UI.UpdatePlayerSkills(strength, dexterity, intelligence);
+	public void UpdateUISkills(string[] skill_names, float[] skill_points) {
+		manager_UI.UpdatePlayerSkills(skill_names, skill_points);
 	}
 
 	public void UpdateSpeed(float speed) {

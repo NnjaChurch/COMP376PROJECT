@@ -43,10 +43,10 @@ public class UIManager : MonoBehaviour {
 		UI_character.updatePlayerStamina(current_stamina, max_stamina);
 	}
 
-	public void UpdatePlayerExperience(int level, int current_experience, int next_level) {
+	public void UpdatePlayerExperience(int level, int current_experience, int next_level, int banked_exp) {
 		// TODO: Add tracker for Banked Experience
-		UI_game.updatePlayerExperience(level, current_experience, next_level);
-		UI_character.updatePlayerExperience(level, current_experience, next_level);
+		UI_game.updatePlayerExperience(level, current_experience, next_level, banked_exp);
+		UI_character.updatePlayerExperience(level, current_experience, next_level, banked_exp);
 	}
 	public void ToggleInventoryUI()
 	{
@@ -68,8 +68,8 @@ public class UIManager : MonoBehaviour {
 		UI_character.updateEquippedArmour();
 	}
 
-	public void UpdatePlayerSkills(int strength, int dexterity, int intelligence) {
-		UI_character.updatePlayerSkills(strength, dexterity, intelligence);
+	public void UpdatePlayerSkills(string[] skill_names, float[] skill_points) {
+		UI_character.updatePlayerSkills(skill_names, skill_points);
 	}
 
 	// ----------------------------------------------------- menu_loot -------------------------------------------------------------------//

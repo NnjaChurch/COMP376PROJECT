@@ -183,7 +183,7 @@ public class PlayerStats : Stats {
 		current_level = 1;
 		current_experience = 0;
 		current_next_level = BASE_EXPERIENCE_LEVEL;
-		manager_player.UpdateUIExperience(current_level, current_experience, current_next_level);
+		manager_player.UpdateUIExperience(current_level, current_experience, current_next_level, banked_experience);
 	}
 
 	public void Attack() {
@@ -239,7 +239,7 @@ public class PlayerStats : Stats {
 
 	public void CollectExperience(int experience) {
 		banked_experience += experience;
-		manager_player.UpdateUIExperience(current_level, current_experience, current_next_level);
+		manager_player.UpdateUIExperience(current_level, current_experience, current_next_level, banked_experience);
 	}
 
 	public void HalveExperience() {
@@ -254,7 +254,7 @@ public class PlayerStats : Stats {
 		}
 		else {
 			// Update UI
-			manager_player.UpdateUIExperience(current_level, current_experience, current_next_level);
+			manager_player.UpdateUIExperience(current_level, current_experience, current_next_level, banked_experience);
 		}
 	}
 	private void LevelUp() {
@@ -268,7 +268,7 @@ public class PlayerStats : Stats {
 		current_next_level = Mathf.FloorToInt(current_next_level * EXPERIENCE_GROWTH);
 
 		// Update UI
-		manager_player.UpdateUIExperience(current_level, current_experience, current_next_level);
+		manager_player.UpdateUIExperience(current_level, current_experience, current_next_level, banked_experience);
 	}
 
 	private float CalculateWeaponBonus() {
@@ -320,7 +320,13 @@ public class PlayerStats : Stats {
 		manager_player.UpdateUIHealth(current_health, max_health);
 		manager_player.UpdateUIStamina(current_stamina, max_stamina);
 		manager_player.UpdateSpeed(movement_speed);
-		manager_player.UpdateUIExperience(current_level, current_experience, current_next_level);
+		manager_player.UpdateUIExperience(current_level, current_experience, current_next_level, banked_experience);
 		// TODO: Add Updaters for other relevant stats
+
+		string[] skill_names = { "Strength", "Dexterity", "Intelligence", "Damage", "Movement Speed", "Attack Speed", 
+			"Stamina Regeneration Speed", "Experience Gain", "Healing Efficacy", "Damage Reduction" };
+		float[] skill_points = { strength, dexterity, intelligence, damage, movement_speed, attack_speed, stamina_regen, experience_gain, 
+			healing_efficacy, damage_reduction };
+		manager_player.UpdateUISkills(skill_names, skill_points);
 	}
 }
