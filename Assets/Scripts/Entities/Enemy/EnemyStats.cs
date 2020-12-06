@@ -9,6 +9,7 @@ public class EnemyStats : Stats {
 	[SerializeField] Weapon initial_weapon;
 	[SerializeField] Armour initial_armour;
 	[SerializeField] Enemy enemy;
+	[SerializeField] AudioSource[] audioTakeDamage;
 
 	private void Start() {
 		equipped_weapon = initial_weapon;
@@ -60,6 +61,9 @@ public class EnemyStats : Stats {
 		if (current_health < 0) {
 			current_health = 0;
 			enemy.Kill();
+		} else
+        {
+			audioTakeDamage[Random.Range(0, audioTakeDamage.Length)].Play();
 		}
 		return current_health;
 	}

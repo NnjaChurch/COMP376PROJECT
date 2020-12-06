@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Pathfinding;
 
 // ----------------------------------------------------------------------------------------------------
 //	Description: Class determining player specific behaviour and statistics
@@ -34,8 +33,7 @@ public class Player : Entity {
 		GameObject gameObject = collision.gameObject;
 		if (gameObject.tag == "EnemyPerceptionAura")
         {
-			gameObject.GetComponentInParent<AIPath>().enabled = true;
-			gameObject.GetComponentInParent<AIDestinationSetter>().enabled = true;
+			gameObject.GetComponentInParent<Enemy>().WakeUp();
 		}
 		if (gameObject.tag == "Roof")
 		{
@@ -47,8 +45,7 @@ public class Player : Entity {
 		GameObject gameObject = collision.gameObject;
 		if (gameObject.tag == "EnemyPerceptionAura")
 		{
-			gameObject.GetComponentInParent<AIPath>().enabled = false;
-			gameObject.GetComponentInParent<AIDestinationSetter>().enabled = false;
+			gameObject.GetComponentInParent<Enemy>().Sleep();
 		}
 		if (gameObject.tag == "Roof")
         {
