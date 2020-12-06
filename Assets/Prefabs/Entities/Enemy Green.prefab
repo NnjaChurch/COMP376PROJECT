@@ -58,8 +58,6 @@ GameObject:
   - component: {fileID: 513230871004050133}
   - component: {fileID: -3500534339210903422}
   - component: {fileID: -784591641692539862}
-  - component: {fileID: 52650687940834375}
-  - component: {fileID: 6991990598915490119}
   - component: {fileID: 8821683021923919287}
   - component: {fileID: 1870986377868729733}
   - component: {fileID: -8962843732058808693}
@@ -133,44 +131,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &52650687940834375
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7744728286288450834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f413321b10739c9429cacabb4bc6a62d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weight: 0
-  armour_name: 
-  BASE_DEFENSE: 0
-  movement_modifier: 0
-  DEFENSE_SCALING: 0
---- !u!114 &6991990598915490119
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7744728286288450834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2297319f41212a047ad8a7da94a34cfd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weight: 0
-  hit_box: {fileID: 0}
-  layer_mask:
-    serializedVersion: 2
-    m_Bits: 0
-  weapon_name: 
-  BASE_DAMAGE: 0
-  speed_modifier: 0
-  DAMAGE_SCALING: 0
 --- !u!114 &8821683021923919287
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -45,6 +45,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weight: 0
   armour_name: 
-  defense: 0
-  movement_modifier: 0
+  BASE_DEFENSE: 120
+  movement_modifier: 1
   DEFENSE_SCALING: 0

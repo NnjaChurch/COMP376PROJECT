@@ -57,6 +57,7 @@ public class EnemyStats : Stats {
 
 	public int TakeDamage(int damage) {
 		int taken_damage = Mathf.FloorToInt(damage / ((float)equipped_armour.GetDefense() / 100));
+		Debug.Log("Damage Taken: " + taken_damage);
 		current_health -= taken_damage;
 		if (current_health < 0) {
 			current_health = 0;

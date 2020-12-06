@@ -2622,6 +2622,14 @@ PrefabInstance:
       propertyPath: speed_modifier
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2652161446920581993, guid: e8c09b3e1cd90b346b16d524f5599647, type: 3}
+      propertyPath: BASE_DAMAGE
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2652161446920581993, guid: e8c09b3e1cd90b346b16d524f5599647, type: 3}
+      propertyPath: DAMAGE_SCALING
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3537977908605565885, guid: e8c09b3e1cd90b346b16d524f5599647, type: 3}
       propertyPath: m_Name
       value: Bat
@@ -4220,11 +4228,12 @@ MonoBehaviour:
   player_movement: {fileID: 1488335885}
   player_stats: {fileID: 180507038}
   player_skills: {fileID: 1887403395}
+  player_object: {fileID: 1663403284}
   manager_equipment: {fileID: 1139298902}
   manager_inventory: {fileID: 1822822836}
   manager_UI: {fileID: 86618748}
   manager_save: {fileID: 120603109}
-  manager_stage: {fileID: 0}
+  manager_stage: {fileID: 1393730663}
   audioPlayerDeath: {fileID: 1663403289}
 --- !u!4 &1064401098 stripped
 Transform:
