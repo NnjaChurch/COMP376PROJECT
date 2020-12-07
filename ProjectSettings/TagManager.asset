@@ -10,6 +10,7 @@ TagManager:
   - EnemyPerceptionAura
   - Roof
   - Weapon
+  - EnemySpawner
   layers:
   - Default
   - TransparentFX

@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 1870986377868729733}
-  lootBagPrefab: {fileID: 0}
+  lootBagPrefab: {fileID: 6618355501293574137, guid: e72b5798b8bdebd40ac9cef773d80138, type: 3}
   soundDeathPrefab: {fileID: 6717248854504585230, guid: a97e937d3eb5df449ba487e1980a8484, type: 3}
   talkCooldDownMin: 5
   talkCoolDownRandom: 3
