@@ -4468,6 +4468,7 @@ MonoBehaviour:
   armour_heavy: {fileID: 1572516245370532743}
   manager_player: {fileID: 1049794975}
   manager_save: {fileID: 120603109}
+  manager_loot: {fileID: 2124839351}
 --- !u!4 &1139298903
 Transform:
   m_ObjectHideFlags: 0

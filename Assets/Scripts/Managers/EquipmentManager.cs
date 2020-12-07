@@ -18,6 +18,7 @@ public class EquipmentManager : MonoBehaviour {
 	// Manager Class References
 	[SerializeField] PlayerManager manager_player;
 	[SerializeField] SaveManager manager_save;
+	[SerializeField] LootManager manager_loot;
 
 	// Equipped Item References
 	Weapon active_weapon;
@@ -54,6 +55,7 @@ public class EquipmentManager : MonoBehaviour {
 			if(active_weapon != null) {
 				active_weapon.gameObject.SetActive(true);
 				manager_player.EquipWeapon(active_weapon);
+				manager_loot.WeaponFound(active_weapon.name);
 			}
 
 			// Armour Loading
@@ -79,6 +81,7 @@ public class EquipmentManager : MonoBehaviour {
 			if(active_armour != null) {
 				active_armour.gameObject.SetActive(true);
 				manager_player.EquipArmour(active_armour);
+				manager_loot.ArmourFound(active_armour.name);
 			}
 		}
 		else {
@@ -86,11 +89,13 @@ public class EquipmentManager : MonoBehaviour {
 			active_weapon = weapon_bat;
 			active_weapon.gameObject.SetActive(true);
 			manager_player.EquipWeapon(active_weapon);
+			manager_loot.WeaponFound(active_weapon.name);
 
 			// Equip Initial Armour
 			active_armour = armour_light;
 			active_armour.gameObject.SetActive(false);
 			manager_player.EquipArmour(active_armour);
+			manager_loot.ArmourFound(active_armour.name);
 		}
 		
 	}
