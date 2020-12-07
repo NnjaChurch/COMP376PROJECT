@@ -35,14 +35,26 @@ public class Weapon : Item {
 		CalculateDamage();
 	}
 
-	public void UseWeapon(int base_damage) {
+	public void UseWeapon(int base_damage, Stats userStats) {
 		List<Collider2D> collisions = new List<Collider2D>();
-		int n = Physics2D.OverlapCollider(hit_box, filter, collisions); //TODO - Fix: filter isnt working, i don't know why.
+		int n = Physics2D.OverlapCollider(hit_box, filter, collisions);
 		foreach (Collider2D collision in collisions) {
 			EnemyStats enemyStats = collision.gameObject.GetComponent<EnemyStats>();
-			PlayerStats playerStats = collision.gameObject.GetComponent<PlayerStats>();
+			PlayerStats playerStats = null;
+			Transform playerStatsTransform = collision.gameObject.transform.Find("PlayerStats");
+			if (playerStatsTransform != null)
+            {
+				playerStats = playerStatsTransform.GetComponent<PlayerStats>();
+			}
 			if (enemyStats != null) {
-				enemyStats.TakeDamage(base_damage + damage);
+				if (enemyStats.TakeDamage(base_damage + damage) <= 0)
+                { // enemy has died, grant weapon user some exp.
+					if (typeof(PlayerStats).IsInstanceOfType(userStats))
+                    {
+						PlayerStats userPlayerStats = (PlayerStats)userStats;
+						userPlayerStats.CollectExperience(enemyStats.GetExpReward());
+                    }
+                }
 			}
 			if (playerStats != null)
 			{

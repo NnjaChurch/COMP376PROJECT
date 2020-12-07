@@ -9,6 +9,7 @@ public class EnemyStats : Stats {
 	[SerializeField] Weapon initial_weapon;
 	[SerializeField] Armour initial_armour;
 	[SerializeField] Enemy enemy;
+	[SerializeField] AudioSource[] audioTakeDamage;
 
 	private void Start() {
 		equipped_weapon = initial_weapon;
@@ -22,7 +23,7 @@ public class EnemyStats : Stats {
 	private void Update() {
 		if(isAttacking) {
 			attack_timer -= Time.deltaTime;
-			if(attack_timer < 0) {
+			if (attack_timer < 0) {
 				attack_timer = 0;
 			}
 			if(attack_timer == 0) {
@@ -32,14 +33,17 @@ public class EnemyStats : Stats {
 
 	}
 	public void StartAttack() {
-		if(canAttack && !isAttacking) {
+		if (canAttack && !isAttacking) {
+			attack_timer = attack_speed;
 			canAttack = false;
 			isAttacking = true;
-			attack_timer = attack_speed;
+		} else
+        {
+			//print("The enemy can't attack right now.");
 		}
 	}
 	private void Attack() {
-		equipped_weapon.UseWeapon(damage);
+		equipped_weapon.UseWeapon(damage, this);
 		isAttacking = false;
 		canAttack = true;
 	}
@@ -53,11 +57,20 @@ public class EnemyStats : Stats {
 
 	public int TakeDamage(int damage) {
 		int taken_damage = Mathf.FloorToInt(damage / ((float)equipped_armour.GetDefense() / 100));
+		//Debug.Log("Damage Taken: " + taken_damage);
 		current_health -= taken_damage;
 		if (current_health < 0) {
 			current_health = 0;
 			enemy.Kill();
+		} else
+        {
+			audioTakeDamage[Random.Range(0, audioTakeDamage.Length)].Play();
 		}
 		return current_health;
 	}
+
+	public int GetExpReward()
+    {
+		return 10; //TODO !
+    }
 }

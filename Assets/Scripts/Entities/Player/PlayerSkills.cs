@@ -60,6 +60,10 @@ public class PlayerSkills : MonoBehaviour {
 		return player_skills[skill_number].GetLevel();
 	}
 
+	public int GetSkillMax(int skill_number) {
+		return player_skills[skill_number].GetMaxLevel();
+	}
+
 	public float GetSkillBonus(int skill_number) {
 		return player_skills[skill_number].GetBonus();
 	}

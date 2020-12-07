@@ -19,6 +19,7 @@ public class GameUI : MonoBehaviour {
 	[SerializeField] Image experience_bar;
 	[SerializeField] Text experience_text;
 	[SerializeField] Text player_level_text;
+	[SerializeField] Text banked_exp_text;
 
 	// Start is called before the first frame update
 	void Start() 
@@ -43,24 +44,25 @@ public class GameUI : MonoBehaviour {
 	}
 
 	public void updatePlayerHealth(int current_health, int max_health) {
-		Debug.Log("GameUI.updatePlayerHealth()");
+		//Debug.Log("GameUI.updatePlayerHealth()");
 
 		health_bar.fillAmount = (float)current_health / max_health;
 		health_text.text = current_health + "/" + max_health;
 	}
 
 	public void updatePlayerStamina(int current_stamina, int max_stamina) {
-		Debug.Log("GameUI.updatePlayerStamina()");
+		//Debug.Log("GameUI.updatePlayerStamina()");
 
 		stamina_bar.fillAmount = (float)current_stamina / max_stamina;
 		stamina_text.text = current_stamina + "/" + max_stamina;
 	}
 
-	public void updatePlayerExperience(int level, int current_experience, int next_level) {
-		Debug.Log("GameUI.updatePlayerExperience()");
+	public void updatePlayerExperience(int level, int current_experience, int next_level, int banked_exp) {
+		//Debug.Log("GameUI.updatePlayerExperience()");
 
 		experience_bar.fillAmount = (float)current_experience / next_level;
 		experience_text.text = current_experience + "/" + next_level;
 		player_level_text.text = "Level " + level;
+		banked_exp_text.text = "Banked Exp: " + banked_exp;
 	}
 }

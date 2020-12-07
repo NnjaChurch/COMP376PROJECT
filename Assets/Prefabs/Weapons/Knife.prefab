@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2652161446920581993}
   m_Layer: 0
   m_Name: Knife
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,5 +102,5 @@ MonoBehaviour:
     m_Bits: 512
   weapon_name: 
   BASE_DAMAGE: 0
-  speed_modifier: 0
+  speed_modifier: 1.25
   DAMAGE_SCALING: 0

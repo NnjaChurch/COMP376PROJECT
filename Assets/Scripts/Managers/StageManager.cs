@@ -13,28 +13,31 @@ public class StageManager : MonoBehaviour {
 
 	// Manager References
 	[SerializeField] SaveManager manager_save;
+	[SerializeField] bool SafeZone;
 
 	// Start is called before the first frame update
 	void Start() {
+
+		if(SafeZone) {
+			// TODO: Loading Safe Zone Info
+		}
+		else {
+			// TODO: Setup Lootable and Enemy Spawns
+		}
 
 	}
 
 	// Update is called once per frame
 	void Update() {
-		// Temp KeyChecks to Test Scene Switching
-		if(Input.GetKey(KeyCode.F1)) {
-			manager_save.SaveGame();
-			SceneManager.LoadScene("Zone 1");
-		}
-		if(Input.GetKey(KeyCode.F2)) {
-			manager_save.SaveGame();
-			SceneManager.LoadScene("Zone 2");
-		}
-		if(Input.GetKey(KeyCode.F3)) {
-			manager_save.SaveGame();
-			SceneManager.LoadScene("Zone 3");
-		}
 	}
 
-	
+	public void TravelSafeZone() {
+		manager_save.SaveGame();
+		SceneManager.LoadScene("Safe Zone");
+	}
+
+	public void TravelZone(string zone_name) {
+		manager_save.SaveGame();
+		SceneManager.LoadScene(zone_name);
+	}
 }

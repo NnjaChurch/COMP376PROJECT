@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Pathfinding;
 
 // ----------------------------------------------------------------------------------------------------
 //	Description: Class determining player specific behaviour and statistics
@@ -34,8 +33,7 @@ public class Player : Entity {
 		GameObject gameObject = collision.gameObject;
 		if (gameObject.tag == "EnemyPerceptionAura")
         {
-			gameObject.GetComponentInParent<AIPath>().enabled = true;
-			gameObject.GetComponentInParent<AIDestinationSetter>().enabled = true;
+			gameObject.GetComponentInParent<Enemy>().WakeUp();
 		}
 		if (gameObject.tag == "Roof")
 		{
@@ -45,14 +43,25 @@ public class Player : Entity {
     private void OnTriggerExit2D(Collider2D collision)
     {
 		GameObject gameObject = collision.gameObject;
-		if ((gameObject.tag == "EnemyPerceptionAura") && (gameObject.active = true))
+		if (gameObject.tag == "EnemyPerceptionAura")
 		{
-			gameObject.GetComponentInParent<AIPath>().enabled = false;
-			gameObject.GetComponentInParent<AIDestinationSetter>().enabled = false;
+			gameObject.GetComponentInParent<Enemy>().Sleep();
 		}
 		if (gameObject.tag == "Roof")
         {
 			gameObject.GetComponent<SpriteRenderer>().enabled = true;
 		}
 	}
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+		if (collision.gameObject.tag == "Weapon")
+        {
+			EnemyStats enemyStats = collision.gameObject.transform.GetComponentInParent<EnemyStats>();
+			if (enemyStats != null)
+			{
+				enemyStats.StartAttack();
+            }
+		}
+    }
 }
