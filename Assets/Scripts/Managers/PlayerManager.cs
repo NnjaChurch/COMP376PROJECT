@@ -75,6 +75,10 @@ public class PlayerManager : MonoBehaviour {
 		return player_object.transform.position;
 	}
 
+	public int GetPlayerLevel() {
+		return player_stats.GetPlayerLevel();
+	}
+
 
 	// UI Functions
 	public void UpdateUIHealth(int current_health, int max_health) {

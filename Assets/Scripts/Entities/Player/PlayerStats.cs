@@ -306,6 +306,7 @@ public class PlayerStats : Stats {
 	public int GetBankedExperience() { return banked_experience; }
 	public bool Zone2Unlocked() { return zone2_unlocked; }
 	public bool Zone3Unlocked() { return zone3_unlocked; }
+	public int GetPlayerLevel() { return current_level; }
 
 	public void SetEquippedWeapon(Weapon w) {
 		equipped_weapon = w;
