@@ -18,6 +18,8 @@ public class Enemy : Entity {
 	[SerializeField] float talkCooldDownMin;
 	[SerializeField] float talkCoolDownRandom;
 	[SerializeField] AudioSource[] audioTalk;
+	[SerializeField] Collider2D perceptionAura;
+	[SerializeField] LayerMask perceptionAuraLayerMask;
 
 	bool isAwake;
 	float nextTalk;
@@ -25,7 +27,18 @@ public class Enemy : Entity {
 	// Start is called before the first frame update
 	void Start() {
 		nextTalk = Time.time;
-		Sleep();
+		List<Collider2D> results = new List<Collider2D>();
+		ContactFilter2D filter = new ContactFilter2D();
+		filter.SetLayerMask(perceptionAuraLayerMask);
+		perceptionAura.OverlapCollider(filter, results);
+		if (results.Count > 0)
+        {
+			WakeUp();
+        } 
+		else
+        {
+			Sleep();
+        }
 	}
 
 	// Update is called once per frame
