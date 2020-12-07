@@ -103,6 +103,24 @@ public class InventoryManager : MonoBehaviour {
 		player_inventory.RemoveFromInventory(item_name);
 	}
 
+	public void RemoveAllMaterialsAndConsumables()
+    {
+		foreach (KeyValuePair<string, int> consumable in player_inventory.consumables)
+		{
+			while(consumable.Value != 0)
+            {
+				this.RemoveFromInventory(consumable.Key);
+            }
+		}
+		foreach (KeyValuePair<string, int> material in player_inventory.materials)
+		{
+			while (material.Value != 0)
+			{
+				this.RemoveFromInventory(material.Key);
+			}
+		}
+	}
+
 	public void AddToInventory(string item_name) {
 		player_inventory.AddToInventory(item_name);
 	}
