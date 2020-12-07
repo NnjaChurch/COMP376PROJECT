@@ -191,7 +191,7 @@ public class PlayerStats : Stats {
 			// TODO: Set isAttacking to false once animation is completete
 			isAttacking = true;
 			audioAttacks[Random.Range(0, audioAttacks.Length)].Play();
-			equipped_weapon.UseWeapon(damage);
+			equipped_weapon.UseWeapon(damage, this);
 			canAttack = false;
 			attack_timer = attack_speed;
 		}
@@ -238,6 +238,7 @@ public class PlayerStats : Stats {
 	}
 
 	public void CollectExperience(int experience) {
+		print("Gained " + experience + " experience!");
 		banked_experience += experience;
 		manager_player.UpdateUIExperience(current_level, current_experience, current_next_level, banked_experience);
 	}

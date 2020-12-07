@@ -21,7 +21,8 @@ public class EnemySpawner : MonoBehaviour
         {
             if (r < chances[i])
             {
-                Instantiate(enemyPrefabs[i], gameObject.transform.position, gameObject.transform.rotation, gameObject.transform.parent);
+                GameObject enemy = Instantiate(enemyPrefabs[i], gameObject.transform.position, gameObject.transform.rotation, gameObject.transform.parent);
+                // Make the spawmed enemy the correct level.
                 break;
             }
             else 
