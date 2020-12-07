@@ -110,6 +110,18 @@ public class PlayerManager : MonoBehaviour {
 		return manager_save.CheckSave();
 	}
 
+	public void TravelSafeZone(int zone_number) {
+		// Function to Unlock Zone
+		if(zone_number == 2 && !player_stats.Zone2Unlocked()) {
+			player_stats.UnlockZone2();
+		}
+		if(zone_number == 3 && !player_stats.Zone3Unlocked()) {
+			player_stats.UnlockZone3();
+		}
+
+		manager_stage.TravelSafeZone();
+	}
+
 	public List<int> SavePlayerStats() {
 		List<int> stat_save = new List<int>();
 

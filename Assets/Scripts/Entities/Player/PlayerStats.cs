@@ -308,6 +308,13 @@ public class PlayerStats : Stats {
 	public bool Zone3Unlocked() { return zone3_unlocked; }
 	public int GetPlayerLevel() { return current_level; }
 
+	public void UnlockZone2() {
+		zone2_unlocked = true;
+	}
+	public void UnlockZone3() {
+		zone3_unlocked = true;
+	}
+
 	public void SetEquippedWeapon(Weapon w) {
 		equipped_weapon = w;
 		CalculatePlayerStats();
