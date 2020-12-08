@@ -19,6 +19,8 @@ public class UIManager : MonoBehaviour {
 	[SerializeField] PlayerManager manager_player;
 	[SerializeField] InventoryManager manager_inventory;
 	[SerializeField] EquipmentManager manager_equipment;
+	[SerializeField] SaveManager manager_save;
+	[SerializeField] StageManager manager_stage;
 	//[SerializeField] LootManager manager_loot;	TODO: Hook up LootManager once implemented
 
 	[SerializeField] GameObject prefab_items; // Reference to the 'Items' gameobject that has Food, Medicine, Wood, etc.
@@ -167,6 +169,30 @@ public class UIManager : MonoBehaviour {
 	public float GetMaxWeight()
     {
 		return manager_player.GetCarryWeight();
+    }
+
+	public bool GetZone2Unlocked()
+    {
+		return manager_player.GetZone2Unlocked();
+    }
+
+	public bool GetZone3Unlocked()
+	{
+		return manager_player.GetZone3Unlocked();
+	}
+
+	// ----------------------------------------------------- manager_save -----------------------------------------------------------------------//
+
+	public void SaveGame()
+	{
+		manager_save.SaveGame();
+	}
+
+	// ---------------------------------------------------- manager_stage -------------------------------------------------------------------//
+
+	public void TravelZone(string zone_name)
+    {
+		manager_stage.TravelZone(zone_name);
     }
 
 }
