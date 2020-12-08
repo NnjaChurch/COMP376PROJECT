@@ -55,11 +55,6 @@ public class CharacterUI : MonoBehaviour {
 		this.gameObject.SetActive(false);
 	}
 
-	// Update is called once per frame
-	void Update() {
-
-	}
-
 	public void ButtonStatsClick()
 	{
 		//Debug.Log("CharacterUI.ButtonStatsClick()");

@@ -460,8 +460,8 @@ MonoBehaviour:
   manager_player: {fileID: 1049794975}
   manager_inventory: {fileID: 1822822836}
   manager_equipment: {fileID: 1139298902}
-  manager_save: {fileID: 0}
-  manager_stage: {fileID: 0}
+  manager_save: {fileID: 120603109}
+  manager_stage: {fileID: 1393730663}
   prefab_items: {fileID: 1871846267}
 --- !u!1001 &96152411
 PrefabInstance:

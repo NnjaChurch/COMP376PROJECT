@@ -16,7 +16,7 @@ public class TravelMenuUI : MonoBehaviour
             zone2_button.interactable = false;
         }
 
-        if (!manager_UI.GetZone2Unlocked())
+        if (!manager_UI.GetZone3Unlocked())
         {
             zone3_button.interactable = false;
         }

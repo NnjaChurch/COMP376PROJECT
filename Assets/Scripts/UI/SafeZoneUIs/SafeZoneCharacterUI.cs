@@ -47,28 +47,6 @@ public class SafeZoneCharacterUI : MonoBehaviour
 		{
 			equipments.Add(armourNames[i], armourImages[i]);
 		}
-
-		this.gameObject.SetActive(false);
-	}
-
-	// Update is called once per frame
-	void Update()
-	{
-
-	}
-
-	public void ButtonStatsClick()
-	{
-		//Debug.Log("CharacterUI.ButtonStatsClick()");
-
-		if (!this.gameObject.activeSelf)
-		{
-			this.gameObject.SetActive(true);
-		}
-		else
-		{
-			this.gameObject.SetActive(false);
-		}
 	}
 
 	public void updatePlayerHealth(int current_health, int max_health)
@@ -117,10 +95,6 @@ public class SafeZoneCharacterUI : MonoBehaviour
 	public void updatePlayerStats(string[] stat_names, float[] stat_values)
 	{
 		//Debug.Log("CharacterUI.updatePlayerSkills()");
-
-		//strengthText.text = "Strength: " + strength;
-		//dexterityText.text = "Dexterity: " + dexterity;
-		//intelligenceText.text = "Intelligence: " + intelligence;
 
 		skillsText.text = "";
 
