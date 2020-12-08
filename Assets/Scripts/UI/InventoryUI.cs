@@ -28,10 +28,9 @@ public class InventoryUI : MonoBehaviour {
 
 		items = manager_UI.GetPrefabItems();
 
-		for (int i = 0; i < inventory_content.transform.childCount; i++)
-        {
+		for (int i = 0; i < inventory_content.transform.childCount; i++) {
 			inventory_content.transform.GetChild(i).gameObject.SetActive(false);
-        }
+		}
 
 		this.gameObject.SetActive(false);
 	}
@@ -39,34 +38,29 @@ public class InventoryUI : MonoBehaviour {
 	// Update is called once per frame
 	void Update() {
 		if (inventory_updated) // Refresh the inventory UI if there is a change in inventory
-        {
+		{
 			updateInventoryUI();
 			inventory_updated = false; // Re set to false as we just updated the inventory UI
 		}
 	}
 
-	public void ButtonInventoryClick()
-    {
+	public void ButtonInventoryClick() {
 		Debug.Log("InventoryUI.ButtonInventoryClick()");
 
-		if (!this.gameObject.activeSelf)
-		{
+		if (!this.gameObject.activeSelf) {
 			this.gameObject.SetActive(true);
 		}
-		else
-		{
+		else {
 			this.gameObject.SetActive(false);
 		}
 	}
 
-	public void ButtonConsumeClick(string consumable)
-    {
+	public void ButtonConsumeClick(string consumable) {
 		Debug.Log("InventoryUI.ButtonConsumeClick(): " + consumable);
 		manager_UI.Consume(consumable);
-    }
+	}
 
-	public void ButtonEquipWeapon(string weapon)
-	{
+	public void ButtonEquipWeapon(string weapon) {
 		Debug.Log("InventoryUI.ButtonEquipWeapon(): " + weapon);
 
 		manager_UI.EquipWeapon(weapon);
@@ -74,8 +68,7 @@ public class InventoryUI : MonoBehaviour {
 		manager_UI.UpdatePlayerEquippedWeapon();
 	}
 
-	public void ButtonEquipArmour(string armour)
-	{
+	public void ButtonEquipArmour(string armour) {
 		Debug.Log("InventoryUI.ButtonEquipArmour(): " + armour);
 
 		manager_UI.EquipArmour(armour);
@@ -83,9 +76,8 @@ public class InventoryUI : MonoBehaviour {
 		manager_UI.UpdatePlayerEquippedArmour();
 	}
 
-	public void ButtonDropConsumable(string item)
-	{
-		string name = item.Substring(0, item.Length-1);
+	public void ButtonDropConsumable(string item) {
+		string name = item.Substring(0, item.Length - 1);
 		int dropAll = int.Parse(item.Substring(item.Length - 1));
 
 		if (dropAll == 0) // Drop one
@@ -94,18 +86,16 @@ public class InventoryUI : MonoBehaviour {
 			manager_UI.RemoveFromInventory(name);
 		}
 		else // Drop all
-        {
+		{
 			Debug.Log("InventoryUI.ButtonDropAllConsumable(): " + name);
 			int consumable_count = manager_UI.GetConsumables()[name];
-			for (int i = 0; i < consumable_count; i++)
-            {
+			for (int i = 0; i < consumable_count; i++) {
 				manager_UI.RemoveFromInventory(name);
 			}
-        }
+		}
 	}
 
-	public void ButtonDropMaterial(string item)
-	{
+	public void ButtonDropMaterial(string item) {
 		string name = item.Substring(0, item.Length - 1);
 		int dropAll = int.Parse(item.Substring(item.Length - 1));
 
@@ -117,8 +107,7 @@ public class InventoryUI : MonoBehaviour {
 		else // Drop all
 		{
 			int material_count = manager_UI.GetMaterials()[name];
-			for (int i = 0; i < material_count; i++)
-			{
+			for (int i = 0; i < material_count; i++) {
 				Debug.Log("InventoryUI.ButtonDropAllMaterial(): " + name);
 				manager_UI.RemoveFromInventory(name);
 			}
@@ -126,8 +115,7 @@ public class InventoryUI : MonoBehaviour {
 	}
 
 
-	public void updateInventoryUI()
-    {
+	public void updateInventoryUI() {
 		Debug.Log("InventoryUI.updateInventoryUI()");
 
 		Transform itemSlot; // To get reference to each of the inventory UI slots
@@ -135,8 +123,7 @@ public class InventoryUI : MonoBehaviour {
 
 		for (int i = 0; i < 4; i++) // 4 times since inventory has 4 dictionaries
 		{
-			switch (i)
-			{
+			switch (i) {
 				case 0:
 					dictionary = manager_UI.GetConsumables();
 					break;
@@ -151,11 +138,9 @@ public class InventoryUI : MonoBehaviour {
 					break;
 			}
 
-			foreach (KeyValuePair<string, int> entry in dictionary)
-			{
+			foreach (KeyValuePair<string, int> entry in dictionary) {
 				itemSlot = inventory_content.transform.Find(entry.Key);
-				if (entry.Value != 0)
-				{
+				if (entry.Value != 0) {
 					float itemWeight = -1;
 					string itemDescription = "N/A";
 
@@ -176,25 +161,22 @@ public class InventoryUI : MonoBehaviour {
 					else if (i == 2) { // Dealing with weapons
 						itemWeight = dictionary[entry.Key] * manager_UI.GetWeaponWeight(entry.Key);
 						itemDescription = "Damage: " + manager_UI.GetWeaponDamage(entry.Key);
-						if (manager_UI.GetEquippedWeapon().GetWeaponName() == entry.Key)
-                        {
+						if (manager_UI.GetEquippedWeapon().GetWeaponName() == entry.Key) {
 							showItem = false;
-                        }
+						}
 					}
 					else if (i == 3) // Dealing with armours
 					{
 						itemWeight = dictionary[entry.Key] * manager_UI.GetArmourWeight(entry.Key);
 						itemDescription = "Defense: " + manager_UI.GetArmourDefense(entry.Key);
-						if (manager_UI.GetEquippedArmour().GetArmourName() == entry.Key)
-                        {
+						if (manager_UI.GetEquippedArmour().GetArmourName() == entry.Key) {
 							showItem = false;
-                        }
+						}
 					}
 
 					// ------------------------------------------------------------------------------------------------------//
 
-					if (showItem)
-					{
+					if (showItem) {
 						if (itemSlot.gameObject.activeSelf) // item had more than 1 count already, and increased or decreased but still has more than 1
 						{
 							itemSlot.Find("ItemCount").GetComponent<Text>().text = "x" + dictionary[entry.Key];
@@ -210,8 +192,7 @@ public class InventoryUI : MonoBehaviour {
 							itemSlot.SetAsLastSibling();
 						}
 					}
-					else
-                    {
+					else {
 						itemSlot.gameObject.SetActive(false);
 					}
 				}
