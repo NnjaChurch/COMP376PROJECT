@@ -130,6 +130,16 @@ public class PlayerManager : MonoBehaviour {
 		manager_stage.TravelSafeZone();
 	}
 
+	public bool GetZone2Unlocked()
+    {
+		return player_stats.Zone2Unlocked();
+    }
+
+	public bool GetZone3Unlocked()
+	{
+		return player_stats.Zone3Unlocked();
+	}
+
 	public List<int> SavePlayerStats() {
 		List<int> stat_save = new List<int>();
 
