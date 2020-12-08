@@ -42,5 +42,9 @@ public class Stats : MonoBehaviour {
 	public int GetDamage() { return damage; }
 	public float GetAttackSpeed() { return attack_speed; }
 	public float GetMovementSpeed() { return movement_speed; }
+	public void SetLevel(int level)
+    {
+		current_level = level;
+    }
 
 }
