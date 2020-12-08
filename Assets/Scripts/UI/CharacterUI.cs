@@ -44,7 +44,8 @@ public class CharacterUI : MonoBehaviour {
 	//------------------------------------------------------------------------Player Stats Info--------------------------------------//
 	[SerializeField] Text skillsText;
 
-	void Start() {
+	public void Initialize() {
+		Debug.Log("Initializing CharacterUI...");
 		for (int i = 0; i < weaponNames.Length; i++) {
 			equipments.Add(weaponNames[i], weaponImages[i]);
 		}
@@ -55,16 +56,13 @@ public class CharacterUI : MonoBehaviour {
 		this.gameObject.SetActive(false);
 	}
 
-	public void ButtonStatsClick()
-	{
+	public void ButtonStatsClick() {
 		//Debug.Log("CharacterUI.ButtonStatsClick()");
 
-		if (!this.gameObject.activeSelf)
-		{
+		if (!this.gameObject.activeSelf) {
 			this.gameObject.SetActive(true);
 		}
-		else
-		{
+		else {
 			this.gameObject.SetActive(false);
 		}
 	}
@@ -113,9 +111,8 @@ public class CharacterUI : MonoBehaviour {
 		skillsText.text = "";
 
 		int number_of_skills = stat_names.Length;
-		for (int i = 0; i < number_of_skills; i++)
-        {
-			skillsText.text += stat_names[i] + ": " + (int) stat_values[i] + "\n";
-        }
+		for (int i = 0; i < number_of_skills; i++) {
+			skillsText.text += stat_names[i] + ": " + (int)stat_values[i] + "\n";
+		}
 	}
 }

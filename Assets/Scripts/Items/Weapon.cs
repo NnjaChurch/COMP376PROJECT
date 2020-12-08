@@ -22,17 +22,22 @@ public class Weapon : Item {
 	int upgrade_tier;
 	int damage;
 
+	int upgrade_nails;
+	int upgrade_wood;
+
 
 	// Start is called before the first frame update
 	void Start() {
 		filter.SetLayerMask(layer_mask);
 		upgrade_tier = 0;
 		CalculateDamage();
+		CalculateUpgradeMaterials();
 	}
 
 	public void UpgradeWeapon() {
 		upgrade_tier++;
 		CalculateDamage();
+		CalculateUpgradeMaterials();
 	}
 
 	public void UseWeapon(int base_damage, Stats userStats) {
@@ -79,12 +84,28 @@ public class Weapon : Item {
 		return upgrade_tier;
 	}
 
+	public List<int> GetWeaponInfo() {
+		// Returns list with weapon info { upgrade_tier, damage, damage_scaling }
+		return new List<int> { upgrade_tier, damage, DAMAGE_SCALING };
+	}
+
+	public List<int> GetMaterialCost() {
+		List<int> material_list = new List<int> { upgrade_nails, upgrade_wood, 0, 0 };
+		return material_list;
+	}
+
 	public void SetWeaponTier(int tier) {
 		upgrade_tier = tier;
 		CalculateDamage();
+		CalculateUpgradeMaterials();
 	}
 
 	private void CalculateDamage() {
 		damage = BASE_DAMAGE + (upgrade_tier * DAMAGE_SCALING);
+	}
+
+	private void CalculateUpgradeMaterials() {
+		upgrade_nails = 5 + (5 * upgrade_tier);
+		upgrade_wood = 5 + (5 * upgrade_tier);
 	}
 }

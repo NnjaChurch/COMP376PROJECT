@@ -60,8 +60,9 @@ public class PlayerStats : Stats {
 	// Manager Reference
 	[SerializeField] PlayerManager manager_player;
 
-	private void Start() {
-		// TODO: Implement SaveManager Checks
+	public void Initialize() {
+		Debug.Log("Initializing PlayerStats...");
+		// Check for Save File
 		if (manager_player.CheckSave()) {
 			List<int> stats_load = manager_player.LoadPlayerStats();
 
@@ -109,10 +110,8 @@ public class PlayerStats : Stats {
 		isSprinting = false;
 		encumbered_modifier = 1;
 		attack_timer = attack_speed;
-
-		// Test
-		//SetLevel(30);
 	}
+
 	private void Update() {
 		// Attack Cooldown
 		if (attack_timer > 0) {

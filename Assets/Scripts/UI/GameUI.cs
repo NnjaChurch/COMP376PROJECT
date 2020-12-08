@@ -21,16 +21,9 @@ public class GameUI : MonoBehaviour {
 	[SerializeField] Text player_level_text;
 	[SerializeField] Text banked_exp_text;
 
-	// Start is called before the first frame update
-	void Start() 
-	{
-		
-	}
-
-	// Update is called once per frame
-	void Update() 
-	{
-
+	public void Initialize() {
+		Debug.Log("Initializing GameUI...");
+		// TODO: Necessary GameUI Initialization
 	}
 
 	public void ToggleInventoryUI()

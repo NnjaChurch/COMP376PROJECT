@@ -24,8 +24,9 @@ public class EquipmentManager : MonoBehaviour {
 	Weapon active_weapon;
 	Armour active_armour;
 
-	private void Start() {
-		if(manager_save.CheckSave()) {
+	public bool Initialize() {
+		Debug.Log("Initializing EquipmentManager...");
+		if (manager_save.CheckSave()) {
 			List<int> equipment_load = manager_save.LoadEquipment();
 
 			// Weapon Loading
@@ -34,7 +35,7 @@ public class EquipmentManager : MonoBehaviour {
 			weapon_shovel.SetWeaponTier(equipment_load[2]);
 			weapon_rake.SetWeaponTier(equipment_load[3]);
 
-			switch(equipment_load[7]) {
+			switch (equipment_load[7]) {
 				case 0:
 					active_weapon = weapon_knife;
 					break;
@@ -52,7 +53,7 @@ public class EquipmentManager : MonoBehaviour {
 					Debug.LogError("EQUIPMENT_MANAGER::START::No Active Weapon in Save File!");
 					break;
 			}
-			if(active_weapon != null) {
+			if (active_weapon != null) {
 				active_weapon.gameObject.SetActive(true);
 				manager_player.EquipWeapon(active_weapon);
 				manager_loot.WeaponFound(active_weapon.name);
@@ -63,7 +64,7 @@ public class EquipmentManager : MonoBehaviour {
 			armour_medium.SetArmourTier(equipment_load[5]);
 			armour_heavy.SetArmourTier(equipment_load[6]);
 
-			switch(equipment_load[8]) {
+			switch (equipment_load[8]) {
 				case 0:
 					active_armour = armour_light;
 					break;
@@ -78,11 +79,12 @@ public class EquipmentManager : MonoBehaviour {
 					Debug.LogError("EQUIPMENT_MANAGER::START::No Active Armour in PlayerPrefs!");
 					break;
 			}
-			if(active_armour != null) {
+			if (active_armour != null) {
 				active_armour.gameObject.SetActive(true);
 				manager_player.EquipArmour(active_armour);
 				manager_loot.ArmourFound(active_armour.name);
 			}
+			return true;
 		}
 		else {
 			// Equip Initial Weapon
@@ -95,9 +97,12 @@ public class EquipmentManager : MonoBehaviour {
 			active_armour = armour_light;
 			active_armour.gameObject.SetActive(false);
 			manager_player.EquipArmour(active_armour);
+
 			manager_loot.ArmourFound(active_armour.name);
+			return false;
+
 		}
-		
+
 	}
 
 	public Weapon GetEquippedWeapon() {
@@ -109,32 +114,32 @@ public class EquipmentManager : MonoBehaviour {
 	}
 
 	public void EquipWeapon(string item) {
-		if(item.Equals(weapon_knife.GetWeaponName())) {
+		if (item.Equals(weapon_knife.GetWeaponName())) {
 			SetActiveWeapon(weapon_knife);
-			
+
 		}
-		else if(item.Equals(weapon_bat.GetWeaponName())) {
+		else if (item.Equals(weapon_bat.GetWeaponName())) {
 			SetActiveWeapon(weapon_bat);
 		}
-		else if(item.Equals(weapon_shovel.GetWeaponName())) {
+		else if (item.Equals(weapon_shovel.GetWeaponName())) {
 			SetActiveWeapon(weapon_shovel);
 		}
-		else if(item.Equals(weapon_rake.GetWeaponName())) {
+		else if (item.Equals(weapon_rake.GetWeaponName())) {
 			SetActiveWeapon(weapon_rake);
 		}
 		else {
 			Debug.Log("Unable to equip passed weapon");
 		}
-		
+
 	}
 	public void EquipArmour(string item) {
 		if (item.Equals(armour_light.GetArmourName())) {
 			SetActiveArmour(armour_light);
 		}
-		else if(item.Equals(armour_medium.GetArmourName())) {
+		else if (item.Equals(armour_medium.GetArmourName())) {
 			SetActiveArmour(armour_medium);
 		}
-		else if(item.Equals(armour_heavy.GetArmourName())) {
+		else if (item.Equals(armour_heavy.GetArmourName())) {
 			SetActiveArmour(armour_heavy);
 		}
 		else {
@@ -159,77 +164,153 @@ public class EquipmentManager : MonoBehaviour {
 		active_armour.gameObject.SetActive(true);
 	}
 
-	// -------------------------------------------------------------------------------------------------------------------------------------------- //
-	// TODO: Update Checks to use the stored names instead of an arbitrary string using weaponName.Equals(weapon_knife.GetWeaponName()) or armourName.Equals(armour_light.GetArmourName())
-	public int GetWeaponWeight(string weaponName) {
-		if (weaponName == "Knife") {
+
+	public int GetWeaponWeight(string weapon_name) {
+		if (weapon_name == "Knife") {
 			return (int)weapon_knife.GetWeight();
 		}
-		else if (weaponName == "Bat") {
+		else if (weapon_name == "Bat") {
 			return (int)weapon_bat.GetWeight();
 		}
-		else if (weaponName == "Shovel") {
+		else if (weapon_name == "Shovel") {
 			return (int)weapon_shovel.GetWeight();
 		}
-		else if (weaponName == "Rake") {
+		else if (weapon_name == "Rake") {
 			return (int)weapon_rake.GetWeight();
 		}
-
 		return -1;
 	}
 
-	public int GetArmourWeight(string armourName) {
-		if (armourName == "Light Armour") {
+	public int GetArmourWeight(string armour_name) {
+		if (armour_name == "Light Armour") {
 			return (int)armour_light.GetWeight();
 		}
-		else if (armourName == "Medium Armour") {
+		else if (armour_name == "Medium Armour") {
 			return (int)armour_medium.GetWeight();
 		}
-		else if (armourName == "Heavy Armour") {
+		else if (armour_name == "Heavy Armour") {
 			return (int)armour_heavy.GetWeight();
 		}
-
 		return -1;
 	}
 
-	public int GetWeaponDamage(string weaponName)
-	{
-		if (weaponName == "Knife")
-		{
+	public int GetWeaponDamage(string weapon_name) {
+		if (weapon_name == "Knife") {
 			return (int)weapon_knife.GetDamage();
 		}
-		else if (weaponName == "Bat")
-		{
+		else if (weapon_name == "Bat") {
 			return (int)weapon_bat.GetDamage();
 		}
-		else if (weaponName == "Shovel")
-		{
+		else if (weapon_name == "Shovel") {
 			return (int)weapon_shovel.GetDamage();
 		}
-		else if (weaponName == "Rake")
-		{
+		else if (weapon_name == "Rake") {
 			return (int)weapon_rake.GetDamage();
 		}
-
 		return -1;
 	}
 
-	public int GetArmourDefense(string armourName)
-	{
-		if (armourName == "Light Armour")
-		{
+	public int GetArmourDefense(string armour_name) {
+		if (armour_name == "Light Armour") {
 			return (int)armour_light.GetDefense();
 		}
-		else if (armourName == "Medium Armour")
-		{
+		else if (armour_name == "Medium Armour") {
 			return (int)armour_medium.GetDefense();
 		}
-		else if (armourName == "Heavy Armour")
-		{
+		else if (armour_name == "Heavy Armour") {
 			return (int)armour_heavy.GetDefense();
 		}
-
 		return -1;
+	}
+
+	public List<int> GetWeaponMaterials(string weapon_name) {
+		if (weapon_name == "Knife") {
+			return weapon_knife.GetMaterialCost();
+		}
+		else if (weapon_name == "Bat") {
+			return weapon_bat.GetMaterialCost();
+		}
+		else if (weapon_name == "Shovel") {
+			return weapon_shovel.GetMaterialCost();
+		}
+		else if (weapon_name == "Rake") {
+			return weapon_rake.GetMaterialCost();
+		}
+		return new List<int>(4);
+	}
+
+	public List<int> GetArmourMaterials(string armour_name) {
+		if (armour_name == "Light Armour") {
+			return armour_light.GetMaterialCost();
+		}
+		else if (armour_name == "Medium Armour") {
+			return armour_medium.GetMaterialCost();
+		}
+		else if (armour_name == "Heavy Armour") {
+			return armour_heavy.GetMaterialCost();
+		}
+		return new List<int>(4);
+	}
+
+	public int GetWeaponTier(string weapon_name) {
+		if (weapon_name == "Knife") {
+			return weapon_knife.GetWeaponTier();
+		}
+		else if (weapon_name == "Bat") {
+			return weapon_bat.GetWeaponTier();
+		}
+		else if (weapon_name == "Shovel") {
+			return weapon_shovel.GetWeaponTier();
+		}
+		else if (weapon_name == "Rake") {
+			return weapon_rake.GetWeaponTier();
+		}
+		return -1;
+	}
+
+	public int GetArmourTier(string armour_name) {
+		if (armour_name == "Light Armour") {
+			return armour_light.GetArmourTier();
+		}
+		else if (armour_name == "Medium Armour") {
+			return armour_medium.GetArmourTier();
+		}
+		else if (armour_name == "Heavy Armour") {
+			return armour_heavy.GetArmourTier();
+		}
+		return -1;
+	}
+
+	public List<int> GetWeaponInfo(string weapon_name) {
+		// Returns List with Entries { upgrade_tier, damage, damage_scaling }
+		if (weapon_name == "Knife") {
+			return weapon_knife.GetWeaponInfo();
+		}
+		else if (weapon_name == "Bat") {
+			return weapon_bat.GetWeaponInfo();
+		}
+		else if (weapon_name == "Shovel") {
+			return weapon_shovel.GetWeaponInfo();
+		}
+		else if (weapon_name == "Rake") {
+			return weapon_rake.GetWeaponInfo();
+		}
+		return new List<int>(3);
+	}
+
+	public List<int> GetArmourInfo(string armour_name) {
+		if (armour_name == "Light Armour") {
+			return armour_light.GetArmourInfo();
+		}
+		else if (armour_name == "Medium Armour") {
+			return armour_medium.GetArmourInfo();
+		}
+		else if (armour_name == "Heavy Armour") {
+			return armour_heavy.GetArmourInfo();
+		}
+
+
+		return new List<int>(3);
 	}
 
 	public List<int> SaveEquipment() {

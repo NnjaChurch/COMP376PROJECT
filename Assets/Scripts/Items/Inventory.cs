@@ -23,7 +23,8 @@ public class Inventory : MonoBehaviour {
 	bool isEncumbered;
 
 	// Start is called before the first frame update
-	void Start() {
+	public void Initialize() {
+		Debug.Log("Initializing Inventory...");
 		current_weight = 0;
 		isEncumbered = false;
 
@@ -50,9 +51,8 @@ public class Inventory : MonoBehaviour {
 		else {
 			InitializeInventory();
 		}
-
 		CalculateWeight();
-		manager_inventory.UpdateUIInventory();
+		//manager_inventory.UpdateUIInventory();
 	}
 
 	private void InitializeInventory() {

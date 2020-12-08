@@ -26,6 +26,13 @@ public class PlayerManager : MonoBehaviour {
 
 	[SerializeField] AudioSource audioPlayerDeath;
 
+	public bool Initialize() {
+		Debug.Log("Initializing PlayerManager...");
+		player_skills.Initialize();
+		player_stats.Initialize();
+		return true;
+	}
+
 	public float GetSkillBonus(int skill_number) {
 		return player_skills.GetSkillBonus(skill_number);
 	}

@@ -16,12 +16,6 @@ public class Player : Entity {
 	// Manager Class References
 	[SerializeField] PlayerManager manager_player;
 
-	// Start is called before the first frame update
-	void Start() {
-
-	}
-
-	// Update is called once per frame
 	void Update() {
 		Vector2 direction = player_cam.ScreenToWorldPoint(Input.mousePosition);
 		direction = (direction - (Vector2)gameObject.transform.position).normalized;

@@ -8,17 +8,10 @@ using UnityEngine;
 //	Endpoints:
 // ----------------------------------------------------------------------------------------------------
 public class Material : Item {
-	public string material_name;
-	string description;
-	// Start is called before the first frame update
-	void Start() {
 
-	}
-
-	// Update is called once per frame
-	void Update() {
-
-	}
+	[SerializeField] string material_name;
+	[SerializeField] string description;
 
 	public string GetMaterialName() { return material_name; }
+	public string GetMaterialDescription() { return description; }
 }

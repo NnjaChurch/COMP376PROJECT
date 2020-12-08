@@ -15,16 +15,6 @@ public class Movement : MonoBehaviour {
 	private bool sprint;
 	public Rigidbody2D rb;
 
-	// Start is called before the first frame update
-	void Start() {
-
-	}
-
-	// Update is called once per frame
-	void Update() {
-
-	}
-
 	private void FixedUpdate() {
 		movement = Vector2.ClampMagnitude(movement, 1.0f) * movement_speed * Time.deltaTime;
 		if (sprint) {

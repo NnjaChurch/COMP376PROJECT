@@ -31,25 +31,21 @@ public class Enemy : Entity {
 		ContactFilter2D filter = new ContactFilter2D();
 		filter.SetLayerMask(perceptionAuraLayerMask);
 		perceptionAura.OverlapCollider(filter, results);
-		if (results.Count > 0)
-        {
+		if (results.Count > 0) {
 			WakeUp();
-        } 
-		else
-        {
+		}
+		else {
 			Sleep();
-        }
+		}
 	}
 
 	// Update is called once per frame
 	void Update() {
-		if (isAwake)
-        {
-			if (Time.time >= nextTalk)
-            {
+		if (isAwake) {
+			if (Time.time >= nextTalk) {
 				Talk();
-            }
-        }
+			}
+		}
 	}
 
 	public EnemyStats GetStats() { return stats; }
@@ -61,23 +57,20 @@ public class Enemy : Entity {
 		Destroy(gameObject);
 	}
 
-	public void WakeUp()
-    {
+	public void WakeUp() {
 		isAwake = true;
 		gameObject.GetComponent<AIPath>().enabled = true;
 		gameObject.GetComponent<AIDestinationSetter>().enabled = true;
 	}
 
-	public void Sleep()
-    {
+	public void Sleep() {
 		isAwake = false;
 		gameObject.GetComponent<AIPath>().enabled = false;
 		gameObject.GetComponent<AIDestinationSetter>().enabled = false;
 	}
 
-	public void Talk()
-    {
+	public void Talk() {
 		nextTalk = Time.time + talkCooldDownMin + Random.Range(0.0f, talkCoolDownRandom);
 		audioTalk[Random.Range(0, audioTalk.Length)].Play();
-    }
+	}
 }

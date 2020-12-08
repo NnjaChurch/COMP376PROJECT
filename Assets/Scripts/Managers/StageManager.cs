@@ -13,22 +13,11 @@ public class StageManager : MonoBehaviour {
 
 	// Manager References
 	[SerializeField] SaveManager manager_save;
-	[SerializeField] bool SafeZone;
+	[SerializeField] bool safe_zone;
 
-	// Start is called before the first frame update
-	void Start() {
-
-		if(SafeZone) {
-			// TODO: Loading Safe Zone Info
-		}
-		else {
-			// TODO: Setup Lootable and Enemy Spawns
-		}
-
-	}
-
-	// Update is called once per frame
-	void Update() {
+	public bool Initialize() {
+		Debug.Log("Initializing StageManager...");
+		return true;
 	}
 
 	public void TravelSafeZone() {
@@ -39,5 +28,9 @@ public class StageManager : MonoBehaviour {
 	public void TravelZone(string zone_name) {
 		manager_save.SaveGame();
 		SceneManager.LoadScene(zone_name);
+	}
+
+	public bool GetSafeZone() {
+		return safe_zone;
 	}
 }

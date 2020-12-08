@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SafeZoneInventoryUI : MonoBehaviour
-{
+public class SafeZoneInventoryUI : MonoBehaviour {
 	[SerializeField] UIManager manager_UI;
 
 	[SerializeField] GameObject inventory_content; // Reference to 'Content' gameObject under InventoryPanel
@@ -13,28 +12,25 @@ public class SafeZoneInventoryUI : MonoBehaviour
 	GameObject items; // Reference to the 'Items' gameobject that has Food, Medicine, Wood, etc.
 
 	// Start is called before the first frame update
-	void Start()
-	{
+	public void Initialize() {
+		Debug.Log("Initializing SafeZoneInventoryUI...");
 
 		items = manager_UI.GetPrefabItems();
 
-		for (int i = 0; i < inventory_content.transform.childCount; i++)
-		{
+		for (int i = 0; i < inventory_content.transform.childCount; i++) {
 			inventory_content.transform.GetChild(i).gameObject.SetActive(false);
 		}
 
 		updateInventoryUI();
 	}
 
-	public void ButtonConsumeClick(string consumable)
-	{
+	public void ButtonConsumeClick(string consumable) {
 		Debug.Log("SafeZoneInventoryUI.ButtonConsumeClick(): " + consumable);
 		manager_UI.Consume(consumable);
 		updateInventoryUI();
 	}
 
-	public void ButtonEquipWeapon(string weapon)
-	{
+	public void ButtonEquipWeapon(string weapon) {
 		Debug.Log("SafeZoneInventoryUI.ButtonEquipWeapon(): " + weapon);
 
 		manager_UI.EquipWeapon(weapon);
@@ -42,8 +38,7 @@ public class SafeZoneInventoryUI : MonoBehaviour
 		manager_UI.UpdatePlayerEquippedWeapon();
 	}
 
-	public void ButtonEquipArmour(string armour)
-	{
+	public void ButtonEquipArmour(string armour) {
 		Debug.Log("SafeZoneInventoryUI.ButtonEquipArmour(): " + armour);
 
 		manager_UI.EquipArmour(armour);
@@ -51,8 +46,7 @@ public class SafeZoneInventoryUI : MonoBehaviour
 		manager_UI.UpdatePlayerEquippedArmour();
 	}
 
-	public void ButtonDropConsumable(string item)
-	{
+	public void ButtonDropConsumable(string item) {
 		string name = item.Substring(0, item.Length - 1);
 		int dropAll = int.Parse(item.Substring(item.Length - 1));
 
@@ -65,8 +59,7 @@ public class SafeZoneInventoryUI : MonoBehaviour
 		{
 			Debug.Log("SafeZoneInventoryUI.ButtonDropAllConsumable(): " + name);
 			int consumable_count = manager_UI.GetConsumables()[name];
-			for (int i = 0; i < consumable_count; i++)
-			{
+			for (int i = 0; i < consumable_count; i++) {
 				manager_UI.RemoveFromInventory(name);
 			}
 		}
@@ -74,8 +67,7 @@ public class SafeZoneInventoryUI : MonoBehaviour
 		updateInventoryUI();
 	}
 
-	public void ButtonDropMaterial(string item)
-	{
+	public void ButtonDropMaterial(string item) {
 		string name = item.Substring(0, item.Length - 1);
 		int dropAll = int.Parse(item.Substring(item.Length - 1));
 
@@ -87,8 +79,7 @@ public class SafeZoneInventoryUI : MonoBehaviour
 		else // Drop all
 		{
 			int material_count = manager_UI.GetMaterials()[name];
-			for (int i = 0; i < material_count; i++)
-			{
+			for (int i = 0; i < material_count; i++) {
 				Debug.Log("SafeZoneInventoryUI.ButtonDropAllMaterial(): " + name);
 				manager_UI.RemoveFromInventory(name);
 			}
@@ -98,8 +89,7 @@ public class SafeZoneInventoryUI : MonoBehaviour
 	}
 
 
-	public void updateInventoryUI()
-	{
+	public void updateInventoryUI() {
 		Debug.Log("SafeZoneInventoryUI.updateInventoryUI()");
 
 		Transform itemSlot; // To get reference to each of the inventory UI slots
@@ -107,8 +97,7 @@ public class SafeZoneInventoryUI : MonoBehaviour
 
 		for (int i = 0; i < 4; i++) // 4 times since inventory has 4 dictionaries
 		{
-			switch (i)
-			{
+			switch (i) {
 				case 0:
 					dictionary = manager_UI.GetConsumables();
 					break;
@@ -123,11 +112,9 @@ public class SafeZoneInventoryUI : MonoBehaviour
 					break;
 			}
 
-			foreach (KeyValuePair<string, int> entry in dictionary)
-			{
+			foreach (KeyValuePair<string, int> entry in dictionary) {
 				itemSlot = inventory_content.transform.Find(entry.Key);
-				if (entry.Value != 0)
-				{
+				if (entry.Value != 0) {
 					float itemWeight = -1;
 					string itemDescription = "N/A";
 
@@ -145,12 +132,10 @@ public class SafeZoneInventoryUI : MonoBehaviour
 						itemWeight = entry.Value * m.GetWeight();
 						itemDescription = "Used for upgrades";
 					}
-					else if (i == 2)
-					{ // Dealing with weapons
+					else if (i == 2) { // Dealing with weapons
 						itemWeight = dictionary[entry.Key] * manager_UI.GetWeaponWeight(entry.Key);
 						itemDescription = "Damage: " + manager_UI.GetWeaponDamage(entry.Key);
-						if (manager_UI.GetEquippedWeapon().GetWeaponName() == entry.Key)
-						{
+						if (manager_UI.GetEquippedWeapon().GetWeaponName() == entry.Key) {
 							showItem = false;
 						}
 					}
@@ -158,16 +143,14 @@ public class SafeZoneInventoryUI : MonoBehaviour
 					{
 						itemWeight = dictionary[entry.Key] * manager_UI.GetArmourWeight(entry.Key);
 						itemDescription = "Defense: " + manager_UI.GetArmourDefense(entry.Key);
-						if (manager_UI.GetEquippedArmour().GetArmourName() == entry.Key)
-						{
+						if (manager_UI.GetEquippedArmour().GetArmourName() == entry.Key) {
 							showItem = false;
 						}
 					}
 
 					// ------------------------------------------------------------------------------------------------------//
 
-					if (showItem)
-					{
+					if (showItem) {
 						if (itemSlot.gameObject.activeSelf) // item had more than 1 count already, and increased or decreased but still has more than 1
 						{
 							itemSlot.Find("ItemCount").GetComponent<Text>().text = "x" + dictionary[entry.Key];
@@ -183,8 +166,7 @@ public class SafeZoneInventoryUI : MonoBehaviour
 							itemSlot.SetAsLastSibling();
 						}
 					}
-					else
-					{
+					else {
 						itemSlot.gameObject.SetActive(false);
 					}
 				}

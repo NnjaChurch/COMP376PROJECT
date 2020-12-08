@@ -12,8 +12,9 @@ public class SkillsUI : MonoBehaviour {
 
 	[SerializeField] UIManager manager_ui;
 
-	void Start() {
-
+	public void Initialize() {
+		Debug.Log("Initializing SkillsUI...");
+		// TODO: Populate Skills UI
 	}
 
 	// Update is called once per frame

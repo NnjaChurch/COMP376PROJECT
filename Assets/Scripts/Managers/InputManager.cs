@@ -10,12 +10,14 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour {
 
+	// Manager References
 	[SerializeField] LootManager manager_loot;
 	[SerializeField] PlayerManager manager_player;
 	[SerializeField] UIManager manager_ui;
 
-	// Start is called before the first frame update
-	void Start() {
+	public bool Initialize() {
+		Debug.Log("Initializing InputManager...");
+		return true;
 	}
 
 	// Update is called once per frame
