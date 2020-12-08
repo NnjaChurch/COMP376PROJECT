@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour {
 	[SerializeField] GameUI UI_game;
 	[SerializeField] SkillsUI UI_skills;
 	[SerializeField] UpgradeUI UI_upgrade;
+	[SerializeField] SafeZoneInventoryUI UI_safezone_inventory;
 
 	// Menu Class References
 	[SerializeField] LootMenu menu_loot;
@@ -28,6 +29,12 @@ public class UIManager : MonoBehaviour {
 	public void UpdateInventoryUI() {
 		InventoryUI.inventory_updated = true; // This lets it know that it should update in the next frame
 	}
+
+	public void UpdateSafeZoneInventoryUI()
+    {
+		UI_safezone_inventory.updateInventoryUI();
+    }
+
 	public GameObject GetPrefabItems()
 	{
 		return prefab_items; // Called in Start() of InventoryUI

@@ -347,7 +347,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00000667572, y: -0.00046749532}
+  m_AnchoredPosition: {x: 0.000028430833, y: 0.000010866499}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &8778763833670340895
@@ -872,7 +872,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5954141516750459453}
   m_HandleRect: {fileID: 5618621967345194598}
   m_Direction: 2
-  m_Value: 1.0000026
+  m_Value: 1
   m_Size: 0.69332904
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -1309,7 +1309,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1629020516335468021}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SkillsUI, Assembly-CSharp
         m_MethodName: UpgradeSkill
         m_Mode: 3
@@ -1751,7 +1751,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2837439395794057310}
   m_HandleRect: {fileID: 3796681463541487047}
   m_Direction: 2
-  m_Value: 1.0000006
+  m_Value: 0.08429652
   m_Size: 0.32932782
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -3217,7 +3217,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7626111420944578174}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
         m_MethodName: ButtonEquipWeapon
         m_Mode: 5
@@ -7170,7 +7170,7 @@ GameObject:
   - component: {fileID: 1629020515264980128}
   - component: {fileID: 1629020516254957075}
   - component: {fileID: 1629020516254957074}
-  - component: {fileID: 7626111420944578174}
+  - component: {fileID: 574904491}
   m_Layer: 5
   m_Name: InventoryUI
   m_TagString: Untagged
@@ -7238,16 +7238,16 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7626111420944578174
+--- !u!114 &574904491
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1629020516254957073}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1945476f13368c24999a45e2b0d4749b, type: 3}
+  m_Script: {fileID: 11500000, guid: c0fa14a3da4dcfc4992274736c104c7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   manager_UI: {fileID: 0}
@@ -8115,7 +8115,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1629020515176583353}
   m_HandleRect: {fileID: 1629020515176583352}
   m_Direction: 2
-  m_Value: 1.0000005
+  m_Value: 0.25113136
   m_Size: 0.44042054
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -8779,7 +8779,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1629020516746863304}
-  - component: {fileID: 1629020516746863305}
+  - component: {fileID: 945927616}
   m_Layer: 5
   m_Name: StatsUI
   m_TagString: Untagged
@@ -8807,16 +8807,16 @@ RectTransform:
   m_AnchoredPosition: {x: -199, y: -26.9}
   m_SizeDelta: {x: 473.49323, y: 961.2267}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1629020516746863305
+--- !u!114 &945927616
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1629020516746863319}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25d47692d48c37841bb68225e02ade98, type: 3}
+  m_Script: {fileID: 11500000, guid: 2d2ee4cd608542349bf431748ae2c374, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   manager_UI: {fileID: 0}
@@ -8852,9 +8852,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 86059b9592317ca41a9bddbbfd5fc3ef, type: 3}
   - {fileID: 21300000, guid: 1d8f9a336c167a24aa93874c54bb1e24, type: 3}
   - {fileID: 21300000, guid: 66387a49f012bdd478b3389f11aa3983, type: 3}
-  strengthText: {fileID: 0}
-  dexterityText: {fileID: 0}
-  intelligenceText: {fileID: 0}
   skillsText: {fileID: 9203576805799965831}
 --- !u!1 &1629020516778599322
 GameObject:
@@ -9065,7 +9062,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1629020516278079035}
   m_HandleRect: {fileID: 1629020516278079034}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -10982,7 +10979,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7626111420944578174}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
         m_MethodName: ButtonDropMaterial
         m_Mode: 5
@@ -11351,7 +11348,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7626111420944578174}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
         m_MethodName: ButtonDropMaterial
         m_Mode: 5
@@ -12820,7 +12817,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7626111420944578174}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
         m_MethodName: ButtonEquipWeapon
         m_Mode: 5
@@ -13503,7 +13500,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3120013777615607616}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 905244498}
+        m_TargetAssemblyTypeName: GameMenu, Assembly-CSharp
+        m_MethodName: MainMenuButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2699060403303839903
 GameObject:
   m_ObjectHideFlags: 0
@@ -14804,7 +14813,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7626111420944578174}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
         m_MethodName: ButtonEquipWeapon
         m_Mode: 5
@@ -15075,7 +15084,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.34901962, g: 0.34901962, b: 0.34901962, a: 1}
     m_PressedColor: {r: 0.25490198, g: 0.25490198, b: 0.25490198, a: 1}
     m_SelectedColor: {r: 0.34901962, g: 0.34901962, b: 0.34901962, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -15093,7 +15102,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5229112964608065316}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 574904485}
+        m_TargetAssemblyTypeName: TravelMenuUI, Assembly-CSharp
+        m_MethodName: Zone2ButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2934485608432390288
 GameObject:
   m_ObjectHideFlags: 0
@@ -15214,7 +15235,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7626111420944578174}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
         m_MethodName: ButtonDropMaterial
         m_Mode: 5
@@ -15504,7 +15525,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7626111420944578174}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
         m_MethodName: ButtonDropMaterial
         m_Mode: 5
@@ -16474,7 +16495,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7626111420944578174}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
         m_MethodName: ButtonDropMaterial
         m_Mode: 5
@@ -17158,7 +17179,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7626111420944578174}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
         m_MethodName: ButtonDropMaterial
         m_Mode: 5
@@ -18240,7 +18261,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.34901962, g: 0.34901962, b: 0.34901962, a: 1}
     m_PressedColor: {r: 0.25490198, g: 0.25490198, b: 0.25490198, a: 1}
     m_SelectedColor: {r: 0.34901962, g: 0.34901962, b: 0.34901962, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -18258,7 +18279,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1368895333970411662}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 574904485}
+        m_TargetAssemblyTypeName: TravelMenuUI, Assembly-CSharp
+        m_MethodName: Zone1ButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3612605130939350499
 GameObject:
   m_ObjectHideFlags: 0
@@ -19286,7 +19319,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7626111420944578174}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
         m_MethodName: ButtonDropConsumable
         m_Mode: 5
@@ -19418,7 +19451,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7626111420944578174}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
         m_MethodName: ButtonConsumeClick
         m_Mode: 5
@@ -19550,7 +19583,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7626111420944578174}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
         m_MethodName: ButtonDropConsumable
         m_Mode: 5
@@ -20698,7 +20731,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000004053116, y: -0.0004536036}
+  m_AnchoredPosition: {x: 0.00075, y: 829.72595}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &7224558057289228961
@@ -21915,7 +21948,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7626111420944578174}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
         m_MethodName: ButtonConsumeClick
         m_Mode: 5
@@ -22288,7 +22321,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7626111420944578174}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
         m_MethodName: ButtonDropConsumable
         m_Mode: 5
@@ -22657,7 +22690,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7626111420944578174}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
         m_MethodName: ButtonDropConsumable
         m_Mode: 5
@@ -26538,7 +26571,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7626111420944578174}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
         m_MethodName: ButtonEquipArmour
         m_Mode: 5
@@ -27830,7 +27863,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4631521060844275571}
   m_HandleRect: {fileID: 7321930598029072498}
   m_Direction: 2
-  m_Value: 1.0000024
+  m_Value: 1
   m_Size: 0.4656972
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -28349,7 +28382,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7626111420944578174}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
         m_MethodName: ButtonDropMaterial
         m_Mode: 5
@@ -28800,7 +28833,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7626111420944578174}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
         m_MethodName: ButtonDropMaterial
         m_Mode: 5
@@ -29171,7 +29204,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000060081482, y: -0.0003704978}
+  m_AnchoredPosition: {x: 0.0008034344, y: 0.000006871429}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &7940124528143972826
@@ -29579,7 +29612,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7626111420944578174}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
         m_MethodName: ButtonEquipWeapon
         m_Mode: 5
@@ -30417,7 +30450,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6522141533471752468}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 905244498}
+        m_TargetAssemblyTypeName: GameMenu, Assembly-CSharp
+        m_MethodName: SaveButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7001491373973098987
 GameObject:
   m_ObjectHideFlags: 0
@@ -30897,14 +30942,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1629020516335468021}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SkillsUI, Assembly-CSharp
         m_MethodName: UpgradeSkill
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 7
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Knife
           m_BoolArgument: 0
@@ -31010,7 +31055,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.34901962, g: 0.34901962, b: 0.34901962, a: 1}
     m_PressedColor: {r: 0.25490198, g: 0.25490198, b: 0.25490198, a: 1}
     m_SelectedColor: {r: 0.34901962, g: 0.34901962, b: 0.34901962, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -31028,7 +31073,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8197996376205272886}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 574904485}
+        m_TargetAssemblyTypeName: TravelMenuUI, Assembly-CSharp
+        m_MethodName: Zone3ButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7124245997063011774
 GameObject:
   m_ObjectHideFlags: 0
@@ -32317,7 +32374,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7626111420944578174}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
         m_MethodName: ButtonEquipArmour
         m_Mode: 5
@@ -33025,7 +33082,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000011444092, y: -0.00048989546}
+  m_AnchoredPosition: {x: -0.000046884823, y: 805.2219}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &7626111420944578161
@@ -33911,6 +33968,7 @@ GameObject:
   - component: {fileID: 3341060939400843988}
   - component: {fileID: 5929450123132122717}
   - component: {fileID: 7970046069024950425}
+  - component: {fileID: 574904485}
   m_Layer: 5
   m_Name: TravelUI
   m_TagString: Untagged
@@ -33978,6 +34036,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &574904485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7869979677424967161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 685b22ed45c91a24a9786bb3cdf2f769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager_UI: {fileID: 0}
+  zone2_button: {fileID: 743170507862300011}
+  zone3_button: {fileID: 8428272608123351219}
 --- !u!1 &7870213980129966377
 GameObject:
   m_ObjectHideFlags: 0
@@ -33989,6 +34062,7 @@ GameObject:
   - component: {fileID: 1541043878627525955}
   - component: {fileID: 116067164055832467}
   - component: {fileID: 97953060968033023}
+  - component: {fileID: 905244498}
   m_Layer: 5
   m_Name: MenuUI
   m_TagString: Untagged
@@ -34056,6 +34130,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &905244498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7870213980129966377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33e0b5d5a56ea264ea6144ffcaea7801, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager_UI: {fileID: 0}
 --- !u!1 &7931324862034740483
 GameObject:
   m_ObjectHideFlags: 0
@@ -34569,7 +34656,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7626111420944578174}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
         m_MethodName: ButtonEquipArmour
         m_Mode: 5
