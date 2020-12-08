@@ -246,6 +246,19 @@ public class UIManager : MonoBehaviour {
 		return manager_player.GetZone3Unlocked();
 	}
 
+	public int GetRemainingStatPoints()
+    {
+		// TODO create method that returns remaining stat points to be displayed in stats ui in safe zone 
+		//return manager_player.GetRemainingStatPoints();
+		return -1;
+    }
+
+	public void UpgradeStat(string stat_name)
+    {
+		// TODO create method to upgrade stats in player manager
+		//manager_player.UpgradeStat(stat_name);
+    }
+
 	// ----------------------------------------------------- manager_save -----------------------------------------------------------------------//
 
 	public void SaveGame() {

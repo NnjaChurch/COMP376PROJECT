@@ -35,6 +35,10 @@ public class SafeZoneCharacterUI : MonoBehaviour {
 
 	//------------------------------------------------------------------------Player Stats Info--------------------------------------//
 	[SerializeField] Text skillsText;
+	[SerializeField] Text remainingPointsText;
+	[SerializeField] Text strengthText;
+	[SerializeField] Text dexterityText;
+	[SerializeField] Text intelligenceText;
 
 	public void Initialize() {
 		Debug.Log("Initializing SafeZoneCharacterUI...");
@@ -90,8 +94,31 @@ public class SafeZoneCharacterUI : MonoBehaviour {
 		skillsText.text = "";
 
 		int number_of_skills = stat_names.Length;
+
 		for (int i = 0; i < number_of_skills; i++) {
-			skillsText.text += stat_names[i] + ": " + (int)stat_values[i] + "\n";
+			if (stat_names[i] == "Strength")
+			{
+				strengthText.text = "Strength: " + stat_values[i];
+			}
+			else if (stat_names[i] == "Dexterity")
+			{
+				strengthText.text = "Dexterity: " + stat_values[i];
+			}
+			else if (stat_names[i] == "Intelligence")
+			{
+				strengthText.text = "Intelligence: " + stat_values[i];
+			}
+			else
+			{
+				skillsText.text += stat_names[i] + ": " + (int)stat_values[i] + "\n";
+			}
 		}
+
+		remainingPointsText.text = "Remaining Stat Points: " + manager_UI.GetRemainingStatPoints();
 	}
+
+	public void UpgradeStatClick(string stat_name)
+    {
+		manager_UI.UpgradeStat(stat_name);
+    }
 }
