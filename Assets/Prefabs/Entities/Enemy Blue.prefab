@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1848335770912304351}
   - component: {fileID: 1849015958988510861}
-  - component: {fileID: 3190473028845300585}
   m_Layer: 9
   m_Name: PerceptionAura
   m_TagString: EnemyPerceptionAura
@@ -48,18 +47,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 12
---- !u!114 &3190473028845300585
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4894440143933032564}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95c4fedfde7e6b04cb95da36aae28b98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7744728286288450834
 GameObject:
   m_ObjectHideFlags: 0
