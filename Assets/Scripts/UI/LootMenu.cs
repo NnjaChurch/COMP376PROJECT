@@ -19,7 +19,8 @@ public class LootMenu : MonoBehaviour {
 
 	Lootbag current_lootbag; // To know which lootbag is currently opened
 
-	void Start() {
+	public void Initialize() {
+		Debug.Log("Initializing LootUI...");
 		items = manager_UI.GetPrefabItems();
 		ResetLootUI();
 		this.gameObject.SetActive(false);

@@ -7,6 +7,10 @@ public class GameMenuUI : MonoBehaviour {
 
 	[SerializeField] UIManager manager_UI;
 
+	public void Initialize() {
+		Debug.Log("Initializing GameMenuUI...");
+	}
+
 	public void SaveButtonClick() {
 		// TODO check if SaveGame is correct
 		manager_UI.SaveGame();

@@ -29,8 +29,8 @@ public class SpawnManager : MonoBehaviour {
      * The number of zombies spawned is dependent on player level and a random range.
      * The level of the spawned enemies is set to be the same level as the player.
      */
-	void Start() {
-
+	public bool Initialize() {
+        Debug.Log("Initialize SpawnManager...");
         int playerLevel = playerManager.GetPlayerLevel();
         int SpawnAmount = spawnAmountMin + (playerLevel * spawnAmountPerLevel) + Random.Range(0, spawnAmountRandomMax + 1);
 
@@ -99,6 +99,7 @@ public class SpawnManager : MonoBehaviour {
                 }
             }
         }
+        return true;
 	}
 
 	// Update is called once per frame

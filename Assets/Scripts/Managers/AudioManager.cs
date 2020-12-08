@@ -2,17 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AudioManager : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+public class AudioManager : MonoBehaviour {
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	public bool Initialize() {
+		Debug.Log("Initializing AudioManager...");
+		return true;
+	}
+
+
+	// Update is called once per frame
+	void Update() {
+
+	}
 }

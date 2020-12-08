@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SafeZoneCharacterUI : MonoBehaviour
-{
+public class SafeZoneCharacterUI : MonoBehaviour {
 	[SerializeField] UIManager manager_UI; // To get the equipped weapon and armour from the equipment manager
 
 	//------------------------------------------------------------------------Player Info--------------------------------------------//
@@ -37,34 +36,29 @@ public class SafeZoneCharacterUI : MonoBehaviour
 	//------------------------------------------------------------------------Player Stats Info--------------------------------------//
 	[SerializeField] Text skillsText;
 
-	void Start()
-	{
-		for (int i = 0; i < weaponNames.Length; i++)
-		{
+	public void Initialize() {
+		Debug.Log("Initializing SafeZoneCharacterUI...");
+		for (int i = 0; i < weaponNames.Length; i++) {
 			equipments.Add(weaponNames[i], weaponImages[i]);
 		}
-		for (int i = 0; i < armourNames.Length; i++)
-		{
+		for (int i = 0; i < armourNames.Length; i++) {
 			equipments.Add(armourNames[i], armourImages[i]);
 		}
 	}
 
-	public void updatePlayerHealth(int current_health, int max_health)
-	{
+	public void updatePlayerHealth(int current_health, int max_health) {
 		//Debug.Log("CharacterUI.updatePlayerHealth()");
 		health_bar.fillAmount = (float)current_health / max_health;
 		health_text.text = current_health + "/" + max_health;
 	}
 
-	public void updatePlayerStamina(int current_stamina, int max_stamina)
-	{
+	public void updatePlayerStamina(int current_stamina, int max_stamina) {
 		//Debug.Log("CharacterUI.updatePlayerStamina()");
 		stamina_bar.fillAmount = (float)current_stamina / max_stamina;
 		stamina_text.text = current_stamina + "/" + max_stamina;
 	}
 
-	public void updatePlayerExperience(int level, int current_experience, int next_level, int banked_exp)
-	{
+	public void updatePlayerExperience(int level, int current_experience, int next_level, int banked_exp) {
 		//Debug.Log("CharacterUI.updatePlayerExperience()");
 		experience_bar.fillAmount = (float)current_experience / next_level;
 		exp_text.text = current_experience + "/" + next_level;
@@ -72,8 +66,7 @@ public class SafeZoneCharacterUI : MonoBehaviour
 		banked_exp_text.text = "Banked Exp: " + banked_exp;
 	}
 
-	public void updateEquippedWeapon()
-	{
+	public void updateEquippedWeapon() {
 		//Debug.Log("CharacterUI.updateEquippedWeapon()");
 
 		Weapon equippedWeapon = manager_UI.GetEquippedWeapon();
@@ -82,8 +75,7 @@ public class SafeZoneCharacterUI : MonoBehaviour
 		equippedWeaponStats.text = "Damage: " + equippedWeapon.GetDamage();
 	}
 
-	public void updateEquippedArmour()
-	{
+	public void updateEquippedArmour() {
 		//Debug.Log("CharacterUI.updateEquippedArmour()");
 
 		Armour equippedArmour = manager_UI.GetEquippedArmour();
@@ -92,15 +84,13 @@ public class SafeZoneCharacterUI : MonoBehaviour
 		equippedArmourStats.text = "Defense: " + equippedArmour.GetDefense();
 	}
 
-	public void updatePlayerStats(string[] stat_names, float[] stat_values)
-	{
+	public void updatePlayerStats(string[] stat_names, float[] stat_values) {
 		//Debug.Log("CharacterUI.updatePlayerSkills()");
 
 		skillsText.text = "";
 
 		int number_of_skills = stat_names.Length;
-		for (int i = 0; i < number_of_skills; i++)
-		{
+		for (int i = 0; i < number_of_skills; i++) {
 			skillsText.text += stat_names[i] + ": " + (int)stat_values[i] + "\n";
 		}
 	}

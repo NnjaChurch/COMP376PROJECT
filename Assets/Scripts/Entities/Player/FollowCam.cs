@@ -13,12 +13,6 @@ public class FollowCam : MonoBehaviour {
 	[SerializeField] float z_offset = -10.0f;
 	public GameObject entity;
 
-	// Start is called before the first frame update
-	void Start() {
-
-	}
-
-	// Update is called once per frame
 	void Update() {
 		gameObject.transform.position = new Vector3(entity.transform.position.x, entity.transform.position.y, z_offset);
 	}

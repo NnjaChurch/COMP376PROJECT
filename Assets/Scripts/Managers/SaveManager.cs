@@ -14,10 +14,18 @@ public class SaveManager : MonoBehaviour {
 	[SerializeField] EquipmentManager manager_equipment;
 	[SerializeField] InventoryManager manager_inventory;
 
-	void Start() {
-		LoadGame();
+	public bool Initialize() {
+		Debug.Log("Initializing SaveManager...");
+		if(CheckSave()) {
+			Debug.Log("Save File Detected. Loading from Save File");
+			LoadGame();
+			return true;
+		}
+		else {
+			Debug.Log("No Save File Detected. Perfoming First Time Setup");
+			return false;
+		}
 	}
-
 	[System.Serializable]
 	private class PlayerData {
 		List<int> player_stats;
@@ -75,7 +83,7 @@ public class SaveManager : MonoBehaviour {
 			file.Close();
 		}
 		else {
-			Debug.LogError("SAVE_MANAGER::LOAD_GAME::Cannot find file at specified location: " + System.IO.Directory.GetCurrentDirectory() + "/save_file.dat");
+			Debug.Log("SAVE_MANAGER::LOAD_GAME::Cannot find file at specified location: " + System.IO.Directory.GetCurrentDirectory() + "/save_file.dat");
 		}
 	}
 	public void SaveGame() {

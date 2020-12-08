@@ -12,8 +12,8 @@ public class SafeZoneInventoryUI : MonoBehaviour {
 	GameObject items; // Reference to the 'Items' gameobject that has Food, Medicine, Wood, etc.
 
 	// Start is called before the first frame update
-	void Start() {
-		Debug.Log("SafeZoneInventoryUI");
+	public void Initialize() {
+		Debug.Log("Initializing SafeZoneInventoryUI...");
 
 		items = manager_UI.GetPrefabItems();
 

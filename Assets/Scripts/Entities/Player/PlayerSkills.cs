@@ -14,8 +14,8 @@ public class PlayerSkills : MonoBehaviour {
 
 	// Manager Reference
 	[SerializeField] PlayerManager manager_player;
-
-	void Start() {
+	public void Initialize() {
+		Debug.Log("Initializing PlayerSkills...");
 		InitializeSkills();
 
 		if(manager_player.CheckSave()) {
@@ -24,7 +24,7 @@ public class PlayerSkills : MonoBehaviour {
 				player_skills[i].SetLevel(skills_load[i]);
 			}
 		}
-		manager_player.UpdateUISkills();
+		// manager_player.UpdateUISkills();
 	}
 
 	private void InitializeSkills() {

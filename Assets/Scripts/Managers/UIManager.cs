@@ -5,9 +5,13 @@ using UnityEngine;
 public class UIManager : MonoBehaviour {
 
 	// UI Class References
+
+	// Non Safe Zone UI Elements
 	[SerializeField] CharacterUI UI_character;
 	[SerializeField] InventoryUI UI_inventory;
 	[SerializeField] GameUI UI_game;
+
+	// Safe Zone UI Elements
 	[SerializeField] SkillsUI UI_skills;
 	[SerializeField] UpgradeUI UI_upgrade;
 	[SerializeField] SafeZoneInventoryUI UI_safezone_inventory;
@@ -23,9 +27,32 @@ public class UIManager : MonoBehaviour {
 	[SerializeField] EquipmentManager manager_equipment;
 	[SerializeField] SaveManager manager_save;
 	[SerializeField] StageManager manager_stage;
-	//[SerializeField] LootManager manager_loot;	TODO: Hook up LootManager once implemented
 
 	[SerializeField] GameObject prefab_items; // Reference to the 'Items' gameobject that has Food, Medicine, Wood, etc.
+
+	public bool Initialize() {
+		Debug.Log("Initializing UIManager...");
+		// Initialize Components based on Safe Zone State
+		if(manager_stage.GetSafeZone()) {
+			// Initialize Safe Zone UI Components
+			UI_skills.Initialize();
+			UI_upgrade.Initialize();
+			UI_safezone_inventory.Initialize();
+			UI_safezone_character.Initialize();
+		}
+		else {
+			// Initialize Non Safe Zone UI Components
+			UI_character.Initialize();
+			UI_inventory.Initialize();
+			UI_game.Initialize();
+			menu_loot.Initialize();
+			menu_pause.Initialize();
+		}
+
+
+
+		return true;
+	}
 
 	public void UpdateInventoryUI() {
 		InventoryUI.inventory_updated = true; // This lets it know that it should update in the next frame

@@ -3,20 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Sound : MonoBehaviour {
-	[SerializeField] float DURATION;
-	[SerializeField] AudioSource audio;
-
+	[SerializeField] AudioSource audio_source;
 
 	// Start is called before the first frame update
 	void Start() {
-		if (!audio.isPlaying) {
-			audio.Play();
+		if (!audio_source.isPlaying) {
+			audio_source.Play();
 		}
 	}
 
 	// Update is called once per frame
 	void Update() {
-		if(!audio.isPlaying) {
+		if (!audio_source.isPlaying) {
 			Destroy(this.gameObject);
 		}
 	}

@@ -23,8 +23,8 @@ public class EquipmentManager : MonoBehaviour {
 	Weapon active_weapon;
 	Armour active_armour;
 
-	private void Start() {
-		Debug.Log("EquipmentManager");
+	public bool Initialize() {
+		Debug.Log("Initializing EquipmentManager...");
 		if (manager_save.CheckSave()) {
 			List<int> equipment_load = manager_save.LoadEquipment();
 
@@ -81,9 +81,9 @@ public class EquipmentManager : MonoBehaviour {
 				active_armour.gameObject.SetActive(true);
 				manager_player.EquipArmour(active_armour);
 			}
+			return true;
 		}
 		else {
-			Debug.Log("No Save File");
 			// Equip Initial Weapon
 			active_weapon = weapon_bat;
 			active_weapon.gameObject.SetActive(true);
@@ -93,6 +93,8 @@ public class EquipmentManager : MonoBehaviour {
 			active_armour = armour_light;
 			active_armour.gameObject.SetActive(false);
 			manager_player.EquipArmour(active_armour);
+
+			return false;
 		}
 
 	}

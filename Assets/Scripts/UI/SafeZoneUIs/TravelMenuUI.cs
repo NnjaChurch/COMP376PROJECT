@@ -8,7 +8,8 @@ public class TravelMenuUI : MonoBehaviour {
 	[SerializeField] Button zone2_button;
 	[SerializeField] Button zone3_button;
 
-	void Start() {
+	public void Initialize() {
+		Debug.Log("Initializing TravelMenuUI...");
 		if (!manager_UI.GetZone2Unlocked()) {
 			zone2_button.interactable = false;
 		}
@@ -19,7 +20,6 @@ public class TravelMenuUI : MonoBehaviour {
 	}
 
 	public void Zone1ButtonClick() {
-		// TODO check if it's correct method
 		manager_UI.TravelZone("Zone 1");
 	}
 

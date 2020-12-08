@@ -24,8 +24,8 @@ public class InventoryUI : MonoBehaviour {
 	public static bool inventory_updated = false; // To know if there is a change in inventory
 
 	// Start is called before the first frame update
-	void Start() {
-
+	public void Initialize() {
+		Debug.Log("Initializing InventoryUI...");
 		items = manager_UI.GetPrefabItems();
 
 		for (int i = 0; i < inventory_content.transform.childCount; i++) {

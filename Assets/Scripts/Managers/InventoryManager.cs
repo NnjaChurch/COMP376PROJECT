@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class InventoryManager : MonoBehaviour {
-	// Start is called before the first frame update
 
+	// Inventory Reference
 	[SerializeField] Inventory player_inventory;
+
+	// Manager References
 	[SerializeField] EquipmentManager manager_equipment;
 	[SerializeField] PlayerManager manager_player;
 	[SerializeField] UIManager manager_ui;
@@ -19,8 +21,10 @@ public class InventoryManager : MonoBehaviour {
 	[SerializeField] Material material_cloth;
 	[SerializeField] Material material_metal;
 
-	void Start() {
-
+	public bool Initialize() {
+		Debug.Log("Initializing InventoryManager...");
+		player_inventory.Initialize();
+		return true;
 	}
 
 	public List<int> SaveInventory() {
