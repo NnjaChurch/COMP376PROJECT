@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 // ----------------------------------------------------------------------------------------------------
 //	Description: Class for the character statistics User Interface
-//	Contributors:
+//	Contributors: Rubiat
 //	Endpoints:
 // ----------------------------------------------------------------------------------------------------
 
@@ -16,9 +16,13 @@ public class CharacterUI : MonoBehaviour {
 
 	//------------------------------------------------------------------------Player Info--------------------------------------------//
 	[SerializeField] Image health_bar;
+	[SerializeField] Text health_text;
 	[SerializeField] Image stamina_bar;
+	[SerializeField] Text stamina_text;
 	[SerializeField] Image experience_bar;
+	[SerializeField] Text exp_text;
 	[SerializeField] Text player_level_text;
+	[SerializeField] Text banked_exp_text;
 
 	//------------------------------------------------------------------------Equipment Info-----------------------------------------//
 	[SerializeField] Image equippedWeaponImage;
@@ -38,9 +42,7 @@ public class CharacterUI : MonoBehaviour {
 	IDictionary<string, Sprite> equipments = new Dictionary<string, Sprite>(); // To keep reference of each weapon/armour and their respective sprites
 
 	//------------------------------------------------------------------------Player Stats Info--------------------------------------//
-	[SerializeField] Text strengthText;
-	[SerializeField] Text dexterityText;
-	[SerializeField] Text intelligenceText;
+	[SerializeField] Text skillsText;
 
 	void Start() {
 		for (int i = 0; i < weaponNames.Length; i++) {
@@ -53,14 +55,9 @@ public class CharacterUI : MonoBehaviour {
 		this.gameObject.SetActive(false);
 	}
 
-	// Update is called once per frame
-	void Update() {
-
-	}
-
 	public void ButtonStatsClick()
 	{
-		Debug.Log("CharacterUI.ButtonStatsClick()");
+		//Debug.Log("CharacterUI.ButtonStatsClick()");
 
 		if (!this.gameObject.activeSelf)
 		{
@@ -73,26 +70,27 @@ public class CharacterUI : MonoBehaviour {
 	}
 
 	public void updatePlayerHealth(int current_health, int max_health) {
-		Debug.Log("CharacterUI.updatePlayerHealth()");
+		//Debug.Log("CharacterUI.updatePlayerHealth()");
 		health_bar.fillAmount = (float)current_health / max_health;
-		// TODO: Display Numbers?
+		health_text.text = current_health + "/" + max_health;
 	}
 
 	public void updatePlayerStamina(int current_stamina, int max_stamina) {
-		Debug.Log("CharacterUI.updatePlayerStamina()");
+		//Debug.Log("CharacterUI.updatePlayerStamina()");
 		stamina_bar.fillAmount = (float)current_stamina / max_stamina;
-		// TODO: Display Numbers?
+		stamina_text.text = current_stamina + "/" + max_stamina;
 	}
 
-	public void updatePlayerExperience(int level, int current_experience, int next_level) {
-		Debug.Log("CharacterUI.updatePlayerExperience()");
+	public void updatePlayerExperience(int level, int current_experience, int next_level, int banked_exp) {
+		//Debug.Log("CharacterUI.updatePlayerExperience()");
 		experience_bar.fillAmount = (float)current_experience / next_level;
-		//experience_text.text = current_experience + "/" + next_level;		TODO: Missing text in Character UI?
+		exp_text.text = current_experience + "/" + next_level;
 		player_level_text.text = "Level " + level;
+		banked_exp_text.text = "Banked Exp: " + banked_exp;
 	}
 
 	public void updateEquippedWeapon() {
-		Debug.Log("CharacterUI.updateEquippedWeapon()");
+		//Debug.Log("CharacterUI.updateEquippedWeapon()");
 
 		Weapon equippedWeapon = manager_UI.GetEquippedWeapon();
 		equippedWeaponImage.sprite = equipments[equippedWeapon.GetWeaponName()];
@@ -101,7 +99,7 @@ public class CharacterUI : MonoBehaviour {
 	}
 
 	public void updateEquippedArmour() {
-		Debug.Log("CharacterUI.updateEquippedArmour()");
+		//Debug.Log("CharacterUI.updateEquippedArmour()");
 
 		Armour equippedArmour = manager_UI.GetEquippedArmour();
 		equippedArmourImage.sprite = equipments[equippedArmour.GetArmourName()];
@@ -109,11 +107,15 @@ public class CharacterUI : MonoBehaviour {
 		equippedArmourStats.text = "Defense: " + equippedArmour.GetDefense();
 	}
 
-	public void updatePlayerSkills(int strength, int dexterity, int intelligence) {
-		Debug.Log("CharacterUI.updatePlayerSkills()");
+	public void updatePlayerStats(string[] stat_names, float[] stat_values) {
+		//Debug.Log("CharacterUI.updatePlayerSkills()");
 
-		strengthText.text = "Strength: " + strength;
-		dexterityText.text = "Dexterity: " + dexterity;
-		intelligenceText.text = "Intelligence: " + intelligence;
+		skillsText.text = "";
+
+		int number_of_skills = stat_names.Length;
+		for (int i = 0; i < number_of_skills; i++)
+        {
+			skillsText.text += stat_names[i] + ": " + (int) stat_values[i] + "\n";
+        }
 	}
 }

@@ -9,6 +9,9 @@ TagManager:
   - InventoryContent
   - EnemyPerceptionAura
   - Roof
+  - Weapon
+  - EnemySpawner
+  - SafeZoneTrigger
   layers:
   - Default
   - TransparentFX

@@ -103,6 +103,24 @@ public class InventoryManager : MonoBehaviour {
 		player_inventory.RemoveFromInventory(item_name);
 	}
 
+	public void RemoveAllMaterialsAndConsumables()
+    {
+		foreach (KeyValuePair<string, int> consumable in player_inventory.consumables)
+		{
+			while(consumable.Value != 0)
+            {
+				this.RemoveFromInventory(consumable.Key);
+            }
+		}
+		foreach (KeyValuePair<string, int> material in player_inventory.materials)
+		{
+			while (material.Value != 0)
+			{
+				this.RemoveFromInventory(material.Key);
+			}
+		}
+	}
+
 	public void AddToInventory(string item_name) {
 		player_inventory.AddToInventory(item_name);
 	}
@@ -123,7 +141,8 @@ public class InventoryManager : MonoBehaviour {
 		IDictionary<string, int> weaponsCount = new Dictionary<string, int>();
 		foreach (KeyValuePair<string, bool> weapon in player_inventory.weapons) {
 			// if the weapon has been found (ie. is true) and is not currently equipped, return to UI
-			if (weapon.Value && manager_equipment.GetEquippedWeapon().name != weapon.Key) { weaponsCount.Add(weapon.Key, 1); }
+			// NOTE: This was changed to return any found weapons to ui, even if it's equipped. The check to see if it's equipped will be done in ui script
+			if (weapon.Value) { weaponsCount.Add(weapon.Key, 1); }
 		}
 		return weaponsCount;
 	}
@@ -132,7 +151,8 @@ public class InventoryManager : MonoBehaviour {
 		IDictionary<string, int> armourCount = new Dictionary<string, int>();
 		foreach (KeyValuePair<string, bool> armour in player_inventory.armours) {
 			// if the armour has been found (ie. is true) and is not currently equipped, return to UI
-			if (armour.Value && manager_equipment.GetEquippedArmour().name != armour.Key) { armourCount.Add(armour.Key, 1); }
+			// NOTE: This was changed to return any found armours to ui, even if it's equipped. The check to see if it's equipped will be done in ui script
+			if (armour.Value) { armourCount.Add(armour.Key, 1); }
 		}
 		return armourCount;
 	}

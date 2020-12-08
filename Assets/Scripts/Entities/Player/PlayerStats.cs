@@ -31,6 +31,8 @@ public class PlayerStats : Stats {
 	[SerializeField] int BASE_DAMAGE_REDUCTION = 1;     // %
 	[SerializeField] int BASE_EXPERIENCE_LEVEL = 100;   // %
 	[SerializeField] float EXPERIENCE_GROWTH = 1.2f;
+	[SerializeField] AudioSource audioTakeDamage;
+	[SerializeField] AudioSource[] audioAttacks;
 
 	// Calculated Stats
 	int max_stamina;
@@ -88,6 +90,8 @@ public class PlayerStats : Stats {
 			else {
 				zone3_unlocked = false;
 			}
+			// Gain Banked Experience (Banked Experience will be 0 if player is entering a Zone)
+			GainExperience();
 		}
 		else {
 			zone2_unlocked = false;
@@ -105,6 +109,9 @@ public class PlayerStats : Stats {
 		isSprinting = false;
 		encumbered_modifier = 1;
 		attack_timer = attack_speed;
+
+		// Test
+		//SetLevel(30);
 	}
 	private void Update() {
 		// Attack Cooldown
@@ -128,7 +135,7 @@ public class PlayerStats : Stats {
 					current_stamina = 0;
 				}
 				second_timer -= 1;
-				Debug.Log("Player Stamina reduced by 1 (Current: " + current_stamina + ")");
+				//Debug.Log("Player Stamina reduced by 1 (Current: " + current_stamina + ")");
 				manager_player.UpdateUIStamina(current_stamina, max_stamina);
 			}
 		}
@@ -140,7 +147,7 @@ public class PlayerStats : Stats {
 					if (current_stamina > max_stamina) {
 						current_stamina = max_stamina;
 					}
-					Debug.Log("Player Stamina restored by " + stamina_regen + " (Current: " + current_stamina + ")");
+					//Debug.Log("Player Stamina restored by " + stamina_regen + " (Current: " + current_stamina + ")");
 					second_timer -= 1;
 					manager_player.UpdateUIStamina(current_stamina, max_stamina);
 				}
@@ -164,7 +171,7 @@ public class PlayerStats : Stats {
 		// Dexterity Stats
 		max_stamina = Mathf.FloorToInt((BASE_STAMINA + (10 * dexterity)) * manager_player.GetSkillBonus(3));
 		movement_speed = (BASE_MOVEMENT_SPEED + (0.05f * (float)dexterity)) * CalculateArmourBonus() * manager_player.GetSkillBonus(4) / encumbered_modifier;
-		Debug.Log("Movement Speed: " + movement_speed);
+		//Debug.Log("Movement Speed: " + movement_speed);
 		attack_speed = (BASE_ATTACK_SPEED / CalculateWeaponBonus()) / manager_player.GetSkillBonus(5);
 		stamina_regen = BASE_STAMINA_REGEN + Mathf.FloorToInt(max_stamina / 50) - 1; // Should increase by 1 for every 50 stamina after the base 100
 
@@ -179,14 +186,15 @@ public class PlayerStats : Stats {
 		current_level = 1;
 		current_experience = 0;
 		current_next_level = BASE_EXPERIENCE_LEVEL;
-		manager_player.UpdateUIExperience(current_level, current_experience, current_next_level);
+		manager_player.UpdateUIExperience(current_level, current_experience, current_next_level, banked_experience);
 	}
 
 	public void Attack() {
 		if (canAttack) {
 			// TODO: Set isAttacking to false once animation is completete
 			isAttacking = true;
-			equipped_weapon.UseWeapon(damage);
+			audioAttacks[Random.Range(0, audioAttacks.Length)].Play();
+			equipped_weapon.UseWeapon(damage, this);
 			canAttack = false;
 			attack_timer = attack_speed;
 		}
@@ -200,6 +208,8 @@ public class PlayerStats : Stats {
 		isSprinting = sprint;
 	}
 	public int TakeDamage(int damage) {
+		audioTakeDamage.Play();
+		print("Health PRE: " + current_health);
 		int taken_damage = Mathf.CeilToInt((damage - equipped_armour.GetDefense()) / damage_reduction);
 		current_health -= taken_damage;
 		if (current_health < 0) {
@@ -208,6 +218,8 @@ public class PlayerStats : Stats {
 		if(current_health == 0) {
 			manager_player.KillPlayer();
 		}
+		print("Health POST: " + current_health);
+
 		return current_health;
 	}
 
@@ -229,18 +241,24 @@ public class PlayerStats : Stats {
 	}
 
 	public void CollectExperience(int experience) {
+		print("Gained " + experience + " experience!");
 		banked_experience += experience;
+		manager_player.UpdateUIExperience(current_level, current_experience, current_next_level, banked_experience);
 	}
 
-	public void GainExperience(int experience) {
-		current_experience += Mathf.FloorToInt(experience * experience_gain);
+	public void HalveExperience() {
+		banked_experience = Mathf.FloorToInt(banked_experience / 2);
+	}
+
+	public void GainExperience() {
+		current_experience += Mathf.FloorToInt(banked_experience * experience_gain);
 		// Check LevelUp
 		if (current_experience > current_next_level) {
 			LevelUp();
 		}
 		else {
 			// Update UI
-			manager_player.UpdateUIExperience(current_level, current_experience, current_next_level);
+			manager_player.UpdateUIExperience(current_level, current_experience, current_next_level, banked_experience);
 		}
 	}
 	private void LevelUp() {
@@ -254,7 +272,7 @@ public class PlayerStats : Stats {
 		current_next_level = Mathf.FloorToInt(current_next_level * EXPERIENCE_GROWTH);
 
 		// Update UI
-		manager_player.UpdateUIExperience(current_level, current_experience, current_next_level);
+		manager_player.UpdateUIExperience(current_level, current_experience, current_next_level, banked_experience);
 	}
 
 	private float CalculateWeaponBonus() {
@@ -291,6 +309,14 @@ public class PlayerStats : Stats {
 	public int GetBankedExperience() { return banked_experience; }
 	public bool Zone2Unlocked() { return zone2_unlocked; }
 	public bool Zone3Unlocked() { return zone3_unlocked; }
+	public int GetPlayerLevel() { return current_level; }
+
+	public void UnlockZone2() {
+		zone2_unlocked = true;
+	}
+	public void UnlockZone3() {
+		zone3_unlocked = true;
+	}
 
 	public void SetEquippedWeapon(Weapon w) {
 		equipped_weapon = w;
@@ -306,7 +332,13 @@ public class PlayerStats : Stats {
 		manager_player.UpdateUIHealth(current_health, max_health);
 		manager_player.UpdateUIStamina(current_stamina, max_stamina);
 		manager_player.UpdateSpeed(movement_speed);
-		manager_player.UpdateUIExperience(current_level, current_experience, current_next_level);
+		manager_player.UpdateUIExperience(current_level, current_experience, current_next_level, banked_experience);
 		// TODO: Add Updaters for other relevant stats
+
+		string[] stat_names = { "Strength", "Dexterity", "Intelligence", "Damage", "Movement Speed", "Attack Speed", 
+			"Stamina Regeneration Speed", "Experience Gain", "Healing Efficacy", "Damage Reduction" };
+		float[] stat_values = { strength, dexterity, intelligence, damage, movement_speed, attack_speed, stamina_regen, experience_gain, 
+			healing_efficacy, damage_reduction };
+		manager_player.UpdateUIStats(stat_names, stat_values);
 	}
 }

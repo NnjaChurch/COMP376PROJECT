@@ -14,12 +14,17 @@ public class PlayerManager : MonoBehaviour {
 	[SerializeField] PlayerStats player_stats;
 	[SerializeField] PlayerSkills player_skills;
 
+	[SerializeField] GameObject player_object;
+
 
 	// Manager Class References
 	[SerializeField] EquipmentManager manager_equipment;
 	[SerializeField] InventoryManager manager_inventory;
 	[SerializeField] UIManager manager_UI;
 	[SerializeField] SaveManager manager_save;
+	[SerializeField] StageManager manager_stage;
+
+	[SerializeField] AudioSource audioPlayerDeath;
 
 	public float GetSkillBonus(int skill_number) {
 		return player_skills.GetSkillBonus(skill_number);
@@ -34,7 +39,7 @@ public class PlayerManager : MonoBehaviour {
 
 	public void SetSprint(bool key) {
 		player_stats.SetSprint(key);
-		if(key && player_stats.GetCurrentStamina() > 0) {
+		if (key && player_stats.GetCurrentStamina() > 0) {
 			player_movement.SetSprint(true);
 		}
 		else {
@@ -66,11 +71,18 @@ public class PlayerManager : MonoBehaviour {
 		return player_stats.GetCarryWeight();
 	}
 
-	public Vector3 GetPlayerPosition()
-    {
-		// TODO this possibly returns the PlayerManager's position instead and not the player's position
-		return transform.position;
-    }
+	public Vector3 GetPlayerPosition() {
+		return player_object.transform.position;
+	}
+
+	public int GetPlayerLevel() {
+		return player_stats.GetPlayerLevel();
+	}
+
+	public void UpgradeSkill(int skill_number) {
+		player_skills.UpgradeSkill(skill_number);
+		UpdateUISkills();
+	}
 
 
 	// UI Functions
@@ -82,12 +94,19 @@ public class PlayerManager : MonoBehaviour {
 		manager_UI.UpdatePlayerStamina(current_stamina, max_stamina);
 	}
 
-	public void UpdateUIExperience(int level, int current_experience, int next_level) {
-		manager_UI.UpdatePlayerExperience(level, current_experience, next_level);
+	public void UpdateUIExperience(int level, int current_experience, int next_level, int banked_exp) {
+		manager_UI.UpdatePlayerExperience(level, current_experience, next_level, banked_exp);
 	}
 
-	public void UpdateUISkills(int strength, int dexterity, int intelligence) {
-		manager_UI.UpdatePlayerSkills(strength, dexterity, intelligence);
+	public void UpdateUIStats(string[] stat_names, float[] stat_values) {
+		manager_UI.UpdatePlayerStats(stat_names, stat_values);
+	}
+
+	public void UpdateUISkills() {
+		// TODO: Pass Skill Points, Skill Information.
+		int skill_points = player_stats.GetSkillPoints();
+		List<Skill> skills_list = player_skills.GetSkillsList();
+		manager_UI.UpdateSkillsUI(skill_points, skills_list);
 	}
 
 	public void UpdateSpeed(float speed) {
@@ -97,6 +116,28 @@ public class PlayerManager : MonoBehaviour {
 	// Save Functions
 	public bool CheckSave() {
 		return manager_save.CheckSave();
+	}
+
+	public void TravelSafeZone(int zone_number) {
+		// Function to Unlock Zone
+		if(zone_number == 2 && !player_stats.Zone2Unlocked()) {
+			player_stats.UnlockZone2();
+		}
+		if(zone_number == 3 && !player_stats.Zone3Unlocked()) {
+			player_stats.UnlockZone3();
+		}
+
+		manager_stage.TravelSafeZone();
+	}
+
+	public bool GetZone2Unlocked()
+    {
+		return player_stats.Zone2Unlocked();
+    }
+
+	public bool GetZone3Unlocked()
+	{
+		return player_stats.Zone3Unlocked();
 	}
 
 	public List<int> SavePlayerStats() {
@@ -117,14 +158,10 @@ public class PlayerManager : MonoBehaviour {
 		return stat_save;
 	}
 
-	public void KillPlayer() {
-		// TODO: Handle Player Death
-	}
-
 	public List<int> SavePlayerSkills() {
 		List<int> skill_save = new List<int>();
 
-		for(int i = 0; i < 9; i++) {
+		for (int i = 0; i < 9; i++) {
 			skill_save.Add(player_skills.GetSkillLevel(i));
 		}
 		return skill_save;
@@ -136,5 +173,14 @@ public class PlayerManager : MonoBehaviour {
 
 	public List<int> LoadPlayerSkills() {
 		return manager_save.LoadPlayerSkills();
+	}
+
+	public void KillPlayer() {
+		audioPlayerDeath.Play();
+
+		// TODO: Function to Purge Consumables and Materials from Inventory
+
+		player_stats.HalveExperience();
+		manager_stage.TravelSafeZone();
 	}
 }

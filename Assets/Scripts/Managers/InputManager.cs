@@ -22,7 +22,7 @@ public class InputManager : MonoBehaviour {
 	void Update() {
 		manager_player.FaceDirection(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 		manager_player.SetSprint(Input.GetKey("left shift"));
-		if (Input.GetMouseButtonDown(0)) {
+		if (Input.GetMouseButton(0)) {
 			manager_player.TryAttack();
 		}		
 		if(Input.GetKeyDown("e"))
