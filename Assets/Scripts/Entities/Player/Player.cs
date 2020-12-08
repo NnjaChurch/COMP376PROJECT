@@ -39,6 +39,10 @@ public class Player : Entity {
 		{
 			gameObject.GetComponent<SpriteRenderer>().enabled = false;
 		}
+		if (gameObject.tag == "SafeZoneTrigger")
+		{
+			manager_player.TravelSafeZone(gameObject.GetComponent<SafeZoneTrigger>().zoneId);
+		}
 	}
     private void OnTriggerExit2D(Collider2D collision)
     {

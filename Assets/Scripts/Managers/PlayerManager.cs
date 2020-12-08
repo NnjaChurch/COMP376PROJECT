@@ -79,6 +79,11 @@ public class PlayerManager : MonoBehaviour {
 		return player_stats.GetPlayerLevel();
 	}
 
+	public void UpgradeSkill(int skill_number) {
+		player_skills.UpgradeSkill(skill_number);
+		UpdateUISkills();
+	}
+
 
 	// UI Functions
 	public void UpdateUIHealth(int current_health, int max_health) {
@@ -99,6 +104,9 @@ public class PlayerManager : MonoBehaviour {
 
 	public void UpdateUISkills() {
 		// TODO: Pass Skill Points, Skill Information.
+		int skill_points = player_stats.GetSkillPoints();
+		List<Skill> skills_list = player_skills.GetSkillsList();
+		manager_UI.UpdateSkillsUI(skill_points, skills_list);
 	}
 
 	public void UpdateSpeed(float speed) {
@@ -120,6 +128,16 @@ public class PlayerManager : MonoBehaviour {
 		}
 
 		manager_stage.TravelSafeZone();
+	}
+
+	public bool GetZone2Unlocked()
+    {
+		return player_stats.Zone2Unlocked();
+    }
+
+	public bool GetZone3Unlocked()
+	{
+		return player_stats.Zone3Unlocked();
 	}
 
 	public List<int> SavePlayerStats() {

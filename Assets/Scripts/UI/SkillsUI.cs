@@ -22,11 +22,11 @@ public class SkillsUI : MonoBehaviour {
 	}
 
 	public void UpgradeSkill(int skill_number) {
-
+		manager_ui.UpgradeSkill(skill_number);
 	}
 
-	public void UpdateSkillsUI() {
-		// TODO: Get Values Needed for Skills UI
+	public void UpdateSkillsUI(int skill_points, List<Skill> skills_list) {
+		// TODO: Use skill information to upate UI
 	}
 
 

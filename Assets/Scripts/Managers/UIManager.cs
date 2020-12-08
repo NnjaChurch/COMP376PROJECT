@@ -10,6 +10,8 @@ public class UIManager : MonoBehaviour {
 	[SerializeField] GameUI UI_game;
 	[SerializeField] SkillsUI UI_skills;
 	[SerializeField] UpgradeUI UI_upgrade;
+	[SerializeField] SafeZoneInventoryUI UI_safezone_inventory;
+	[SerializeField] SafeZoneCharacterUI UI_safezone_character;
 
 	// Menu Class References
 	[SerializeField] LootMenu menu_loot;
@@ -19,13 +21,26 @@ public class UIManager : MonoBehaviour {
 	[SerializeField] PlayerManager manager_player;
 	[SerializeField] InventoryManager manager_inventory;
 	[SerializeField] EquipmentManager manager_equipment;
+	[SerializeField] SaveManager manager_save;
+	[SerializeField] StageManager manager_stage;
 	//[SerializeField] LootManager manager_loot;	TODO: Hook up LootManager once implemented
 
 	[SerializeField] GameObject prefab_items; // Reference to the 'Items' gameobject that has Food, Medicine, Wood, etc.
 
 	public void UpdateInventoryUI() {
 		InventoryUI.inventory_updated = true; // This lets it know that it should update in the next frame
+
+		if (UI_safezone_inventory != null)
+		{
+			UI_safezone_inventory.updateInventoryUI();
+		}
 	}
+
+	public void UpdateSafeZoneInventoryUI()
+    {
+		UI_safezone_inventory.updateInventoryUI();
+    }
+
 	public GameObject GetPrefabItems()
 	{
 		return prefab_items; // Called in Start() of InventoryUI
@@ -34,19 +49,52 @@ public class UIManager : MonoBehaviour {
 	// ----------------------------------------------------- UI_game -----------------------------------------------------------------------//
 
 	public void UpdatePlayerHealth(int current_health, int max_health) {
-		UI_game.updatePlayerHealth(current_health, max_health);
-		UI_character.updatePlayerHealth(current_health, max_health);
+		if (UI_game != null)
+		{
+			UI_game.updatePlayerHealth(current_health, max_health);
+		}
+		if (UI_character != null)
+		{
+			UI_character.updatePlayerHealth(current_health, max_health);
+		}
+
+		if (UI_safezone_character != null)
+        {
+			UI_safezone_character.updatePlayerHealth(current_health, max_health);
+        }
 	}
 
 	public void UpdatePlayerStamina(int current_stamina, int max_stamina) {
-		UI_game.updatePlayerStamina(current_stamina, max_stamina);
-		UI_character.updatePlayerStamina(current_stamina, max_stamina);
+		if (UI_game != null)
+		{
+			UI_game.updatePlayerStamina(current_stamina, max_stamina);
+		}
+		// TODO spooky bug, NaN bug goes away if one of the if statements is removed
+		if (UI_character != null)
+		{
+			UI_character.updatePlayerStamina(current_stamina, max_stamina);
+		}
+
+		if (UI_safezone_character != null)
+        {
+			UI_safezone_character.updatePlayerStamina(current_stamina, max_stamina);
+		}
 	}
 
 	public void UpdatePlayerExperience(int level, int current_experience, int next_level, int banked_exp) {
-		// TODO: Add tracker for Banked Experience
-		UI_game.updatePlayerExperience(level, current_experience, next_level, banked_exp);
-		UI_character.updatePlayerExperience(level, current_experience, next_level, banked_exp);
+		if (UI_game != null)
+		{
+			UI_game.updatePlayerExperience(level, current_experience, next_level, banked_exp);
+		}
+		if (UI_character != null)
+		{
+			UI_character.updatePlayerExperience(level, current_experience, next_level, banked_exp);
+		}
+
+		if (UI_safezone_character != null)
+        {
+			UI_safezone_character.updatePlayerExperience(level, current_experience, next_level, banked_exp);
+		}
 	}
 	public void ToggleInventoryUI()
 	{
@@ -61,15 +109,39 @@ public class UIManager : MonoBehaviour {
 	// ----------------------------------------------------- UI_character -------------------------------------------------------------------//
 
 	public void UpdatePlayerEquippedWeapon() {
-		UI_character.updateEquippedWeapon();
+		if (UI_character != null)
+		{
+			UI_character.updateEquippedWeapon();
+		}
+
+		if (UI_safezone_character != null)
+        {
+			UI_safezone_character.updateEquippedWeapon();
+		}
 	}
 
 	public void UpdatePlayerEquippedArmour() {
-		UI_character.updateEquippedArmour();
+		if (UI_character != null)
+		{
+			UI_character.updateEquippedArmour();
+		}
+
+		if (UI_safezone_character != null)
+        {
+			UI_safezone_character.updateEquippedArmour();
+		}
 	}
 
 	public void UpdatePlayerStats(string[] stat_names, float[] stat_values) {
-		UI_character.updatePlayerStats(stat_names, stat_values);
+		if (UI_character != null)
+		{
+			UI_character.updatePlayerStats(stat_names, stat_values);
+		}
+
+		if (UI_safezone_character != null)
+        {
+			UI_safezone_character.updatePlayerStats(stat_names, stat_values);
+		}
 	}
 
 	// ----------------------------------------------------- menu_loot -------------------------------------------------------------------//
@@ -168,5 +240,37 @@ public class UIManager : MonoBehaviour {
     {
 		return manager_player.GetCarryWeight();
     }
+
+	public bool GetZone2Unlocked()
+    {
+		return manager_player.GetZone2Unlocked();
+    }
+
+	public bool GetZone3Unlocked()
+	{
+		return manager_player.GetZone3Unlocked();
+	}
+
+	// ----------------------------------------------------- manager_save -----------------------------------------------------------------------//
+
+	public void SaveGame()
+	{
+		manager_save.SaveGame();
+	}
+
+	// ---------------------------------------------------- manager_stage -------------------------------------------------------------------//
+
+	public void TravelZone(string zone_name)
+    {
+		manager_stage.TravelZone(zone_name);
+    }
+
+	public void UpgradeSkill(int skill_number) {
+		manager_player.UpgradeSkill(skill_number);
+	}
+
+	public void UpdateSkillsUI(int skill_points, List<Skill> skills_list) {
+		UI_skills.UpdateSkillsUI(skill_points, skills_list);
+	}
 
 }
