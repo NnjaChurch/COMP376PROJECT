@@ -169,4 +169,12 @@ public class UIManager : MonoBehaviour {
 		return manager_player.GetCarryWeight();
     }
 
+	public void UpgradeSkill(int skill_number) {
+		manager_player.UpgradeSkill(skill_number);
+	}
+
+	public void UpdateSkillsUI(int skill_points, List<Skill> skills_list) {
+		UI_skills.UpdateSkillsUI(skill_points, skills_list);
+	}
+
 }

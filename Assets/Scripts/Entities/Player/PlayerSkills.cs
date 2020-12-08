@@ -24,6 +24,7 @@ public class PlayerSkills : MonoBehaviour {
 				player_skills[i].SetLevel(skills_load[i]);
 			}
 		}
+		manager_player.UpdateUISkills();
 	}
 
 	private void InitializeSkills() {
@@ -66,5 +67,9 @@ public class PlayerSkills : MonoBehaviour {
 
 	public float GetSkillBonus(int skill_number) {
 		return player_skills[skill_number].GetBonus();
+	}
+
+	public List<Skill> GetSkillsList() {
+		return player_skills;
 	}
 }
