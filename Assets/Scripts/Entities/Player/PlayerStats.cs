@@ -109,6 +109,9 @@ public class PlayerStats : Stats {
 		isSprinting = false;
 		encumbered_modifier = 1;
 		attack_timer = attack_speed;
+
+		// Test
+		//SetLevel(30);
 	}
 	private void Update() {
 		// Attack Cooldown

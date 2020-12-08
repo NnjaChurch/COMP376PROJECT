@@ -455,6 +455,7 @@ MonoBehaviour:
   UI_skills: {fileID: 1709662477}
   UI_upgrade: {fileID: 506225142}
   UI_safezone_inventory: {fileID: 0}
+  UI_safezone_character: {fileID: 0}
   menu_loot: {fileID: 69366989}
   menu_pause: {fileID: 20905537}
   manager_player: {fileID: 1049794975}
@@ -3814,6 +3815,59 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6782711734862630462, guid: cebb667587e912b48a1953975871ec3e, type: 3}
   m_PrefabInstance: {fileID: 868905418}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &870743055
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 870743056}
+  - component: {fileID: 870743057}
+  m_Layer: 0
+  m_Name: SpawnManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &870743056
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870743055}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1417367826}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &870743057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870743055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a689f96da366fef498876d45696f0eb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerManager: {fileID: 1049794975}
+  enemyParent: {fileID: 1184418233}
+  enemyPrefabs:
+  - {fileID: 7744728286288450834, guid: ba22f25d418dc0a4aa3e95a2b4b72a7f, type: 3}
+  - {fileID: 7744728286288450834, guid: 6db4e6116a558bc4bb45dfbe779d7af3, type: 3}
+  - {fileID: 7744728286288450834, guid: b860bddd9ef073c45b0d49837f17f05f, type: 3}
+  enemyTypeChances: 010000000100000001000000
+  spawnAmountMin: 2
+  spawnAmountPerLevel: 1
+  spawnAmountRandomMax: 3
 --- !u!4 &873322564 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6782711734862630462, guid: 897b6ce887901d94a97356d98df98eb6, type: 3}
@@ -5302,6 +5356,7 @@ Transform:
   - {fileID: 86618747}
   - {fileID: 2124839350}
   - {fileID: 120603108}
+  - {fileID: 870743056}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
