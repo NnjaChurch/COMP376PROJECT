@@ -1,13 +1,19 @@
 fileFormatVersion: 2
-guid: 587fd633621b21d47bf590eeb184fbbd
+guid: 7ce4008f0ed805f408da77d342b33a1a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3037071345315289361
-    second: Door Mats_0
+      213: 3202918240491107955
+    second: Counter_stove_sink_0
   - first:
-      213: 5021458375208927962
-    second: Door Mats_1
+      213: -7643664072529839661
+    second: Counter_stove_sink_1
+  - first:
+      213: 8596491217694922483
+    second: Counter_stove_sink_2
+  - first:
+      213: -4190573548515119606
+    second: Counter_stove_sink_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -119,43 +125,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Door Mats_0
+      name: Counter_stove_sink_0
       rect:
         serializedVersion: 2
-        x: 40
-        y: 144
-        width: 171
-        height: 87
+        x: 9
+        y: 6
+        width: 31
+        height: 37
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fe6e6f8d3b72ad5d0800000000000000
-      internalID: -3037071345315289361
+      spriteID: 37677118b2d037c20800000000000000
+      internalID: 3202918240491107955
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Door Mats_1
+      name: Counter_stove_sink_1
       rect:
         serializedVersion: 2
-        x: 19
-        y: 33
-        width: 214
-        height: 74
+        x: 90
+        y: 6
+        width: 31
+        height: 37
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad20db499cdcfa540800000000000000
-      internalID: 5021458375208927962
+      spriteID: 3d9717e16004ce590800000000000000
+      internalID: -7643664072529839661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Counter_stove_sink_2
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 8
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 1, y: 2, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f69871673fdc4770800000000000000
+      internalID: 8596491217694922483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Counter_stove_sink_3
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 3
+        width: 52
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 3, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0eab9b6f8718d5c0800000000000000
+      internalID: -4190573548515119606
       vertices: []
       indices: 
       edges: []
