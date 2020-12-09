@@ -56,7 +56,7 @@ public class EquipmentManager : MonoBehaviour {
 			if (active_weapon != null) {
 				active_weapon.gameObject.SetActive(true);
 				manager_player.EquipWeapon(active_weapon);
-				manager_loot.WeaponFound(active_weapon.name);
+				manager_loot.WeaponFound(active_weapon.GetWeaponName());
 			}
 
 			// Armour Loading
@@ -82,7 +82,7 @@ public class EquipmentManager : MonoBehaviour {
 			if (active_armour != null) {
 				active_armour.gameObject.SetActive(true);
 				manager_player.EquipArmour(active_armour);
-				manager_loot.ArmourFound(active_armour.name);
+				manager_loot.ArmourFound(active_armour.GetArmourName());
 			}
 			return true;
 		}

@@ -73,14 +73,14 @@ public class LootManager : MonoBehaviour {
 		List<Collider2D> lootableColliders = new List<Collider2D>();
 		if (lootableColliders != null) {
 			foreach (var hitCollider in hitColliders) {
-				if (hitCollider.tag == "Lootable") {
+				if (hitCollider.tag.Contains("Lootable")) {
 					lootableColliders.Add(hitCollider);
 				}
 			}
 
 			foreach (var lootable in lootableColliders) {
-				if (lootable.name.Contains("Lootbag")) {
-					Lootbag lootbag = lootable.GetComponent<Lootbag>();
+				Lootbag lootbag = lootable.GetComponent<Lootbag>();
+				if (lootable.tag.Contains("Lootable") && lootbag != null) {
 					Debug.Log(lootbag.GetItems()[0].item_name);
 					//TODO: OPEN THE LOOT UI - right now this is scanning every bag in the vicinity. Maybe change to open only the closest?
 					manager_UI.DisplayLoot(lootbag);
