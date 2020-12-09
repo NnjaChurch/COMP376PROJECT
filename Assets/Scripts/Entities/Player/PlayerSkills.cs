@@ -41,8 +41,8 @@ public class PlayerSkills : MonoBehaviour {
 		player_skills.Add(new Skill("Damage Reduction Boost", "Damage Reduction", 25, 0.02f));
 	}
 
-	public void UpgradeSkill(int skill_number) {
-		player_skills[skill_number].LevelSkill();
+	public bool UpgradeSkill(int skill_number) {
+		return player_skills[skill_number].LevelSkill();
 	}
 
 	public void SetSkillLevel(int skill_number, int level) {

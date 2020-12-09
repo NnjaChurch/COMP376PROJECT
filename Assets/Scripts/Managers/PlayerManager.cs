@@ -86,8 +86,25 @@ public class PlayerManager : MonoBehaviour {
 		return player_stats.GetPlayerLevel();
 	}
 
+	public void UpgradeStat(string stat_name) {
+		bool level_success = false;
+		if(player_stats.GetStatPoints() > 0) {
+			level_success = player_stats.UpgradeStat(stat_name);
+			if(level_success) {
+				player_stats.UseStatPoint();
+			}
+		}
+		// TODO: Update UI
+	}
+
 	public void UpgradeSkill(int skill_number) {
-		player_skills.UpgradeSkill(skill_number);
+		bool level_success = false;
+		if(player_stats.GetSkillPoints() > 0) {
+			level_success = player_skills.UpgradeSkill(skill_number);
+			if(level_success) {
+				player_stats.UseSkillPoint();
+			}
+		}
 		UpdateUISkills();
 	}
 

@@ -588,7 +588,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 74dc88150e94c3047b65f202968c71b7, type: 3}
@@ -1523,6 +1523,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 701809402}
+  - component: {fileID: 701809403}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -1550,9 +1551,34 @@ Transform:
   - {fileID: 1153890654}
   - {fileID: 1117162417}
   - {fileID: 733149349}
+  - {fileID: 1938533363}
+  - {fileID: 1497405684}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &701809403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 701809401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baf10ae9bca6aba4793a31a0a1da46ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager_save: {fileID: 733149350}
+  manager_stage: {fileID: 1229706078}
+  manager_player: {fileID: 831567048}
+  manager_equipment: {fileID: 725784409}
+  manager_inventory: {fileID: 1311222427}
+  manager_input: {fileID: 1084566055}
+  manager_loot: {fileID: 1117162418}
+  manager_spawn: {fileID: 1497405683}
+  manager_lootspawn: {fileID: 1938533362}
+  manager_audio: {fileID: 1623584932}
+  manager_ui: {fileID: 1153890653}
 --- !u!1 &725784408
 GameObject:
   m_ObjectHideFlags: 0
@@ -1591,7 +1617,7 @@ MonoBehaviour:
   armour_heavy: {fileID: 866135580}
   manager_player: {fileID: 831567048}
   manager_save: {fileID: 733149350}
-  manager_loot: {fileID: 0}
+  manager_loot: {fileID: 1117162418}
 --- !u!4 &725784410
 Transform:
   m_ObjectHideFlags: 0
@@ -2332,7 +2358,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager_UI: {fileID: 1153890653}
-  manager_inventory: {fileID: 0}
+  manager_inventory: {fileID: 1311222427}
   player_manager: {fileID: 831567048}
 --- !u!1 &1153890652
 GameObject:
@@ -2485,7 +2511,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager_save: {fileID: 733149350}
-  safe_zone: 0
+  safe_zone: 1
 --- !u!4 &1229706079
 Transform:
   m_ObjectHideFlags: 0
@@ -2920,6 +2946,86 @@ AudioSource:
   m_CorrespondingSourceObject: {fileID: 8925546037270370846, guid: b0dbbedad60325d41961ed0ff44fe1ae, type: 3}
   m_PrefabInstance: {fileID: 1423681489}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1497405682
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1497405684}
+  - component: {fileID: 1497405683}
+  m_Layer: 0
+  m_Name: SpawnManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1497405683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1497405682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a689f96da366fef498876d45696f0eb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerManager: {fileID: 831567048}
+  enemyParent: {fileID: 1571068388}
+  enemyPrefabs: []
+  enemyTypeChances: 
+  spawnAmountMin: 0
+  spawnAmountPerLevel: 0
+  spawnAmountRandomMax: 0
+--- !u!4 &1497405684
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1497405682}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 701809402}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1571068387
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1571068388}
+  m_Layer: 0
+  m_Name: Enemies
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1571068388
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1571068387}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1623584930
 GameObject:
   m_ObjectHideFlags: 0
@@ -3080,6 +3186,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b72deebd1b7d00142b74b21d91be9fc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1938533361
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1938533363}
+  - component: {fileID: 1938533362}
+  m_Layer: 0
+  m_Name: LootSpawnManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1938533362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1938533361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0fb6bfd286d31e4ab5b8e113a10ce2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1938533363
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1938533361}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 701809402}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2088328221
 PrefabInstance:
   m_ObjectHideFlags: 0

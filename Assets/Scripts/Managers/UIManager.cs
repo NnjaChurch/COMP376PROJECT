@@ -33,7 +33,7 @@ public class UIManager : MonoBehaviour {
 	public bool Initialize() {
 		Debug.Log("Initializing UIManager...");
 		// Initialize Components based on Safe Zone State
-		if(manager_stage.GetSafeZone()) {
+		if (manager_stage.GetSafeZone()) {
 			// Initialize Safe Zone UI Components
 			UI_skills.Initialize();
 			UI_upgrade.Initialize();
@@ -48,9 +48,6 @@ public class UIManager : MonoBehaviour {
 			menu_loot.Initialize();
 			menu_pause.Initialize();
 		}
-
-
-
 		return true;
 	}
 
@@ -245,33 +242,28 @@ public class UIManager : MonoBehaviour {
 		return manager_player.GetZone3Unlocked();
 	}
 
-	public void UpgradeSkill(int skill_number)
-	{
+	public void UpgradeSkill(int skill_number) {
 		manager_player.UpgradeSkill(skill_number);
 	}
 
-	public int GetRemainingStatPoints()
-    {
+	public int GetRemainingStatPoints() {
 		// TODO create method that returns remaining stat points to be displayed in stats ui in safe zone 
 		//return manager_player.GetRemainingStatPoints();
 		return -1;
-    }
+	}
 
-	public void UpgradeStat(string stat_name)
-    {
+	public void UpgradeStat(string stat_name) {
 		// TODO create method to upgrade stats in player manager
 		//manager_player.UpgradeStat(stat_name);
-    }
+	}
 
-	public void UpgradeWeapon(string weapon_name)
-    {
+	public void UpgradeWeapon(string weapon_name) {
 		// TODO update method in player manager
-    }
+	}
 
-	public void UpgradeArmour(string armour_name)
-    {
+	public void UpgradeArmour(string armour_name) {
 		// TODO update method in player manager
-    }
+	}
 
 	// ----------------------------------------------------- manager_save -----------------------------------------------------------------------//
 
@@ -293,8 +285,7 @@ public class UIManager : MonoBehaviour {
 
 	// ----------------------------------------------------- UI_upgrade -----------------------------------------------------------------------//
 
-	public void UpdateUpgradeUI()
-    {
+	public void UpdateUpgradeUI() {
 		UI_upgrade.UpdateUpgradeUI();
-    }
+	}
 }

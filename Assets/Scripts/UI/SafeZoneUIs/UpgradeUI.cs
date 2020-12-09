@@ -49,12 +49,10 @@ public class UpgradeUI : MonoBehaviour {
 		List<int> heavy_materials = manager_ui.GetArmourMaterials("Heavy Armour");
 	}
 
-	public void UpdateUpgradeUI()
-    {
+	public void UpdateUpgradeUI() {
 		Transform itemSlot;
 
-		foreach (KeyValuePair<string, int> entry in weaponDictionary)
-		{
+		foreach (KeyValuePair<string, int> entry in weaponDictionary) {
 			itemSlot = upgrade_content.transform.Find(entry.Key);
 			itemSlot.gameObject.SetActive(true);
 
@@ -67,12 +65,11 @@ public class UpgradeUI : MonoBehaviour {
 			List<int> weaponMaterials = manager_ui.GetWeaponMaterials(entry.Key);
 			// GetWeaponMaterials returns new List<int> { upgrade_nails, upgrade_wood, 0, 0 };
 
-			itemSlot.Find("Nails").Find("Text").GetComponent<Text>().text = "" + weaponMaterials[0];
-			itemSlot.Find("Wood").Find("Text").GetComponent<Text>().text = "" + weaponMaterials[1];
+			itemSlot.Find("Nails").GetComponentInChildren<Text>().text = "" + weaponMaterials[0];
+			itemSlot.Find("Wood").GetComponentInChildren<Text>().text = "" + weaponMaterials[1];
 		}
 
-		foreach (KeyValuePair<string, int> entry in armourDictionary)
-		{
+		foreach (KeyValuePair<string, int> entry in armourDictionary) {
 			itemSlot = upgrade_content.transform.Find(entry.Key);
 			itemSlot.gameObject.SetActive(true);
 
@@ -92,21 +89,18 @@ public class UpgradeUI : MonoBehaviour {
 		IDictionary<string, int> materials = manager_ui.GetMaterials();
 		int index = 0;
 
-		foreach (KeyValuePair<string, int> entry in materials)
-        {
+		foreach (KeyValuePair<string, int> entry in materials) {
 			total_materials[index].text = "" + entry.Value;
 			index++;
-        }
+		}
 	}
 
-	public void UpdateWeapon(string weapon_name)
-    {
+	public void UpdateWeapon(string weapon_name) {
 		manager_ui.UpgradeWeapon(weapon_name);
 		UpdateUpgradeUI();
-    }
+	}
 
-	public void UpdateArmour(string armour_name)
-    {
+	public void UpdateArmour(string armour_name) {
 		manager_ui.UpgradeArmour(armour_name);
 		UpdateUpgradeUI();
 	}

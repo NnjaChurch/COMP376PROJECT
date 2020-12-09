@@ -79,13 +79,13 @@ public class PlayerStats : Stats {
 
 			banked_experience = stats_load[8];
 
-			if(stats_load[9] == 1) {
+			if (stats_load[9] == 1) {
 				zone2_unlocked = true;
 			}
 			else {
 				zone2_unlocked = false;
 			}
-			if(stats_load[10] == 1) {
+			if (stats_load[10] == 1) {
 				zone3_unlocked = true;
 			}
 			else {
@@ -214,7 +214,7 @@ public class PlayerStats : Stats {
 		if (current_health < 0) {
 			current_health = 0;
 		}
-		if(current_health == 0) {
+		if (current_health == 0) {
 			manager_player.KillPlayer();
 		}
 		print("Health POST: " + current_health);
@@ -310,6 +310,38 @@ public class PlayerStats : Stats {
 	public bool Zone3Unlocked() { return zone3_unlocked; }
 	public int GetPlayerLevel() { return current_level; }
 
+	public bool UpgradeStat(string stat_name) {
+		bool stat_upgraded;
+		switch (stat_name) {
+			case "Strength":
+				strength++;
+				stat_upgraded = true;
+				break;
+			case "Dexterity":
+				dexterity++;
+				stat_upgraded = true;
+				break;
+			case "Intelligence":
+				intelligence++;
+				stat_upgraded = true;
+				break;
+			default:
+				stat_upgraded = false;
+				break;
+		}
+		if(stat_upgraded) {
+			CalculatePlayerStats();
+		}
+		return stat_upgraded;
+	}
+
+	public void UseSkillPoint() {
+		skill_points--;
+	}
+	public void UseStatPoint() {
+		stat_points--;
+	}
+
 	public void UnlockZone2() {
 		zone2_unlocked = true;
 	}
@@ -327,16 +359,21 @@ public class PlayerStats : Stats {
 		CalculatePlayerStats();
 	}
 
+	public List<float> GetUIStats() {
+		return new List<float>();
+	}
+
 	private void UpdateAllUI() {
+		// TODO: Rework how this info is passed
 		manager_player.UpdateUIHealth(current_health, max_health);
 		manager_player.UpdateUIStamina(current_stamina, max_stamina);
 		manager_player.UpdateSpeed(movement_speed);
 		manager_player.UpdateUIExperience(current_level, current_experience, current_next_level, banked_experience);
 		// TODO: Add Updaters for other relevant stats
 
-		string[] stat_names = { "Strength", "Dexterity", "Intelligence", "Damage", "Movement Speed", "Attack Speed", 
+		string[] stat_names = { "Strength", "Dexterity", "Intelligence", "Damage", "Movement Speed", "Attack Speed",
 			"Stamina Regeneration Speed", "Experience Gain", "Healing Efficacy", "Damage Reduction" };
-		float[] stat_values = { strength, dexterity, intelligence, damage, movement_speed, attack_speed, stamina_regen, experience_gain, 
+		float[] stat_values = { strength, dexterity, intelligence, damage, movement_speed, attack_speed, stamina_regen, experience_gain,
 			healing_efficacy, damage_reduction };
 		manager_player.UpdateUIStats(stat_names, stat_values);
 	}
