@@ -347,7 +347,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000028430833, y: 0.000010866499}
+  m_AnchoredPosition: {x: -0.000015126541, y: -0.00041422804}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &8778763833670340895
@@ -872,7 +872,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5954141516750459453}
   m_HandleRect: {fileID: 5618621967345194598}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 1.0000013
   m_Size: 0.69332904
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -1309,7 +1309,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1629020516335468021}
         m_TargetAssemblyTypeName: SkillsUI, Assembly-CSharp
         m_MethodName: UpgradeSkill
         m_Mode: 3
@@ -2121,7 +2121,7 @@ GameObject:
   - component: {fileID: 986250065239439324}
   - component: {fileID: 1958524084040425734}
   m_Layer: 5
-  m_Name: Text
+  m_Name: StaminaText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3217,8 +3217,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
+      - m_Target: {fileID: 574904491}
+        m_TargetAssemblyTypeName: SafeZoneInventoryUI, Assembly-CSharp
         m_MethodName: ButtonEquipWeapon
         m_Mode: 5
         m_Arguments:
@@ -3551,7 +3551,7 @@ GameObject:
   - component: {fileID: 8789214193746844877}
   - component: {fileID: 5869197483527099744}
   m_Layer: 5
-  m_Name: Text
+  m_Name: AttackText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3630,7 +3630,7 @@ GameObject:
   - component: {fileID: 1814817887513013536}
   - component: {fileID: 2411341709003972703}
   m_Layer: 5
-  m_Name: Text
+  m_Name: StrengthText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5015,16 +5015,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
-        m_MethodName: ButtonEquipWeapon
+      - m_Target: {fileID: 945927616}
+        m_TargetAssemblyTypeName: SafeZoneCharacterUI, Assembly-CSharp
+        m_MethodName: UpgradeStatClick
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Knife
+          m_StringArgument: Dexterity
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &1629020514939901462
@@ -7808,6 +7808,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager_ui: {fileID: 0}
+  skills_texts:
+  - {fileID: 8198946463820042933}
+  - {fileID: 1537288162040918780}
+  - {fileID: 2171646715400590090}
+  - {fileID: 1958524084040425734}
+  - {fileID: 5869197483527099744}
+  - {fileID: 9023872685953456130}
+  - {fileID: 5279717313986560692}
+  - {fileID: 5931644950567669659}
+  - {fileID: 4648925423008611162}
+  remainingPointsText: {fileID: 1972218040185595504}
 --- !u!222 &7616439971884159939
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8854,6 +8865,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 1d8f9a336c167a24aa93874c54bb1e24, type: 3}
   - {fileID: 21300000, guid: 66387a49f012bdd478b3389f11aa3983, type: 3}
   skillsText: {fileID: 9203576805799965831}
+  remainingPointsText: {fileID: 778849734176225964}
+  strengthText: {fileID: 2411341709003972703}
+  dexterityText: {fileID: 9058234602702648199}
+  intelligenceText: {fileID: 1783817187333552302}
 --- !u!1 &1629020516778599322
 GameObject:
   m_ObjectHideFlags: 0
@@ -9063,7 +9078,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1629020516278079035}
   m_HandleRect: {fileID: 1629020516278079034}
   m_Direction: 0
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -9462,7 +9477,7 @@ GameObject:
   - component: {fileID: 2834031115208818590}
   - component: {fileID: 4648925423008611162}
   m_Layer: 5
-  m_Name: Text
+  m_Name: DamageReductionText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10980,8 +10995,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
+      - m_Target: {fileID: 574904491}
+        m_TargetAssemblyTypeName: SafeZoneInventoryUI, Assembly-CSharp
         m_MethodName: ButtonDropMaterial
         m_Mode: 5
         m_Arguments:
@@ -11349,8 +11364,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
+      - m_Target: {fileID: 574904491}
+        m_TargetAssemblyTypeName: SafeZoneInventoryUI, Assembly-CSharp
         m_MethodName: ButtonDropMaterial
         m_Mode: 5
         m_Arguments:
@@ -11609,7 +11624,7 @@ GameObject:
   - component: {fileID: 112625588453378903}
   - component: {fileID: 1972218040185595504}
   m_Layer: 5
-  m_Name: Text
+  m_Name: RemainingPointsText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12473,7 +12488,7 @@ GameObject:
   - component: {fileID: 8584135250659351534}
   - component: {fileID: 8198946463820042933}
   m_Layer: 5
-  m_Name: Text
+  m_Name: HealthText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12818,8 +12833,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
+      - m_Target: {fileID: 574904491}
+        m_TargetAssemblyTypeName: SafeZoneInventoryUI, Assembly-CSharp
         m_MethodName: ButtonEquipWeapon
         m_Mode: 5
         m_Arguments:
@@ -14814,8 +14829,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
+      - m_Target: {fileID: 574904491}
+        m_TargetAssemblyTypeName: SafeZoneInventoryUI, Assembly-CSharp
         m_MethodName: ButtonEquipWeapon
         m_Mode: 5
         m_Arguments:
@@ -15236,8 +15251,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
+      - m_Target: {fileID: 574904491}
+        m_TargetAssemblyTypeName: SafeZoneInventoryUI, Assembly-CSharp
         m_MethodName: ButtonDropMaterial
         m_Mode: 5
         m_Arguments:
@@ -15526,8 +15541,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
+      - m_Target: {fileID: 574904491}
+        m_TargetAssemblyTypeName: SafeZoneInventoryUI, Assembly-CSharp
         m_MethodName: ButtonDropMaterial
         m_Mode: 5
         m_Arguments:
@@ -16496,8 +16511,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
+      - m_Target: {fileID: 574904491}
+        m_TargetAssemblyTypeName: SafeZoneInventoryUI, Assembly-CSharp
         m_MethodName: ButtonDropMaterial
         m_Mode: 5
         m_Arguments:
@@ -17180,8 +17195,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
+      - m_Target: {fileID: 574904491}
+        m_TargetAssemblyTypeName: SafeZoneInventoryUI, Assembly-CSharp
         m_MethodName: ButtonDropMaterial
         m_Mode: 5
         m_Arguments:
@@ -17667,7 +17682,7 @@ GameObject:
   - component: {fileID: 7014621173101161169}
   - component: {fileID: 1783817187333552302}
   m_Layer: 5
-  m_Name: Text
+  m_Name: IntelligenceText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18618,7 +18633,7 @@ GameObject:
   - component: {fileID: 5713844752721206019}
   - component: {fileID: 9023872685953456130}
   m_Layer: 5
-  m_Name: Text
+  m_Name: MovementText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19320,8 +19335,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
+      - m_Target: {fileID: 574904491}
+        m_TargetAssemblyTypeName: SafeZoneInventoryUI, Assembly-CSharp
         m_MethodName: ButtonDropConsumable
         m_Mode: 5
         m_Arguments:
@@ -19452,8 +19467,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
+      - m_Target: {fileID: 574904491}
+        m_TargetAssemblyTypeName: SafeZoneInventoryUI, Assembly-CSharp
         m_MethodName: ButtonConsumeClick
         m_Mode: 5
         m_Arguments:
@@ -19584,8 +19599,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
+      - m_Target: {fileID: 574904491}
+        m_TargetAssemblyTypeName: SafeZoneInventoryUI, Assembly-CSharp
         m_MethodName: ButtonDropConsumable
         m_Mode: 5
         m_Arguments:
@@ -20732,7 +20747,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00075, y: 0}
+  m_AnchoredPosition: {x: 0.000054842116, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &7224558057289228961
@@ -21594,7 +21609,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1579186615190475818}
   m_Direction: 0
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.9999999
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -21949,8 +21964,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
+      - m_Target: {fileID: 574904491}
+        m_TargetAssemblyTypeName: SafeZoneInventoryUI, Assembly-CSharp
         m_MethodName: ButtonConsumeClick
         m_Mode: 5
         m_Arguments:
@@ -22322,8 +22337,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
+      - m_Target: {fileID: 574904491}
+        m_TargetAssemblyTypeName: SafeZoneInventoryUI, Assembly-CSharp
         m_MethodName: ButtonDropConsumable
         m_Mode: 5
         m_Arguments:
@@ -22691,8 +22706,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
+      - m_Target: {fileID: 574904491}
+        m_TargetAssemblyTypeName: SafeZoneInventoryUI, Assembly-CSharp
         m_MethodName: ButtonDropConsumable
         m_Mode: 5
         m_Arguments:
@@ -23579,16 +23594,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
-        m_MethodName: ButtonEquipWeapon
+      - m_Target: {fileID: 945927616}
+        m_TargetAssemblyTypeName: SafeZoneCharacterUI, Assembly-CSharp
+        m_MethodName: UpgradeStatClick
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Knife
+          m_StringArgument: Intelligence
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &5066708585269135603
@@ -24176,16 +24191,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
-        m_MethodName: ButtonEquipWeapon
+      - m_Target: {fileID: 945927616}
+        m_TargetAssemblyTypeName: SafeZoneCharacterUI, Assembly-CSharp
+        m_MethodName: UpgradeStatClick
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Knife
+          m_StringArgument: Strength
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &5217535791806968282
@@ -26572,8 +26587,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
+      - m_Target: {fileID: 574904491}
+        m_TargetAssemblyTypeName: SafeZoneInventoryUI, Assembly-CSharp
         m_MethodName: ButtonEquipArmour
         m_Mode: 5
         m_Arguments:
@@ -27175,7 +27190,7 @@ GameObject:
   - component: {fileID: 7055949734072608657}
   - component: {fileID: 1537288162040918780}
   m_Layer: 5
-  m_Name: Text
+  m_Name: DamageText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27520,7 +27535,7 @@ GameObject:
   - component: {fileID: 6338576536182857339}
   - component: {fileID: 2171646715400590090}
   m_Layer: 5
-  m_Name: Text
+  m_Name: WeightText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27864,7 +27879,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4631521060844275571}
   m_HandleRect: {fileID: 7321930598029072498}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 1.0000021
   m_Size: 0.4656972
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -28383,8 +28398,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
+      - m_Target: {fileID: 574904491}
+        m_TargetAssemblyTypeName: SafeZoneInventoryUI, Assembly-CSharp
         m_MethodName: ButtonDropMaterial
         m_Mode: 5
         m_Arguments:
@@ -28834,8 +28849,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
+      - m_Target: {fileID: 574904491}
+        m_TargetAssemblyTypeName: SafeZoneInventoryUI, Assembly-CSharp
         m_MethodName: ButtonDropMaterial
         m_Mode: 5
         m_Arguments:
@@ -29205,7 +29220,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0008034344, y: 0.000006871429}
+  m_AnchoredPosition: {x: 0.00010915413, y: -0.00020347393}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &7940124528143972826
@@ -29613,8 +29628,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
+      - m_Target: {fileID: 574904491}
+        m_TargetAssemblyTypeName: SafeZoneInventoryUI, Assembly-CSharp
         m_MethodName: ButtonEquipWeapon
         m_Mode: 5
         m_Arguments:
@@ -30943,14 +30958,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1629020516335468021}
         m_TargetAssemblyTypeName: SkillsUI, Assembly-CSharp
         m_MethodName: UpgradeSkill
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 7
           m_FloatArgument: 0
           m_StringArgument: Knife
           m_BoolArgument: 0
@@ -31326,7 +31341,7 @@ GameObject:
   - component: {fileID: 3711806102758585734}
   - component: {fileID: 5279717313986560692}
   m_Layer: 5
-  m_Name: Text
+  m_Name: ExperienceText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32375,8 +32390,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
+      - m_Target: {fileID: 574904491}
+        m_TargetAssemblyTypeName: SafeZoneInventoryUI, Assembly-CSharp
         m_MethodName: ButtonEquipArmour
         m_Mode: 5
         m_Arguments:
@@ -33083,7 +33098,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000046884823, y: 0}
+  m_AnchoredPosition: {x: 0.000021979213, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &7626111420944578161
@@ -34657,8 +34672,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
+      - m_Target: {fileID: 574904491}
+        m_TargetAssemblyTypeName: SafeZoneInventoryUI, Assembly-CSharp
         m_MethodName: ButtonEquipArmour
         m_Mode: 5
         m_Arguments:
@@ -36336,7 +36351,7 @@ GameObject:
   - component: {fileID: 6983046730534693104}
   - component: {fileID: 5931644950567669659}
   m_Layer: 5
-  m_Name: Text
+  m_Name: HealingText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36569,7 +36584,7 @@ GameObject:
   - component: {fileID: 3219613010505854321}
   - component: {fileID: 778849734176225964}
   m_Layer: 5
-  m_Name: Text
+  m_Name: RemainingPointsText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37143,7 +37158,7 @@ GameObject:
   - component: {fileID: 6378393150036375637}
   - component: {fileID: 9058234602702648199}
   m_Layer: 5
-  m_Name: Text
+  m_Name: DexterityText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

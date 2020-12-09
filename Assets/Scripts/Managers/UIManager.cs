@@ -246,6 +246,11 @@ public class UIManager : MonoBehaviour {
 		return manager_player.GetZone3Unlocked();
 	}
 
+	public void UpgradeSkill(int skill_number)
+	{
+		manager_player.UpgradeSkill(skill_number);
+	}
+
 	public int GetRemainingStatPoints()
     {
 		// TODO create method that returns remaining stat points to be displayed in stats ui in safe zone 
@@ -271,9 +276,7 @@ public class UIManager : MonoBehaviour {
 		manager_stage.TravelZone(zone_name);
 	}
 
-	public void UpgradeSkill(int skill_number) {
-		manager_player.UpgradeSkill(skill_number);
-	}
+	// ----------------------------------------------------- UI_skills -----------------------------------------------------------------------//
 
 	public void UpdateSkillsUI(int skill_points, List<Skill> skills_list) {
 		UI_skills.UpdateSkillsUI(skill_points, skills_list);
