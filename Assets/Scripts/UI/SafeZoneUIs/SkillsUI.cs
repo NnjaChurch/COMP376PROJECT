@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 // ----------------------------------------------------------------------------------------------------
 //	Description: Class for the skills upgrade User Interface
-//	Contributors:
+//	Contributors: Rubiat
 //	Endpoints:
 // ----------------------------------------------------------------------------------------------------
 

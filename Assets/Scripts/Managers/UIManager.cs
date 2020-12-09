@@ -89,7 +89,6 @@ public class UIManager : MonoBehaviour {
 		if (UI_game != null) {
 			UI_game.updatePlayerStamina(current_stamina, max_stamina);
 		}
-		// TODO spooky bug, NaN bug goes away if one of the if statements is removed
 		if (UI_character != null) {
 			UI_character.updatePlayerStamina(current_stamina, max_stamina);
 		}
@@ -264,6 +263,16 @@ public class UIManager : MonoBehaviour {
 		//manager_player.UpgradeStat(stat_name);
     }
 
+	public void UpgradeWeapon(string weapon_name)
+    {
+		// TODO update method in player manager
+    }
+
+	public void UpgradeArmour(string armour_name)
+    {
+		// TODO update method in player manager
+    }
+
 	// ----------------------------------------------------- manager_save -----------------------------------------------------------------------//
 
 	public void SaveGame() {
@@ -281,4 +290,11 @@ public class UIManager : MonoBehaviour {
 	public void UpdateSkillsUI(int skill_points, List<Skill> skills_list) {
 		UI_skills.UpdateSkillsUI(skill_points, skills_list);
 	}
+
+	// ----------------------------------------------------- UI_upgrade -----------------------------------------------------------------------//
+
+	public void UpdateUpgradeUI()
+    {
+		UI_upgrade.UpdateUpgradeUI();
+    }
 }
