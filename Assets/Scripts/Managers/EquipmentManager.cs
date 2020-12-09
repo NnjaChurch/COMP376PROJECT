@@ -164,7 +164,6 @@ public class EquipmentManager : MonoBehaviour {
 		active_armour.gameObject.SetActive(true);
 	}
 
-
 	public int GetWeaponWeight(string weapon_name) {
 		if (weapon_name == "Knife") {
 			return (int)weapon_knife.GetWeight();
@@ -311,6 +310,35 @@ public class EquipmentManager : MonoBehaviour {
 
 
 		return new List<int>(3);
+	}
+
+	public bool UpgradeWeapon(string weapon_name) {
+		if (weapon_name == "Knife") {
+			return weapon_knife.UpgradeWeapon();
+		}
+		else if (weapon_name == "Bat") {
+			return weapon_bat.UpgradeWeapon();
+		}
+		else if (weapon_name == "Shovel") {
+			return weapon_shovel.UpgradeWeapon();
+		}
+		else if (weapon_name == "Rake") {
+			return weapon_rake.UpgradeWeapon();
+		}
+		return false;
+	}
+
+	public bool UpgradeArmour(string armour_name) {
+		if (armour_name == "Light Armour") {
+			return armour_light.UpgradeArmour();
+		}
+		else if (armour_name == "Medium Armour") {
+			return armour_medium.UpgradeArmour();
+		}
+		else if (armour_name == "Heavy Armour") {
+			return armour_heavy.UpgradeArmour();
+		}
+		return false;
 	}
 
 	public List<int> SaveEquipment() {

@@ -86,22 +86,26 @@ public class PlayerManager : MonoBehaviour {
 		return player_stats.GetPlayerLevel();
 	}
 
+	public int GetStatPoints() {
+		return player_stats.GetStatPoints();
+	}
+
 	public void UpgradeStat(string stat_name) {
-		bool level_success = false;
-		if(player_stats.GetStatPoints() > 0) {
+		bool level_success;
+		if (player_stats.GetStatPoints() > 0) {
 			level_success = player_stats.UpgradeStat(stat_name);
-			if(level_success) {
+			if (level_success) {
 				player_stats.UseStatPoint();
 			}
 		}
-		// TODO: Update UI
+		UpdateUIStats();
 	}
 
 	public void UpgradeSkill(int skill_number) {
-		bool level_success = false;
-		if(player_stats.GetSkillPoints() > 0) {
+		bool level_success;
+		if (player_stats.GetSkillPoints() > 0) {
 			level_success = player_skills.UpgradeSkill(skill_number);
-			if(level_success) {
+			if (level_success) {
 				player_stats.UseSkillPoint();
 			}
 		}
@@ -110,31 +114,40 @@ public class PlayerManager : MonoBehaviour {
 
 
 	// UI Functions
-	public void UpdateUIHealth(int current_health, int max_health) {
-		manager_UI.UpdatePlayerHealth(current_health, max_health);
+	public void UpdateSafeZoneUI() {
+
+	}
+	public void UpdateGameUI() {
+
 	}
 
-	public void UpdateUIStamina(int current_stamina, int max_stamina) {
-		manager_UI.UpdatePlayerStamina(current_stamina, max_stamina);
+
+	public void UpdateUIHealth() {
+		manager_UI.UpdatePlayerHealth(player_stats.GetCurrentHealth(), player_stats.GetMaxHealth());
 	}
 
-	public void UpdateUIExperience(int level, int current_experience, int next_level, int banked_exp) {
-		manager_UI.UpdatePlayerExperience(level, current_experience, next_level, banked_exp);
+	public void UpdateUIStamina() {
+		manager_UI.UpdatePlayerStamina(player_stats.GetCurrentStamina(), player_stats.GetMaxStamina());
 	}
 
-	public void UpdateUIStats(string[] stat_names, float[] stat_values) {
-		manager_UI.UpdatePlayerStats(stat_names, stat_values);
+	public void UpdateUIExperience() {
+		manager_UI.UpdatePlayerExperience(player_stats.GetCurrentLevel(), player_stats.GetCurrentExperience(), player_stats.GetCurrentNextLevel(), player_stats.GetBankedExperience());
+	}
+
+	public void UpdateUIStats() {
+		manager_UI.UpdatePlayerStats(player_stats.GetUIStats());
 	}
 
 	public void UpdateUISkills() {
-		// TODO: Pass Skill Points, Skill Information.
-		int skill_points = player_stats.GetSkillPoints();
-		List<Skill> skills_list = player_skills.GetSkillsList();
-		manager_UI.UpdateSkillsUI(skill_points, skills_list);
+		manager_UI.UpdateSkillsUI(player_stats.GetSkillPoints(), player_skills.GetSkillsList());
 	}
 
-	public void UpdateSpeed(float speed) {
-		player_movement.SetSpeed(speed);
+	public void UpdateUIInventory() {
+		manager_UI.UpdateInventoryUI();
+	}
+
+	public void UpdateSpeed() {
+		player_movement.SetSpeed(player_stats.GetMovementSpeed());
 	}
 
 	// Save Functions
@@ -144,23 +157,21 @@ public class PlayerManager : MonoBehaviour {
 
 	public void TravelSafeZone(int zone_number) {
 		// Function to Unlock Zone
-		if(zone_number == 2 && !player_stats.Zone2Unlocked()) {
+		if (zone_number == 2 && !player_stats.Zone2Unlocked()) {
 			player_stats.UnlockZone2();
 		}
-		if(zone_number == 3 && !player_stats.Zone3Unlocked()) {
+		if (zone_number == 3 && !player_stats.Zone3Unlocked()) {
 			player_stats.UnlockZone3();
 		}
 
 		manager_stage.TravelSafeZone();
 	}
 
-	public bool GetZone2Unlocked()
-    {
+	public bool GetZone2Unlocked() {
 		return player_stats.Zone2Unlocked();
-    }
+	}
 
-	public bool GetZone3Unlocked()
-	{
+	public bool GetZone3Unlocked() {
 		return player_stats.Zone3Unlocked();
 	}
 
@@ -202,7 +213,7 @@ public class PlayerManager : MonoBehaviour {
 	public void KillPlayer() {
 		audioPlayerDeath.Play();
 
-		// TODO: Function to Purge Consumables and Materials from Inventory
+		manager_inventory.RemoveAllMaterialsAndConsumables();
 
 		player_stats.HalveExperience();
 		manager_stage.TravelSafeZone();

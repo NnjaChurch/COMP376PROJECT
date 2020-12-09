@@ -40,6 +40,9 @@ public class SafeZoneCharacterUI : MonoBehaviour {
 	[SerializeField] Text dexterityText;
 	[SerializeField] Text intelligenceText;
 
+	List<string> stat_names = new List<string> { "Strength", "Dexterity", "Intelligence", "Damage", "Movement Speed", "Attack Speed",
+		"Stamina Regeneration Speed", "Experience Gain", "Healing Efficacy", "Damage Reduction" };
+
 	public void Initialize() {
 		Debug.Log("Initializing SafeZoneCharacterUI...");
 		for (int i = 0; i < weaponNames.Length; i++) {
@@ -48,6 +51,8 @@ public class SafeZoneCharacterUI : MonoBehaviour {
 		for (int i = 0; i < armourNames.Length; i++) {
 			equipments.Add(armourNames[i], armourImages[i]);
 		}
+
+
 	}
 
 	public void updatePlayerHealth(int current_health, int max_health) {
@@ -88,28 +93,22 @@ public class SafeZoneCharacterUI : MonoBehaviour {
 		equippedArmourStats.text = "Defense: " + equippedArmour.GetDefense();
 	}
 
-	public void updatePlayerStats(string[] stat_names, float[] stat_values) {
+	public void updatePlayerStats(List<float> stat_values) {
 		//Debug.Log("CharacterUI.updatePlayerSkills()");
 
 		skillsText.text = "";
 
-		int number_of_skills = stat_names.Length;
-
-		for (int i = 0; i < number_of_skills; i++) {
-			if (stat_names[i] == "Strength")
-			{
+		for (int i = 0; i < stat_names.Count; i++) {
+			if (stat_names[i] == "Strength") {
 				strengthText.text = "Strength: " + stat_values[i];
 			}
-			else if (stat_names[i] == "Dexterity")
-			{
-				strengthText.text = "Dexterity: " + stat_values[i];
+			else if (stat_names[i] == "Dexterity") {
+				dexterityText.text = "Dexterity: " + stat_values[i];
 			}
-			else if (stat_names[i] == "Intelligence")
-			{
-				strengthText.text = "Intelligence: " + stat_values[i];
+			else if (stat_names[i] == "Intelligence") {
+				intelligenceText.text = "Intelligence: " + stat_values[i];
 			}
-			else
-			{
+			else {
 				skillsText.text += stat_names[i] + ": " + (int)stat_values[i] + "\n";
 			}
 		}
@@ -117,8 +116,7 @@ public class SafeZoneCharacterUI : MonoBehaviour {
 		remainingPointsText.text = "Remaining Stat Points: " + manager_UI.GetRemainingStatPoints();
 	}
 
-	public void UpgradeStatClick(string stat_name)
-    {
+	public void UpgradeStatClick(string stat_name) {
 		manager_UI.UpgradeStat(stat_name);
-    }
+	}
 }

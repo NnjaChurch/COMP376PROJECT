@@ -27,12 +27,14 @@ public class Armour : Item {
 		upgrade_tier = 0;
 		CalculateDefense();
 		CalculateUpgradeMaterials();
+		gameObject.SetActive(false);
 	}
 
-	public void UpgradeArmour() {
+	public bool UpgradeArmour() {
 		upgrade_tier++;
 		CalculateDefense();
 		CalculateUpgradeMaterials();
+		return true;
 	}
 
 	public float GetMovementModifier() {

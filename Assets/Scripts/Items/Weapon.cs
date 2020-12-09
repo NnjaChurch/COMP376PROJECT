@@ -26,18 +26,19 @@ public class Weapon : Item {
 	int upgrade_wood;
 
 
-	// Start is called before the first frame update
 	void Start() {
 		filter.SetLayerMask(layer_mask);
 		upgrade_tier = 0;
 		CalculateDamage();
 		CalculateUpgradeMaterials();
+		gameObject.SetActive(false);
 	}
 
-	public void UpgradeWeapon() {
+	public bool UpgradeWeapon() {
 		upgrade_tier++;
 		CalculateDamage();
 		CalculateUpgradeMaterials();
+		return true;
 	}
 
 	public void UseWeapon(int base_damage, Stats userStats) {

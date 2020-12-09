@@ -44,6 +44,9 @@ public class CharacterUI : MonoBehaviour {
 	//------------------------------------------------------------------------Player Stats Info--------------------------------------//
 	[SerializeField] Text skillsText;
 
+	List<string> stat_names = new List<string> { "Strength", "Dexterity", "Intelligence", "Damage", "Movement Speed", "Attack Speed", 
+		"Stamina Regeneration Speed", "Experience Gain", "Healing Efficacy", "Damage Reduction" };
+
 	public void Initialize() {
 		Debug.Log("Initializing CharacterUI...");
 		for (int i = 0; i < weaponNames.Length; i++) {
@@ -105,14 +108,12 @@ public class CharacterUI : MonoBehaviour {
 		equippedArmourStats.text = "Defense: " + equippedArmour.GetDefense();
 	}
 
-	public void updatePlayerStats(string[] stat_names, float[] stat_values) {
+	public void updatePlayerStats(List<float> stat_values) {
 		//Debug.Log("CharacterUI.updatePlayerSkills()");
 
 		skillsText.text = "";
-
-		int number_of_skills = stat_names.Length;
-		for (int i = 0; i < number_of_skills; i++) {
-			skillsText.text += stat_names[i] + ": " + (int)stat_values[i] + "\n";
+		for(int i = 0; i < stat_names.Count; i++) {
+			skillsText.text += stat_names[i] + ": " + stat_values[i] + "\n";
 		}
 	}
 }

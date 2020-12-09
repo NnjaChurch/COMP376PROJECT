@@ -39,6 +39,9 @@ public class UIManager : MonoBehaviour {
 			UI_upgrade.Initialize();
 			UI_safezone_inventory.Initialize();
 			UI_safezone_character.Initialize();
+
+			manager_player.UpdateUIStats();
+			manager_player.UpdateUISkills();
 		}
 		else {
 			// Initialize Non Safe Zone UI Components
@@ -137,13 +140,13 @@ public class UIManager : MonoBehaviour {
 		}
 	}
 
-	public void UpdatePlayerStats(string[] stat_names, float[] stat_values) {
+	public void UpdatePlayerStats(List<float> stat_values) {
 		if (UI_character != null) {
-			UI_character.updatePlayerStats(stat_names, stat_values);
+			UI_character.updatePlayerStats(stat_values);
 		}
 
 		if (UI_safezone_character != null) {
-			UI_safezone_character.updatePlayerStats(stat_names, stat_values);
+			UI_safezone_character.updatePlayerStats(stat_values);
 		}
 	}
 
@@ -155,8 +158,7 @@ public class UIManager : MonoBehaviour {
 
 	// ----------------------------------------------------- manager_inventory ----------------------------------------------------------------//
 
-	public void Consume(string item) // Called from InventoryUI.cs
-	{
+	public void Consume(string item) {
 		manager_inventory.Consume(item);
 	}
 
@@ -247,22 +249,72 @@ public class UIManager : MonoBehaviour {
 	}
 
 	public int GetRemainingStatPoints() {
-		// TODO create method that returns remaining stat points to be displayed in stats ui in safe zone 
-		//return manager_player.GetRemainingStatPoints();
-		return -1;
+		return manager_player.GetStatPoints();
 	}
 
 	public void UpgradeStat(string stat_name) {
-		// TODO create method to upgrade stats in player manager
-		//manager_player.UpgradeStat(stat_name);
+		manager_player.UpgradeStat(stat_name);
 	}
 
 	public void UpgradeWeapon(string weapon_name) {
-		// TODO update method in player manager
+		bool can_upgrade = true;
+		bool upgrade_success = false;
+		int iterator = 0;
+		List<int> material_cost = manager_equipment.GetWeaponMaterials(weapon_name);
+		IDictionary<string, int> materials = manager_inventory.GetMaterials();
+		IDictionary<string, int> consumed = new Dictionary<string, int>();
+
+		foreach (KeyValuePair<string, int> material in materials) {
+
+			if(material.Value < material_cost[iterator]) {
+				can_upgrade = false;
+				break;
+			}
+			else {
+				consumed.Add(material.Key, material_cost[iterator]);
+			}
+			iterator++;
+		}
+		if (can_upgrade) {
+			upgrade_success = manager_equipment.UpgradeWeapon(weapon_name);
+		}
+		else {
+		}
+		if(upgrade_success) {
+			foreach(KeyValuePair<string, int> cost in consumed) {
+				manager_inventory.UseMaterials(cost.Key, cost.Value);
+			}
+		}
 	}
 
 	public void UpgradeArmour(string armour_name) {
-		// TODO update method in player manager
+		bool can_upgrade = true;
+		bool upgrade_success = false;
+		int iterator = 0;
+		List<int> material_cost = manager_equipment.GetArmourMaterials(armour_name);
+		IDictionary<string, int> materials = manager_inventory.GetMaterials();
+		IDictionary<string, int> consumed = new Dictionary<string, int>();
+
+		foreach (KeyValuePair<string, int> material in materials) {
+			if(material.Value < material_cost[iterator]) {
+				can_upgrade = false;
+				break;
+			}
+			else {
+				consumed.Add(material.Key, material_cost[iterator]);
+			}
+			iterator++;
+		}
+		if(can_upgrade) {
+			upgrade_success = manager_equipment.UpgradeArmour(armour_name);
+		}
+		else {
+		}
+		if (upgrade_success) {
+			foreach (KeyValuePair<string, int> cost in consumed) {
+				manager_inventory.UseMaterials(cost.Key, cost.Value);
+			}
+		}		
 	}
 
 	// ----------------------------------------------------- manager_save -----------------------------------------------------------------------//

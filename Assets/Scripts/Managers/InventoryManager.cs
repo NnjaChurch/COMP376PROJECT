@@ -202,6 +202,10 @@ public class InventoryManager : MonoBehaviour {
 		}
 	}
 
+	public void UseMaterials(string material_name, int count) {
+		player_inventory.UseMaterial(material_name, count);
+	}
+
 	public float GetPlayerCarryWeight() {
 		return manager_player.GetCarryWeight();
 	}
