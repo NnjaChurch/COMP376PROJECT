@@ -126,6 +126,13 @@ public class LootMenu : MonoBehaviour {
 			if (loot_items[i].item_name == item)
             {
 				loot_items.RemoveAt(i);
+				if (loot_items.Count == 0)
+                {
+					current_lootbag.DestroyLootbag();
+					current_lootbag = null;
+					this.gameObject.SetActive(false);
+					return;
+				}
 				break;
             }
         }
@@ -145,6 +152,13 @@ public class LootMenu : MonoBehaviour {
 			{
 				manager_UI.AddToInventory(item);
 				loot_items.RemoveAt(i);
+				if (loot_items.Count == 0)
+				{
+					current_lootbag.DestroyLootbag();
+					current_lootbag = null;
+					this.gameObject.SetActive(false);
+					return;
+				}
 			}
         }
 

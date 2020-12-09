@@ -26,4 +26,30 @@ public class Lootbag : MonoBehaviour {
 		LootUIEntity item = loot_manager.GenerateLootForUI(item_type);
 		items.Add(item);
 	}
+
+	public void DestroyLootbag()
+    {
+		string container_type = this.GetParentType();
+		if (container_type == "bag")
+		{
+			Destroy(transform.gameObject);
+		}
+		else
+		{
+			transform.gameObject.tag = "Untagged";
+		}
+    }
+
+	public string GetParentType()
+    {
+		switch (transform.gameObject.tag)
+        {
+			case "Lootable_dresser":
+				return "furniture";
+			case "Lootable_vehicle":
+				return "vehicle";
+			default:
+				return "bag";
+        }
+    }
 }

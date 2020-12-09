@@ -2211,6 +2211,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4731830475984393748}
     m_Modifications:
+    - target: {fileID: -1234484934228885021, guid: f78cbea76bf062a479d2ee408f99d89b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5106063109145874972, guid: f78cbea76bf062a479d2ee408f99d89b, type: 3}
       propertyPath: m_Name
       value: Roof Brown

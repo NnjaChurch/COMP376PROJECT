@@ -12,6 +12,8 @@ TagManager:
   - Weapon
   - EnemySpawner
   - SafeZoneTrigger
+  - Lootable_dresser
+  - Lootable_vehicle
   layers:
   - Default
   - TransparentFX

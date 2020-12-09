@@ -1212,6 +1212,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4731830475984393748}
     m_Modifications:
+    - target: {fileID: -1234484934228885021, guid: ca59bddaf29e87341a01ccc7a6b41b23, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5106063109145874972, guid: ca59bddaf29e87341a01ccc7a6b41b23, type: 3}
       propertyPath: m_Name
       value: Roof Red
