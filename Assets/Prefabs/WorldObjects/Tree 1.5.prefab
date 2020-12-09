@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 6782711734862630462}
   - component: {fileID: -1234484934228885021}
   - component: {fileID: -3476190192947783361}
-  - component: {fileID: -6245725272309925603}
+  - component: {fileID: -1829161741555438548}
   m_Layer: 10
-  m_Name: Dumpster
+  m_Name: Tree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73,12 +73,12 @@ SpriteRenderer:
   m_SortingLayerID: 189325605
   m_SortingLayer: -2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -4987744853890720697, guid: 46575af76aa1c1d41818e1889469d10f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e69da4eefc273e74d99ee2d2b7e4c8e5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.12, y: 0.84}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -105,8 +105,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &-6245725272309925603
-BoxCollider2D:
+--- !u!58 &-1829161741555438548
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -118,16 +118,6 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00390625, y: -0.15625}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.12, y: 0.84}
-    newSize: {x: 1.12, y: 0.84}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.40625}
-  m_EdgeRadius: 0
+  m_Radius: 0.25

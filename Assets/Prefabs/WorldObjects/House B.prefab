@@ -53,7 +53,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4731830475984393748}
   m_Layer: 0
-  m_Name: House 2
+  m_Name: House B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -542,7 +542,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -1234484934228885021, guid: 56f74165830035049a2dd7ac01c2750c, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5106063109145874972, guid: 56f74165830035049a2dd7ac01c2750c, type: 3}
       propertyPath: m_Name
