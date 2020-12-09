@@ -65,8 +65,8 @@ public class UpgradeUI : MonoBehaviour {
 			List<int> weaponMaterials = manager_ui.GetWeaponMaterials(entry.Key);
 			// GetWeaponMaterials returns new List<int> { upgrade_nails, upgrade_wood, 0, 0 };
 
-			itemSlot.Find("Nails").GetComponentInChildren<Text>().text = "" + weaponMaterials[0];
-			itemSlot.Find("Wood").GetComponentInChildren<Text>().text = "" + weaponMaterials[1];
+			itemSlot.Find("Requirements").Find("NeedPanel").Find("Nails").Find("Text").GetComponent<Text>().text = "" + weaponMaterials[0];
+			itemSlot.Find("Requirements").Find("NeedPanel").Find("Wood").Find("Text").GetComponent<Text>().text = "" + weaponMaterials[1];
 		}
 
 		foreach (KeyValuePair<string, int> entry in armourDictionary) {
@@ -82,8 +82,8 @@ public class UpgradeUI : MonoBehaviour {
 			List<int> armourMaterials = manager_ui.GetArmourMaterials(entry.Key);
 			// GetArmourMaterials returns new List<int> { 0, 0, upgrade_metal, upgrade_cloth };
 
-			itemSlot.Find("Metal").Find("Text").GetComponent<Text>().text = "" + armourMaterials[2];
-			itemSlot.Find("Cloth").Find("Text").GetComponent<Text>().text = "" + armourMaterials[3];
+			itemSlot.Find("Requirements").Find("NeedPanel").Find("Metal").Find("Text").GetComponent<Text>().text = "" + armourMaterials[2];
+			itemSlot.Find("Requirements").Find("NeedPanel").Find("Cloth").Find("Text").GetComponent<Text>().text = "" + armourMaterials[3];
 		}
 
 		IDictionary<string, int> materials = manager_ui.GetMaterials();
