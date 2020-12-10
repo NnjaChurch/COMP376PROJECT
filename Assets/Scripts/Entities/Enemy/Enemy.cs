@@ -23,6 +23,7 @@ public class Enemy : Entity {
 
 	bool isAwake;
 	float nextTalk;
+	Animator anim;
 
 	// Start is called before the first frame update
 	void Start() {
@@ -31,6 +32,7 @@ public class Enemy : Entity {
 		ContactFilter2D filter = new ContactFilter2D();
 		filter.SetLayerMask(perceptionAuraLayerMask);
 		perceptionAura.OverlapCollider(filter, results);
+		anim = GetComponent<Animator>();
 		if (results.Count > 0) {
 			WakeUp();
 		}
@@ -61,12 +63,14 @@ public class Enemy : Entity {
 		isAwake = true;
 		gameObject.GetComponent<AIPath>().enabled = true;
 		gameObject.GetComponent<AIDestinationSetter>().enabled = true;
+		anim.SetBool("isMoving", true);
 	}
 
 	public void Sleep() {
 		isAwake = false;
 		gameObject.GetComponent<AIPath>().enabled = false;
 		gameObject.GetComponent<AIDestinationSetter>().enabled = false;
+		anim.SetBool("isMoving", false);
 	}
 
 	public void Talk() {
