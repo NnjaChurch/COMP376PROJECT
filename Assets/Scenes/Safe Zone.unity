@@ -1879,13 +1879,14 @@ MonoBehaviour:
   player_movement: {fileID: 1231306149}
   player_stats: {fileID: 1157085630}
   player_skills: {fileID: 1832961338}
+  player: {fileID: 1423681498}
   player_object: {fileID: 1423681497}
   manager_equipment: {fileID: 725784409}
   manager_inventory: {fileID: 1311222427}
   manager_UI: {fileID: 1153890653}
   manager_save: {fileID: 733149350}
   manager_stage: {fileID: 1229706078}
-  audioPlayerDeath: {fileID: 0}
+  soundPlayerDeath: {fileID: 0}
 --- !u!4 &831567049
 Transform:
   m_ObjectHideFlags: 0
@@ -2448,6 +2449,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager_inventory: {fileID: 1311222427}
   manager_player: {fileID: 831567048}
+  manager_loot: {fileID: 0}
 --- !u!4 &1248596547
 Transform:
   m_ObjectHideFlags: 0
@@ -2606,15 +2608,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3159474370270732344, guid: b0dbbedad60325d41961ed0ff44fe1ae, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.3936577
+      value: 360
       objectReference: {fileID: 0}
     - target: {fileID: 3159474370270732344, guid: b0dbbedad60325d41961ed0ff44fe1ae, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.4882395
+      value: 360
       objectReference: {fileID: 0}
     - target: {fileID: 3159474370270732344, guid: b0dbbedad60325d41961ed0ff44fe1ae, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.9961421
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3159474370270732344, guid: b0dbbedad60325d41961ed0ff44fe1ae, type: 3}
       propertyPath: m_LocalRotation.x
@@ -2754,6 +2756,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6220002021337347308, guid: b0dbbedad60325d41961ed0ff44fe1ae, type: 3}
   m_PrefabInstance: {fileID: 1423681489}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1423681498 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8858230659625962219, guid: b0dbbedad60325d41961ed0ff44fe1ae, type: 3}
+  m_PrefabInstance: {fileID: 1423681489}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423681497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e248847147180d3438a2f88287f8aefe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &1423681499 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 1144848094872637662, guid: b0dbbedad60325d41961ed0ff44fe1ae, type: 3}

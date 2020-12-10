@@ -22,6 +22,11 @@ public class InputManager : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update() {
+		if (!(manager_ui.GetGamePause()))
+		{
+			Vector2 direction = manager_player.GetPlayerCam().ScreenToWorldPoint(Input.mousePosition);
+			manager_player.SetLookDirection(direction);
+		}
 		manager_player.FaceDirection(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 		manager_player.SetSprint(Input.GetKey("left shift"));
 		if (Input.GetMouseButton(0) && !(manager_ui.GetGamePause())) {

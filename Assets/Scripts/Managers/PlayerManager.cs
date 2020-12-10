@@ -13,6 +13,7 @@ public class PlayerManager : MonoBehaviour {
 	[SerializeField] Movement player_movement;
 	[SerializeField] PlayerStats player_stats;
 	[SerializeField] PlayerSkills player_skills;
+	[SerializeField] Player player;
 
 	[SerializeField] GameObject player_object;
 
@@ -217,5 +218,15 @@ public class PlayerManager : MonoBehaviour {
 
 		player_stats.HalveExperience();
 		manager_stage.TravelSafeZone();
+	}
+
+	public void SetLookDirection(Vector2 direction)
+	{
+		direction = (direction - (Vector2)player_object.transform.position).normalized;
+		player_object.transform.up = direction;
+	}
+	public Camera GetPlayerCam()
+	{
+		return player.GetPlayerCam();
 	}
 }

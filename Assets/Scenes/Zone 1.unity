@@ -21990,6 +21990,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3159474370270732344, guid: b0dbbedad60325d41961ed0ff44fe1ae, type: 3}
   m_PrefabInstance: {fileID: 1756184366}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1756184369 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8858230659625962219, guid: b0dbbedad60325d41961ed0ff44fe1ae, type: 3}
+  m_PrefabInstance: {fileID: 1756184366}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1529810465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e248847147180d3438a2f88287f8aefe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1757164763
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23385,6 +23396,7 @@ MonoBehaviour:
   player_movement: {fileID: 627681715}
   player_stats: {fileID: 1321205818}
   player_skills: {fileID: 1061071647}
+  player: {fileID: 1756184369}
   player_object: {fileID: 1529810465}
   manager_equipment: {fileID: 401498163}
   manager_inventory: {fileID: 467164986}

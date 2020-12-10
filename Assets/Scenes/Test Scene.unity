@@ -518,6 +518,7 @@ MonoBehaviour:
   UI_upgrade: {fileID: 0}
   UI_safezone_inventory: {fileID: 0}
   UI_safezone_character: {fileID: 0}
+  UI_Travel: {fileID: 0}
   menu_loot: {fileID: 69366989}
   menu_pause: {fileID: 20905537}
   manager_player: {fileID: 1049794975}
@@ -1690,6 +1691,17 @@ AudioSource:
   m_CorrespondingSourceObject: {fileID: 4245657966110772477, guid: b0dbbedad60325d41961ed0ff44fe1ae, type: 3}
   m_PrefabInstance: {fileID: 249394934}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &249394936 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8858230659625962219, guid: b0dbbedad60325d41961ed0ff44fe1ae, type: 3}
+  m_PrefabInstance: {fileID: 249394934}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1663403284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e248847147180d3438a2f88287f8aefe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &256570502 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3159474370270732344, guid: b0dbbedad60325d41961ed0ff44fe1ae, type: 3}
@@ -4041,6 +4053,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager_inventory: {fileID: 1822822836}
   manager_player: {fileID: 0}
+  manager_loot: {fileID: 0}
 --- !u!4 &799905626
 Transform:
   m_ObjectHideFlags: 0
@@ -5194,13 +5207,14 @@ MonoBehaviour:
   player_movement: {fileID: 1488335885}
   player_stats: {fileID: 180507038}
   player_skills: {fileID: 1887403395}
+  player: {fileID: 249394936}
   player_object: {fileID: 1663403284}
   manager_equipment: {fileID: 1139298902}
   manager_inventory: {fileID: 1822822836}
   manager_UI: {fileID: 86618748}
   manager_save: {fileID: 120603109}
   manager_stage: {fileID: 1393730663}
-  audioPlayerDeath: {fileID: 1663403289}
+  soundPlayerDeath: {fileID: 0}
 --- !u!4 &1064401098 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6782711734862630462, guid: ec3c780e9119356418a404d77a424491, type: 3}
@@ -7250,11 +7264,6 @@ GameObject:
 --- !u!50 &1663403287 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 6527023459539031288, guid: b0dbbedad60325d41961ed0ff44fe1ae, type: 3}
-  m_PrefabInstance: {fileID: 249394934}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &1663403289 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 8925546037270370846, guid: b0dbbedad60325d41961ed0ff44fe1ae, type: 3}
   m_PrefabInstance: {fileID: 249394934}
   m_PrefabAsset: {fileID: 0}
 --- !u!82 &1663403290 stripped

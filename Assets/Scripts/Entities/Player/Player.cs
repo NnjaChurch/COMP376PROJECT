@@ -17,9 +17,7 @@ public class Player : Entity {
 	[SerializeField] PlayerManager manager_player;
 
 	void Update() {
-		Vector2 direction = player_cam.ScreenToWorldPoint(Input.mousePosition);
-		direction = (direction - (Vector2)gameObject.transform.position).normalized;
-		gameObject.transform.up = direction;
+		
 	}
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -61,5 +59,10 @@ public class Player : Entity {
 				enemyStats.StartAttack();
             }
 		}
+    }
+
+	public Camera GetPlayerCam()
+    {
+		return this.player_cam;
     }
 }
