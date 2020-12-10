@@ -588,14 +588,14 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 74dc88150e94c3047b65f202968c71b7, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1998,7 +1998,7 @@ MonoBehaviour:
   manager_UI: {fileID: 1153890653}
   manager_save: {fileID: 733149350}
   manager_stage: {fileID: 1229706078}
-  audioPlayerDeath: {fileID: 1423681498}
+  audioPlayerDeath: {fileID: 0}
 --- !u!4 &831567049
 Transform:
   m_ObjectHideFlags: 0
@@ -2396,6 +2396,7 @@ MonoBehaviour:
   UI_upgrade: {fileID: 574904484}
   UI_safezone_inventory: {fileID: 574904486}
   UI_safezone_character: {fileID: 132939017}
+  UI_Travel: {fileID: 0}
   menu_loot: {fileID: 0}
   menu_pause: {fileID: 0}
   manager_player: {fileID: 831567048}
@@ -2940,11 +2941,6 @@ AudioSource:
 --- !u!1 &1423681497 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6220002021337347308, guid: b0dbbedad60325d41961ed0ff44fe1ae, type: 3}
-  m_PrefabInstance: {fileID: 1423681489}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &1423681498 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 8925546037270370846, guid: b0dbbedad60325d41961ed0ff44fe1ae, type: 3}
   m_PrefabInstance: {fileID: 1423681489}
   m_PrefabAsset: {fileID: 0}
 --- !u!95 &1423681499 stripped
