@@ -70,6 +70,7 @@ GameObject:
   - component: {fileID: 4173084379925882757}
   - component: {fileID: -8541748615842045595}
   - component: {fileID: -637146829554168767}
+  - component: {fileID: -9091738894953173768}
   m_Layer: 9
   m_Name: Enemy Blue
   m_TagString: Enemy
@@ -885,6 +886,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &-9091738894953173768
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7744728286288450834}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7206060adbf6cec4086f54a70ca2a089, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1056112990654422193
 PrefabInstance:
   m_ObjectHideFlags: 0
