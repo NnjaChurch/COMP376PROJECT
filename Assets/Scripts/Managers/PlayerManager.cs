@@ -24,7 +24,7 @@ public class PlayerManager : MonoBehaviour {
 	[SerializeField] SaveManager manager_save;
 	[SerializeField] StageManager manager_stage;
 
-	[SerializeField] AudioSource audioPlayerDeath;
+	[SerializeField] GameObject soundPlayerDeath;
 
 	public bool Initialize() {
 		Debug.Log("Initializing PlayerManager...");
@@ -211,7 +211,7 @@ public class PlayerManager : MonoBehaviour {
 	}
 
 	public void KillPlayer() {
-		audioPlayerDeath.Play();
+		Instantiate(soundPlayerDeath, player_object.transform);
 
 		manager_inventory.RemoveAllMaterialsAndConsumables();
 

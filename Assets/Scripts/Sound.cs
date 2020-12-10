@@ -7,6 +7,7 @@ public class Sound : MonoBehaviour {
 
 	// Start is called before the first frame update
 	void Start() {
+		DontDestroyOnLoad(gameObject);
 		if (!audio_source.isPlaying) {
 			audio_source.Play();
 		}

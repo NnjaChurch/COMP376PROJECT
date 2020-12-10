@@ -37,7 +37,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _EnableExternalAlpha: 0
-    - _Thickness: 0.0039981245
+    - _Thickness: 0.010178424
     m_Colors:
     - Color_9DB282CB: {r: 0.733025, g: 0.8396226, b: 0.16237983, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}

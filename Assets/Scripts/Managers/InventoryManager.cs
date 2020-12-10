@@ -112,15 +112,22 @@ public class InventoryManager : MonoBehaviour {
 	}
 
 	public void RemoveAllMaterialsAndConsumables() {
-		foreach (KeyValuePair<string, int> consumable in player_inventory.consumables) {
+		List<string> item_purge = new List<string>();
+		IDictionary<string, int> consumables = GetConsumables();
+		IDictionary<string, int> materials = GetMaterials();
+		foreach (KeyValuePair<string, int> consumable in consumables) {
 			if(consumable.Value > 0) {
-				PurgeItem(consumable.Key);
+				item_purge.Add(consumable.Key);
 			}
 		}
-		foreach (KeyValuePair<string, int> material in player_inventory.materials) {
+		foreach (KeyValuePair<string, int> material in materials) {
 			if(material.Value > 0) {
-				PurgeItem(material.Key);
+				item_purge.Add(material.Key);
 			}
+		}
+
+		foreach(string key in item_purge) {
+			PurgeItem(key);
 		}
 	}
 
