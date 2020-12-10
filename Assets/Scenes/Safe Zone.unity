@@ -2572,6 +2572,7 @@ MonoBehaviour:
   movement_speed: 1
   sprint_multiplier: 2
   rb: {fileID: 1423681491}
+  player_animator: {fileID: 0}
 --- !u!1 &1248596545
 GameObject:
   m_ObjectHideFlags: 0
