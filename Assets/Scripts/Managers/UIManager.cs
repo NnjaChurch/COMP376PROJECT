@@ -118,6 +118,18 @@ public class UIManager : MonoBehaviour {
 		UI_character.ButtonStatsClick();
 	}
 
+	public void EnableButtons()
+    {
+		UI_inventory.EnableButtons();
+		menu_loot.EnableButtons();
+    }
+
+	public void DisableButtons()
+	{
+		UI_inventory.DisableButtons();
+		menu_loot.DisableButtons();
+	}
+
 	// ----------------------------------------------------- UI_character -------------------------------------------------------------------//
 
 	public void UpdatePlayerEquippedWeapon() {
@@ -340,4 +352,21 @@ public class UIManager : MonoBehaviour {
 	public void UpdateUpgradeUI() {
 		UI_upgrade.UpdateUpgradeUI();
 	}
+
+	// ----------------------------------------------------- menu_pause -----------------------------------------------------------------------//
+
+	public bool GetGamePause()
+    {
+		return menu_pause.GetGamePaused();
+    }
+
+	public void PauseGame()
+    {
+		menu_pause.PauseGame();
+    }
+
+	public void ResumeGame()
+    {
+		menu_pause.ResumeGame();
+    }
 }

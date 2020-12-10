@@ -60,10 +60,10 @@ public class Inventory : MonoBehaviour {
 		consumables.Add("Food", 0);
 		consumables.Add("Medicine", 0);
 
-		materials.Add("Nails", 5);
-		materials.Add("Wood", 5);
-		materials.Add("Metal", 5);
-		materials.Add("Cloth", 5);
+		materials.Add("Nails", 0);
+		materials.Add("Wood", 0);
+		materials.Add("Metal", 0);
+		materials.Add("Cloth", 0);
 
 		// Weapons and Armour are either found, or not found
 		weapons.Add("Knife", false);
