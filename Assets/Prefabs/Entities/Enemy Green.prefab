@@ -70,6 +70,7 @@ GameObject:
   - component: {fileID: -4497631095298797074}
   - component: {fileID: 3286653133493851745}
   - component: {fileID: 8604029753902674496}
+  - component: {fileID: 383109707413057355}
   m_Layer: 9
   m_Name: Enemy Green
   m_TagString: Enemy
@@ -885,6 +886,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &383109707413057355
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7744728286288450834}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7c46d5857a9dd104e93ad89e73ffc401, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1056112990654422193
 PrefabInstance:
   m_ObjectHideFlags: 0

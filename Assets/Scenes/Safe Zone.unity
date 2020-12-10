@@ -2572,6 +2572,7 @@ MonoBehaviour:
   movement_speed: 1
   sprint_multiplier: 2
   rb: {fileID: 1423681491}
+  player_animator: {fileID: 1423681499}
 --- !u!1 &1248596545
 GameObject:
   m_ObjectHideFlags: 0
@@ -2944,6 +2945,11 @@ GameObject:
 --- !u!82 &1423681498 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 8925546037270370846, guid: b0dbbedad60325d41961ed0ff44fe1ae, type: 3}
+  m_PrefabInstance: {fileID: 1423681489}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1423681499 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1144848094872637662, guid: b0dbbedad60325d41961ed0ff44fe1ae, type: 3}
   m_PrefabInstance: {fileID: 1423681489}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1497405682

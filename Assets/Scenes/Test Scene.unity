@@ -1679,6 +1679,10 @@ PrefabInstance:
       propertyPath: manager_player
       value: 
       objectReference: {fileID: 1049794975}
+    - target: {fileID: 8858230659625962219, guid: b0dbbedad60325d41961ed0ff44fe1ae, type: 3}
+      propertyPath: player_animator
+      value: 
+      objectReference: {fileID: 1663403294}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0dbbedad60325d41961ed0ff44fe1ae, type: 3}
 --- !u!82 &249394935 stripped
@@ -6552,6 +6556,7 @@ MonoBehaviour:
   movement_speed: 1
   sprint_multiplier: 2
   rb: {fileID: 1663403287}
+  player_animator: {fileID: 1663403294}
 --- !u!1001 &1492754650
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7270,6 +7275,11 @@ AudioSource:
 --- !u!82 &1663403293 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 8108802621769561640, guid: b0dbbedad60325d41961ed0ff44fe1ae, type: 3}
+  m_PrefabInstance: {fileID: 249394934}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1663403294 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1144848094872637662, guid: b0dbbedad60325d41961ed0ff44fe1ae, type: 3}
   m_PrefabInstance: {fileID: 249394934}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1663412962 stripped

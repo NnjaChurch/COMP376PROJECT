@@ -540,17 +540,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4731830475984393748}
     m_Modifications:
-    - target: {fileID: -1234484934228885021, guid: 56f74165830035049a2dd7ac01c2750c, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5106063109145874972, guid: 56f74165830035049a2dd7ac01c2750c, type: 3}
       propertyPath: m_Name
       value: Roof Blue
-      objectReference: {fileID: 0}
-    - target: {fileID: 5106063109145874972, guid: 56f74165830035049a2dd7ac01c2750c, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6782711734862630462, guid: 56f74165830035049a2dd7ac01c2750c, type: 3}
       propertyPath: m_LocalPosition.x

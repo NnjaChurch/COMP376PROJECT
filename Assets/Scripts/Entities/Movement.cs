@@ -15,6 +15,8 @@ public class Movement : MonoBehaviour {
 	private bool sprint;
 	public Rigidbody2D rb;
 
+	[SerializeField] Animator player_animator;
+
 	private void FixedUpdate() {
 		movement = Vector2.ClampMagnitude(movement, 1.0f) * movement_speed * Time.deltaTime;
 		if (sprint) {
@@ -26,10 +28,20 @@ public class Movement : MonoBehaviour {
 	public void SetMovement(float x, float y) {
 		movement.x = x;
 		movement.y = y;
+
+		if (x == 0 && y == 0)
+        {
+			player_animator.SetBool("isWalking", false);
+        }
+		else
+        {
+			player_animator.SetBool("isWalking", true);
+		}
 	}
 
 	public void SetSprint(bool b) {
 		sprint = b;
+		player_animator.SetBool("isRunning", b);
 	}
 
 	public void SetSpeed(float speed) {
