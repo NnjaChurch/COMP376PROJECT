@@ -11,6 +11,7 @@ public class Inventory : MonoBehaviour {
 	
 	[SerializeField] InventoryManager manager_inventory;
 	[SerializeField] PlayerManager manager_player;
+	[SerializeField] LootManager manager_loot;
 
 	float current_weight;
 
@@ -117,6 +118,7 @@ public class Inventory : MonoBehaviour {
 			case "Shovel":
 			case "Rake":
 				weapons[item_name] = true;
+				manager_loot.WeaponFound(item_name);
 				break;
 
 
@@ -124,6 +126,7 @@ public class Inventory : MonoBehaviour {
 			case "Medium Armour":
 			case "Heavy Armour":
 				armours[item_name] = true;
+				manager_loot.ArmourFound(item_name);
 				break;
 		}
 
