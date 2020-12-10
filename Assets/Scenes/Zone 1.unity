@@ -7487,7 +7487,7 @@ MonoBehaviour:
   movement_speed: 1
   sprint_multiplier: 2
   rb: {fileID: 1756184367}
-  player_animator: {fileID: 0}
+  player_animator: {fileID: 1529810468}
 --- !u!1001 &632899540
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19232,6 +19232,11 @@ AudioSource:
   m_CorrespondingSourceObject: {fileID: 8108802621769561640, guid: b0dbbedad60325d41961ed0ff44fe1ae, type: 3}
   m_PrefabInstance: {fileID: 1756184366}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1529810468 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1144848094872637662, guid: b0dbbedad60325d41961ed0ff44fe1ae, type: 3}
+  m_PrefabInstance: {fileID: 1756184366}
+  m_PrefabAsset: {fileID: 0}
 --- !u!82 &1529810469 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 7588415631608012684, guid: b0dbbedad60325d41961ed0ff44fe1ae, type: 3}
@@ -22029,8 +22034,8 @@ Transform:
   - {fileID: 740353451}
   - {fileID: 2023795742}
   - {fileID: 1847352319}
-  - {fileID: 950723587}
   - {fileID: 949521573}
+  - {fileID: 950723587}
   - {fileID: 475207329}
   - {fileID: 652121133}
   - {fileID: 850864650}
