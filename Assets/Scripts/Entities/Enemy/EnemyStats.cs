@@ -21,12 +21,12 @@ public class EnemyStats : Stats {
 	}
 
 	private void Update() {
-		if(isAttacking) {
+		if (isAttacking) {
 			attack_timer -= Time.deltaTime;
 			if (attack_timer < 0) {
 				attack_timer = 0;
 			}
-			if(attack_timer == 0) {
+			if (attack_timer == 0) {
 				Attack();
 			}
 		}
@@ -37,8 +37,8 @@ public class EnemyStats : Stats {
 			attack_timer = attack_speed;
 			canAttack = false;
 			isAttacking = true;
-		} else
-        {
+		}
+		else {
 			//print("The enemy can't attack right now.");
 		}
 	}
@@ -59,18 +59,17 @@ public class EnemyStats : Stats {
 		int taken_damage = Mathf.FloorToInt(damage / ((float)equipped_armour.GetDefense() / 100));
 		//Debug.Log("Damage Taken: " + taken_damage);
 		current_health -= taken_damage;
-		if (current_health < 0) {
+		if (current_health <= 0) {
 			current_health = 0;
 			enemy.Kill();
-		} else
-        {
+		}
+		else {
 			audioTakeDamage[Random.Range(0, audioTakeDamage.Length)].Play();
 		}
 		return current_health;
 	}
 
-	public int GetExpReward()
-    {
+	public int GetExpReward() {
 		return 10; //TODO !
-    }
+	}
 }
