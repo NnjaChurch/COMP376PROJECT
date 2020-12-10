@@ -100,16 +100,16 @@ public class SafeZoneCharacterUI : MonoBehaviour {
 
 		for (int i = 0; i < stat_names.Count; i++) {
 			if (stat_names[i] == "Strength") {
-				strengthText.text = "Strength: " + stat_values[i];
+				strengthText.text = "Strength: " + (float) stat_values[i];
 			}
 			else if (stat_names[i] == "Dexterity") {
-				dexterityText.text = "Dexterity: " + stat_values[i];
+				dexterityText.text = "Dexterity: " + (float) stat_values[i];
 			}
 			else if (stat_names[i] == "Intelligence") {
-				intelligenceText.text = "Intelligence: " + stat_values[i];
+				intelligenceText.text = "Intelligence: " + (float) stat_values[i];
 			}
 			else {
-				skillsText.text += stat_names[i] + ": " + (int)stat_values[i] + "\n";
+				skillsText.text += stat_names[i] + ": " + (float) stat_values[i] + "\n";
 			}
 		}
 
