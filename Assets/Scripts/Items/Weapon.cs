@@ -31,7 +31,10 @@ public class Weapon : Item {
 		upgrade_tier = 0;
 		CalculateDamage();
 		CalculateUpgradeMaterials();
-		gameObject.SetActive(false);
+		if (gameObject.transform.parent.tag != "Enemy")
+        {
+			gameObject.SetActive(false);
+		}
 	}
 
 	public bool UpgradeWeapon() {

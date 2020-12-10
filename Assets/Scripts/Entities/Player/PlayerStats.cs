@@ -217,7 +217,8 @@ public class PlayerStats : Stats {
 		if (current_health < 0) {
 			current_health = 0;
 		}
-		if (current_health == 0) {
+		if (current_health == 0) 
+		{
 			manager_player.KillPlayer();
 		}
 		print("Health POST: " + current_health);
