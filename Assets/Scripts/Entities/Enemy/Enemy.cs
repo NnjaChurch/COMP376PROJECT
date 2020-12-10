@@ -21,9 +21,10 @@ public class Enemy : Entity {
 	[SerializeField] Collider2D perceptionAura;
 	[SerializeField] LayerMask perceptionAuraLayerMask;
 
+	[SerializeField] Animator anim;
+
 	bool isAwake;
 	float nextTalk;
-	Animator anim;
 
 	// Start is called before the first frame update
 	void Start() {
@@ -32,7 +33,7 @@ public class Enemy : Entity {
 		ContactFilter2D filter = new ContactFilter2D();
 		filter.SetLayerMask(perceptionAuraLayerMask);
 		perceptionAura.OverlapCollider(filter, results);
-		anim = GetComponent<Animator>();
+
 		if (results.Count > 0) {
 			WakeUp();
 		}

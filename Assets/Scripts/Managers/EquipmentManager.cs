@@ -116,7 +116,6 @@ public class EquipmentManager : MonoBehaviour {
 	public void EquipWeapon(string item) {
 		if (item.Equals(weapon_knife.GetWeaponName())) {
 			SetActiveWeapon(weapon_knife);
-
 		}
 		else if (item.Equals(weapon_bat.GetWeaponName())) {
 			SetActiveWeapon(weapon_bat);
@@ -154,6 +153,7 @@ public class EquipmentManager : MonoBehaviour {
 		// Set Current Weapon and Activate
 		active_weapon = w;
 		active_weapon.gameObject.SetActive(true);
+		manager_player.EquipWeapon(active_weapon);
 	}
 
 	private void SetActiveArmour(Armour a) {
@@ -162,6 +162,7 @@ public class EquipmentManager : MonoBehaviour {
 		// Set Current Armour and Activate
 		active_armour = a;
 		active_armour.gameObject.SetActive(true);
+		manager_player.EquipArmour(active_armour);
 	}
 
 	public int GetWeaponWeight(string weapon_name) {

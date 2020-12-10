@@ -157,6 +157,7 @@ MonoBehaviour:
   perceptionAuraLayerMask:
     serializedVersion: 2
     m_Bits: 256
+  anim: {fileID: 2486248722235100953}
 --- !u!114 &1870986377868729733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,7 +172,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BASE_HEALTH: 30
   BASE_DAMAGE: 9
-  BASE_ATTACK_SPEED: 3
+  BASE_ATTACK_SPEED: 1.5
   BASE_MOVEMENT_SPEED: 3
   health_per_level: 10
   damage_per_level: 9

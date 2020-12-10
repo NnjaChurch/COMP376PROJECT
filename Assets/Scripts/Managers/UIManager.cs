@@ -57,6 +57,9 @@ public class UIManager : MonoBehaviour {
 			UI_game.Initialize();
 			menu_loot.Initialize();
 			menu_pause.Initialize();
+
+			manager_player.UpdateUIStats();
+
 			UpdatePlayerEquippedWeapon();
 			UpdatePlayerEquippedArmour();
 		}

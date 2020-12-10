@@ -179,6 +179,8 @@ public class PlayerStats : Stats {
 		experience_gain = (BASE_EXPERIENCE_GAIN + ((float)intelligence * 0.01f) + manager_player.GetSkillBonus(6));
 		healing_efficacy = (BASE_HEALING_EFFICACY + ((float)intelligence * 0.01f) + manager_player.GetSkillBonus(7));
 		damage_reduction = (BASE_DAMAGE_REDUCTION + ((float)intelligence * 0.01f) + manager_player.GetSkillBonus(8));
+
+		UpdateAllUI();
 	}
 
 	private void InitalizeExperience() {
@@ -365,7 +367,7 @@ public class PlayerStats : Stats {
 		CalculatePlayerStats();
 	}
 
-	public List<float> GetUIStats() {
+ 	public List<float> GetUIStats() {
 		return new List<float>() { strength, dexterity, intelligence, damage, movement_speed, attack_speed, stamina_regen, experience_gain, healing_efficacy, damage_reduction };
 	}
 
