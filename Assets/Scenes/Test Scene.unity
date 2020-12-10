@@ -7277,25 +7277,11 @@ AudioSource:
   m_CorrespondingSourceObject: {fileID: 8108802621769561640, guid: b0dbbedad60325d41961ed0ff44fe1ae, type: 3}
   m_PrefabInstance: {fileID: 249394934}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &1663403294
+--- !u!95 &1663403294 stripped
 Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 1144848094872637662, guid: b0dbbedad60325d41961ed0ff44fe1ae, type: 3}
+  m_PrefabInstance: {fileID: 249394934}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1663403284}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4476c149489a5a14db60de89038d5e76, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &1663412962 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6782711734862630462, guid: 897b6ce887901d94a97356d98df98eb6, type: 3}
