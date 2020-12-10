@@ -95,7 +95,7 @@ public class EquipmentManager : MonoBehaviour {
 
 			// Equip Initial Armour
 			active_armour = armour_light;
-			active_armour.gameObject.SetActive(false);
+			active_armour.gameObject.SetActive(true);
 			manager_player.EquipArmour(active_armour);
 
 			manager_loot.ArmourFound(active_armour.name);

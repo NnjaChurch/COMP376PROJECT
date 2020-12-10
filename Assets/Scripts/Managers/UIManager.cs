@@ -41,10 +41,14 @@ public class UIManager : MonoBehaviour {
 			UI_safezone_inventory.Initialize();
 			UI_safezone_character.Initialize();
 			UI_Travel.Initialize();
+			menu_pause.Initialize();
 
 			manager_player.UpdateUIStats();
 			manager_player.UpdateUISkills();
 			manager_player.UpdateUIExperience();
+
+			UpdatePlayerEquippedWeapon();
+			UpdatePlayerEquippedArmour();
 		}
 		else {
 			// Initialize Non Safe Zone UI Components
@@ -53,6 +57,8 @@ public class UIManager : MonoBehaviour {
 			UI_game.Initialize();
 			menu_loot.Initialize();
 			menu_pause.Initialize();
+			UpdatePlayerEquippedWeapon();
+			UpdatePlayerEquippedArmour();
 		}
 		return true;
 	}
