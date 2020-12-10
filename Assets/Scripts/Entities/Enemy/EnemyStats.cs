@@ -43,7 +43,6 @@ public class EnemyStats : Stats {
 		}
 	}
 	private void Attack() {
-		equipped_weapon.gameObject.SetActive(true);
 		equipped_weapon.UseWeapon(damage, this);
 		isAttacking = false;
 		canAttack = true;
