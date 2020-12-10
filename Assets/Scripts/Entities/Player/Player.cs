@@ -41,7 +41,7 @@ public class Player : Entity {
     private void OnTriggerExit2D(Collider2D collision)
     {
 		GameObject gameObject = collision.gameObject;
-		if (gameObject.tag == "EnemyPerceptionAura")
+		print("gameObject: " + gameObject);
 		{
 			gameObject.GetComponentInParent<Enemy>().Sleep();
 		}
