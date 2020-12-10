@@ -26,16 +26,6 @@ public class GameUI : MonoBehaviour {
 		// TODO: Necessary GameUI Initialization
 	}
 
-	public void ToggleInventoryUI()
-    {
-		manager_UI.ToggleInventoryUI();
-    }
-
-	public void ToggleStatsUI()
-	{
-		manager_UI.ToggleStatsUI();
-	}
-
 	public void updatePlayerHealth(int current_health, int max_health) {
 		//Debug.Log("GameUI.updatePlayerHealth()");
 

@@ -19,6 +19,8 @@ public class LootMenu : MonoBehaviour {
 
 	Lootbag current_lootbag; // To know which lootbag is currently opened
 
+	[SerializeField] Button[] all_buttons; // Equip, Drop, Consume buttons
+
 	public void Initialize() {
 		Debug.Log("Initializing LootUI...");
 		items = manager_UI.GetPrefabItems();
@@ -169,4 +171,20 @@ public class LootMenu : MonoBehaviour {
     {
 		this.gameObject.SetActive(false);
     }
+
+	public void DisableButtons()
+	{
+		for (int i = 0; i < all_buttons.Length; i++)
+		{
+			all_buttons[i].interactable = false;
+		}
+	}
+
+	public void EnableButtons()
+	{
+		for (int i = 0; i < all_buttons.Length; i++)
+		{
+			all_buttons[i].interactable = true;
+		}
+	}
 }

@@ -23,6 +23,8 @@ public class InventoryUI : MonoBehaviour {
 
 	public static bool inventory_updated = false; // To know if there is a change in inventory
 
+	[SerializeField] Button[] all_buttons; // Equip, Drop, Consume buttons
+
 	// Start is called before the first frame update
 	public void Initialize() {
 		Debug.Log("Initializing InventoryUI...");
@@ -114,6 +116,21 @@ public class InventoryUI : MonoBehaviour {
 		}
 	}
 
+	public void DisableButtons()
+    {
+		for (int i = 0; i < all_buttons.Length; i++)
+        {
+			all_buttons[i].interactable = false;
+        }
+    }
+
+	public void EnableButtons()
+    {
+		for (int i = 0; i < all_buttons.Length; i++)
+		{
+			all_buttons[i].interactable = true;
+		}
+	}
 
 	public void updateInventoryUI() {
 		Debug.Log("InventoryUI.updateInventoryUI()");
