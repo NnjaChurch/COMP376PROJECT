@@ -16,6 +16,7 @@ public class UIManager : MonoBehaviour {
 	[SerializeField] UpgradeUI UI_upgrade;
 	[SerializeField] SafeZoneInventoryUI UI_safezone_inventory;
 	[SerializeField] SafeZoneCharacterUI UI_safezone_character;
+	[SerializeField] TravelMenuUI UI_Travel;
 
 	// Menu Class References
 	[SerializeField] LootMenu menu_loot;
@@ -39,9 +40,11 @@ public class UIManager : MonoBehaviour {
 			UI_upgrade.Initialize();
 			UI_safezone_inventory.Initialize();
 			UI_safezone_character.Initialize();
+			UI_Travel.Initialize();
 
 			manager_player.UpdateUIStats();
 			manager_player.UpdateUISkills();
+			manager_player.UpdateUIExperience();
 		}
 		else {
 			// Initialize Non Safe Zone UI Components
@@ -118,14 +121,12 @@ public class UIManager : MonoBehaviour {
 		UI_character.ButtonStatsClick();
 	}
 
-	public void EnableButtons()
-    {
+	public void EnableButtons() {
 		UI_inventory.EnableButtons();
 		menu_loot.EnableButtons();
-    }
+	}
 
-	public void DisableButtons()
-	{
+	public void DisableButtons() {
 		UI_inventory.DisableButtons();
 		menu_loot.DisableButtons();
 	}
@@ -278,7 +279,7 @@ public class UIManager : MonoBehaviour {
 
 		foreach (KeyValuePair<string, int> material in materials) {
 
-			if(material.Value < material_cost[iterator]) {
+			if (material.Value < material_cost[iterator]) {
 				can_upgrade = false;
 				break;
 			}
@@ -292,8 +293,8 @@ public class UIManager : MonoBehaviour {
 		}
 		else {
 		}
-		if(upgrade_success) {
-			foreach(KeyValuePair<string, int> cost in consumed) {
+		if (upgrade_success) {
+			foreach (KeyValuePair<string, int> cost in consumed) {
 				manager_inventory.UseMaterials(cost.Key, cost.Value);
 			}
 		}
@@ -308,7 +309,7 @@ public class UIManager : MonoBehaviour {
 		IDictionary<string, int> consumed = new Dictionary<string, int>();
 
 		foreach (KeyValuePair<string, int> material in materials) {
-			if(material.Value < material_cost[iterator]) {
+			if (material.Value < material_cost[iterator]) {
 				can_upgrade = false;
 				break;
 			}
@@ -317,7 +318,7 @@ public class UIManager : MonoBehaviour {
 			}
 			iterator++;
 		}
-		if(can_upgrade) {
+		if (can_upgrade) {
 			upgrade_success = manager_equipment.UpgradeArmour(armour_name);
 		}
 		else {
@@ -326,7 +327,7 @@ public class UIManager : MonoBehaviour {
 			foreach (KeyValuePair<string, int> cost in consumed) {
 				manager_inventory.UseMaterials(cost.Key, cost.Value);
 			}
-		}		
+		}
 	}
 
 	// ----------------------------------------------------- manager_save -----------------------------------------------------------------------//
@@ -355,18 +356,15 @@ public class UIManager : MonoBehaviour {
 
 	// ----------------------------------------------------- menu_pause -----------------------------------------------------------------------//
 
-	public bool GetGamePause()
-    {
+	public bool GetGamePause() {
 		return menu_pause.GetGamePaused();
-    }
+	}
 
-	public void PauseGame()
-    {
+	public void PauseGame() {
 		menu_pause.PauseGame();
-    }
+	}
 
-	public void ResumeGame()
-    {
+	public void ResumeGame() {
 		menu_pause.ResumeGame();
-    }
+	}
 }

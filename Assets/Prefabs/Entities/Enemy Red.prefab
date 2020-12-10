@@ -169,12 +169,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d16138e840ef314e95decfacd1729c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BASE_HEALTH: 20
-  BASE_DAMAGE: 3
-  BASE_ATTACK_SPEED: 1
-  BASE_MOVEMENT_SPEED: 1
-  health_per_level: 5
-  damage_per_level: 3
+  BASE_HEALTH: 30
+  BASE_DAMAGE: 9
+  BASE_ATTACK_SPEED: 3
+  BASE_MOVEMENT_SPEED: 3
+  health_per_level: 10
+  damage_per_level: 9
   initial_weapon: {fileID: 3055217236278915032}
   initial_armour: {fileID: 6345261175923872180}
   enemy: {fileID: 8821683021923919287}
@@ -912,6 +912,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 513230871004050133}
     m_Modifications:
+    - target: {fileID: 2652161446920581993, guid: 29e19ae35643a7144aaec9747cbf0127, type: 3}
+      propertyPath: BASE_DAMAGE
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3537977908605565885, guid: 29e19ae35643a7144aaec9747cbf0127, type: 3}
       propertyPath: m_Name
       value: Z Basic
@@ -985,6 +989,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 513230871004050133}
     m_Modifications:
+    - target: {fileID: 3615187681459716471, guid: c987034d67753514d9857892ada232cb, type: 3}
+      propertyPath: BASE_DEFENSE
+      value: 110
+      objectReference: {fileID: 0}
     - target: {fileID: 4148774083078155125, guid: c987034d67753514d9857892ada232cb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

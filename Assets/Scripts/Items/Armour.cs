@@ -13,7 +13,7 @@ public class Armour : Item {
 	// Attributes
 	[SerializeField] string armour_name;
 	[SerializeField] int BASE_DEFENSE;
-	[SerializeField] int movement_modifier;
+	[SerializeField] float movement_modifier;
 	[SerializeField] int DEFENSE_SCALING;
 
 	int upgrade_tier;

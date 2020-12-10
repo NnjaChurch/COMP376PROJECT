@@ -135,10 +135,10 @@ MonoBehaviour:
   layer_mask:
     serializedVersion: 2
     m_Bits: 512
-  weapon_name: 
-  BASE_DAMAGE: 0
+  weapon_name: Bat
+  BASE_DAMAGE: 5
   speed_modifier: 1
-  DAMAGE_SCALING: 0
+  DAMAGE_SCALING: 5
 --- !u!50 &-1307236796476885206
 Rigidbody2D:
   serializedVersion: 4

@@ -136,7 +136,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   weapon_name: 
-  BASE_DAMAGE: 1
+  BASE_DAMAGE: 0
   speed_modifier: 1
   DAMAGE_SCALING: 0
 --- !u!50 &6003010855739234131

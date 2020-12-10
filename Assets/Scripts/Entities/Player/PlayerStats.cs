@@ -92,8 +92,6 @@ public class PlayerStats : Stats {
 			else {
 				zone3_unlocked = false;
 			}
-			// Gain Banked Experience (Banked Experience will be 0 if player is entering a Zone)
-			GainExperience();
 		}
 		else {
 			zone2_unlocked = false;
@@ -111,11 +109,9 @@ public class PlayerStats : Stats {
 		// Calculate Stats and Heal Player
 		CalculatePlayerStats();
 		FullHeal();
+		// Gain Banked Experience (Banked Experience will be 0 if player is entering a Zone)
+		GainExperience();
 		UpdateAllUI();
-
-		// TODO: REMOVE AFTER TESTING
-		stat_points = 20;
-		skill_points = 100;
 	}
 
 	private void Update() {
@@ -180,14 +176,15 @@ public class PlayerStats : Stats {
 		stamina_regen = BASE_STAMINA_REGEN + Mathf.FloorToInt(max_stamina / 50) - 1; // Should increase by 1 for every 50 stamina after the base 100
 
 		// Intelligence Stats
-		experience_gain = (BASE_EXPERIENCE_GAIN + (intelligence * 0.01f) + manager_player.GetSkillBonus(6));
-		healing_efficacy = (BASE_HEALING_EFFICACY + (intelligence * 0.01f) + manager_player.GetSkillBonus(7));
-		damage_reduction = (BASE_DAMAGE_REDUCTION + (intelligence * 0.01f) + manager_player.GetSkillBonus(8));
+		experience_gain = (BASE_EXPERIENCE_GAIN + ((float)intelligence * 0.01f) + manager_player.GetSkillBonus(6));
+		healing_efficacy = (BASE_HEALING_EFFICACY + ((float)intelligence * 0.01f) + manager_player.GetSkillBonus(7));
+		damage_reduction = (BASE_DAMAGE_REDUCTION + ((float)intelligence * 0.01f) + manager_player.GetSkillBonus(8));
 	}
 
 	private void InitalizeExperience() {
 		current_level = 1;
 		current_experience = 0;
+		banked_experience = 0;
 		current_next_level = BASE_EXPERIENCE_LEVEL;
 	}
 
@@ -217,8 +214,7 @@ public class PlayerStats : Stats {
 		if (current_health < 0) {
 			current_health = 0;
 		}
-		if (current_health == 0) 
-		{
+		if (current_health == 0) {
 			manager_player.KillPlayer();
 		}
 		print("Health POST: " + current_health);
@@ -250,11 +246,12 @@ public class PlayerStats : Stats {
 	}
 
 	public void HalveExperience() {
-		banked_experience = Mathf.FloorToInt(banked_experience / 2);
+		banked_experience = Mathf.FloorToInt((float)banked_experience / 2);
 	}
 
 	public void GainExperience() {
-		current_experience += Mathf.FloorToInt(banked_experience * experience_gain);
+		current_experience += Mathf.FloorToInt((float)banked_experience * experience_gain); 
+		banked_experience = 0;
 		// Check LevelUp
 		if (current_experience > current_next_level) {
 			LevelUp();

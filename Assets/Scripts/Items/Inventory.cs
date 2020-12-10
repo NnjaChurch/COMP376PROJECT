@@ -159,6 +159,22 @@ public class Inventory : MonoBehaviour {
 		manager_inventory.UpdateUIInventory();
 	}
 
+	public void PurgeItem(string item_name) {
+		switch (item_name) {
+			case "Food":
+			case "Medicine":
+				consumables[item_name] = 0;
+				break;
+
+			case "Nails":
+			case "Wood":
+			case "Metal":
+			case "Cloth":
+				materials[item_name] = 0;
+				break;
+		}
+	}
+
 	public float GetInventoryWeight() {
 		return current_weight;
 	}

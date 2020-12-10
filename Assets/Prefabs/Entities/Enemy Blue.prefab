@@ -169,12 +169,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d16138e840ef314e95decfacd1729c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BASE_HEALTH: 120
-  BASE_DAMAGE: 24
+  BASE_HEALTH: 90
+  BASE_DAMAGE: 12
   BASE_ATTACK_SPEED: 4
   BASE_MOVEMENT_SPEED: 1
   health_per_level: 30
-  damage_per_level: 24
+  damage_per_level: 12
   initial_weapon: {fileID: 3055217236278915032}
   initial_armour: {fileID: 7249508906951281761}
   enemy: {fileID: 8821683021923919287}
@@ -912,6 +912,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 513230871004050133}
     m_Modifications:
+    - target: {fileID: 2652161446920581993, guid: 29e19ae35643a7144aaec9747cbf0127, type: 3}
+      propertyPath: BASE_DAMAGE
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3537977908605565885, guid: 29e19ae35643a7144aaec9747cbf0127, type: 3}
       propertyPath: m_Name
       value: Z Basic

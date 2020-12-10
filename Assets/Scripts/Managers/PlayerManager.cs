@@ -212,6 +212,7 @@ public class PlayerManager : MonoBehaviour {
 
 	public void KillPlayer() {
 		audioPlayerDeath.Play();
+
 		manager_inventory.RemoveAllMaterialsAndConsumables();
 
 		player_stats.HalveExperience();

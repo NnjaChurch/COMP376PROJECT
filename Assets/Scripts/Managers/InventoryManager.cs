@@ -71,31 +71,31 @@ public class InventoryManager : MonoBehaviour {
 		}
 		// Armours
 		foreach (KeyValuePair<string, bool> armour in player_inventory.armours) {
-			if(armour.Value) {
+			if (armour.Value) {
 				weight += manager_equipment.GetArmourWeight(armour.Key);
 			}
 		}
 		// Consumables
-		foreach(KeyValuePair<string, int> consumable in player_inventory.consumables) {
-			if(consumable.Key.Equals(consumable_food.GetConsumableName())) {
+		foreach (KeyValuePair<string, int> consumable in player_inventory.consumables) {
+			if (consumable.Key.Equals(consumable_food.GetConsumableName())) {
 				weight += consumable.Value * consumable_food.GetWeight();
 			}
-			if(consumable.Key.Equals(consumable_medicine.GetConsumableName())) {
+			if (consumable.Key.Equals(consumable_medicine.GetConsumableName())) {
 				weight += consumable.Value * consumable_medicine.GetWeight();
 			}
 		}
 		// Materials
-		foreach(KeyValuePair<string, int> material in player_inventory.materials) {
-			if(material.Key.Equals(material_nails.GetMaterialName())) {
+		foreach (KeyValuePair<string, int> material in player_inventory.materials) {
+			if (material.Key.Equals(material_nails.GetMaterialName())) {
 				weight += material.Value * material_nails.GetWeight();
 			}
-			if(material.Key.Equals(material_wood.GetMaterialName())) {
+			if (material.Key.Equals(material_wood.GetMaterialName())) {
 				weight += material.Value * material_wood.GetWeight();
 			}
-			if(material.Key.Equals(material_metal.GetMaterialName())) {
+			if (material.Key.Equals(material_metal.GetMaterialName())) {
 				weight += material.Value * material_metal.GetWeight();
 			}
-			if(material.Key.Equals(material_cloth.GetMaterialName())) {
+			if (material.Key.Equals(material_cloth.GetMaterialName())) {
 				weight += material.Value * material_cloth.GetWeight();
 			}
 		}
@@ -107,20 +107,19 @@ public class InventoryManager : MonoBehaviour {
 		player_inventory.RemoveFromInventory(item_name);
 	}
 
-	public void RemoveAllMaterialsAndConsumables()
-    {
-		foreach (KeyValuePair<string, int> consumable in player_inventory.consumables)
-		{
-			while(consumable.Value != 0)
-            {
-				this.RemoveFromInventory(consumable.Key);
-            }
+	public void PurgeItem(string item_name) {
+		player_inventory.PurgeItem(item_name);
+	}
+
+	public void RemoveAllMaterialsAndConsumables() {
+		foreach (KeyValuePair<string, int> consumable in player_inventory.consumables) {
+			if(consumable.Value > 0) {
+				PurgeItem(consumable.Key);
+			}
 		}
-		foreach (KeyValuePair<string, int> material in player_inventory.materials)
-		{
-			while (material.Value != 0)
-			{
-				this.RemoveFromInventory(material.Key);
+		foreach (KeyValuePair<string, int> material in player_inventory.materials) {
+			if(material.Value > 0) {
+				PurgeItem(material.Key);
 			}
 		}
 	}
@@ -177,7 +176,7 @@ public class InventoryManager : MonoBehaviour {
 	}
 
 	public float GetConsumableWeight(string item_name) {
-		switch(item_name) {
+		switch (item_name) {
 			case "Food":
 				return consumable_food.GetWeight();
 			case "Medicine":
@@ -188,7 +187,7 @@ public class InventoryManager : MonoBehaviour {
 	}
 
 	public float GetMaterialWeight(string item_name) {
-		switch(item_name) {
+		switch (item_name) {
 			case "Nails":
 				return material_nails.GetWeight();
 			case "Wood":

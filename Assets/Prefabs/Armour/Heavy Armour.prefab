@@ -43,4 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f413321b10739c9429cacabb4bc6a62d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  armour_name: 
+  weight: 0
+  armour_name: Heavy Armour
+  BASE_DEFENSE: 7
+  movement_modifier: 1.2
+  DEFENSE_SCALING: 7
