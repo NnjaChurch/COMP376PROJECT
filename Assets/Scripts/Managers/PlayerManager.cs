@@ -211,7 +211,8 @@ public class PlayerManager : MonoBehaviour {
 	}
 
 	public void KillPlayer() {
-		Instantiate(soundPlayerDeath, player_object.transform);
+		GameObject sound = Instantiate(soundPlayerDeath, player_object.transform.position, player_object.transform.rotation, transform.root.parent);
+		DontDestroyOnLoad(sound);
 
 		manager_inventory.RemoveAllMaterialsAndConsumables();
 
