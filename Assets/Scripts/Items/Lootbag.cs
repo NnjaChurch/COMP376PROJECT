@@ -90,10 +90,10 @@ public class Lootbag : MonoBehaviour {
 		if (container_type == "furniture")
         {
 			transform.gameObject.GetComponent<SpriteRenderer>().material = Resources.Load<UnityEngine.Material>("Dresser_material");
-			glow = true;
 		} else if (container_type == "vehicle")
         {
-			//transform.gameObject.GetComponent<SpriteRenderer>().material = Resources.Load<UnityEngine.Material>("vehicle_outline");
+			transform.gameObject.GetComponent<SpriteRenderer>().material = Resources.Load<UnityEngine.Material>("Vehicle_material");
 		}
+		glow = true;
     }
 }
