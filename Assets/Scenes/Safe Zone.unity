@@ -2449,7 +2449,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager_inventory: {fileID: 1311222427}
   manager_player: {fileID: 831567048}
-  manager_loot: {fileID: 0}
+  manager_loot: {fileID: 1117162418}
 --- !u!4 &1248596547
 Transform:
   m_ObjectHideFlags: 0
