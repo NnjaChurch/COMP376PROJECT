@@ -136,9 +136,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   weapon_name: Shovel
-  BASE_DAMAGE: 7
-  speed_modifier: 0.8
-  DAMAGE_SCALING: 7
+  BASE_DAMAGE: 5
+  speed_modifier: 1
+  DAMAGE_SCALING: 5
 --- !u!50 &-8302097497932110573
 Rigidbody2D:
   serializedVersion: 4

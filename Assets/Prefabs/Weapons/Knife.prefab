@@ -103,9 +103,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   weapon_name: Knife
-  BASE_DAMAGE: 3
-  speed_modifier: 1.2
-  DAMAGE_SCALING: 3
+  BASE_DAMAGE: 5
+  speed_modifier: 2
+  DAMAGE_SCALING: 5
 --- !u!50 &-4536611582127771341
 Rigidbody2D:
   serializedVersion: 4

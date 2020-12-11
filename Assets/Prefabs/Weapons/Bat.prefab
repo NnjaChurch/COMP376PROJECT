@@ -137,7 +137,7 @@ MonoBehaviour:
     m_Bits: 512
   weapon_name: Bat
   BASE_DAMAGE: 5
-  speed_modifier: 1
+  speed_modifier: 1.5
   DAMAGE_SCALING: 5
 --- !u!50 &-1307236796476885206
 Rigidbody2D:
