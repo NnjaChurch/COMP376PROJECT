@@ -176,12 +176,18 @@ public class LootTable {
 
 	public void removeWeaponFromTable(string weaponName) {
 		int weaponIdx = weapons.IndexOf(weaponName);
-		weapons[weaponIdx] = "PASS";
+		if (weaponIdx > -1)
+		{
+			weapons[weaponIdx] = "PASS";
+		}
 	}
 
 	public void removeArmourFromTable(string armourName) {
 		int armourIdx = armour.IndexOf(armourName);
-		armour[armourIdx] = "PASS";
+		if (armourIdx > -1)
+		{
+			armour[armourIdx] = "PASS";
+		}
 	}
 
 	public LootUIEntity FindLootEntityInRange(float p1) {

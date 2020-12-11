@@ -32,23 +32,36 @@ public class Inventory : MonoBehaviour {
 		if(manager_inventory.CheckSave()) {
 			List<int> inventory_load = manager_inventory.LoadInventory();
 
-			weapons.Add("Knife", inventory_load[0] != 0);
-			weapons.Add("Bat", inventory_load[1] != 0);
-			weapons.Add("Shovel", inventory_load[2] != 0);
-			weapons.Add("Rake", inventory_load[3] != 0);
+            weapons.Add("Knife", inventory_load[0] != 0);
+            if (inventory_load[0] != 0) { manager_loot.WeaponFound("Knife"); }
 
-			armours.Add("Light Armour", inventory_load[4] != 0);
-			armours.Add("Medium Armour", inventory_load[5] != 0);
-			armours.Add("Heavy Armour", inventory_load[6] != 0);
+            weapons.Add("Bat", inventory_load[1] != 0);
+            if (inventory_load[1] != 0) { manager_loot.WeaponFound("Bat"); }
 
-			consumables.Add("Food", inventory_load[7]);
-			consumables.Add("Medicine", inventory_load[8]);
+            weapons.Add("Shovel", inventory_load[2] != 0);
+            if (inventory_load[2] != 0) { manager_loot.WeaponFound("Shovel"); }
 
-			materials.Add("Nails", inventory_load[9]);
-			materials.Add("Wood", inventory_load[10]);
-			materials.Add("Metal", inventory_load[11]);
-			materials.Add("Cloth", inventory_load[12]);
-		}
+            weapons.Add("Rake", inventory_load[3] != 0);
+            if (inventory_load[3] != 0) { manager_loot.WeaponFound("Rake"); }
+
+
+            armours.Add("Light Armour", inventory_load[4] != 0);
+            if (inventory_load[4] != 0) { manager_loot.ArmourFound("Light Armour"); }
+
+            armours.Add("Medium Armour", inventory_load[5] != 0);
+            if (inventory_load[5] != 0) { manager_loot.ArmourFound("Medium Armour"); }
+
+            armours.Add("Heavy Armour", inventory_load[6] != 0);
+            if (inventory_load[6] != 0) { manager_loot.ArmourFound("Heavy Armour"); }
+
+            consumables.Add("Food", inventory_load[7]);
+            consumables.Add("Medicine", inventory_load[8]);
+
+            materials.Add("Nails", inventory_load[9]);
+            materials.Add("Wood", inventory_load[10]);
+            materials.Add("Metal", inventory_load[11]);
+            materials.Add("Cloth", inventory_load[12]);
+        }
 		else {
 			InitializeInventory();
 		}
