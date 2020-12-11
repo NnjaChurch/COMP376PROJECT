@@ -30,6 +30,11 @@ public class StageManager : MonoBehaviour {
 		SceneManager.LoadScene(zone_name);
 	}
 
+	public void TravelBossFight() {
+		manager_save.SaveGame();
+		SceneManager.LoadScene("Boss");
+	}
+
 	public bool GetSafeZone() {
 		return safe_zone;
 	}

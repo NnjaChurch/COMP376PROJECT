@@ -164,6 +164,9 @@ public class PlayerManager : MonoBehaviour {
 		if (zone_number == 3 && !player_stats.Zone3Unlocked()) {
 			player_stats.UnlockZone3();
 		}
+		if(zone_number == 4) {
+			manager_stage.TravelBossFight();
+		}
 
 		manager_stage.TravelSafeZone();
 	}

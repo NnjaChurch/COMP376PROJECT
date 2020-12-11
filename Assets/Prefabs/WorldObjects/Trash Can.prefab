@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -1829161741555438548}
   m_Layer: 10
   m_Name: Trash Can
-  m_TagString: Untagged
+  m_TagString: Lootable_dresser
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
