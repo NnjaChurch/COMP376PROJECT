@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 // ----------------------------------------------------------------------------------------------------
@@ -10,13 +11,27 @@ using UnityEngine.SceneManagement;
 // ----------------------------------------------------------------------------------------------------
 
 public class MainMenu : MonoBehaviour {
+
+	[SerializeField] SaveManager manager_save;
+
+	[SerializeField] Button button_new_game;
+	[SerializeField] Button button_load_game;
+
+	private void Start() {
+		if (manager_save.CheckSave()) {
+			button_new_game.interactable = false;
+		}
+		else {
+			button_load_game.interactable = false;
+		}
+	}
+
 	public void ButtonOptionClick(string option) {
 		if (option == "New Game") {
-			SceneManager.LoadScene("Test Scene");
-			// TODO change this to the actual scene instead of Test Scene
+			SceneManager.LoadScene("Zone 1");
 		}
 		else if (option == "Load Game") {
-			// TODO have to implement this
+			SceneManager.LoadScene("Safe Zone");
 		}
 		else if (option == "Exit") {
 			Application.Quit();
