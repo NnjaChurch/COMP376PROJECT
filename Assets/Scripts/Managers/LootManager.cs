@@ -97,8 +97,8 @@ public class LootManager : MonoBehaviour {
 	// Category (string): bag, furniture, vehicle
 	// (optional) percentDropRate (float): give a chance of no loot dropped (ie. percentDropRate = 0.5 means there is a 50% chance of loot dropping). Defaults to 1
 	// Outputs: An object with the necessary information for the UI to display
-	public LootUIEntity GenerateLootForUI(string category, float percentDropRate = 1.0f) {
-		float rand = percentDropRate == 0 ? -1.0f : Random.Range(1, (100 * (1.0f / percentDropRate)));
+	public LootUIEntity GenerateLootForUI(string category) {
+		int rand = Random.Range(1, 101);
 		LootUIEntity entity;
 		switch (category) {
 			case "bag":
@@ -140,7 +140,7 @@ public class LootManager : MonoBehaviour {
 		foreach (Lootbag lootbag in existing_lootbags) {
 			List<LootUIEntity> entities = lootbag.GetItems();
 			int index = entities.FindIndex(e => e.item_name == item_name);
-			if (index > -1) { lootbag.ResetItems(); }
+			if (index > -1 && entities.Count > 1) { lootbag.ResetItems(); }
 		}
 	}
 
@@ -190,31 +190,31 @@ public class LootTable {
 		}
 	}
 
-	public LootUIEntity FindLootEntityInRange(float p1) {
+	public LootUIEntity FindLootEntityInRange(int p1) {
 		// TODO: add variety of options for each item type
-		if (consumableRange.start < p1 && consumableRange.end > p1) {
+		if (consumableRange.start <= p1 && consumableRange.end > p1) {
 			// Determine which consumable will drop
-			int rand_idx = Random.Range(0, consumables.Length - 1);
+			int rand_idx = Random.Range(0, consumables.Length);
 			return new LootUIEntity(typeof(Consumable), consumables[rand_idx]);
 		}
-		else if (materialRange.start < p1 && materialRange.end > p1) {
+		else if (materialRange.start <= p1 && materialRange.end > p1) {
 			// Determine which material will drop
-			int rand_idx = Random.Range(0, materials.Length - 1);
+			int rand_idx = Random.Range(0, materials.Length);
 			return new LootUIEntity(typeof(Material), materials[rand_idx]);
 		}
-		else if (weaponRange.start < p1 && weaponRange.end > p1) {
+		else if (weaponRange.start <= p1 && weaponRange.end > p1) {
 			// Determine which weapon will drop			
-			int rand_idx = Random.Range(0, weapons.Count - 1);
+			int rand_idx = Random.Range(0, weapons.Count);
 			string weaponName = weapons[rand_idx];
 			if (weaponName == "PASS") {
-				rand_idx = Random.Range(0, materials.Length - 1);
+				rand_idx = Random.Range(0, materials.Length);
 				return new LootUIEntity(typeof(Material), materials[rand_idx]);
 			}
 			else {
 				return new LootUIEntity(typeof(Weapon), weaponName);
 			}
 		}
-		else if (armourRange.start < p1 && armourRange.end > p1) {
+		else if (armourRange.start <= p1 && armourRange.end >= p1) {
 			// Determine which armour will drop
 			int rand_idx = Random.Range(0, armour.Count - 1);
 			string armourName = armour[rand_idx];
