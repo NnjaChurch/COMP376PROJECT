@@ -166,6 +166,7 @@ public class PlayerManager : MonoBehaviour {
 		}
 		if(zone_number == 4) {
 			manager_stage.TravelBossFight();
+			return;
 		}
 
 		manager_stage.TravelSafeZone();
