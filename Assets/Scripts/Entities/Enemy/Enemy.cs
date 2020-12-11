@@ -54,9 +54,17 @@ public class Enemy : Entity {
 	public EnemyStats GetStats() { return stats; }
 
 	public void Kill() {
-		GameObject lootbag;
-		Instantiate(soundDeathPrefab, transform.parent);
-		lootbag = Instantiate(lootBagPrefab, transform.position, transform.rotation) as GameObject;
+		Boss boss = gameObject.GetComponent<Boss>();
+		if (boss != null)
+		{
+			boss.KillBoss();
+		}
+		else
+		{
+			Instantiate(soundDeathPrefab, transform.parent);
+			GameObject lootbag;
+			lootbag = Instantiate(lootBagPrefab, transform.position, transform.rotation) as GameObject;
+		}
 		Destroy(gameObject);
 	}
 

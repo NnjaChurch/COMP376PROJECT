@@ -10,6 +10,7 @@ public class EnemyStats : Stats {
 	[SerializeField] Armour initial_armour;
 	[SerializeField] Enemy enemy;
 	[SerializeField] AudioSource[] audioTakeDamage;
+	[SerializeField] int experienceReward;
 
 	private void Start() {
 		equipped_weapon = initial_weapon;
@@ -70,6 +71,6 @@ public class EnemyStats : Stats {
 	}
 
 	public int GetExpReward() {
-		return 10; //TODO !
+		return experienceReward; //TODO !
 	}
 }

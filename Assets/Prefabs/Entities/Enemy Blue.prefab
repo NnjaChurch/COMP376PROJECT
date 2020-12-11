@@ -182,6 +182,7 @@ MonoBehaviour:
   audioTakeDamage:
   - {fileID: 3739769702428942872}
   - {fileID: -907929384512038731}
+  experienceReward: 12
 --- !u!114 &-8962843732058808693
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -46,7 +46,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 15
+  m_Radius: 60
 --- !u!1 &7744728286288450834
 GameObject:
   m_ObjectHideFlags: 0
@@ -59,6 +59,7 @@ GameObject:
   - component: {fileID: -3500534339210903422}
   - component: {fileID: -784591641692539862}
   - component: {fileID: 8821683021923919287}
+  - component: {fileID: 2089080258606504131}
   - component: {fileID: 1870986377868729733}
   - component: {fileID: -8962843732058808693}
   - component: {fileID: 1768786103282287923}
@@ -156,6 +157,22 @@ MonoBehaviour:
   perceptionAuraLayerMask:
     serializedVersion: 2
     m_Bits: 256
+  anim: {fileID: 0}
+--- !u!114 &2089080258606504131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7744728286288450834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddb199456ab051248a12eb1c1e1b698f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  finishTrigger: {fileID: 5606370619836016711, guid: 66e811215abd7b743af2ac92432eb5f9, type: 3}
+  soundDeathPrefab: {fileID: 6717248854504585230, guid: e9fd33c8f3a03c34aa4c6161a9d549a7, type: 3}
+  globalLight: {fileID: 0}
 --- !u!114 &1870986377868729733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,11 +185,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d16138e840ef314e95decfacd1729c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BASE_HEALTH: 900
+  BASE_HEALTH: 1800
   BASE_DAMAGE: 12
-  BASE_ATTACK_SPEED: 2
+  BASE_ATTACK_SPEED: 0.5
   BASE_MOVEMENT_SPEED: 1
-  health_per_level: 60
+  health_per_level: 0
   damage_per_level: 12
   initial_weapon: {fileID: 3055217236278915032}
   initial_armour: {fileID: 6475147085288690542}
@@ -180,6 +197,7 @@ MonoBehaviour:
   audioTakeDamage:
   - {fileID: 9176052303887618103}
   - {fileID: 8821748469813685582}
+  experienceReward: 360
 --- !u!114 &-8962843732058808693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,7 +254,7 @@ MonoBehaviour:
   enableRotation: 1
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
-  rotationSpeed: 90
+  rotationSpeed: 270
   slowdownDistance: 0
   pickNextWaypointDist: 0.25
   endReachedDistance: 0.5
@@ -902,7 +920,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7166486062003141333, guid: 29e19ae35643a7144aaec9747cbf0127, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 7166486062003141333, guid: 29e19ae35643a7144aaec9747cbf0127, type: 3}
       propertyPath: m_LocalPosition.z
@@ -939,6 +957,14 @@ PrefabInstance:
     - target: {fileID: 7166486062003141333, guid: 29e19ae35643a7144aaec9747cbf0127, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 7166486062003141333, guid: 29e19ae35643a7144aaec9747cbf0127, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7166486062003141333, guid: 29e19ae35643a7144aaec9747cbf0127, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29e19ae35643a7144aaec9747cbf0127, type: 3}
