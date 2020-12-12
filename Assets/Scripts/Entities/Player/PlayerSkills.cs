@@ -34,7 +34,7 @@ public class PlayerSkills : MonoBehaviour {
 		player_skills.Add(new Skill("Damage Boost", "Damage", 20, 0.10f));
 		player_skills.Add(new Skill("Weight Boost", "Carry Weight", 10, 0.05f));
 		player_skills.Add(new Skill("Stamina Boost", "Stamina", 20, 0.05f));
-		player_skills.Add(new Skill("Movement Speed Boost", "Movement Speed", 10, 0.10f));
+		player_skills.Add(new Skill("Movement Speed Boost", "Movement Speed", 10, 0.05f));
 		player_skills.Add(new Skill("Attack Speed Boost", "Attack Speed", 20, 0.05f));
 		player_skills.Add(new Skill("Experience Boost", "Experience Gain", 20, 0.05f));
 		player_skills.Add(new Skill("Healing Boost", "Healing Efficiency", 10, 0.05f));

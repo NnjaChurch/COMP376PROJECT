@@ -171,7 +171,7 @@ public class PlayerStats : Stats {
 
 		// Dexterity Stats
 		max_stamina = Mathf.FloorToInt((BASE_STAMINA + (10 * dexterity)) * manager_player.GetSkillBonus(3));
-		movement_speed = (BASE_MOVEMENT_SPEED + (0.05f * (float)dexterity)) * CalculateArmourBonus() * manager_player.GetSkillBonus(4) / encumbered_modifier;
+		movement_speed = (BASE_MOVEMENT_SPEED + (0.01f * (float)dexterity)) * CalculateArmourBonus() * manager_player.GetSkillBonus(4) / encumbered_modifier;
 		attack_speed = (BASE_ATTACK_SPEED / CalculateWeaponBonus()) / manager_player.GetSkillBonus(5);
 		stamina_regen = BASE_STAMINA_REGEN + Mathf.FloorToInt(max_stamina / 50) - 1; // Should increase by 1 for every 50 stamina after the base 100
 

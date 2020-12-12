@@ -12,9 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Safe Zone.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/Test Scene.unity
-    guid: 8d721db849df76448aeec3d1e4f7898c
-  - enabled: 1
     path: Assets/Scenes/Zone 1.unity
     guid: 3f35aa56ad8367a4681d5c8ae71182bc
   - enabled: 1

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4671465797620422082}
   - component: {fileID: 8685653430562416320}
   m_Layer: 0
-  m_Name: EnemyDeathSound
+  m_Name: BossDeathSound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -57,7 +57,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 26882180588ca144fb150e8362984289, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 0
   Mute: 0
