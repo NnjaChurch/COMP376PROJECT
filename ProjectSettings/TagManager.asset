@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Lootable
+  - Enemy
+  - InventoryContent
+  - EnemyPerceptionAura
+  - Roof
+  - Weapon
+  - EnemySpawner
+  - SafeZoneTrigger
+  - Lootable_dresser
+  - Lootable_vehicle
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Player
+  - Enemies
+  - Obstacles
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Ground
+    uniqueID: 375245755
+    locked: 0
+  - name: Level
+    uniqueID: 189325605
+    locked: 0
+  - name: Entities
+    uniqueID: 1747426795
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Over
+    uniqueID: 1435609961
+    locked: 0

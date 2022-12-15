@@ -1,0 +1,13 @@
+----------------------------------------------------------------------------------------------------
+	Review Notes
+----------------------------------------------------------------------------------------------------
+InputManager.cs:
+	- Don't forget to add the header at the top to mark your contribution.
+	- Input looks good, it should allow diagonal movement since it is all 'if' statements.
+
+Entity.cs:
+	- Move functions look good, maybe allow speed to be edited in the Inspector using [SerializeField]
+	
+Player.cs:
+	- Look to add rotation to follow cursor (maybe use InputManager to track mouse)
+	- Shift for a sprint (timed or related to a stamina system?), but allow sprinting for now if shift is pressed.

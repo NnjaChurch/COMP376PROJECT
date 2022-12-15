@@ -1,0 +1,154 @@
+----------------------------------------------------------------------------------------------------
+	COMP376 Project - Design Notes
+----------------------------------------------------------------------------------------------------
+Inventory Design:
+- List Based System:
+	- List<Item>: Contains each individual item
+	- Multiples: Keep track of the amount of each item
+- Weight for Carrying Capacity:
+	- Each item has its own weight
+	- If weight of items carried if above max carry weight, encumber the player.
+- Interactivity with UI:
+	- 
+----------------------------------------------------------------------------------------------------
+Level Design:
+- 3 Different Levels:
+	- Suburbs:
+		- 
+	- Outskirts:
+		-
+	- City:
+		-
+----------------------------------------------------------------------------------------------------
+Skills Design:
+- Three Skill Tree System (Strength, Dexterity, Intelligence):
+	- Strength:
+		- Health % Boost:
+			- (20 levels) 5% boost per level
+		- Damage % Boost:
+			- (20 levels) 10% boost per level
+		- Carry % Boost:
+			- (10 levels): 5% boost per level
+	- Dexterity:
+		- Stamina % Boost:
+			- (20 levels) 5% boost per level
+		- Movement % Boost:
+			- (10 levels) 10% boost per level
+		- Attack Speed % Boost:
+			- (20 levels) 5% boost per level
+	- Intelligence:
+		- Experience % Boost:
+			- (20 levels) 5% boost per level
+		- Healing % Boost:
+			- (10 levels) 5% boost per level
+		- Damage Reduction:
+			- (25 levels) 2% boost per level
+----------------------------------------------------------------------------------------------------
+Equipment Design:
+- Weapons:
+	- Knives:
+		- Fast Speed
+		- Low Damage
+		- Low Range
+		- Small Arc
+	- Bats:
+		- Slow Speed
+		- High Damage
+		- Med Range
+		- Med Arc
+	- Swords:
+		- Med Speed
+		- Med Damage
+		- Med Range
+		- Large Arc
+	- Rakes:
+		- Slow Speed
+		- Med Damage
+		- Long Range
+		- Small Arc
+- Armour:
+	- Light:
+		- Low Defense
+		- Fast Movement
+	- Medium:
+		- Med Defense
+		- Med Movement
+	- Heavy:
+		- High Defense
+		- Slow Movement
+- Upgrading:
+	- Instead of having various different weapons and armours of the same type, have weapons be able to be upgraded.
+	- Upgrading Weapons will increase the base damage
+	- Upgrading Armour will increase the base defense
+
+- Consumables:
+	- Food: low HP gain
+	- Medicine: moderate HP gain
+		
+----------------------------------------------------------------------------------------------------
+Player Design:
+- Level:
+	- Experience Needed to Next:
+		- Base: 100
+		- Formula: XP Next = XP Current * 1.2
+- Attributes:
+	- Strength: Affects Maximum Health, Base Damage, Carry Weight
+		- Base Value: 0
+	- Dexterity: Affects Maximum Stamina, Movement Speed, Attack Speed
+		- Base Value: 0
+	- Intelligence: Affects Experience Gain, Healing Efficiency, Damage Reduction
+		- Base Value: 0
+- Stats:
+	- Health: (100 + (10 * Strength)) * Skills Percent Modifier
+	- Stamina: (100 + (10 * Dexterity)) * Skills Percent Modifier
+	- Base Damage: 5 + Strength
+	- Base Attack Speed(seconds): 2 - (0.02 * Dexterity)
+	- Movement Speed(units): ((100 + (5 * Dexterity)) / Armour Speed Modifier) / Encumbered Modifier
+	- Carry Weight(lb): (50 + (2 * Strength)) * Skills % Modifier
+	- Experience Gain(%): 100 + Skills % Modifier
+	- Loot Find = 1 + (0.1 * Intelligence)
+- Combat:
+	- Attack Damage:
+		- Modifiers: Skills, Equipment
+		- Formula: Total Damage = (Base Damage + Weapon Damage) * Skill % Damage
+	- Attack Speed:
+		- Modifiers: Skills, Equipment
+		- Formula: Attack Time = (Base Attack Speed / Weapon Speed Modifier) / Skill % Modifier
+	- Attack Range:
+		- Reach:
+			- Formula: Reach = Base Reach * Weapon Reach Modifier
+		- Arc:
+			- Formula: Arc = Base Arc * Weapon Arc Modifier
+	- Taking Damage:
+		- Formula: Damage Taken = (Enemy Damage / Damage Reduction) - Armour Defense)
+----------------------------------------------------------------------------------------------------
+Enemy Design:
+- Zombie Types:
+	- Regular Zombies: Horde Threat
+		- Med Speed
+		- Low Damage
+		- Med Health
+	- Fast Zombie: Fast Approach Threat
+		- Fast Speed
+		- Low Damage
+		- Low Health
+	- Slow Zombies: Heavy Hitter
+		- Slow Speed
+		- High Damage
+		- Med Health
+	- Big Zombies: Damage Soaker
+		- Slow Speed
+		- Med Damage
+		- High Health
+- Boss Zombie:
+	- Final boss of the game
+----------------------------------------------------------------------------------------------------
+Item Design:
+	Item Class
+		- Types (Weapons, Armour, Consumables, Materials)
+		- Item Name
+		- Weight
+	Child Classes for each type
+----------------------------------------------------------------------------------------------------
+UI Design:
+----------------------------------------------------------------------------------------------------

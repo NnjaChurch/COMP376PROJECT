@@ -1,0 +1,52 @@
+----------------------------------------------------------------------------------------------------
+	COMP376 Project - Programming Guidelines
+----------------------------------------------------------------------------------------------------
+Naming Conventions:
+- Class / Script Naming: Upper Camel Case (i.e. ClassName)
+- Method Naming: Upper Camel Case (i.e. ClassName)
+- Constants: Constant Case (i.e. CONSTANT_VALUE) -> Subject to change
+- General Variables: Snake Case (i.e. variable_name)
+- Member Variables: Snake Case (i.e. m_member_name)
+------------------------------------------------------------------------------------------------------
+Spacing Conventions:
+- Spacing: TABS (not spaces)
+- Curly Braces: Opening brace on same line as function, can be done as a pass before submission (i.e void FunctionName() {)
+
+------------------------------------------------------------------------------------------------------
+Commenting Conventions:
+- Programming classes should have a description code-block at the top of the type:
+	// ----------------------------------------------------------------------------------------------------
+	//	Description: Brief description of the class functionality
+	//	Contributors: Names of contributors, add names when contributing to the file
+	//	Endpoints: Important endpoints for people who wish to use your class (less necessary when using unity)
+	// ----------------------------------------------------------------------------------------------------
+
+- Larger functions should have a short description comment of their functionality:
+	// Function that selects the objects that will be lootable for the current zone
+	public void GenerateLootables() {...
+	
+- Smaller functions / function sections in methods should have a quick descriptor
+	// Generates random numbers for the lootable parts
+	for(int i = 0; i < num_lootable; i++) {...
+	
+------------------------------------------------------------------------------------------------------
+General Programming Guidelines:
+- Code should be organized via inputs and outputs
+- Each function should have a clear input, and a clear output (allows easy usage of functions)
+- Unity related functions may be more specific as they don't always have outputs
+- Private helper functions are encouraged (instead of having all repetitive code in one large block of code)
+	
+- REMEMBER TO COMMUNICATE IF YOU HAVE QUESTIONS ABOUT CODE!!!
+
+------------------------------------------------------------------------------------------------------
+GitHub Guidelines:
+- Only Upload Assets and Project Settings to GitHub:
+	- Assets should be the files that are modified the most.
+	- Project Settings should rarely change, and it should be made known if settings are changed.
+- Include simple changelogs when uploading to GitHub to let people know what changes were made:
+	- i.e. Added random generation functionality to LootGeneration.cs
+- Feel free to make your own branches if you have separate work, use dev when there are files that multiple people will use.
+- Keep and eye out for merge requests when they happen.
+- Merges into main will only be done close to submission deadline for finalizing of parts.
+
+------------------------------------------------------------------------------------------------------
